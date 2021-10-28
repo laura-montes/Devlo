@@ -36,6 +36,7 @@ namespace Control
         public virtual DbSet<database_firewall_rules> database_firewall_rules { get; set; }
         public virtual DbSet<ipv6_database_firewall_rules> ipv6_database_firewall_rules { get; set; }
         public virtual DbSet<V_CONTACTS> V_CONTACTS { get; set; }
+        public virtual DbSet<View_CONTACTS> View_CONTACTS { get; set; }
     
         public virtual int PA_CHECK_LOGIN(string eMAIL, string pASSWD, Nullable<int> iNVOKER, string uSUARIO, string cULTURA, ObjectParameter rETCODE, ObjectParameter mENSAJE)
         {

@@ -69,54 +69,59 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Customer.cs" />
-    <Compile Include="Company.cs" />
-    <Compile Include="Contact.cs" />
-    <Compile Include="FrmAddContact.cs">
+    <Compile Include="Classes\Customer.cs" />
+    <Compile Include="Classes\Company.cs" />
+    <Compile Include="Classes\Contact.cs" />
+    <Compile Include="db_devloDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>db_devloDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Customers\FrmAddContact.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmAddContact.Designer.cs">
+    <Compile Include="Forms\Customers\FrmAddContact.Designer.cs">
       <DependentUpon>FrmAddContact.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmCustomer.cs">
+    <Compile Include="Forms\Customers\FrmCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmCustomer.Designer.cs">
+    <Compile Include="Forms\Customers\FrmCustomer.Designer.cs">
       <DependentUpon>FrmCustomer.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmDashBoard.cs">
+    <Compile Include="Forms\FrmDashBoard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmDashBoard.Designer.cs">
+    <Compile Include="Forms\FrmDashBoard.Designer.cs">
       <DependentUpon>FrmDashBoard.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmGeneral.cs">
+    <Compile Include="Forms\FrmGeneral.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmGeneral.Designer.cs">
+    <Compile Include="Forms\FrmGeneral.Designer.cs">
       <DependentUpon>FrmGeneral.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmLogin.cs">
+    <Compile Include="Forms\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmLogin.Designer.cs">
+    <Compile Include="Forms\FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmAddContact.resx">
+    <EmbeddedResource Include="Forms\Customers\FrmAddContact.resx">
       <DependentUpon>FrmAddContact.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmCustomer.resx">
+    <EmbeddedResource Include="Forms\Customers\FrmCustomer.resx">
       <DependentUpon>FrmCustomer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmDashBoard.resx">
+    <EmbeddedResource Include="Forms\FrmDashBoard.resx">
       <DependentUpon>FrmDashBoard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmGeneral.resx">
+    <EmbeddedResource Include="Forms\FrmGeneral.resx">
       <DependentUpon>FrmGeneral.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmLogin.resx">
+    <EmbeddedResource Include="Forms\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -128,6 +133,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="db_devloDataSet.xsc">
+      <DependentUpon>db_devloDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="db_devloDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>db_devloDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="db_devloDataSet.xss">
+      <DependentUpon>db_devloDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

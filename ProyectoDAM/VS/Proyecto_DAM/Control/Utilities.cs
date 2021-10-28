@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.Entity.Core.Objects;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Control
 {
@@ -34,7 +31,8 @@ namespace Control
 		}
 
 		//NEW CONTACT
-		public string pa_addContact(string name,string surnames, string phone, string email, string address, string role){
+		public string pa_addContact(string name, string surnames, string phone, string email, string address, string role)
+		{
 
 			ObjectParameter message = new ObjectParameter("MENSAJE", typeof(string));
 			ObjectParameter retcode = new ObjectParameter("RETCODE", typeof(int));
@@ -55,17 +53,6 @@ namespace Control
 
 			return retcode.Value.ToString();
 		}
-
-
-		//CONTACTS VIEWS
-		public List<V_CONTACTS> view_contacts(){
-
-			return db.V_CONTACTS.ToList();
-		}
-		public List<V_CONTACTS> order_view_contacts()
-		{
-
-			return db.V_CONTACTS.OrderBy(x => x.FULL_NAME).ToList();
-		}
 	}
-}
+} 
+

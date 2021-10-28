@@ -17,6 +17,7 @@
         <AssociationConnector Association="db_devloModel.FK_SALES_PRODUCTS" ManuallyRouted="false" />
         <AssociationConnector Association="db_devloModel.FK_SALES_STATES" ManuallyRouted="false" />
         <EntityTypeShape EntityType="db_devloModel.V_CONTACTS" Width="1.5" PointX="3.375" PointY="7.75" />
+        <EntityTypeShape EntityType="db_devloModel.View_CONTACTS" Width="1.5" PointX="5.375" PointY="7.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

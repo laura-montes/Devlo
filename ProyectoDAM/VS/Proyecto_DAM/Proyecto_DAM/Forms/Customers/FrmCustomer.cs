@@ -14,20 +14,24 @@ namespace Proyecto_DAM
     public partial class FrmCustomer : Form
     {
         Utilities utilities = new Utilities();
+
         public FrmCustomer()
         {
             InitializeComponent();
-            DataGridViewCustomers.DataSource = utilities.view_contacts();
         }
 
         private void FrmCustomer_Load(object sender, EventArgs e)
         {
-            
-        }
-        //FILTER
-        private void BtnFilter_Click(object sender, EventArgs e)
+			// TODO: esta línea de código carga datos en la tabla 'db_devloDataSet.CONTACTS' Puede moverla o quitarla según sea necesario.
+			this.cONTACTSTableAdapter.Fill(this.db_devloDataSet.CONTACTS);
+			
+
+		}
+		//FILTER
+		private void BtnFilter_Click(object sender, EventArgs e)
 		{
-            DataGridViewCustomers.DataSource = utilities.order_view_contacts();
+            //DES SORT
+            this.cONTACTSTableAdapter.SortGridView(db_devloDataSet.CONTACTS);
         }
 
         private void BtnAddCustomers_Click(object sender, EventArgs e)
@@ -43,11 +47,12 @@ namespace Proyecto_DAM
             frmAddContact.Show(); 
         }
 
-        private void TxtSearch_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            // QUE BUSQUE LOS CONTACTOS CON LA PALABRA TECLEADA O QUE BUSQUE LOS CONTACTOS MEDIANTE EL TECLEO (MAS COMPLICADO PERO MEJOR)
-        }
+		private void TxtSearch_KeyUp(object sender, KeyEventArgs e)
+		{
+            //ESTO ES EL LLENADO DINAMICO
+            //Dynamic search from txtSearch
+            this.cONTACTSTableAdapter.DynamicSearch(db_devloDataSet.CONTACTS, "%" + TxtSearch.Text.Trim()+ "%");
 
-        
-    }
+        }
+	}
 }

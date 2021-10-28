@@ -29,6 +29,7 @@ namespace Proyecto_DAM
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -37,11 +38,18 @@ namespace Proyecto_DAM
             this.PanelContainer = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2VScrollBar1 = new Guna.UI2.WinForms.Guna2VScrollBar();
             this.DataGridViewCustomers = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.cONTACTSBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.db_devloDataSet = new Proyecto_DAM.db_devloDataSet();
             this.BtnFilter = new Guna.UI2.WinForms.Guna2Button();
             this.BtnAddCustomers = new Guna.UI2.WinForms.Guna2Button();
             this.TxtSearch = new Guna.UI2.WinForms.Guna2TextBox();
+            this.cONTACTSTableAdapter = new Proyecto_DAM.db_devloDataSetTableAdapters.CONTACTSTableAdapter();
+            this.nAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sURNAMESDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PanelContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewCustomers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cONTACTSBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.db_devloDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelContainer
@@ -52,7 +60,7 @@ namespace Proyecto_DAM
             this.PanelContainer.Controls.Add(this.BtnAddCustomers);
             this.PanelContainer.Controls.Add(this.TxtSearch);
             this.PanelContainer.Controls.Add(this.DataGridViewCustomers);
-            this.PanelContainer.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PanelContainer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PanelContainer.Location = new System.Drawing.Point(24, 11);
             this.PanelContainer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PanelContainer.Name = "PanelContainer";
@@ -68,7 +76,7 @@ namespace Proyecto_DAM
             this.guna2VScrollBar1.HoverState.Parent = null;
             this.guna2VScrollBar1.InUpdate = false;
             this.guna2VScrollBar1.LargeChange = 10;
-            this.guna2VScrollBar1.Location = new System.Drawing.Point(1077, 136);
+            this.guna2VScrollBar1.Location = new System.Drawing.Point(1076, 135);
             this.guna2VScrollBar1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2VScrollBar1.Minimum = 1;
             this.guna2VScrollBar1.Name = "guna2VScrollBar1";
@@ -88,6 +96,7 @@ namespace Proyecto_DAM
             this.DataGridViewCustomers.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.DataGridViewCustomers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.DataGridViewCustomers.AutoGenerateColumns = false;
             this.DataGridViewCustomers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DataGridViewCustomers.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.DataGridViewCustomers.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -95,7 +104,7 @@ namespace Proyecto_DAM
             this.DataGridViewCustomers.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -104,9 +113,13 @@ namespace Proyecto_DAM
             this.DataGridViewCustomers.ColumnHeadersHeight = 50;
             this.DataGridViewCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.DataGridViewCustomers.ColumnHeadersVisible = false;
+            this.DataGridViewCustomers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nAMEDataGridViewTextBoxColumn,
+            this.sURNAMESDataGridViewTextBoxColumn});
+            this.DataGridViewCustomers.DataSource = this.cONTACTSBindingSource;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
@@ -115,7 +128,7 @@ namespace Proyecto_DAM
             this.DataGridViewCustomers.DefaultCellStyle = dataGridViewCellStyle3;
             this.DataGridViewCustomers.EnableHeadersVisualStyles = false;
             this.DataGridViewCustomers.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
-            this.DataGridViewCustomers.Location = new System.Drawing.Point(20, 136);
+            this.DataGridViewCustomers.Location = new System.Drawing.Point(20, 135);
             this.DataGridViewCustomers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.DataGridViewCustomers.MultiSelect = false;
             this.DataGridViewCustomers.Name = "DataGridViewCustomers";
@@ -142,18 +155,28 @@ namespace Proyecto_DAM
             this.DataGridViewCustomers.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
             this.DataGridViewCustomers.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.DataGridViewCustomers.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.DataGridViewCustomers.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DataGridViewCustomers.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DataGridViewCustomers.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.DataGridViewCustomers.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.DataGridViewCustomers.ThemeStyle.HeaderStyle.Height = 50;
             this.DataGridViewCustomers.ThemeStyle.ReadOnly = true;
             this.DataGridViewCustomers.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.DataGridViewCustomers.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenHorizontal;
-            this.DataGridViewCustomers.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DataGridViewCustomers.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DataGridViewCustomers.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
             this.DataGridViewCustomers.ThemeStyle.RowsStyle.Height = 34;
             this.DataGridViewCustomers.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
             this.DataGridViewCustomers.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            // 
+            // cONTACTSBindingSource
+            // 
+            this.cONTACTSBindingSource.DataMember = "CONTACTS";
+            this.cONTACTSBindingSource.DataSource = this.db_devloDataSet;
+            // 
+            // db_devloDataSet
+            // 
+            this.db_devloDataSet.DataSetName = "db_devloDataSet";
+            this.db_devloDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // BtnFilter
             // 
@@ -213,7 +236,7 @@ namespace Proyecto_DAM
             this.TxtSearch.DisabledState.Parent = this.TxtSearch;
             this.TxtSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.TxtSearch.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
-            this.TxtSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TxtSearch.FocusedState.BorderColor = System.Drawing.Color.Transparent;
             this.TxtSearch.FocusedState.Parent = this.TxtSearch;
             this.TxtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
             this.TxtSearch.ForeColor = System.Drawing.Color.Empty;
@@ -230,7 +253,32 @@ namespace Proyecto_DAM
             this.TxtSearch.ShadowDecoration.Parent = this.TxtSearch;
             this.TxtSearch.Size = new System.Drawing.Size(515, 43);
             this.TxtSearch.TabIndex = 2;
-            this.TxtSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtSearch_KeyPress);
+            this.TxtSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtSearch_KeyUp);
+            // 
+            // cONTACTSTableAdapter
+            // 
+            this.cONTACTSTableAdapter.ClearBeforeFill = true;
+            // 
+            // nAMEDataGridViewTextBoxColumn
+            // 
+            this.nAMEDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.nAMEDataGridViewTextBoxColumn.DataPropertyName = "NAME";
+            this.nAMEDataGridViewTextBoxColumn.FillWeight = 6.417114F;
+            this.nAMEDataGridViewTextBoxColumn.HeaderText = "NAME";
+            this.nAMEDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.nAMEDataGridViewTextBoxColumn.Name = "nAMEDataGridViewTextBoxColumn";
+            this.nAMEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nAMEDataGridViewTextBoxColumn.Width = 6;
+            // 
+            // sURNAMESDataGridViewTextBoxColumn
+            // 
+            this.sURNAMESDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.sURNAMESDataGridViewTextBoxColumn.DataPropertyName = "SURNAMES";
+            this.sURNAMESDataGridViewTextBoxColumn.FillWeight = 193.5829F;
+            this.sURNAMESDataGridViewTextBoxColumn.HeaderText = "SURNAMES";
+            this.sURNAMESDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.sURNAMESDataGridViewTextBoxColumn.Name = "sURNAMESDataGridViewTextBoxColumn";
+            this.sURNAMESDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // FrmCustomer
             // 
@@ -240,12 +288,14 @@ namespace Proyecto_DAM
             this.ClientSize = new System.Drawing.Size(1172, 715);
             this.Controls.Add(this.PanelContainer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmCustomer";
             this.Text = "FrmCustomer";
             this.Load += new System.EventHandler(this.FrmCustomer_Load);
             this.PanelContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewCustomers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cONTACTSBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.db_devloDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -258,5 +308,10 @@ namespace Proyecto_DAM
         private Guna.UI2.WinForms.Guna2Button BtnFilter;
         private Guna.UI2.WinForms.Guna2Button BtnAddCustomers;
         private Guna.UI2.WinForms.Guna2TextBox TxtSearch;
+		private db_devloDataSet db_devloDataSet;
+		private System.Windows.Forms.BindingSource cONTACTSBindingSource;
+		private db_devloDataSetTableAdapters.CONTACTSTableAdapter cONTACTSTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nAMEDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sURNAMESDataGridViewTextBoxColumn;
     }
 }

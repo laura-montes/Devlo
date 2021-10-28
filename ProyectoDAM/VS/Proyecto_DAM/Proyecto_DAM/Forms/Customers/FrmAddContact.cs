@@ -30,6 +30,8 @@ namespace Proyecto_DAM
                 {
                     ChckCustomer.Checked = false;
                 }
+            }else{
+                TxtSurname.Enabled = true;
             }
         }
 
@@ -45,6 +47,8 @@ namespace Proyecto_DAM
                 {
                     ChckCompany.Checked = false;
                 }
+            }else {
+                TxtAddress.Enabled = true;
             }
         }
 
@@ -76,7 +80,7 @@ namespace Proyecto_DAM
                 else if (ChckCustomer.Checked)
                 {
                     Customer customer = new Customer(TxtName.Text, TxtSurname.Text, TxtPhone.Text, TxtEmail.Text);
-                    utilities.pa_addContact(customer.Name, null, customer.Phone, customer.Email, null, customer.Role);
+                    utilities.pa_addContact(customer.Name, customer.Surnames, customer.Phone, customer.Email, null, customer.Role);
                     clean();
                 }
             }
@@ -85,7 +89,7 @@ namespace Proyecto_DAM
         private void clean()
         {
             TxtName.Clear();
-            TxtAddress.Clear();
+            TxtSurname.Clear();
             TxtPhone.Clear();
             TxtEmail.Clear();
             TxtAddress.Clear();

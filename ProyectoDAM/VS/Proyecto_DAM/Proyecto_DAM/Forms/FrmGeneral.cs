@@ -54,5 +54,10 @@ namespace Proyecto_DAM
             frmDashboard.Dock = DockStyle.Fill;
             frmDashboard.Show();*/
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
     }
 }

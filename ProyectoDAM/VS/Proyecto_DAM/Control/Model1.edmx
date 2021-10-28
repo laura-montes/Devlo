@@ -74,6 +74,20 @@ advertencia 6002: La tabla o vista 'db_devlo.dbo.V_CONTACTS' no tiene definida n
           <Property Name="FULL_NAME" Type="varchar" MaxLength="101" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'db_devlo.dbo.View_CONTACTS' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="View_CONTACTS">
+          <Key>
+            <PropertyRef Name="IDCONTACT" />
+          </Key>
+          <Property Name="IDCONTACT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="50" />
+          <Property Name="SURNAMES" Type="varchar" MaxLength="50" />
+          <Property Name="PHONE" Type="varchar" MaxLength="50" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="50" />
+          <Property Name="ADDRESS" Type="varchar" MaxLength="100" />
+          <Property Name="ROLE" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'db_devlo.sys.database_firewall_rules' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="database_firewall_rules">
           <Key>
@@ -209,6 +223,17 @@ advertencia 6002: La tabla o vista 'db_devlo.sys.ipv6_database_firewall_rules' n
             <DefiningQuery>SELECT 
     [V_CONTACTS].[FULL_NAME] AS [FULL_NAME]
     FROM [dbo].[V_CONTACTS] AS [V_CONTACTS]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_CONTACTS" EntityType="Self.View_CONTACTS" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_CONTACTS].[IDCONTACT] AS [IDCONTACT], 
+    [View_CONTACTS].[NAME] AS [NAME], 
+    [View_CONTACTS].[SURNAMES] AS [SURNAMES], 
+    [View_CONTACTS].[PHONE] AS [PHONE], 
+    [View_CONTACTS].[EMAIL] AS [EMAIL], 
+    [View_CONTACTS].[ADDRESS] AS [ADDRESS], 
+    [View_CONTACTS].[ROLE] AS [ROLE]
+    FROM [dbo].[View_CONTACTS] AS [View_CONTACTS]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="database_firewall_rules" EntityType="Self.database_firewall_rules" store:Type="Views" store:Schema="sys">
             <DefiningQuery>SELECT 
@@ -455,6 +480,7 @@ advertencia 6002: La tabla o vista 'db_devlo.sys.ipv6_database_firewall_rules' n
             <Parameter Name="RETCODE" Mode="InOut" Type="Int32" />
             <Parameter Name="MENSAJE" Mode="InOut" Type="String" />
           </FunctionImport>
+          <EntitySet Name="View_CONTACTS" EntityType="db_devloModel.View_CONTACTS" />
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -472,6 +498,18 @@ advertencia 6002: La tabla o vista 'db_devlo.sys.ipv6_database_firewall_rules' n
             <PropertyRef Name="FULL_NAME" />
           </Key>
           <Property Name="FULL_NAME" Type="String" Nullable="false" MaxLength="101" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="View_CONTACTS">
+          <Key>
+            <PropertyRef Name="IDCONTACT" />
+          </Key>
+          <Property Name="IDCONTACT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SURNAMES" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PHONE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ADDRESS" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ROLE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -602,6 +640,19 @@ advertencia 6002: La tabla o vista 'db_devlo.sys.ipv6_database_firewall_rules' n
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="PA_ADD_CONTACT" FunctionName="db_devloModel.Store.PA_ADD_CONTACT" />
+          <EntitySetMapping Name="View_CONTACTS">
+            <EntityTypeMapping TypeName="db_devloModel.View_CONTACTS">
+              <MappingFragment StoreEntitySet="View_CONTACTS">
+                <ScalarProperty Name="ROLE" ColumnName="ROLE" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+                <ScalarProperty Name="SURNAMES" ColumnName="SURNAMES" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="IDCONTACT" ColumnName="IDCONTACT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -49,6 +49,7 @@ namespace Proyecto_DAM
             this.label6 = new System.Windows.Forms.Label();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.PanelLoad = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.PanelGeneral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
@@ -201,6 +202,7 @@ namespace Proyecto_DAM
             // guna2Panel2
             // 
             this.guna2Panel2.BackColor = System.Drawing.Color.White;
+            this.guna2Panel2.Controls.Add(this.button1);
             this.guna2Panel2.Controls.Add(this.guna2Panel3);
             this.guna2Panel2.Controls.Add(this.label5);
             this.guna2Panel2.Controls.Add(this.label6);
@@ -265,6 +267,16 @@ namespace Proyecto_DAM
             this.PanelLoad.Size = new System.Drawing.Size(1172, 715);
             this.PanelLoad.TabIndex = 2;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1094, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "Salir";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FrmGeneral
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -312,5 +324,6 @@ namespace Proyecto_DAM
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         public System.Windows.Forms.Panel PanelLoad;
+        private System.Windows.Forms.Button button1;
     }
 }
