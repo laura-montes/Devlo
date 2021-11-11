@@ -4,20 +4,24 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="7e810d89e5d84246a4e5b01bacb036b4" Name="Diagram1">
-        <EntityTypeShape EntityType="db_devloModel.CONTACT" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_devloModel.PRODUCT" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_devloModel.SALE" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_devloModel.STATE" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_devloModel.sysdiagram" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_devloModel.USER" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_devloModel.database_firewall_rules" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_devloModel.ipv6_database_firewall_rules" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
+      <Diagram DiagramId="35495ae7a980476e9aab2b7f6ebb6f14" Name="Diagram1">
+        <EntityTypeShape EntityType="db_devloModel.CATEGORY" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_devloModel.CONTACT" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_devloModel.PRODUCT" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_devloModel.SALE" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_devloModel.STATE" Width="1.5" PointX="3" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_devloModel.SUPPLIER" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_devloModel.sysdiagram" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_devloModel.USER" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_devloModel.V_CONTACTS" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_devloModel.View_CONTACTS" Width="1.5" PointX="7.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_devloModel.database_firewall_rules" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_devloModel.ipv6_database_firewall_rules" Width="1.5" PointX="9.75" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="db_devloModel.FK_PRODUCTS_CATEGORY" ManuallyRouted="false" />
         <AssociationConnector Association="db_devloModel.FK_SALES_CONTACTS" ManuallyRouted="false" />
+        <AssociationConnector Association="db_devloModel.FK_PRODUCTS_SUPPLIERS" ManuallyRouted="false" />
         <AssociationConnector Association="db_devloModel.FK_SALES_PRODUCTS" ManuallyRouted="false" />
         <AssociationConnector Association="db_devloModel.FK_SALES_STATES" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="db_devloModel.V_CONTACTS" Width="1.5" PointX="3.375" PointY="7.75" />
-        <EntityTypeShape EntityType="db_devloModel.View_CONTACTS" Width="1.5" PointX="5.375" PointY="7.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -27,6 +27,8 @@ namespace Control
         public string EMAIL { get; set; }
         public string ADDRESS { get; set; }
         public string ROLE { get; set; }
+        public string OBSERVATIONS { get; set; }
+        public Nullable<System.DateTime> ADDED_DATE { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SALE> SALES { get; set; }

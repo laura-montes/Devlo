@@ -30,8 +30,8 @@ namespace Control
 			return retcode.Value.ToString();
 		}
 
-		//NEW CONTACT
-		public string pa_addContact(string name, string surnames, string phone, string email, string address, string role)
+		//CONTACT
+		public string pa_addContact(string name, string surnames, string phone, string email, string address, string role, string observations)
 		{
 
 			ObjectParameter message = new ObjectParameter("MENSAJE", typeof(string));
@@ -44,6 +44,154 @@ namespace Control
 				email,
 				address,
 				role,
+				observations,
+				0,
+				"",
+				"",
+				message,
+				retcode
+				);
+
+			return retcode.Value.ToString();
+		}
+
+		public string pa_updateContact(int idContact, string name, string surnames, string phone, string email, string address, string role, string observations)
+		{
+
+			ObjectParameter message = new ObjectParameter("MENSAJE", typeof(string));
+			ObjectParameter retcode = new ObjectParameter("RETCODE", typeof(int));
+
+			db.PA_UPDATE_CONTACT(
+				idContact,
+				name,
+				surnames,
+				phone,
+				email,
+				address,
+				role,
+				observations,
+				0,
+				"",
+				"",
+				message,
+				retcode
+				);
+
+			return retcode.Value.ToString();
+		}
+		public string pa_deleteContact(int idContact)
+		{
+
+			ObjectParameter message = new ObjectParameter("MENSAJE", typeof(string));
+			ObjectParameter retcode = new ObjectParameter("RETCODE", typeof(int));
+
+			db.PA_DELETE_CONTACT(
+				idContact,
+				0,
+				"",
+				"",
+				message,
+				retcode
+				);
+
+			return retcode.Value.ToString();
+		}
+
+		//NEW CATEGORY
+		public string pa_add_category(string name, string description){
+
+			ObjectParameter message = new ObjectParameter("MENSAJE", typeof(string));
+			ObjectParameter retcode = new ObjectParameter("RETCODE", typeof(int));
+
+			db.PA_ADD_CATEGORY(
+				name,
+				description,
+				0,
+				"",
+				"",
+				message,
+				retcode
+				);
+
+			return retcode.Value.ToString();
+		}
+		//NEW SUPPLIER
+		public string pa_add_supplier(string name, string description)
+		{
+
+			ObjectParameter message = new ObjectParameter("MENSAJE", typeof(string));
+			ObjectParameter retcode = new ObjectParameter("RETCODE", typeof(int));
+
+			db.PA_ADD_SUPPLIER(
+				name,
+				description,
+				0,
+				"",
+				"",
+				message,
+				retcode
+				);
+
+			return retcode.Value.ToString();
+		}
+
+
+		//PRODCUTS
+		public string pa_add_product(int? code, string name, string description, int? category, int? supplier, int? stock, decimal? sell_price, decimal? supplier_price)
+		{
+
+			ObjectParameter message = new ObjectParameter("MENSAJE", typeof(string));
+			ObjectParameter retcode = new ObjectParameter("RETCODE", typeof(int));
+
+			db.PA_ADD_PRODUCT(
+				code,
+				name,
+				description,
+				category,
+				supplier,
+				stock,
+				sell_price,
+				supplier_price,
+				0,
+				"",
+				"",
+				message,
+				retcode
+				);
+
+			return retcode.Value.ToString();
+		}
+		public string pa_update_product(int? code, string name, string description, int? category, int? supplier, int? stock, decimal? sell_price, decimal? supplier_price)
+		{
+
+			ObjectParameter message = new ObjectParameter("MENSAJE", typeof(string));
+			ObjectParameter retcode = new ObjectParameter("RETCODE", typeof(int));
+
+			db.PA_UPDATE_PRODUCT(
+				code,
+				name,
+				description,
+				category,
+				supplier,
+				stock,
+				sell_price,
+				supplier_price,
+				0,
+				"",
+				"",
+				message,
+				retcode
+				);
+
+			return retcode.Value.ToString();
+		}
+		public string pa_deleteProduct(int? idProduct){
+
+			ObjectParameter message = new ObjectParameter("MENSAJE", typeof(string));
+			ObjectParameter retcode = new ObjectParameter("RETCODE", typeof(int));
+
+			db.PA_DELETE_PRODUCT(
+				idProduct,
 				0,
 				"",
 				"",

@@ -12,27 +12,19 @@ namespace Control
     using System;
     using System.Collections.Generic;
     
-    public partial class PRODUCT
+    public partial class CATEGORY
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public PRODUCT()
+        public CATEGORY()
         {
-            this.SALES = new HashSet<SALE>();
+            this.PRODUCTS = new HashSet<PRODUCT>();
         }
     
-        public int IDPRODUCT { get; set; }
-        public Nullable<int> CODE { get; set; }
+        public int ID { get; set; }
         public string NAME { get; set; }
         public string DESCRIPTION { get; set; }
-        public Nullable<int> CATEGORY { get; set; }
-        public Nullable<int> SUPPLIER { get; set; }
-        public Nullable<int> STOCK { get; set; }
-        public Nullable<decimal> SELL_PRICE { get; set; }
-        public Nullable<decimal> SUPPLIER_PRICE { get; set; }
     
-        public virtual CATEGORY CATEGORY1 { get; set; }
-        public virtual SUPPLIER SUPPLIER1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SALE> SALES { get; set; }
+        public virtual ICollection<PRODUCT> PRODUCTS { get; set; }
     }
 }

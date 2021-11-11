@@ -5,6 +5,14 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="db_devloModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CATEGORY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="50" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="100" />
+        </EntityType>
         <EntityType Name="CONTACTS">
           <Key>
             <PropertyRef Name="IDCONTACT" />
@@ -16,16 +24,22 @@
           <Property Name="EMAIL" Type="varchar" MaxLength="50" />
           <Property Name="ADDRESS" Type="varchar" MaxLength="100" />
           <Property Name="ROLE" Type="varchar" MaxLength="50" />
+          <Property Name="OBSERVATIONS" Type="varchar(max)" />
+          <Property Name="ADDED_DATE" Type="datetime" />
         </EntityType>
         <EntityType Name="PRODUCTS">
           <Key>
             <PropertyRef Name="IDPRODUCT" />
           </Key>
           <Property Name="IDPRODUCT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CODE" Type="int" />
           <Property Name="NAME" Type="varchar" MaxLength="50" />
-          <Property Name="DESCRIPTION" Type="varchar" MaxLength="50" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="100" />
+          <Property Name="CATEGORY" Type="int" />
+          <Property Name="SUPPLIER" Type="int" />
           <Property Name="STOCK" Type="int" />
-          <Property Name="PRICE" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="SELL_PRICE" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="SUPPLIER_PRICE" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <EntityType Name="SALES">
           <Key>
@@ -44,6 +58,14 @@
           </Key>
           <Property Name="IDSTATE" Type="int" Nullable="false" />
           <Property Name="DESCRIPTION" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SUPPLIERS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="50" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -123,6 +145,30 @@ advertencia 6002: La tabla o vista 'db_devlo.sys.ipv6_database_firewall_rules' n
           <Property Name="create_date" Type="datetime" Nullable="false" />
           <Property Name="modify_date" Type="datetime" Nullable="false" />
         </EntityType>
+        <Association Name="FK_PRODUCTS_CATEGORY">
+          <End Role="CATEGORY" Type="Self.CATEGORY" Multiplicity="0..1" />
+          <End Role="PRODUCTS" Type="Self.PRODUCTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATEGORY">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PRODUCTS">
+              <PropertyRef Name="CATEGORY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRODUCTS_SUPPLIERS">
+          <End Role="SUPPLIERS" Type="Self.SUPPLIERS" Multiplicity="0..1" />
+          <End Role="PRODUCTS" Type="Self.PRODUCTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUPPLIERS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PRODUCTS">
+              <PropertyRef Name="SUPPLIER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_SALES_CONTACTS">
           <End Role="CONTACTS" Type="Self.CONTACTS" Multiplicity="0..1" />
           <End Role="SALES" Type="Self.SALES" Multiplicity="*" />
@@ -160,6 +206,15 @@ advertencia 6002: La tabla o vista 'db_devlo.sys.ipv6_database_firewall_rules' n
           </ReferentialConstraint>
         </Association>
         <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="PA_ADD_CATEGORY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NAME" Type="varchar" Mode="In" />
+          <Parameter Name="DESCRIPTION" Type="varchar" Mode="In" />
+          <Parameter Name="INVOKER" Type="int" Mode="In" />
+          <Parameter Name="USUARIO" Type="varchar" Mode="In" />
+          <Parameter Name="CULTURA" Type="varchar" Mode="In" />
+          <Parameter Name="RETCODE" Type="int" Mode="InOut" />
+          <Parameter Name="MENSAJE" Type="varchar" Mode="InOut" />
+        </Function>
         <Function Name="PA_ADD_CONTACT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="NAME" Type="varchar" Mode="In" />
           <Parameter Name="SURNAMES" Type="varchar" Mode="In" />
@@ -167,6 +222,31 @@ advertencia 6002: La tabla o vista 'db_devlo.sys.ipv6_database_firewall_rules' n
           <Parameter Name="EMAIL" Type="varchar" Mode="In" />
           <Parameter Name="ADDRESS" Type="varchar" Mode="In" />
           <Parameter Name="ROLE" Type="varchar" Mode="In" />
+          <Parameter Name="OBSERVATIONS" Type="varchar(max)" Mode="In" />
+          <Parameter Name="INVOKER" Type="int" Mode="In" />
+          <Parameter Name="USUARIO" Type="varchar" Mode="In" />
+          <Parameter Name="CULTURA" Type="varchar" Mode="In" />
+          <Parameter Name="RETCODE" Type="int" Mode="InOut" />
+          <Parameter Name="MENSAJE" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="PA_ADD_PRODUCT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CODE" Type="int" Mode="In" />
+          <Parameter Name="NAME" Type="varchar" Mode="In" />
+          <Parameter Name="DESCRIPTION" Type="varchar" Mode="In" />
+          <Parameter Name="CATEGORY" Type="int" Mode="In" />
+          <Parameter Name="SUPPLIER" Type="int" Mode="In" />
+          <Parameter Name="STOCK" Type="int" Mode="In" />
+          <Parameter Name="SELL_PRICE" Type="decimal" Mode="In" />
+          <Parameter Name="SUPLIER_PRICE" Type="decimal" Mode="In" />
+          <Parameter Name="INVOKER" Type="int" Mode="In" />
+          <Parameter Name="USUARIO" Type="varchar" Mode="In" />
+          <Parameter Name="CULTURA" Type="varchar" Mode="In" />
+          <Parameter Name="RETCODE" Type="int" Mode="InOut" />
+          <Parameter Name="MENSAJE" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="PA_ADD_SUPPLIER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NAME" Type="varchar" Mode="In" />
+          <Parameter Name="DESCRIPTION" Type="varchar" Mode="In" />
           <Parameter Name="INVOKER" Type="int" Mode="In" />
           <Parameter Name="USUARIO" Type="varchar" Mode="In" />
           <Parameter Name="CULTURA" Type="varchar" Mode="In" />
@@ -181,6 +261,96 @@ advertencia 6002: La tabla o vista 'db_devlo.sys.ipv6_database_firewall_rules' n
           <Parameter Name="CULTURA" Type="varchar" Mode="In" />
           <Parameter Name="RETCODE" Type="int" Mode="InOut" />
           <Parameter Name="MENSAJE" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="PA_DELETE_CATEGORY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NAME" Type="varchar" Mode="In" />
+          <Parameter Name="DESCRIPTION" Type="varchar" Mode="In" />
+          <Parameter Name="INVOKER" Type="int" Mode="In" />
+          <Parameter Name="USUARIO" Type="varchar" Mode="In" />
+          <Parameter Name="CULTURA" Type="varchar" Mode="In" />
+          <Parameter Name="RETCODE" Type="int" Mode="InOut" />
+          <Parameter Name="MENSAJE" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="PA_DELETE_CONTACT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID_CONTACT" Type="int" Mode="In" />
+          <Parameter Name="INVOKER" Type="int" Mode="In" />
+          <Parameter Name="USUARIO" Type="varchar" Mode="In" />
+          <Parameter Name="CULTURA" Type="varchar" Mode="In" />
+          <Parameter Name="RETCODE" Type="int" Mode="InOut" />
+          <Parameter Name="MENSAJE" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="PA_DELETE_PRODUCT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID_PRODUCT" Type="int" Mode="In" />
+          <Parameter Name="INVOKER" Type="int" Mode="In" />
+          <Parameter Name="USUARIO" Type="varchar" Mode="In" />
+          <Parameter Name="CULTURA" Type="varchar" Mode="In" />
+          <Parameter Name="RETCODE" Type="int" Mode="InOut" />
+          <Parameter Name="MENSAJE" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="PA_DELETE_SUPPLIER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NAME" Type="varchar" Mode="In" />
+          <Parameter Name="DESCRIPTION" Type="varchar" Mode="In" />
+          <Parameter Name="INVOKER" Type="int" Mode="In" />
+          <Parameter Name="USUARIO" Type="varchar" Mode="In" />
+          <Parameter Name="CULTURA" Type="varchar" Mode="In" />
+          <Parameter Name="RETCODE" Type="int" Mode="InOut" />
+          <Parameter Name="MENSAJE" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="PA_UPDATE_CATEGORY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="NAME" Type="varchar" Mode="In" />
+          <Parameter Name="DESCRIPTION" Type="varchar" Mode="In" />
+          <Parameter Name="INVOKER" Type="int" Mode="In" />
+          <Parameter Name="USUARIO" Type="varchar" Mode="In" />
+          <Parameter Name="CULTURA" Type="varchar" Mode="In" />
+          <Parameter Name="RETCODE" Type="int" Mode="InOut" />
+          <Parameter Name="MENSAJE" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="PA_UPDATE_CONTACT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID_CONTACT" Type="int" Mode="In" />
+          <Parameter Name="NAME" Type="varchar" Mode="In" />
+          <Parameter Name="SURNAME" Type="varchar" Mode="In" />
+          <Parameter Name="PHONE" Type="varchar" Mode="In" />
+          <Parameter Name="EMAIL" Type="varchar" Mode="In" />
+          <Parameter Name="ADDRESS" Type="varchar" Mode="In" />
+          <Parameter Name="ROLE" Type="varchar" Mode="In" />
+          <Parameter Name="OBSERVATIONS" Type="varchar(max)" Mode="In" />
+          <Parameter Name="INVOKER" Type="int" Mode="In" />
+          <Parameter Name="USUARIO" Type="varchar" Mode="In" />
+          <Parameter Name="CULTURA" Type="varchar" Mode="In" />
+          <Parameter Name="RETCODE" Type="int" Mode="InOut" />
+          <Parameter Name="MENSAJE" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="PA_UPDATE_PRODUCT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CODE" Type="int" Mode="In" />
+          <Parameter Name="NAME" Type="varchar" Mode="In" />
+          <Parameter Name="DESCRIPTION" Type="varchar" Mode="In" />
+          <Parameter Name="CATEGORY" Type="int" Mode="In" />
+          <Parameter Name="SUPPLIER" Type="int" Mode="In" />
+          <Parameter Name="STOCK" Type="int" Mode="In" />
+          <Parameter Name="SELL_PRICE" Type="decimal" Mode="In" />
+          <Parameter Name="SUPLIER_PRICE" Type="decimal" Mode="In" />
+          <Parameter Name="INVOKER" Type="int" Mode="In" />
+          <Parameter Name="USUARIO" Type="varchar" Mode="In" />
+          <Parameter Name="CULTURA" Type="varchar" Mode="In" />
+          <Parameter Name="RETCODE" Type="int" Mode="InOut" />
+          <Parameter Name="MENSAJE" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="PA_UPDATE_SUPPLIER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="NAME" Type="varchar" Mode="In" />
+          <Parameter Name="DESCRIPTION" Type="varchar" Mode="In" />
+          <Parameter Name="INVOKER" Type="int" Mode="In" />
+          <Parameter Name="USUARIO" Type="varchar" Mode="In" />
+          <Parameter Name="CULTURA" Type="varchar" Mode="In" />
+          <Parameter Name="RETCODE" Type="int" Mode="InOut" />
+          <Parameter Name="MENSAJE" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="PAH" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TEXTO" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="PAP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NOMBRE_PA" Type="varchar" Mode="In" />
         </Function>
         <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
@@ -213,10 +383,12 @@ advertencia 6002: La tabla o vista 'db_devlo.sys.ipv6_database_firewall_rules' n
         </Function>
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="db_devloModelStoreContainer">
+          <EntitySet Name="CATEGORY" EntityType="Self.CATEGORY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CONTACTS" EntityType="Self.CONTACTS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PRODUCTS" EntityType="Self.PRODUCTS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SALES" EntityType="Self.SALES" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="STATES" EntityType="Self.STATES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SUPPLIERS" EntityType="Self.SUPPLIERS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="USERS" EntityType="Self.USERS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="V_CONTACTS" EntityType="Self.V_CONTACTS" store:Type="Views" store:Schema="dbo">
@@ -255,6 +427,14 @@ advertencia 6002: La tabla o vista 'db_devlo.sys.ipv6_database_firewall_rules' n
     [ipv6_database_firewall_rules].[modify_date] AS [modify_date]
     FROM [sys].[ipv6_database_firewall_rules] AS [ipv6_database_firewall_rules]</DefiningQuery>
           </EntitySet>
+          <AssociationSet Name="FK_PRODUCTS_CATEGORY" Association="Self.FK_PRODUCTS_CATEGORY">
+            <End Role="CATEGORY" EntitySet="CATEGORY" />
+            <End Role="PRODUCTS" EntitySet="PRODUCTS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRODUCTS_SUPPLIERS" Association="Self.FK_PRODUCTS_SUPPLIERS">
+            <End Role="SUPPLIERS" EntitySet="SUPPLIERS" />
+            <End Role="PRODUCTS" EntitySet="PRODUCTS" />
+          </AssociationSet>
           <AssociationSet Name="FK_SALES_CONTACTS" Association="Self.FK_SALES_CONTACTS">
             <End Role="CONTACTS" EntitySet="CONTACTS" />
             <End Role="SALES" EntitySet="SALES" />
@@ -272,6 +452,15 @@ advertencia 6002: La tabla o vista 'db_devlo.sys.ipv6_database_firewall_rules' n
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="db_devloModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CATEGORY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PRODUCTS" Relationship="Self.FK_PRODUCTS_CATEGORY" FromRole="CATEGORY" ToRole="PRODUCTS" />
+        </EntityType>
         <EntityType Name="CONTACT">
           <Key>
             <PropertyRef Name="IDCONTACT" />
@@ -283,6 +472,8 @@ advertencia 6002: La tabla o vista 'db_devlo.sys.ipv6_database_firewall_rules' n
           <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ADDRESS" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="ROLE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OBSERVATIONS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ADDED_DATE" Type="DateTime" Precision="3" />
           <NavigationProperty Name="SALES" Relationship="Self.FK_SALES_CONTACTS" FromRole="CONTACTS" ToRole="SALES" />
         </EntityType>
         <EntityType Name="PRODUCT">
@@ -290,10 +481,16 @@ advertencia 6002: La tabla o vista 'db_devlo.sys.ipv6_database_firewall_rules' n
             <PropertyRef Name="IDPRODUCT" />
           </Key>
           <Property Name="IDPRODUCT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CODE" Type="Int32" />
           <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="DESCRIPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CATEGORY" Type="Int32" />
+          <Property Name="SUPPLIER" Type="Int32" />
           <Property Name="STOCK" Type="Int32" />
-          <Property Name="PRICE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="SELL_PRICE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="SUPPLIER_PRICE" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="CATEGORY1" Relationship="Self.FK_PRODUCTS_CATEGORY" FromRole="PRODUCTS" ToRole="CATEGORY" />
+          <NavigationProperty Name="SUPPLIER1" Relationship="Self.FK_PRODUCTS_SUPPLIERS" FromRole="PRODUCTS" ToRole="SUPPLIERS" />
           <NavigationProperty Name="SALES" Relationship="Self.FK_SALES_PRODUCTS" FromRole="PRODUCTS" ToRole="SALES" />
         </EntityType>
         <EntityType Name="SALE">
@@ -318,6 +515,15 @@ advertencia 6002: La tabla o vista 'db_devlo.sys.ipv6_database_firewall_rules' n
           <Property Name="DESCRIPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="SALES" Relationship="Self.FK_SALES_STATES" FromRole="STATES" ToRole="SALES" />
         </EntityType>
+        <EntityType Name="SUPPLIER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PRODUCTS" Relationship="Self.FK_PRODUCTS_SUPPLIERS" FromRole="SUPPLIERS" ToRole="PRODUCTS" />
+        </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -337,6 +543,24 @@ advertencia 6002: La tabla o vista 'db_devlo.sys.ipv6_database_firewall_rules' n
           <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="SURNAMES" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ADMIN" Type="Int32" />
+        </EntityType>
+        <EntityType Name="V_CONTACTS">
+          <Key>
+            <PropertyRef Name="FULL_NAME" />
+          </Key>
+          <Property Name="FULL_NAME" Type="String" MaxLength="101" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="View_CONTACTS">
+          <Key>
+            <PropertyRef Name="IDCONTACT" />
+          </Key>
+          <Property Name="IDCONTACT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SURNAMES" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PHONE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ADDRESS" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ROLE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="database_firewall_rules">
           <Key>
@@ -370,6 +594,18 @@ advertencia 6002: La tabla o vista 'db_devlo.sys.ipv6_database_firewall_rules' n
           <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="modify_date" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
+        <Association Name="FK_PRODUCTS_CATEGORY">
+          <End Role="CATEGORY" Type="Self.CATEGORY" Multiplicity="0..1" />
+          <End Role="PRODUCTS" Type="Self.PRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATEGORY">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PRODUCTS">
+              <PropertyRef Name="CATEGORY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_SALES_CONTACTS">
           <End Role="CONTACTS" Type="Self.CONTACT" Multiplicity="0..1" />
           <End Role="SALES" Type="Self.SALE" Multiplicity="*" />
@@ -379,6 +615,18 @@ advertencia 6002: La tabla o vista 'db_devlo.sys.ipv6_database_firewall_rules' n
             </Principal>
             <Dependent Role="SALES">
               <PropertyRef Name="IDCONTACT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRODUCTS_SUPPLIERS">
+          <End Role="SUPPLIERS" Type="Self.SUPPLIER" Multiplicity="0..1" />
+          <End Role="PRODUCTS" Type="Self.PRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUPPLIERS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PRODUCTS">
+              <PropertyRef Name="SUPPLIER" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -407,17 +655,29 @@ advertencia 6002: La tabla o vista 'db_devlo.sys.ipv6_database_firewall_rules' n
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="db_devloEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CATEGORies" EntityType="Self.CATEGORY" />
           <EntitySet Name="CONTACTS" EntityType="Self.CONTACT" />
           <EntitySet Name="PRODUCTS" EntityType="Self.PRODUCT" />
           <EntitySet Name="SALES" EntityType="Self.SALE" />
           <EntitySet Name="STATES" EntityType="Self.STATE" />
+          <EntitySet Name="SUPPLIERS" EntityType="Self.SUPPLIER" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="USERS" EntityType="Self.USER" />
+          <EntitySet Name="V_CONTACTS" EntityType="Self.V_CONTACTS" />
+          <EntitySet Name="View_CONTACTS" EntityType="Self.View_CONTACTS" />
           <EntitySet Name="database_firewall_rules" EntityType="Self.database_firewall_rules" />
           <EntitySet Name="ipv6_database_firewall_rules" EntityType="Self.ipv6_database_firewall_rules" />
+          <AssociationSet Name="FK_PRODUCTS_CATEGORY" Association="Self.FK_PRODUCTS_CATEGORY">
+            <End Role="CATEGORY" EntitySet="CATEGORies" />
+            <End Role="PRODUCTS" EntitySet="PRODUCTS" />
+          </AssociationSet>
           <AssociationSet Name="FK_SALES_CONTACTS" Association="Self.FK_SALES_CONTACTS">
             <End Role="CONTACTS" EntitySet="CONTACTS" />
             <End Role="SALES" EntitySet="SALES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRODUCTS_SUPPLIERS" Association="Self.FK_PRODUCTS_SUPPLIERS">
+            <End Role="SUPPLIERS" EntitySet="SUPPLIERS" />
+            <End Role="PRODUCTS" EntitySet="PRODUCTS" />
           </AssociationSet>
           <AssociationSet Name="FK_SALES_PRODUCTS" Association="Self.FK_SALES_PRODUCTS">
             <End Role="PRODUCTS" EntitySet="PRODUCTS" />
@@ -427,6 +687,53 @@ advertencia 6002: La tabla o vista 'db_devlo.sys.ipv6_database_firewall_rules' n
             <End Role="STATES" EntitySet="STATES" />
             <End Role="SALES" EntitySet="SALES" />
           </AssociationSet>
+          <FunctionImport Name="PA_ADD_CATEGORY">
+            <Parameter Name="NAME" Mode="In" Type="String" />
+            <Parameter Name="DESCRIPTION" Mode="In" Type="String" />
+            <Parameter Name="INVOKER" Mode="In" Type="Int32" />
+            <Parameter Name="USUARIO" Mode="In" Type="String" />
+            <Parameter Name="CULTURA" Mode="In" Type="String" />
+            <Parameter Name="RETCODE" Mode="InOut" Type="Int32" />
+            <Parameter Name="MENSAJE" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PA_ADD_CONTACT">
+            <Parameter Name="NAME" Mode="In" Type="String" />
+            <Parameter Name="SURNAMES" Mode="In" Type="String" />
+            <Parameter Name="PHONE" Mode="In" Type="String" />
+            <Parameter Name="EMAIL" Mode="In" Type="String" />
+            <Parameter Name="ADDRESS" Mode="In" Type="String" />
+            <Parameter Name="ROLE" Mode="In" Type="String" />
+            <Parameter Name="OBSERVATIONS" Mode="In" Type="String" />
+            <Parameter Name="INVOKER" Mode="In" Type="Int32" />
+            <Parameter Name="USUARIO" Mode="In" Type="String" />
+            <Parameter Name="CULTURA" Mode="In" Type="String" />
+            <Parameter Name="RETCODE" Mode="InOut" Type="Int32" />
+            <Parameter Name="MENSAJE" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PA_ADD_PRODUCT">
+            <Parameter Name="CODE" Mode="In" Type="Int32" />
+            <Parameter Name="NAME" Mode="In" Type="String" />
+            <Parameter Name="DESCRIPTION" Mode="In" Type="String" />
+            <Parameter Name="CATEGORY" Mode="In" Type="Int32" />
+            <Parameter Name="SUPPLIER" Mode="In" Type="Int32" />
+            <Parameter Name="STOCK" Mode="In" Type="Int32" />
+            <Parameter Name="SELL_PRICE" Mode="In" Type="Decimal" />
+            <Parameter Name="SUPLIER_PRICE" Mode="In" Type="Decimal" />
+            <Parameter Name="INVOKER" Mode="In" Type="Int32" />
+            <Parameter Name="USUARIO" Mode="In" Type="String" />
+            <Parameter Name="CULTURA" Mode="In" Type="String" />
+            <Parameter Name="RETCODE" Mode="InOut" Type="Int32" />
+            <Parameter Name="MENSAJE" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PA_ADD_SUPPLIER">
+            <Parameter Name="NAME" Mode="In" Type="String" />
+            <Parameter Name="DESCRIPTION" Mode="In" Type="String" />
+            <Parameter Name="INVOKER" Mode="In" Type="Int32" />
+            <Parameter Name="USUARIO" Mode="In" Type="String" />
+            <Parameter Name="CULTURA" Mode="In" Type="String" />
+            <Parameter Name="RETCODE" Mode="InOut" Type="Int32" />
+            <Parameter Name="MENSAJE" Mode="InOut" Type="String" />
+          </FunctionImport>
           <FunctionImport Name="PA_CHECK_LOGIN">
             <Parameter Name="EMAIL" Mode="In" Type="String" />
             <Parameter Name="PASSWD" Mode="In" Type="String" />
@@ -435,6 +742,96 @@ advertencia 6002: La tabla o vista 'db_devlo.sys.ipv6_database_firewall_rules' n
             <Parameter Name="CULTURA" Mode="In" Type="String" />
             <Parameter Name="RETCODE" Mode="InOut" Type="Int32" />
             <Parameter Name="MENSAJE" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PA_DELETE_CATEGORY">
+            <Parameter Name="NAME" Mode="In" Type="String" />
+            <Parameter Name="DESCRIPTION" Mode="In" Type="String" />
+            <Parameter Name="INVOKER" Mode="In" Type="Int32" />
+            <Parameter Name="USUARIO" Mode="In" Type="String" />
+            <Parameter Name="CULTURA" Mode="In" Type="String" />
+            <Parameter Name="RETCODE" Mode="InOut" Type="Int32" />
+            <Parameter Name="MENSAJE" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PA_DELETE_CONTACT">
+            <Parameter Name="ID_CONTACT" Mode="In" Type="Int32" />
+            <Parameter Name="INVOKER" Mode="In" Type="Int32" />
+            <Parameter Name="USUARIO" Mode="In" Type="String" />
+            <Parameter Name="CULTURA" Mode="In" Type="String" />
+            <Parameter Name="RETCODE" Mode="InOut" Type="Int32" />
+            <Parameter Name="MENSAJE" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PA_DELETE_PRODUCT">
+            <Parameter Name="ID_PRODUCT" Mode="In" Type="Int32" />
+            <Parameter Name="INVOKER" Mode="In" Type="Int32" />
+            <Parameter Name="USUARIO" Mode="In" Type="String" />
+            <Parameter Name="CULTURA" Mode="In" Type="String" />
+            <Parameter Name="RETCODE" Mode="InOut" Type="Int32" />
+            <Parameter Name="MENSAJE" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PA_DELETE_SUPPLIER">
+            <Parameter Name="NAME" Mode="In" Type="String" />
+            <Parameter Name="DESCRIPTION" Mode="In" Type="String" />
+            <Parameter Name="INVOKER" Mode="In" Type="Int32" />
+            <Parameter Name="USUARIO" Mode="In" Type="String" />
+            <Parameter Name="CULTURA" Mode="In" Type="String" />
+            <Parameter Name="RETCODE" Mode="InOut" Type="Int32" />
+            <Parameter Name="MENSAJE" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PA_UPDATE_CATEGORY">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="NAME" Mode="In" Type="String" />
+            <Parameter Name="DESCRIPTION" Mode="In" Type="String" />
+            <Parameter Name="INVOKER" Mode="In" Type="Int32" />
+            <Parameter Name="USUARIO" Mode="In" Type="String" />
+            <Parameter Name="CULTURA" Mode="In" Type="String" />
+            <Parameter Name="RETCODE" Mode="InOut" Type="Int32" />
+            <Parameter Name="MENSAJE" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PA_UPDATE_CONTACT">
+            <Parameter Name="ID_CONTACT" Mode="In" Type="Int32" />
+            <Parameter Name="NAME" Mode="In" Type="String" />
+            <Parameter Name="SURNAME" Mode="In" Type="String" />
+            <Parameter Name="PHONE" Mode="In" Type="String" />
+            <Parameter Name="EMAIL" Mode="In" Type="String" />
+            <Parameter Name="ADDRESS" Mode="In" Type="String" />
+            <Parameter Name="ROLE" Mode="In" Type="String" />
+            <Parameter Name="OBSERVATIONS" Mode="In" Type="String" />
+            <Parameter Name="INVOKER" Mode="In" Type="Int32" />
+            <Parameter Name="USUARIO" Mode="In" Type="String" />
+            <Parameter Name="CULTURA" Mode="In" Type="String" />
+            <Parameter Name="RETCODE" Mode="InOut" Type="Int32" />
+            <Parameter Name="MENSAJE" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PA_UPDATE_PRODUCT">
+            <Parameter Name="CODE" Mode="In" Type="Int32" />
+            <Parameter Name="NAME" Mode="In" Type="String" />
+            <Parameter Name="DESCRIPTION" Mode="In" Type="String" />
+            <Parameter Name="CATEGORY" Mode="In" Type="Int32" />
+            <Parameter Name="SUPPLIER" Mode="In" Type="Int32" />
+            <Parameter Name="STOCK" Mode="In" Type="Int32" />
+            <Parameter Name="SELL_PRICE" Mode="In" Type="Decimal" />
+            <Parameter Name="SUPLIER_PRICE" Mode="In" Type="Decimal" />
+            <Parameter Name="INVOKER" Mode="In" Type="Int32" />
+            <Parameter Name="USUARIO" Mode="In" Type="String" />
+            <Parameter Name="CULTURA" Mode="In" Type="String" />
+            <Parameter Name="RETCODE" Mode="InOut" Type="Int32" />
+            <Parameter Name="MENSAJE" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PA_UPDATE_SUPPLIER">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="NAME" Mode="In" Type="String" />
+            <Parameter Name="DESCRIPTION" Mode="In" Type="String" />
+            <Parameter Name="INVOKER" Mode="In" Type="Int32" />
+            <Parameter Name="USUARIO" Mode="In" Type="String" />
+            <Parameter Name="CULTURA" Mode="In" Type="String" />
+            <Parameter Name="RETCODE" Mode="InOut" Type="Int32" />
+            <Parameter Name="MENSAJE" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PAH" ReturnType="Collection(String)">
+          <Parameter Name="TEXTO" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PAP">
+          <Parameter Name="NOMBRE_PA" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_alterdiagram">
             <Parameter Name="diagramname" Mode="In" Type="String" />
@@ -466,21 +863,6 @@ advertencia 6002: La tabla o vista 'db_devlo.sys.ipv6_database_firewall_rules' n
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
-          <EntitySet Name="V_CONTACTS" EntityType="db_devloModel.V_CONTACTS" />
-          <FunctionImport Name="PA_ADD_CONTACT">
-            <Parameter Name="NAME" Mode="In" Type="String" />
-            <Parameter Name="SURNAMES" Mode="In" Type="String" />
-            <Parameter Name="PHONE" Mode="In" Type="String" />
-            <Parameter Name="EMAIL" Mode="In" Type="String" />
-            <Parameter Name="ADDRESS" Mode="In" Type="String" />
-            <Parameter Name="ROLE" Mode="In" Type="String" />
-            <Parameter Name="INVOKER" Mode="In" Type="Int32" />
-            <Parameter Name="USUARIO" Mode="In" Type="String" />
-            <Parameter Name="CULTURA" Mode="In" Type="String" />
-            <Parameter Name="RETCODE" Mode="InOut" Type="Int32" />
-            <Parameter Name="MENSAJE" Mode="InOut" Type="String" />
-          </FunctionImport>
-          <EntitySet Name="View_CONTACTS" EntityType="db_devloModel.View_CONTACTS" />
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -493,30 +875,21 @@ advertencia 6002: La tabla o vista 'db_devlo.sys.ipv6_database_firewall_rules' n
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
-        <EntityType Name="V_CONTACTS">
-          <Key>
-            <PropertyRef Name="FULL_NAME" />
-          </Key>
-          <Property Name="FULL_NAME" Type="String" Nullable="false" MaxLength="101" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="View_CONTACTS">
-          <Key>
-            <PropertyRef Name="IDCONTACT" />
-          </Key>
-          <Property Name="IDCONTACT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="SURNAMES" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="PHONE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ADDRESS" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="ROLE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="db_devloModelStoreContainer" CdmEntityContainer="db_devloEntities">
+          <EntitySetMapping Name="CATEGORies">
+            <EntityTypeMapping TypeName="db_devloModel.CATEGORY">
+              <MappingFragment StoreEntitySet="CATEGORY">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="CONTACTS">
             <EntityTypeMapping TypeName="db_devloModel.CONTACT">
               <MappingFragment StoreEntitySet="CONTACTS">
@@ -527,6 +900,8 @@ advertencia 6002: La tabla o vista 'db_devlo.sys.ipv6_database_firewall_rules' n
                 <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
                 <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
                 <ScalarProperty Name="ROLE" ColumnName="ROLE" />
+                <ScalarProperty Name="OBSERVATIONS" ColumnName="OBSERVATIONS" />
+                <ScalarProperty Name="ADDED_DATE" ColumnName="ADDED_DATE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -534,10 +909,14 @@ advertencia 6002: La tabla o vista 'db_devlo.sys.ipv6_database_firewall_rules' n
             <EntityTypeMapping TypeName="db_devloModel.PRODUCT">
               <MappingFragment StoreEntitySet="PRODUCTS">
                 <ScalarProperty Name="IDPRODUCT" ColumnName="IDPRODUCT" />
+                <ScalarProperty Name="CODE" ColumnName="CODE" />
                 <ScalarProperty Name="NAME" ColumnName="NAME" />
                 <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="CATEGORY" ColumnName="CATEGORY" />
+                <ScalarProperty Name="SUPPLIER" ColumnName="SUPPLIER" />
                 <ScalarProperty Name="STOCK" ColumnName="STOCK" />
-                <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+                <ScalarProperty Name="SELL_PRICE" ColumnName="SELL_PRICE" />
+                <ScalarProperty Name="SUPPLIER_PRICE" ColumnName="SUPPLIER_PRICE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -561,6 +940,15 @@ advertencia 6002: La tabla o vista 'db_devlo.sys.ipv6_database_firewall_rules' n
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="SUPPLIERS">
+            <EntityTypeMapping TypeName="db_devloModel.SUPPLIER">
+              <MappingFragment StoreEntitySet="SUPPLIERS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="db_devloModel.sysdiagram">
               <MappingFragment StoreEntitySet="sysdiagrams">
@@ -580,6 +968,26 @@ advertencia 6002: La tabla o vista 'db_devlo.sys.ipv6_database_firewall_rules' n
                 <ScalarProperty Name="NAME" ColumnName="NAME" />
                 <ScalarProperty Name="SURNAMES" ColumnName="SURNAMES" />
                 <ScalarProperty Name="ADMIN" ColumnName="ADMIN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_CONTACTS">
+            <EntityTypeMapping TypeName="db_devloModel.V_CONTACTS">
+              <MappingFragment StoreEntitySet="V_CONTACTS">
+                <ScalarProperty Name="FULL_NAME" ColumnName="FULL_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_CONTACTS">
+            <EntityTypeMapping TypeName="db_devloModel.View_CONTACTS">
+              <MappingFragment StoreEntitySet="View_CONTACTS">
+                <ScalarProperty Name="IDCONTACT" ColumnName="IDCONTACT" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="SURNAMES" ColumnName="SURNAMES" />
+                <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="ROLE" ColumnName="ROLE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -607,7 +1015,21 @@ advertencia 6002: La tabla o vista 'db_devlo.sys.ipv6_database_firewall_rules' n
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="PA_ADD_CATEGORY" FunctionName="db_devloModel.Store.PA_ADD_CATEGORY" />
+          <FunctionImportMapping FunctionImportName="PA_ADD_CONTACT" FunctionName="db_devloModel.Store.PA_ADD_CONTACT" />
+          <FunctionImportMapping FunctionImportName="PA_ADD_PRODUCT" FunctionName="db_devloModel.Store.PA_ADD_PRODUCT" />
+          <FunctionImportMapping FunctionImportName="PA_ADD_SUPPLIER" FunctionName="db_devloModel.Store.PA_ADD_SUPPLIER" />
           <FunctionImportMapping FunctionImportName="PA_CHECK_LOGIN" FunctionName="db_devloModel.Store.PA_CHECK_LOGIN" />
+          <FunctionImportMapping FunctionImportName="PA_DELETE_CATEGORY" FunctionName="db_devloModel.Store.PA_DELETE_CATEGORY" />
+          <FunctionImportMapping FunctionImportName="PA_DELETE_CONTACT" FunctionName="db_devloModel.Store.PA_DELETE_CONTACT" />
+          <FunctionImportMapping FunctionImportName="PA_DELETE_PRODUCT" FunctionName="db_devloModel.Store.PA_DELETE_PRODUCT" />
+          <FunctionImportMapping FunctionImportName="PA_DELETE_SUPPLIER" FunctionName="db_devloModel.Store.PA_DELETE_SUPPLIER" />
+          <FunctionImportMapping FunctionImportName="PA_UPDATE_CATEGORY" FunctionName="db_devloModel.Store.PA_UPDATE_CATEGORY" />
+          <FunctionImportMapping FunctionImportName="PA_UPDATE_CONTACT" FunctionName="db_devloModel.Store.PA_UPDATE_CONTACT" />
+          <FunctionImportMapping FunctionImportName="PA_UPDATE_PRODUCT" FunctionName="db_devloModel.Store.PA_UPDATE_PRODUCT" />
+          <FunctionImportMapping FunctionImportName="PA_UPDATE_SUPPLIER" FunctionName="db_devloModel.Store.PA_UPDATE_SUPPLIER" />
+          <FunctionImportMapping FunctionImportName="PAH" FunctionName="db_devloModel.Store.PAH" />
+          <FunctionImportMapping FunctionImportName="PAP" FunctionName="db_devloModel.Store.PAP" />
           <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="db_devloModel.Store.sp_alterdiagram" />
           <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="db_devloModel.Store.sp_creatediagram" />
           <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="db_devloModel.Store.sp_dropdiagram" />
@@ -632,27 +1054,6 @@ advertencia 6002: La tabla o vista 'db_devlo.sys.ipv6_database_firewall_rules' n
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="db_devloModel.Store.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="db_devloModel.Store.sp_upgraddiagrams" />
-          <EntitySetMapping Name="V_CONTACTS">
-            <EntityTypeMapping TypeName="db_devloModel.V_CONTACTS">
-              <MappingFragment StoreEntitySet="V_CONTACTS">
-                <ScalarProperty Name="FULL_NAME" ColumnName="FULL_NAME" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="PA_ADD_CONTACT" FunctionName="db_devloModel.Store.PA_ADD_CONTACT" />
-          <EntitySetMapping Name="View_CONTACTS">
-            <EntityTypeMapping TypeName="db_devloModel.View_CONTACTS">
-              <MappingFragment StoreEntitySet="View_CONTACTS">
-                <ScalarProperty Name="ROLE" ColumnName="ROLE" />
-                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
-                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
-                <ScalarProperty Name="PHONE" ColumnName="PHONE" />
-                <ScalarProperty Name="SURNAMES" ColumnName="SURNAMES" />
-                <ScalarProperty Name="NAME" ColumnName="NAME" />
-                <ScalarProperty Name="IDCONTACT" ColumnName="IDCONTACT" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -61,7 +61,7 @@ namespace Proyecto_DAM
             panelLoad.Controls.Add(frmCustomer);
             frmCustomer.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             frmCustomer.Dock = DockStyle.Fill;
-            this.Hide();
+            this.Close();
             frmCustomer.Show();
         }
 
@@ -74,13 +74,13 @@ namespace Proyecto_DAM
                 if (ChckCompany.Checked)
                 {
                     Company company = new Company(TxtName.Text, TxtPhone.Text, TxtEmail.Text, TxtAddress.Text);
-                    utilities.pa_addContact(company.Name, null, company.Phone, company.Email, company.Address, company.Role);
+                    utilities.pa_addContact(company.Name, null, company.Phone, company.Email, company.Address, company.Role, null);
                     clean();
                 }
                 else if (ChckCustomer.Checked)
                 {
                     Customer customer = new Customer(TxtName.Text, TxtSurname.Text, TxtPhone.Text, TxtEmail.Text);
-                    utilities.pa_addContact(customer.Name, customer.Surnames, customer.Phone, customer.Email, null, customer.Role);
+                    utilities.pa_addContact(customer.Name, customer.Surnames, customer.Phone, customer.Email, null, customer.Role, null);
                     clean();
                 }
             }

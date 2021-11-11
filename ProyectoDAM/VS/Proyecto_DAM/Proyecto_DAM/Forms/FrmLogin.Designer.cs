@@ -88,9 +88,9 @@ namespace Proyecto_DAM
             // PctBxClose
             // 
             this.PctBxClose.Image = ((System.Drawing.Image)(resources.GetObject("PctBxClose.Image")));
-            this.PctBxClose.Location = new System.Drawing.Point(861, -1);
+            this.PctBxClose.Location = new System.Drawing.Point(895, 1);
             this.PctBxClose.Name = "PctBxClose";
-            this.PctBxClose.Size = new System.Drawing.Size(80, 69);
+            this.PctBxClose.Size = new System.Drawing.Size(47, 46);
             this.PctBxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PctBxClose.TabIndex = 9;
             this.PctBxClose.TabStop = false;

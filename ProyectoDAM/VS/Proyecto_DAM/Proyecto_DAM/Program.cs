@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Proyecto_DAM.Forms.Customers;
+using Proyecto_DAM.Forms.Products;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;

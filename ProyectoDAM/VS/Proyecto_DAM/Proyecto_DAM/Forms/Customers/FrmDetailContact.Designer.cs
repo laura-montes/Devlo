@@ -1,7 +1,7 @@
 ﻿
-namespace Proyecto_DAM
+namespace Proyecto_DAM.Forms.Customers
 {
-    partial class FrmAddContact
+    partial class FrmDetailContact
     {
         /// <summary>
         /// Required designer variable.
@@ -29,12 +29,13 @@ namespace Proyecto_DAM
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAddContact));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDetailContact));
             this.PanelContainer = new Guna.UI2.WinForms.Guna2Panel();
             this.CmbBxRelations = new Guna.UI2.WinForms.Guna2ComboBox();
             this.LblRelation = new System.Windows.Forms.Label();
             this.LblObservations = new System.Windows.Forms.Label();
             this.TxtObservations = new Guna.UI2.WinForms.Guna2TextBox();
+            this.LblInfo = new System.Windows.Forms.Label();
             this.LblMandatory = new System.Windows.Forms.Label();
             this.TxtAddress = new Guna.UI2.WinForms.Guna2TextBox();
             this.LblAdress = new System.Windows.Forms.Label();
@@ -49,7 +50,6 @@ namespace Proyecto_DAM
             this.ShadowpanelContainer = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.ChckCompany = new Guna.UI2.WinForms.Guna2CheckBox();
             this.ChckCustomer = new Guna.UI2.WinForms.Guna2CheckBox();
-            this.BtnSave = new Guna.UI2.WinForms.Guna2Button();
             this.PctBxBack = new Guna.UI2.WinForms.Guna2PictureBox();
             this.LblAddContact = new System.Windows.Forms.Label();
             this.PanelContainer.SuspendLayout();
@@ -64,6 +64,7 @@ namespace Proyecto_DAM
             this.PanelContainer.Controls.Add(this.LblRelation);
             this.PanelContainer.Controls.Add(this.LblObservations);
             this.PanelContainer.Controls.Add(this.TxtObservations);
+            this.PanelContainer.Controls.Add(this.LblInfo);
             this.PanelContainer.Controls.Add(this.LblMandatory);
             this.PanelContainer.Controls.Add(this.TxtAddress);
             this.PanelContainer.Controls.Add(this.LblAdress);
@@ -76,14 +77,13 @@ namespace Proyecto_DAM
             this.PanelContainer.Controls.Add(this.TxtSurname);
             this.PanelContainer.Controls.Add(this.TxtName);
             this.PanelContainer.Controls.Add(this.ShadowpanelContainer);
-            this.PanelContainer.Controls.Add(this.BtnSave);
             this.PanelContainer.Controls.Add(this.PctBxBack);
             this.PanelContainer.Controls.Add(this.LblAddContact);
             this.PanelContainer.Location = new System.Drawing.Point(48, 0);
             this.PanelContainer.Name = "PanelContainer";
             this.PanelContainer.ShadowDecoration.Parent = this.PanelContainer;
             this.PanelContainer.Size = new System.Drawing.Size(1085, 646);
-            this.PanelContainer.TabIndex = 2;
+            this.PanelContainer.TabIndex = 4;
             // 
             // CmbBxRelations
             // 
@@ -93,7 +93,6 @@ namespace Proyecto_DAM
             this.CmbBxRelations.BorderThickness = 2;
             this.CmbBxRelations.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.CmbBxRelations.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbBxRelations.Enabled = false;
             this.CmbBxRelations.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.CmbBxRelations.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.CmbBxRelations.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -103,21 +102,20 @@ namespace Proyecto_DAM
             this.CmbBxRelations.HoverState.Parent = this.CmbBxRelations;
             this.CmbBxRelations.ItemHeight = 30;
             this.CmbBxRelations.ItemsAppearance.Parent = this.CmbBxRelations;
-            this.CmbBxRelations.Location = new System.Drawing.Point(568, 433);
+            this.CmbBxRelations.Location = new System.Drawing.Point(568, 413);
             this.CmbBxRelations.Name = "CmbBxRelations";
             this.CmbBxRelations.ShadowDecoration.Parent = this.CmbBxRelations;
             this.CmbBxRelations.Size = new System.Drawing.Size(455, 36);
-            this.CmbBxRelations.TabIndex = 25;
+            this.CmbBxRelations.TabIndex = 27;
             // 
             // LblRelation
             // 
             this.LblRelation.AutoSize = true;
-            this.LblRelation.Enabled = false;
             this.LblRelation.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblRelation.Location = new System.Drawing.Point(564, 406);
+            this.LblRelation.Location = new System.Drawing.Point(564, 386);
             this.LblRelation.Name = "LblRelation";
             this.LblRelation.Size = new System.Drawing.Size(102, 24);
-            this.LblRelation.TabIndex = 24;
+            this.LblRelation.TabIndex = 26;
             this.LblRelation.Text = "Relaciones";
             // 
             // LblObservations
@@ -127,11 +125,12 @@ namespace Proyecto_DAM
             this.LblObservations.Location = new System.Drawing.Point(564, 252);
             this.LblObservations.Name = "LblObservations";
             this.LblObservations.Size = new System.Drawing.Size(146, 24);
-            this.LblObservations.TabIndex = 23;
+            this.LblObservations.TabIndex = 21;
             this.LblObservations.Text = "Observaciones:";
             // 
             // TxtObservations
             // 
+            this.TxtObservations.Animated = true;
             this.TxtObservations.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
             this.TxtObservations.BorderRadius = 8;
             this.TxtObservations.BorderThickness = 2;
@@ -145,7 +144,7 @@ namespace Proyecto_DAM
             this.TxtObservations.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.TxtObservations.FocusedState.BorderColor = System.Drawing.Color.Transparent;
             this.TxtObservations.FocusedState.Parent = this.TxtObservations;
-            this.TxtObservations.Font = new System.Drawing.Font("Louis George Café", 12F);
+            this.TxtObservations.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtObservations.ForeColor = System.Drawing.Color.Black;
             this.TxtObservations.HoverState.BorderColor = System.Drawing.Color.Transparent;
             this.TxtObservations.HoverState.Parent = this.TxtObservations;
@@ -158,7 +157,18 @@ namespace Proyecto_DAM
             this.TxtObservations.SelectedText = "";
             this.TxtObservations.ShadowDecoration.Parent = this.TxtObservations;
             this.TxtObservations.Size = new System.Drawing.Size(455, 88);
-            this.TxtObservations.TabIndex = 22;
+            this.TxtObservations.TabIndex = 20;
+            // 
+            // LblInfo
+            // 
+            this.LblInfo.AutoSize = true;
+            this.LblInfo.Font = new System.Drawing.Font("Louis George Café", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
+            this.LblInfo.Location = new System.Drawing.Point(138, 19);
+            this.LblInfo.Name = "LblInfo";
+            this.LblInfo.Size = new System.Drawing.Size(376, 40);
+            this.LblInfo.TabIndex = 18;
+            this.LblInfo.Text = "Información del contacto";
             // 
             // LblMandatory
             // 
@@ -169,6 +179,7 @@ namespace Proyecto_DAM
             this.LblMandatory.Size = new System.Drawing.Size(13, 17);
             this.LblMandatory.TabIndex = 16;
             this.LblMandatory.Text = "*";
+            this.LblMandatory.Visible = false;
             // 
             // TxtAddress
             // 
@@ -183,17 +194,18 @@ namespace Proyecto_DAM
             this.TxtAddress.DisabledState.Parent = this.TxtAddress;
             this.TxtAddress.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.TxtAddress.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.TxtAddress.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TxtAddress.FocusedState.BorderColor = System.Drawing.Color.Transparent;
             this.TxtAddress.FocusedState.Parent = this.TxtAddress;
             this.TxtAddress.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtAddress.ForeColor = System.Drawing.Color.Black;
-            this.TxtAddress.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TxtAddress.HoverState.BorderColor = System.Drawing.Color.Transparent;
             this.TxtAddress.HoverState.Parent = this.TxtAddress;
             this.TxtAddress.Location = new System.Drawing.Point(195, 494);
             this.TxtAddress.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TxtAddress.Name = "TxtAddress";
             this.TxtAddress.PasswordChar = '\0';
             this.TxtAddress.PlaceholderText = "";
+            this.TxtAddress.ReadOnly = true;
             this.TxtAddress.SelectedText = "";
             this.TxtAddress.ShadowDecoration.Parent = this.TxtAddress;
             this.TxtAddress.Size = new System.Drawing.Size(339, 36);
@@ -262,17 +274,18 @@ namespace Proyecto_DAM
             this.TxtEmail.DisabledState.Parent = this.TxtEmail;
             this.TxtEmail.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.TxtEmail.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.TxtEmail.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TxtEmail.FocusedState.BorderColor = System.Drawing.Color.Transparent;
             this.TxtEmail.FocusedState.Parent = this.TxtEmail;
             this.TxtEmail.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtEmail.ForeColor = System.Drawing.Color.Black;
-            this.TxtEmail.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TxtEmail.HoverState.BorderColor = System.Drawing.Color.Transparent;
             this.TxtEmail.HoverState.Parent = this.TxtEmail;
             this.TxtEmail.Location = new System.Drawing.Point(195, 433);
             this.TxtEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TxtEmail.Name = "TxtEmail";
             this.TxtEmail.PasswordChar = '\0';
             this.TxtEmail.PlaceholderText = "";
+            this.TxtEmail.ReadOnly = true;
             this.TxtEmail.SelectedText = "";
             this.TxtEmail.ShadowDecoration.Parent = this.TxtEmail;
             this.TxtEmail.Size = new System.Drawing.Size(339, 36);
@@ -291,17 +304,18 @@ namespace Proyecto_DAM
             this.TxtPhone.DisabledState.Parent = this.TxtPhone;
             this.TxtPhone.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.TxtPhone.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.TxtPhone.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TxtPhone.FocusedState.BorderColor = System.Drawing.Color.Transparent;
             this.TxtPhone.FocusedState.Parent = this.TxtPhone;
             this.TxtPhone.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtPhone.ForeColor = System.Drawing.Color.Black;
-            this.TxtPhone.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TxtPhone.HoverState.BorderColor = System.Drawing.Color.Transparent;
             this.TxtPhone.HoverState.Parent = this.TxtPhone;
             this.TxtPhone.Location = new System.Drawing.Point(195, 374);
             this.TxtPhone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TxtPhone.Name = "TxtPhone";
             this.TxtPhone.PasswordChar = '\0';
             this.TxtPhone.PlaceholderText = "";
+            this.TxtPhone.ReadOnly = true;
             this.TxtPhone.SelectedText = "";
             this.TxtPhone.ShadowDecoration.Parent = this.TxtPhone;
             this.TxtPhone.Size = new System.Drawing.Size(339, 36);
@@ -320,17 +334,18 @@ namespace Proyecto_DAM
             this.TxtSurname.DisabledState.Parent = this.TxtSurname;
             this.TxtSurname.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.TxtSurname.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.TxtSurname.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TxtSurname.FocusedState.BorderColor = System.Drawing.Color.Transparent;
             this.TxtSurname.FocusedState.Parent = this.TxtSurname;
             this.TxtSurname.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtSurname.ForeColor = System.Drawing.Color.Black;
-            this.TxtSurname.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TxtSurname.HoverState.BorderColor = System.Drawing.Color.Transparent;
             this.TxtSurname.HoverState.Parent = this.TxtSurname;
             this.TxtSurname.Location = new System.Drawing.Point(195, 312);
             this.TxtSurname.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TxtSurname.Name = "TxtSurname";
             this.TxtSurname.PasswordChar = '\0';
             this.TxtSurname.PlaceholderText = "";
+            this.TxtSurname.ReadOnly = true;
             this.TxtSurname.SelectedText = "";
             this.TxtSurname.ShadowDecoration.Parent = this.TxtSurname;
             this.TxtSurname.Size = new System.Drawing.Size(339, 36);
@@ -338,10 +353,11 @@ namespace Proyecto_DAM
             // 
             // TxtName
             // 
+            this.TxtName.Animated = true;
             this.TxtName.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
             this.TxtName.BorderRadius = 8;
             this.TxtName.BorderThickness = 2;
-            this.TxtName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TxtName.Cursor = System.Windows.Forms.Cursors.No;
             this.TxtName.DefaultText = "";
             this.TxtName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.TxtName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
@@ -349,17 +365,19 @@ namespace Proyecto_DAM
             this.TxtName.DisabledState.Parent = this.TxtName;
             this.TxtName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.TxtName.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.TxtName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TxtName.FocusedState.BorderColor = System.Drawing.Color.Transparent;
             this.TxtName.FocusedState.Parent = this.TxtName;
             this.TxtName.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtName.ForeColor = System.Drawing.Color.Black;
-            this.TxtName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TxtName.HideSelection = false;
+            this.TxtName.HoverState.BorderColor = System.Drawing.Color.Transparent;
             this.TxtName.HoverState.Parent = this.TxtName;
             this.TxtName.Location = new System.Drawing.Point(195, 247);
             this.TxtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TxtName.Name = "TxtName";
             this.TxtName.PasswordChar = '\0';
             this.TxtName.PlaceholderText = "";
+            this.TxtName.ReadOnly = true;
             this.TxtName.SelectedText = "";
             this.TxtName.ShadowDecoration.Parent = this.TxtName;
             this.TxtName.Size = new System.Drawing.Size(339, 36);
@@ -396,7 +414,6 @@ namespace Proyecto_DAM
             this.ChckCompany.UncheckedState.BorderRadius = 0;
             this.ChckCompany.UncheckedState.BorderThickness = 0;
             this.ChckCompany.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
-            this.ChckCompany.CheckedChanged += new System.EventHandler(this.ChckCompany_CheckedChanged);
             // 
             // ChckCustomer
             // 
@@ -415,29 +432,6 @@ namespace Proyecto_DAM
             this.ChckCustomer.UncheckedState.BorderRadius = 0;
             this.ChckCustomer.UncheckedState.BorderThickness = 0;
             this.ChckCustomer.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
-            this.ChckCustomer.CheckedChanged += new System.EventHandler(this.ChckCustomer_CheckedChanged);
-            // 
-            // BtnSave
-            // 
-            this.BtnSave.BorderRadius = 8;
-            this.BtnSave.CheckedState.Parent = this.BtnSave;
-            this.BtnSave.CustomImages.Parent = this.BtnSave;
-            this.BtnSave.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.BtnSave.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.BtnSave.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.BtnSave.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnSave.DisabledState.Parent = this.BtnSave;
-            this.BtnSave.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
-            this.BtnSave.Font = new System.Drawing.Font("Louis George Café", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnSave.ForeColor = System.Drawing.Color.White;
-            this.BtnSave.HoverState.Parent = this.BtnSave;
-            this.BtnSave.Location = new System.Drawing.Point(875, 572);
-            this.BtnSave.Name = "BtnSave";
-            this.BtnSave.ShadowDecoration.Parent = this.BtnSave;
-            this.BtnSave.Size = new System.Drawing.Size(180, 45);
-            this.BtnSave.TabIndex = 2;
-            this.BtnSave.Text = "Guardar";
-            this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // PctBxBack
             // 
@@ -459,20 +453,18 @@ namespace Proyecto_DAM
             this.LblAddContact.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
             this.LblAddContact.Location = new System.Drawing.Point(138, 19);
             this.LblAddContact.Name = "LblAddContact";
-            this.LblAddContact.Size = new System.Drawing.Size(250, 40);
+            this.LblAddContact.Size = new System.Drawing.Size(0, 40);
             this.LblAddContact.TabIndex = 0;
-            this.LblAddContact.Text = "Añadir contacto";
             // 
-            // FrmAddContact
+            // FrmDetailContact
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1172, 678);
+            this.ClientSize = new System.Drawing.Size(1154, 631);
             this.Controls.Add(this.PanelContainer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmAddContact";
-            this.Text = "FrmAddContact";
+            this.Name = "FrmDetailContact";
+            this.Text = "FrmDetailContact";
             this.PanelContainer.ResumeLayout(false);
             this.PanelContainer.PerformLayout();
             this.ShadowpanelContainer.ResumeLayout(false);
@@ -485,12 +477,12 @@ namespace Proyecto_DAM
         #endregion
 
         private Guna.UI2.WinForms.Guna2Panel PanelContainer;
-        private Guna.UI2.WinForms.Guna2Button BtnSave;
-        private Guna.UI2.WinForms.Guna2PictureBox PctBxBack;
-        private System.Windows.Forms.Label LblAddContact;
-        private Guna.UI2.WinForms.Guna2CheckBox ChckCustomer;
-        private Guna.UI2.WinForms.Guna2CheckBox ChckCompany;
-        private Guna.UI2.WinForms.Guna2ShadowPanel ShadowpanelContainer;
+        private Guna.UI2.WinForms.Guna2ComboBox CmbBxRelations;
+        private System.Windows.Forms.Label LblRelation;
+        private System.Windows.Forms.Label LblObservations;
+        private Guna.UI2.WinForms.Guna2TextBox TxtObservations;
+        internal System.Windows.Forms.Label LblInfo;
+        private System.Windows.Forms.Label LblMandatory;
         private Guna.UI2.WinForms.Guna2TextBox TxtAddress;
         private System.Windows.Forms.Label LblAdress;
         private System.Windows.Forms.Label LblEmail;
@@ -501,10 +493,10 @@ namespace Proyecto_DAM
         private Guna.UI2.WinForms.Guna2TextBox TxtPhone;
         private Guna.UI2.WinForms.Guna2TextBox TxtSurname;
         private Guna.UI2.WinForms.Guna2TextBox TxtName;
-        private System.Windows.Forms.Label LblMandatory;
-        private System.Windows.Forms.Label LblObservations;
-        private Guna.UI2.WinForms.Guna2TextBox TxtObservations;
-        private Guna.UI2.WinForms.Guna2ComboBox CmbBxRelations;
-        private System.Windows.Forms.Label LblRelation;
+        private Guna.UI2.WinForms.Guna2ShadowPanel ShadowpanelContainer;
+        private Guna.UI2.WinForms.Guna2CheckBox ChckCompany;
+        private Guna.UI2.WinForms.Guna2CheckBox ChckCustomer;
+        private Guna.UI2.WinForms.Guna2PictureBox PctBxBack;
+        private System.Windows.Forms.Label LblAddContact;
     }
 }

@@ -27,16 +27,162 @@ namespace Control
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<CATEGORY> CATEGORies { get; set; }
         public virtual DbSet<CONTACT> CONTACTS { get; set; }
         public virtual DbSet<PRODUCT> PRODUCTS { get; set; }
         public virtual DbSet<SALE> SALES { get; set; }
         public virtual DbSet<STATE> STATES { get; set; }
+        public virtual DbSet<SUPPLIER> SUPPLIERS { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<USER> USERS { get; set; }
-        public virtual DbSet<database_firewall_rules> database_firewall_rules { get; set; }
-        public virtual DbSet<ipv6_database_firewall_rules> ipv6_database_firewall_rules { get; set; }
         public virtual DbSet<V_CONTACTS> V_CONTACTS { get; set; }
         public virtual DbSet<View_CONTACTS> View_CONTACTS { get; set; }
+        public virtual DbSet<database_firewall_rules> database_firewall_rules { get; set; }
+        public virtual DbSet<ipv6_database_firewall_rules> ipv6_database_firewall_rules { get; set; }
+    
+        public virtual int PA_ADD_CATEGORY(string nAME, string dESCRIPTION, Nullable<int> iNVOKER, string uSUARIO, string cULTURA, ObjectParameter rETCODE, ObjectParameter mENSAJE)
+        {
+            var nAMEParameter = nAME != null ?
+                new ObjectParameter("NAME", nAME) :
+                new ObjectParameter("NAME", typeof(string));
+    
+            var dESCRIPTIONParameter = dESCRIPTION != null ?
+                new ObjectParameter("DESCRIPTION", dESCRIPTION) :
+                new ObjectParameter("DESCRIPTION", typeof(string));
+    
+            var iNVOKERParameter = iNVOKER.HasValue ?
+                new ObjectParameter("INVOKER", iNVOKER) :
+                new ObjectParameter("INVOKER", typeof(int));
+    
+            var uSUARIOParameter = uSUARIO != null ?
+                new ObjectParameter("USUARIO", uSUARIO) :
+                new ObjectParameter("USUARIO", typeof(string));
+    
+            var cULTURAParameter = cULTURA != null ?
+                new ObjectParameter("CULTURA", cULTURA) :
+                new ObjectParameter("CULTURA", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PA_ADD_CATEGORY", nAMEParameter, dESCRIPTIONParameter, iNVOKERParameter, uSUARIOParameter, cULTURAParameter, rETCODE, mENSAJE);
+        }
+    
+        public virtual int PA_ADD_CONTACT(string nAME, string sURNAMES, string pHONE, string eMAIL, string aDDRESS, string rOLE, string oBSERVATIONS, Nullable<int> iNVOKER, string uSUARIO, string cULTURA, ObjectParameter rETCODE, ObjectParameter mENSAJE)
+        {
+            var nAMEParameter = nAME != null ?
+                new ObjectParameter("NAME", nAME) :
+                new ObjectParameter("NAME", typeof(string));
+    
+            var sURNAMESParameter = sURNAMES != null ?
+                new ObjectParameter("SURNAMES", sURNAMES) :
+                new ObjectParameter("SURNAMES", typeof(string));
+    
+            var pHONEParameter = pHONE != null ?
+                new ObjectParameter("PHONE", pHONE) :
+                new ObjectParameter("PHONE", typeof(string));
+    
+            var eMAILParameter = eMAIL != null ?
+                new ObjectParameter("EMAIL", eMAIL) :
+                new ObjectParameter("EMAIL", typeof(string));
+    
+            var aDDRESSParameter = aDDRESS != null ?
+                new ObjectParameter("ADDRESS", aDDRESS) :
+                new ObjectParameter("ADDRESS", typeof(string));
+    
+            var rOLEParameter = rOLE != null ?
+                new ObjectParameter("ROLE", rOLE) :
+                new ObjectParameter("ROLE", typeof(string));
+    
+            var oBSERVATIONSParameter = oBSERVATIONS != null ?
+                new ObjectParameter("OBSERVATIONS", oBSERVATIONS) :
+                new ObjectParameter("OBSERVATIONS", typeof(string));
+    
+            var iNVOKERParameter = iNVOKER.HasValue ?
+                new ObjectParameter("INVOKER", iNVOKER) :
+                new ObjectParameter("INVOKER", typeof(int));
+    
+            var uSUARIOParameter = uSUARIO != null ?
+                new ObjectParameter("USUARIO", uSUARIO) :
+                new ObjectParameter("USUARIO", typeof(string));
+    
+            var cULTURAParameter = cULTURA != null ?
+                new ObjectParameter("CULTURA", cULTURA) :
+                new ObjectParameter("CULTURA", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PA_ADD_CONTACT", nAMEParameter, sURNAMESParameter, pHONEParameter, eMAILParameter, aDDRESSParameter, rOLEParameter, oBSERVATIONSParameter, iNVOKERParameter, uSUARIOParameter, cULTURAParameter, rETCODE, mENSAJE);
+        }
+    
+        public virtual int PA_ADD_PRODUCT(Nullable<int> cODE, string nAME, string dESCRIPTION, Nullable<int> cATEGORY, Nullable<int> sUPPLIER, Nullable<int> sTOCK, Nullable<decimal> sELL_PRICE, Nullable<decimal> sUPLIER_PRICE, Nullable<int> iNVOKER, string uSUARIO, string cULTURA, ObjectParameter rETCODE, ObjectParameter mENSAJE)
+        {
+            var cODEParameter = cODE.HasValue ?
+                new ObjectParameter("CODE", cODE) :
+                new ObjectParameter("CODE", typeof(int));
+    
+            var nAMEParameter = nAME != null ?
+                new ObjectParameter("NAME", nAME) :
+                new ObjectParameter("NAME", typeof(string));
+    
+            var dESCRIPTIONParameter = dESCRIPTION != null ?
+                new ObjectParameter("DESCRIPTION", dESCRIPTION) :
+                new ObjectParameter("DESCRIPTION", typeof(string));
+    
+            var cATEGORYParameter = cATEGORY.HasValue ?
+                new ObjectParameter("CATEGORY", cATEGORY) :
+                new ObjectParameter("CATEGORY", typeof(int));
+    
+            var sUPPLIERParameter = sUPPLIER.HasValue ?
+                new ObjectParameter("SUPPLIER", sUPPLIER) :
+                new ObjectParameter("SUPPLIER", typeof(int));
+    
+            var sTOCKParameter = sTOCK.HasValue ?
+                new ObjectParameter("STOCK", sTOCK) :
+                new ObjectParameter("STOCK", typeof(int));
+    
+            var sELL_PRICEParameter = sELL_PRICE.HasValue ?
+                new ObjectParameter("SELL_PRICE", sELL_PRICE) :
+                new ObjectParameter("SELL_PRICE", typeof(decimal));
+    
+            var sUPLIER_PRICEParameter = sUPLIER_PRICE.HasValue ?
+                new ObjectParameter("SUPLIER_PRICE", sUPLIER_PRICE) :
+                new ObjectParameter("SUPLIER_PRICE", typeof(decimal));
+    
+            var iNVOKERParameter = iNVOKER.HasValue ?
+                new ObjectParameter("INVOKER", iNVOKER) :
+                new ObjectParameter("INVOKER", typeof(int));
+    
+            var uSUARIOParameter = uSUARIO != null ?
+                new ObjectParameter("USUARIO", uSUARIO) :
+                new ObjectParameter("USUARIO", typeof(string));
+    
+            var cULTURAParameter = cULTURA != null ?
+                new ObjectParameter("CULTURA", cULTURA) :
+                new ObjectParameter("CULTURA", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PA_ADD_PRODUCT", cODEParameter, nAMEParameter, dESCRIPTIONParameter, cATEGORYParameter, sUPPLIERParameter, sTOCKParameter, sELL_PRICEParameter, sUPLIER_PRICEParameter, iNVOKERParameter, uSUARIOParameter, cULTURAParameter, rETCODE, mENSAJE);
+        }
+    
+        public virtual int PA_ADD_SUPPLIER(string nAME, string dESCRIPTION, Nullable<int> iNVOKER, string uSUARIO, string cULTURA, ObjectParameter rETCODE, ObjectParameter mENSAJE)
+        {
+            var nAMEParameter = nAME != null ?
+                new ObjectParameter("NAME", nAME) :
+                new ObjectParameter("NAME", typeof(string));
+    
+            var dESCRIPTIONParameter = dESCRIPTION != null ?
+                new ObjectParameter("DESCRIPTION", dESCRIPTION) :
+                new ObjectParameter("DESCRIPTION", typeof(string));
+    
+            var iNVOKERParameter = iNVOKER.HasValue ?
+                new ObjectParameter("INVOKER", iNVOKER) :
+                new ObjectParameter("INVOKER", typeof(int));
+    
+            var uSUARIOParameter = uSUARIO != null ?
+                new ObjectParameter("USUARIO", uSUARIO) :
+                new ObjectParameter("USUARIO", typeof(string));
+    
+            var cULTURAParameter = cULTURA != null ?
+                new ObjectParameter("CULTURA", cULTURA) :
+                new ObjectParameter("CULTURA", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PA_ADD_SUPPLIER", nAMEParameter, dESCRIPTIONParameter, iNVOKERParameter, uSUARIOParameter, cULTURAParameter, rETCODE, mENSAJE);
+        }
     
         public virtual int PA_CHECK_LOGIN(string eMAIL, string pASSWD, Nullable<int> iNVOKER, string uSUARIO, string cULTURA, ObjectParameter rETCODE, ObjectParameter mENSAJE)
         {
@@ -61,6 +207,272 @@ namespace Control
                 new ObjectParameter("CULTURA", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PA_CHECK_LOGIN", eMAILParameter, pASSWDParameter, iNVOKERParameter, uSUARIOParameter, cULTURAParameter, rETCODE, mENSAJE);
+        }
+    
+        public virtual int PA_DELETE_CATEGORY(string nAME, string dESCRIPTION, Nullable<int> iNVOKER, string uSUARIO, string cULTURA, ObjectParameter rETCODE, ObjectParameter mENSAJE)
+        {
+            var nAMEParameter = nAME != null ?
+                new ObjectParameter("NAME", nAME) :
+                new ObjectParameter("NAME", typeof(string));
+    
+            var dESCRIPTIONParameter = dESCRIPTION != null ?
+                new ObjectParameter("DESCRIPTION", dESCRIPTION) :
+                new ObjectParameter("DESCRIPTION", typeof(string));
+    
+            var iNVOKERParameter = iNVOKER.HasValue ?
+                new ObjectParameter("INVOKER", iNVOKER) :
+                new ObjectParameter("INVOKER", typeof(int));
+    
+            var uSUARIOParameter = uSUARIO != null ?
+                new ObjectParameter("USUARIO", uSUARIO) :
+                new ObjectParameter("USUARIO", typeof(string));
+    
+            var cULTURAParameter = cULTURA != null ?
+                new ObjectParameter("CULTURA", cULTURA) :
+                new ObjectParameter("CULTURA", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PA_DELETE_CATEGORY", nAMEParameter, dESCRIPTIONParameter, iNVOKERParameter, uSUARIOParameter, cULTURAParameter, rETCODE, mENSAJE);
+        }
+    
+        public virtual int PA_DELETE_CONTACT(Nullable<int> iD_CONTACT, Nullable<int> iNVOKER, string uSUARIO, string cULTURA, ObjectParameter rETCODE, ObjectParameter mENSAJE)
+        {
+            var iD_CONTACTParameter = iD_CONTACT.HasValue ?
+                new ObjectParameter("ID_CONTACT", iD_CONTACT) :
+                new ObjectParameter("ID_CONTACT", typeof(int));
+    
+            var iNVOKERParameter = iNVOKER.HasValue ?
+                new ObjectParameter("INVOKER", iNVOKER) :
+                new ObjectParameter("INVOKER", typeof(int));
+    
+            var uSUARIOParameter = uSUARIO != null ?
+                new ObjectParameter("USUARIO", uSUARIO) :
+                new ObjectParameter("USUARIO", typeof(string));
+    
+            var cULTURAParameter = cULTURA != null ?
+                new ObjectParameter("CULTURA", cULTURA) :
+                new ObjectParameter("CULTURA", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PA_DELETE_CONTACT", iD_CONTACTParameter, iNVOKERParameter, uSUARIOParameter, cULTURAParameter, rETCODE, mENSAJE);
+        }
+    
+        public virtual int PA_DELETE_PRODUCT(Nullable<int> iD_PRODUCT, Nullable<int> iNVOKER, string uSUARIO, string cULTURA, ObjectParameter rETCODE, ObjectParameter mENSAJE)
+        {
+            var iD_PRODUCTParameter = iD_PRODUCT.HasValue ?
+                new ObjectParameter("ID_PRODUCT", iD_PRODUCT) :
+                new ObjectParameter("ID_PRODUCT", typeof(int));
+    
+            var iNVOKERParameter = iNVOKER.HasValue ?
+                new ObjectParameter("INVOKER", iNVOKER) :
+                new ObjectParameter("INVOKER", typeof(int));
+    
+            var uSUARIOParameter = uSUARIO != null ?
+                new ObjectParameter("USUARIO", uSUARIO) :
+                new ObjectParameter("USUARIO", typeof(string));
+    
+            var cULTURAParameter = cULTURA != null ?
+                new ObjectParameter("CULTURA", cULTURA) :
+                new ObjectParameter("CULTURA", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PA_DELETE_PRODUCT", iD_PRODUCTParameter, iNVOKERParameter, uSUARIOParameter, cULTURAParameter, rETCODE, mENSAJE);
+        }
+    
+        public virtual int PA_DELETE_SUPPLIER(string nAME, string dESCRIPTION, Nullable<int> iNVOKER, string uSUARIO, string cULTURA, ObjectParameter rETCODE, ObjectParameter mENSAJE)
+        {
+            var nAMEParameter = nAME != null ?
+                new ObjectParameter("NAME", nAME) :
+                new ObjectParameter("NAME", typeof(string));
+    
+            var dESCRIPTIONParameter = dESCRIPTION != null ?
+                new ObjectParameter("DESCRIPTION", dESCRIPTION) :
+                new ObjectParameter("DESCRIPTION", typeof(string));
+    
+            var iNVOKERParameter = iNVOKER.HasValue ?
+                new ObjectParameter("INVOKER", iNVOKER) :
+                new ObjectParameter("INVOKER", typeof(int));
+    
+            var uSUARIOParameter = uSUARIO != null ?
+                new ObjectParameter("USUARIO", uSUARIO) :
+                new ObjectParameter("USUARIO", typeof(string));
+    
+            var cULTURAParameter = cULTURA != null ?
+                new ObjectParameter("CULTURA", cULTURA) :
+                new ObjectParameter("CULTURA", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PA_DELETE_SUPPLIER", nAMEParameter, dESCRIPTIONParameter, iNVOKERParameter, uSUARIOParameter, cULTURAParameter, rETCODE, mENSAJE);
+        }
+    
+        public virtual int PA_UPDATE_CATEGORY(Nullable<int> iD, string nAME, string dESCRIPTION, Nullable<int> iNVOKER, string uSUARIO, string cULTURA, ObjectParameter rETCODE, ObjectParameter mENSAJE)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var nAMEParameter = nAME != null ?
+                new ObjectParameter("NAME", nAME) :
+                new ObjectParameter("NAME", typeof(string));
+    
+            var dESCRIPTIONParameter = dESCRIPTION != null ?
+                new ObjectParameter("DESCRIPTION", dESCRIPTION) :
+                new ObjectParameter("DESCRIPTION", typeof(string));
+    
+            var iNVOKERParameter = iNVOKER.HasValue ?
+                new ObjectParameter("INVOKER", iNVOKER) :
+                new ObjectParameter("INVOKER", typeof(int));
+    
+            var uSUARIOParameter = uSUARIO != null ?
+                new ObjectParameter("USUARIO", uSUARIO) :
+                new ObjectParameter("USUARIO", typeof(string));
+    
+            var cULTURAParameter = cULTURA != null ?
+                new ObjectParameter("CULTURA", cULTURA) :
+                new ObjectParameter("CULTURA", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PA_UPDATE_CATEGORY", iDParameter, nAMEParameter, dESCRIPTIONParameter, iNVOKERParameter, uSUARIOParameter, cULTURAParameter, rETCODE, mENSAJE);
+        }
+    
+        public virtual int PA_UPDATE_CONTACT(Nullable<int> iD_CONTACT, string nAME, string sURNAME, string pHONE, string eMAIL, string aDDRESS, string rOLE, string oBSERVATIONS, Nullable<int> iNVOKER, string uSUARIO, string cULTURA, ObjectParameter rETCODE, ObjectParameter mENSAJE)
+        {
+            var iD_CONTACTParameter = iD_CONTACT.HasValue ?
+                new ObjectParameter("ID_CONTACT", iD_CONTACT) :
+                new ObjectParameter("ID_CONTACT", typeof(int));
+    
+            var nAMEParameter = nAME != null ?
+                new ObjectParameter("NAME", nAME) :
+                new ObjectParameter("NAME", typeof(string));
+    
+            var sURNAMEParameter = sURNAME != null ?
+                new ObjectParameter("SURNAME", sURNAME) :
+                new ObjectParameter("SURNAME", typeof(string));
+    
+            var pHONEParameter = pHONE != null ?
+                new ObjectParameter("PHONE", pHONE) :
+                new ObjectParameter("PHONE", typeof(string));
+    
+            var eMAILParameter = eMAIL != null ?
+                new ObjectParameter("EMAIL", eMAIL) :
+                new ObjectParameter("EMAIL", typeof(string));
+    
+            var aDDRESSParameter = aDDRESS != null ?
+                new ObjectParameter("ADDRESS", aDDRESS) :
+                new ObjectParameter("ADDRESS", typeof(string));
+    
+            var rOLEParameter = rOLE != null ?
+                new ObjectParameter("ROLE", rOLE) :
+                new ObjectParameter("ROLE", typeof(string));
+    
+            var oBSERVATIONSParameter = oBSERVATIONS != null ?
+                new ObjectParameter("OBSERVATIONS", oBSERVATIONS) :
+                new ObjectParameter("OBSERVATIONS", typeof(string));
+    
+            var iNVOKERParameter = iNVOKER.HasValue ?
+                new ObjectParameter("INVOKER", iNVOKER) :
+                new ObjectParameter("INVOKER", typeof(int));
+    
+            var uSUARIOParameter = uSUARIO != null ?
+                new ObjectParameter("USUARIO", uSUARIO) :
+                new ObjectParameter("USUARIO", typeof(string));
+    
+            var cULTURAParameter = cULTURA != null ?
+                new ObjectParameter("CULTURA", cULTURA) :
+                new ObjectParameter("CULTURA", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PA_UPDATE_CONTACT", iD_CONTACTParameter, nAMEParameter, sURNAMEParameter, pHONEParameter, eMAILParameter, aDDRESSParameter, rOLEParameter, oBSERVATIONSParameter, iNVOKERParameter, uSUARIOParameter, cULTURAParameter, rETCODE, mENSAJE);
+        }
+    
+        public virtual int PA_UPDATE_PRODUCT(Nullable<int> cODE, string nAME, string dESCRIPTION, Nullable<int> cATEGORY, Nullable<int> sUPPLIER, Nullable<int> sTOCK, Nullable<decimal> sELL_PRICE, Nullable<decimal> sUPLIER_PRICE, Nullable<int> iNVOKER, string uSUARIO, string cULTURA, ObjectParameter rETCODE, ObjectParameter mENSAJE)
+        {
+            var cODEParameter = cODE.HasValue ?
+                new ObjectParameter("CODE", cODE) :
+                new ObjectParameter("CODE", typeof(int));
+    
+            var nAMEParameter = nAME != null ?
+                new ObjectParameter("NAME", nAME) :
+                new ObjectParameter("NAME", typeof(string));
+    
+            var dESCRIPTIONParameter = dESCRIPTION != null ?
+                new ObjectParameter("DESCRIPTION", dESCRIPTION) :
+                new ObjectParameter("DESCRIPTION", typeof(string));
+    
+            var cATEGORYParameter = cATEGORY.HasValue ?
+                new ObjectParameter("CATEGORY", cATEGORY) :
+                new ObjectParameter("CATEGORY", typeof(int));
+    
+            var sUPPLIERParameter = sUPPLIER.HasValue ?
+                new ObjectParameter("SUPPLIER", sUPPLIER) :
+                new ObjectParameter("SUPPLIER", typeof(int));
+    
+            var sTOCKParameter = sTOCK.HasValue ?
+                new ObjectParameter("STOCK", sTOCK) :
+                new ObjectParameter("STOCK", typeof(int));
+    
+            var sELL_PRICEParameter = sELL_PRICE.HasValue ?
+                new ObjectParameter("SELL_PRICE", sELL_PRICE) :
+                new ObjectParameter("SELL_PRICE", typeof(decimal));
+    
+            var sUPLIER_PRICEParameter = sUPLIER_PRICE.HasValue ?
+                new ObjectParameter("SUPLIER_PRICE", sUPLIER_PRICE) :
+                new ObjectParameter("SUPLIER_PRICE", typeof(decimal));
+    
+            var iNVOKERParameter = iNVOKER.HasValue ?
+                new ObjectParameter("INVOKER", iNVOKER) :
+                new ObjectParameter("INVOKER", typeof(int));
+    
+            var uSUARIOParameter = uSUARIO != null ?
+                new ObjectParameter("USUARIO", uSUARIO) :
+                new ObjectParameter("USUARIO", typeof(string));
+    
+            var cULTURAParameter = cULTURA != null ?
+                new ObjectParameter("CULTURA", cULTURA) :
+                new ObjectParameter("CULTURA", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PA_UPDATE_PRODUCT", cODEParameter, nAMEParameter, dESCRIPTIONParameter, cATEGORYParameter, sUPPLIERParameter, sTOCKParameter, sELL_PRICEParameter, sUPLIER_PRICEParameter, iNVOKERParameter, uSUARIOParameter, cULTURAParameter, rETCODE, mENSAJE);
+        }
+    
+        public virtual int PA_UPDATE_SUPPLIER(Nullable<int> iD, string nAME, string dESCRIPTION, Nullable<int> iNVOKER, string uSUARIO, string cULTURA, ObjectParameter rETCODE, ObjectParameter mENSAJE)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var nAMEParameter = nAME != null ?
+                new ObjectParameter("NAME", nAME) :
+                new ObjectParameter("NAME", typeof(string));
+    
+            var dESCRIPTIONParameter = dESCRIPTION != null ?
+                new ObjectParameter("DESCRIPTION", dESCRIPTION) :
+                new ObjectParameter("DESCRIPTION", typeof(string));
+    
+            var iNVOKERParameter = iNVOKER.HasValue ?
+                new ObjectParameter("INVOKER", iNVOKER) :
+                new ObjectParameter("INVOKER", typeof(int));
+    
+            var uSUARIOParameter = uSUARIO != null ?
+                new ObjectParameter("USUARIO", uSUARIO) :
+                new ObjectParameter("USUARIO", typeof(string));
+    
+            var cULTURAParameter = cULTURA != null ?
+                new ObjectParameter("CULTURA", cULTURA) :
+                new ObjectParameter("CULTURA", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PA_UPDATE_SUPPLIER", iDParameter, nAMEParameter, dESCRIPTIONParameter, iNVOKERParameter, uSUARIOParameter, cULTURAParameter, rETCODE, mENSAJE);
+        }
+    
+        public virtual ObjectResult<string> PAH(string tEXTO)
+        {
+            var tEXTOParameter = tEXTO != null ?
+                new ObjectParameter("TEXTO", tEXTO) :
+                new ObjectParameter("TEXTO", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("PAH", tEXTOParameter);
+        }
+    
+        public virtual int PAP(string nOMBRE_PA)
+        {
+            var nOMBRE_PAParameter = nOMBRE_PA != null ?
+                new ObjectParameter("NOMBRE_PA", nOMBRE_PA) :
+                new ObjectParameter("NOMBRE_PA", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PAP", nOMBRE_PAParameter);
         }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
@@ -164,47 +576,6 @@ namespace Control
         public virtual int sp_upgraddiagrams()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
-        }
-    
-        public virtual int PA_ADD_CONTACT(string nAME, string sURNAMES, string pHONE, string eMAIL, string aDDRESS, string rOLE, Nullable<int> iNVOKER, string uSUARIO, string cULTURA, ObjectParameter rETCODE, ObjectParameter mENSAJE)
-        {
-            var nAMEParameter = nAME != null ?
-                new ObjectParameter("NAME", nAME) :
-                new ObjectParameter("NAME", typeof(string));
-    
-            var sURNAMESParameter = sURNAMES != null ?
-                new ObjectParameter("SURNAMES", sURNAMES) :
-                new ObjectParameter("SURNAMES", typeof(string));
-    
-            var pHONEParameter = pHONE != null ?
-                new ObjectParameter("PHONE", pHONE) :
-                new ObjectParameter("PHONE", typeof(string));
-    
-            var eMAILParameter = eMAIL != null ?
-                new ObjectParameter("EMAIL", eMAIL) :
-                new ObjectParameter("EMAIL", typeof(string));
-    
-            var aDDRESSParameter = aDDRESS != null ?
-                new ObjectParameter("ADDRESS", aDDRESS) :
-                new ObjectParameter("ADDRESS", typeof(string));
-    
-            var rOLEParameter = rOLE != null ?
-                new ObjectParameter("ROLE", rOLE) :
-                new ObjectParameter("ROLE", typeof(string));
-    
-            var iNVOKERParameter = iNVOKER.HasValue ?
-                new ObjectParameter("INVOKER", iNVOKER) :
-                new ObjectParameter("INVOKER", typeof(int));
-    
-            var uSUARIOParameter = uSUARIO != null ?
-                new ObjectParameter("USUARIO", uSUARIO) :
-                new ObjectParameter("USUARIO", typeof(string));
-    
-            var cULTURAParameter = cULTURA != null ?
-                new ObjectParameter("CULTURA", cULTURA) :
-                new ObjectParameter("CULTURA", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PA_ADD_CONTACT", nAMEParameter, sURNAMESParameter, pHONEParameter, eMAILParameter, aDDRESSParameter, rOLEParameter, iNVOKERParameter, uSUARIOParameter, cULTURAParameter, rETCODE, mENSAJE);
         }
     }
 }

@@ -69,13 +69,37 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Product.cs" />
+    <Compile Include="Classes\Supplier.cs" />
+    <Compile Include="Classes\Category.cs" />
     <Compile Include="Classes\Customer.cs" />
     <Compile Include="Classes\Company.cs" />
     <Compile Include="Classes\Contact.cs" />
+    <Compile Include="db_devloDataSet.cs">
+      <DependentUpon>db_devloDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="db_devloDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>db_devloDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="db_devloDataSetCategory.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>db_devloDataSetCategory.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="db_devloDataSetProducts.cs">
+      <DependentUpon>db_devloDataSetProducts.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="db_devloDataSetProducts.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>db_devloDataSetProducts.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="db_devloDataSetSuppliers.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>db_devloDataSetSuppliers.xsd</DependentUpon>
     </Compile>
     <Compile Include="Forms\Customers\FrmAddContact.cs">
       <SubType>Form</SubType>
@@ -83,11 +107,23 @@
     <Compile Include="Forms\Customers\FrmAddContact.Designer.cs">
       <DependentUpon>FrmAddContact.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Customers\FrmCustomer.cs">
+    <Compile Include="Forms\Customers\FrmCustomers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Customers\FrmCustomer.Designer.cs">
-      <DependentUpon>FrmCustomer.cs</DependentUpon>
+    <Compile Include="Forms\Customers\FrmCustomers.Designer.cs">
+      <DependentUpon>FrmCustomers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Customers\FrmDetailContact.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Customers\FrmDetailContact.Designer.cs">
+      <DependentUpon>FrmDetailContact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Customers\FrmEditContact.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Customers\FrmEditContact.Designer.cs">
+      <DependentUpon>FrmEditContact.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmDashBoard.cs">
       <SubType>Form</SubType>
@@ -107,13 +143,61 @@
     <Compile Include="Forms\FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Products\FrmAddSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Products\FrmAddSupplier.Designer.cs">
+      <DependentUpon>FrmAddSupplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Products\FrmEditProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Products\FrmEditProduct.Designer.cs">
+      <DependentUpon>FrmEditProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Products\FrmAddCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Products\FrmAddCategory.Designer.cs">
+      <DependentUpon>FrmAddCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Products\FrmAddProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Products\FrmAddProduct.Designer.cs">
+      <DependentUpon>FrmAddProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Products\FrmDetailProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Products\FrmDetailProduct.Designer.cs">
+      <DependentUpon>FrmDetailProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Products\FrmProducts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Products\FrmProducts.Designer.cs">
+      <DependentUpon>FrmProducts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Ventas\FrmSales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Ventas\FrmSales.Designer.cs">
+      <DependentUpon>FrmSales.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\Customers\FrmAddContact.resx">
       <DependentUpon>FrmAddContact.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Customers\FrmCustomer.resx">
-      <DependentUpon>FrmCustomer.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Customers\FrmCustomers.resx">
+      <DependentUpon>FrmCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Customers\FrmDetailContact.resx">
+      <DependentUpon>FrmDetailContact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Customers\FrmEditContact.resx">
+      <DependentUpon>FrmEditContact.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmDashBoard.resx">
       <DependentUpon>FrmDashBoard.cs</DependentUpon>
@@ -123,6 +207,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Products\FrmAddCategory.resx">
+      <DependentUpon>FrmAddCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Products\FrmAddSupplier.resx">
+      <DependentUpon>FrmAddSupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Products\FrmEditProduct.resx">
+      <DependentUpon>FrmEditProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Products\FrmAddProduct.resx">
+      <DependentUpon>FrmAddProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Products\FrmDetailProduct.resx">
+      <DependentUpon>FrmDetailProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Products\FrmProducts.resx">
+      <DependentUpon>FrmProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Ventas\FrmSales.resx">
+      <DependentUpon>FrmSales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -144,6 +249,39 @@
     <None Include="db_devloDataSet.xss">
       <DependentUpon>db_devloDataSet.xsd</DependentUpon>
     </None>
+    <None Include="db_devloDataSetCategory.xsc">
+      <DependentUpon>db_devloDataSetCategory.xsd</DependentUpon>
+    </None>
+    <None Include="db_devloDataSetCategory.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>db_devloDataSetCategory.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="db_devloDataSetCategory.xss">
+      <DependentUpon>db_devloDataSetCategory.xsd</DependentUpon>
+    </None>
+    <None Include="db_devloDataSetProducts.xsc">
+      <DependentUpon>db_devloDataSetProducts.xsd</DependentUpon>
+    </None>
+    <None Include="db_devloDataSetProducts.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>db_devloDataSetProducts.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="db_devloDataSetProducts.xss">
+      <DependentUpon>db_devloDataSetProducts.xsd</DependentUpon>
+    </None>
+    <None Include="db_devloDataSetSuppliers.xsc">
+      <DependentUpon>db_devloDataSetSuppliers.xsd</DependentUpon>
+    </None>
+    <None Include="db_devloDataSetSuppliers.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>db_devloDataSetSuppliers.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="db_devloDataSetSuppliers.xss">
+      <DependentUpon>db_devloDataSetSuppliers.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -164,5 +302,6 @@
       <Name>Control</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
