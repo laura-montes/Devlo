@@ -17,7 +17,7 @@ namespace Control
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PRODUCT()
         {
-            this.SALES = new HashSet<SALE>();
+            this.SALES_LIN = new HashSet<SALES_LIN>();
         }
     
         public int IDPRODUCT { get; set; }
@@ -33,6 +33,6 @@ namespace Control
         public virtual CATEGORY CATEGORY1 { get; set; }
         public virtual SUPPLIER SUPPLIER1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SALE> SALES { get; set; }
+        public virtual ICollection<SALES_LIN> SALES_LIN { get; set; }
     }
 }

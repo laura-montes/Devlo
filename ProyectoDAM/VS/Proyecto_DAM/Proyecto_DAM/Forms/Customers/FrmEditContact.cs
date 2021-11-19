@@ -55,7 +55,7 @@ namespace Proyecto_DAM.Forms.Customers
         private void BtnSave_Click(object sender, EventArgs e)
         {
 
-            if (contact.ElementAt(0).ROLE.ToUpper().Equals("COMPANY"))
+            if (ChckCustomer.Checked)
             {
                 utilities.pa_updateContact(idContact,
                 TxtName.Text,
@@ -67,7 +67,7 @@ namespace Proyecto_DAM.Forms.Customers
                 TxtObservations.Text
                 );
             }
-            else if (contact.ElementAt(0).ROLE.ToUpper().Equals("CUSTOMER"))
+            else if (ChckCompany.Checked)
             {
                 utilities.pa_updateContact(idContact,
                 TxtName.Text,

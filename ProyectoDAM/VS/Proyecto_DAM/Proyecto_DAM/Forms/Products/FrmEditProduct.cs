@@ -16,24 +16,16 @@ namespace Proyecto_DAM.Forms.Products
         int idProduct = 0;
         Utilities utilities = new Utilities();
         db_devloEntities db = new db_devloEntities();
-        IEnumerable<PRODUCT> product;
+        IEnumerable<V_PRODUCTS> product;
+        internal string category;
 
         public FrmEditProduct(int idProduct)
         {
             InitializeComponent();
+
+
             this.idProduct = idProduct;
-            product = db.PRODUCTS.Where(x => x.IDPRODUCT == idProduct).ToList();
-
-            TxtCode.Text = product.ElementAt(0).CODE.ToString();
-            TxtName.Text = product.ElementAt(0).NAME;
-            TxtCost_Price.Text = product.ElementAt(0).SUPPLIER_PRICE.ToString();
-            TxtDescription.Text = product.ElementAt(0).DESCRIPTION;
-            TxtSell_Price.Text = product.ElementAt(0).SELL_PRICE.ToString();
-            TxtStock.Text = product.ElementAt(0).STOCK.ToString();
-
-            CmbBxCategory.Text = product.ElementAt(0).CATEGORY1.ToString();
-            CmbBxSupplier.Text = product.ElementAt(0).SUPPLIER1.ToString();
-
+            product = db.V_PRODUCTS.Where(x => x.IDPRODUCT == idProduct).ToList();
         }
 
         private void PctBxBack_Click(object sender, EventArgs e)
@@ -69,8 +61,47 @@ namespace Proyecto_DAM.Forms.Products
             TxtSell_Price.Text = "";
             TxtStock.Text = "";
 
-            CmbBxCategory.Text = null;
-            CmbBxSupplier.Text = null;
+            CmbBxCategory.SelectedIndex = -1;
+            CmbBxSupplier.SelectedIndex = -1;
+        }
+
+		private void FrmEditProduct_Load(object sender, EventArgs e)
+		{
+            IEnumerable<CATEGORY> categories = db.CATEGORies.ToList();
+            IEnumerable<SUPPLIER> suppliers = db.SUPPLIERS.ToList();
+
+            TxtCode.Text = product.ElementAt(0).CODE.ToString();
+            TxtName.Text = product.ElementAt(0).NAME;
+            TxtCost_Price.Text = product.ElementAt(0).SUPPLIER_PRICE.ToString();
+            TxtDescription.Text = product.ElementAt(0).DESCRIPTION;
+            TxtSell_Price.Text = product.ElementAt(0).SELL_PRICE.ToString();
+            TxtStock.Text = product.ElementAt(0).STOCK.ToString();
+
+            //AQUI LLENO LOS CMBOX
+            this.sUPPLIERSTableAdapter.Fill(this.db_devloDataSetSuppliers.SUPPLIERS);
+            this.cATEGORYTableAdapter.Fill(this.db_devloDataSetCategory.CATEGORY);
+
+            int index = 0;
+            foreach (CATEGORY item in categories)
+            {
+                if (item.ID == product.ElementAt(0).IDCATEGORY)
+                {
+                    index = categories.ToList().IndexOf(item);
+                }
+            }
+
+            CmbBxCategory.SelectedIndex = index;
+
+            index = 0;
+            foreach (SUPPLIER item in suppliers)
+            {
+                if (item.ID == product.ElementAt(0).IDCATEGORY)
+                {
+                    index = suppliers.ToList().IndexOf(item);
+                }
+            }
+
+           CmbBxSupplier.SelectedIndex = index;
         }
 	}
 }

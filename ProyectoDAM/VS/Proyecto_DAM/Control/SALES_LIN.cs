@@ -12,17 +12,15 @@ namespace Control
     using System;
     using System.Collections.Generic;
     
-    public partial class SALE
+    public partial class SALES_LIN
     {
-        public int IDSALE { get; set; }
-        public Nullable<int> PROD_NUMBER { get; set; }
-        public Nullable<int> STATE { get; set; }
-        public Nullable<decimal> TOTAL_PRICE { get; set; }
-        public Nullable<int> IDCONTACT { get; set; }
-        public Nullable<int> IDPRODUCTO { get; set; }
+        public int IDLIN { get; set; }
+        public Nullable<int> N_LIN { get; set; }
+        public Nullable<int> IDPRODUCT { get; set; }
+        public Nullable<int> UNITS { get; set; }
+        public Nullable<int> IDCAB { get; set; }
     
-        public virtual CONTACT CONTACT { get; set; }
         public virtual PRODUCT PRODUCT { get; set; }
-        public virtual STATE STATE1 { get; set; }
+        public virtual SALES_CAB SALES_CAB { get; set; }
     }
 }

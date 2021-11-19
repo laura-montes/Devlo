@@ -86,9 +86,11 @@ namespace Proyecto_DAM
             this.BtnDashboard.HoverState.Parent = this.BtnDashboard;
             this.BtnDashboard.Image = ((System.Drawing.Image)(resources.GetObject("BtnDashboard.Image")));
             this.BtnDashboard.ImageSize = new System.Drawing.Size(30, 30);
-            this.BtnDashboard.Location = new System.Drawing.Point(33, 246);
+            this.BtnDashboard.Location = new System.Drawing.Point(22, 246);
             this.BtnDashboard.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnDashboard.Name = "BtnDashboard";
+            this.BtnDashboard.ShadowDecoration.BorderRadius = 1;
+            this.BtnDashboard.ShadowDecoration.Color = System.Drawing.Color.White;
             this.BtnDashboard.ShadowDecoration.Parent = this.BtnDashboard;
             this.BtnDashboard.Size = new System.Drawing.Size(180, 46);
             this.BtnDashboard.TabIndex = 13;
@@ -110,7 +112,7 @@ namespace Proyecto_DAM
             this.BtnSales.HoverState.Parent = this.BtnSales;
             this.BtnSales.Image = ((System.Drawing.Image)(resources.GetObject("BtnSales.Image")));
             this.BtnSales.ImageSize = new System.Drawing.Size(30, 30);
-            this.BtnSales.Location = new System.Drawing.Point(22, 463);
+            this.BtnSales.Location = new System.Drawing.Point(12, 455);
             this.BtnSales.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnSales.Name = "BtnSales";
             this.BtnSales.ShadowDecoration.Parent = this.BtnSales;
@@ -135,7 +137,7 @@ namespace Proyecto_DAM
             this.BtnProducts.HoverState.Parent = this.BtnProducts;
             this.BtnProducts.Image = ((System.Drawing.Image)(resources.GetObject("BtnProducts.Image")));
             this.BtnProducts.ImageSize = new System.Drawing.Size(30, 30);
-            this.BtnProducts.Location = new System.Drawing.Point(33, 389);
+            this.BtnProducts.Location = new System.Drawing.Point(22, 385);
             this.BtnProducts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnProducts.Name = "BtnProducts";
             this.BtnProducts.ShadowDecoration.Parent = this.BtnProducts;
@@ -155,12 +157,12 @@ namespace Proyecto_DAM
             this.BtnCustomers.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.BtnCustomers.DisabledState.Parent = this.BtnCustomers;
             this.BtnCustomers.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
-            this.BtnCustomers.Font = new System.Drawing.Font("Louis George Café", 12F);
+            this.BtnCustomers.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnCustomers.ForeColor = System.Drawing.Color.White;
             this.BtnCustomers.HoverState.Parent = this.BtnCustomers;
             this.BtnCustomers.Image = ((System.Drawing.Image)(resources.GetObject("BtnCustomers.Image")));
             this.BtnCustomers.ImageSize = new System.Drawing.Size(30, 30);
-            this.BtnCustomers.Location = new System.Drawing.Point(22, 317);
+            this.BtnCustomers.Location = new System.Drawing.Point(12, 317);
             this.BtnCustomers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnCustomers.Name = "BtnCustomers";
             this.BtnCustomers.ShadowDecoration.Parent = this.BtnCustomers;
@@ -174,7 +176,7 @@ namespace Proyecto_DAM
             this.LblClock.AutoSize = true;
             this.LblClock.Font = new System.Drawing.Font("Louis George Café", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblClock.ForeColor = System.Drawing.Color.White;
-            this.LblClock.Location = new System.Drawing.Point(43, 701);
+            this.LblClock.Location = new System.Drawing.Point(51, 701);
             this.LblClock.Name = "LblClock";
             this.LblClock.Size = new System.Drawing.Size(190, 46);
             this.LblClock.TabIndex = 9;
@@ -287,6 +289,7 @@ namespace Proyecto_DAM
             // PanelLoad
             // 
             this.PanelLoad.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.PanelLoad.Font = new System.Drawing.Font("Louis George Café", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PanelLoad.Location = new System.Drawing.Point(262, 87);
             this.PanelLoad.Name = "PanelLoad";
             this.PanelLoad.Size = new System.Drawing.Size(1172, 715);
@@ -304,7 +307,7 @@ namespace Proyecto_DAM
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmGeneral";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Devlo";
+            this.Text = "FrmGeneral";
             this.Load += new System.EventHandler(this.FrmGeneral_Load);
             this.PanelGeneral.ResumeLayout(false);
             this.PanelGeneral.PerformLayout();

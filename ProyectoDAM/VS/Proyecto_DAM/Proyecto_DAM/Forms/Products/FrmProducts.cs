@@ -90,7 +90,7 @@ namespace Proyecto_DAM.Forms.Products
         private void FrmProducts_Load(object sender, EventArgs e)
 		{
 			// TODO: esta línea de código carga datos en la tabla 'db_devloDataSetProducts.PRODUCTS' Puede moverla o quitarla según sea necesario.
-			this.pRODUCTSTableAdapter.Fill(this.db_devloDataSetProducts.PRODUCTS);
+			this.pRODUCTSTableAdapter.FillGridView(this.db_devloDataSetProducts.PRODUCTS);
 
 		}
 
@@ -115,6 +115,7 @@ namespace Proyecto_DAM.Forms.Products
                     // BORRAR
                     int idProduct = int.Parse(DataGridViewProducts.Rows[e.RowIndex].Cells["IdProduct"].Value.ToString());
                    utilities.pa_deleteProduct(idProduct);
+                    this.pRODUCTSTableAdapter.FillBy(this.db_devloDataSetProducts.PRODUCTS);
                 }
             }
         }
@@ -131,6 +132,31 @@ namespace Proyecto_DAM.Forms.Products
             frmEditProduct.Dock = DockStyle.Fill;
             this.Close();
             frmEditProduct.Show();
+        }
+
+        private void DataGridViewProducts_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (DataGridViewProducts.Rows[e.RowIndex].Cells["CODIGO"].Selected || DataGridViewProducts.Rows[e.RowIndex].Cells["NOMBRE"].Selected ||
+                DataGridViewProducts.Rows[e.RowIndex].Cells["CATEGORIA"].Selected || DataGridViewProducts.Rows[e.RowIndex].Cells["PROVEEDOR"].Selected)
+            {
+                int idProduct = int.Parse(DataGridViewProducts.Rows[e.RowIndex].Cells["IDPRODUCT"].Value.ToString());
+                detailProduct(idProduct);
+            }
+        }
+
+
+        private void detailProduct(int id)
+        {
+            // APARICION DE FORMULARIO EN PANEL DEL FORMULARIO GENERAL
+            FrmDetailProduct frmDetailProduct = new FrmDetailProduct(id);
+            frmDetailProduct.TopLevel = false;
+            FrmGeneral frmGeneral = (FrmGeneral)Application.OpenForms["FrmGeneral"];
+            Panel panelLoad = (Panel)frmGeneral.Controls["Panelload"];
+            panelLoad.Controls.Add(frmDetailProduct);
+            frmDetailProduct.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frmDetailProduct.Dock = DockStyle.Fill;
+            this.Close();
+            frmDetailProduct.Show();
         }
 	}
 }

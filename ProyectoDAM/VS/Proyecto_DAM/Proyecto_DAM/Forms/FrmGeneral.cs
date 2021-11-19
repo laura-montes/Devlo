@@ -14,9 +14,7 @@ namespace Proyecto_DAM
 {
     public partial class FrmGeneral : Form
     {
-        FrmCustomer frmCustomer;
-        FrmProducts frmProducts;
-        FrmSales frmSales;
+        private FormCollection formsList;
 
         public FrmGeneral()
         {
@@ -26,19 +24,13 @@ namespace Proyecto_DAM
         private void FrmGeneral_Load(object sender, EventArgs e)
         {
             this.Location = new Point(100, 100);
-
-            //Hour
             LblClock.Text = DateTime.Now.ToString("HH:mm:ss");
-
-            frmCustomer = new FrmCustomer();
-            frmProducts = new FrmProducts();
-            frmSales = new FrmSales();
             
         }
 
         private void TimerClock_Tick(object sender, EventArgs e)
         {
-            var time = DateTime.Now.ToString("hh:mm:ss");
+            var time = DateTime.Now.ToString("HH:mm:ss");
             LblClock.Text = time;
         }
 
@@ -52,25 +44,28 @@ namespace Proyecto_DAM
             frmDashboard.Show();*/
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Environment.Exit(0);
-        }
-
         private void BtnCustomers_Click(object sender, EventArgs e)
         {
             try
             {
-                frmProducts.Close();
-                frmSales.Close();
+                formsList = Application.OpenForms;
+                foreach (Form forms in formsList)
+                {
+                    if (forms.Name != "FrmGeneral")
+                    {
+                        forms.Close();
+                    }
+                }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                
+                MessageBox.Show(ex.ToString());
             }
 
-            frmCustomer = new FrmCustomer();
+            //normalColor();
+            //this.BackColor = Color.FromArgb(217, 175, 123);
+
+            FrmCustomer frmCustomer = new FrmCustomer();
             frmCustomer.TopLevel = false;
             PanelLoad.Controls.Add(frmCustomer);
             frmCustomer.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -80,18 +75,27 @@ namespace Proyecto_DAM
 
         private void BtnProducts_Click(object sender, EventArgs e)
         {
+
             try
             {
-                frmCustomer.Close();
-                frmSales.Close();
+                formsList = Application.OpenForms;
+                foreach (Form forms in formsList)
+                {
+                    if (forms.Name != "FrmGeneral")
+                    {
+                        forms.Close();
+                    }
+                }
             }
             catch (Exception)
             {
 
-
             }
 
-            frmProducts = new FrmProducts();
+            //normalColor();
+            //this.BackColor = Color.FromArgb(217, 175, 123);
+
+            FrmProducts frmProducts = new FrmProducts();
             frmProducts.TopLevel = false;
             PanelLoad.Controls.Add(frmProducts);
             frmProducts.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -108,21 +112,37 @@ namespace Proyecto_DAM
         {
             try
             {
-                frmCustomer.Close();
-                frmProducts.Close();
+                formsList = Application.OpenForms;
+                foreach (Form forms in formsList)
+                {
+                    if (forms.Name != "FrmGeneral")
+                    {
+                        forms.Close();
+                    }
+                }
             }
             catch (Exception)
             {
 
-
             }
 
-            frmSales = new FrmSales();
+            //normalColor();
+            //this.BackColor = Color.FromArgb(217, 175, 123);
+
+            FrmSales frmSales = new FrmSales();
             frmSales.TopLevel = false;
             PanelLoad.Controls.Add(frmSales);
             frmSales.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             frmSales.Dock = DockStyle.Fill;
             frmSales.Show();
         }
+        private void normalColor()
+        {
+            BtnCustomers.BackColor = Color.FromArgb(184,148,104);
+            BtnProducts.BackColor = Color.FromArgb(184, 148, 104);
+            BtnSales.BackColor = Color.FromArgb(184, 148, 104);
+        }
     }
+
+    
 }

@@ -1,5 +1,7 @@
-﻿using Proyecto_DAM.Forms.Customers;
+﻿using Proyecto_DAM.Forms;
+using Proyecto_DAM.Forms.Customers;
 using Proyecto_DAM.Forms.Products;
+using Proyecto_DAM.Forms.Sales;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +20,7 @@ namespace Proyecto_DAM
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new FrmLogin());
+			Application.Run(new FrmGeneral());
 		}
 	}
 }

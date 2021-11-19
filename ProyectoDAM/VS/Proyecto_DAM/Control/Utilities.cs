@@ -201,6 +201,30 @@ namespace Control
 
 			return retcode.Value.ToString();
 		}
+
+
+		public string pa_add_sale(int? idcontact, decimal? totalPrice, string coments, List<SALES_LIN> lineas)
+		{
+			ObjectParameter message = new ObjectParameter("MENSAJE", typeof(string));
+			ObjectParameter retcode = new ObjectParameter("RETCODE", typeof(int));
+			ObjectParameter idCab = new ObjectParameter("IDCAB", typeof(int));
+
+			db.PA_ADD_SALE_CAB(
+				idcontact,
+				totalPrice,
+				coments,
+				0,
+				"",
+				"",
+				message,
+				retcode,
+				idCab
+				);
+
+
+
+			return retcode.Value.ToString();
+		}
 	}
 } 
 

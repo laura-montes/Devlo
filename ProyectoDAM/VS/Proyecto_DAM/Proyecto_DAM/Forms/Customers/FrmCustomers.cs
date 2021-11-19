@@ -18,8 +18,6 @@ namespace Proyecto_DAM
         {
 			// CARGA DE CONTACTOS
 			this.cONTACTSTableAdapter.Fill(this.db_devloDataSet.CONTACTS);
-			
-
 		}
 
 		private void BtnFilter_Click(object sender, EventArgs e)
@@ -76,6 +74,7 @@ namespace Proyecto_DAM
                     // BORRAR
                     int idContact = int.Parse(DataGridViewCustomers.Rows[e.RowIndex].Cells["IdContact"].Value.ToString());
                     utilities.pa_deleteContact(idContact);
+                    this.cONTACTSTableAdapter.Fill(this.db_devloDataSet.CONTACTS);
                 }
             }
         }
