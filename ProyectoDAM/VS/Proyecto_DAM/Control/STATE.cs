@@ -17,13 +17,13 @@ namespace Control
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public STATE()
         {
-            this.SALES = new HashSet<SALE>();
+            this.SALES_CAB = new HashSet<SALES_CAB>();
         }
     
         public int IDSTATE { get; set; }
         public string DESCRIPTION { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SALE> SALES { get; set; }
+        public virtual ICollection<SALES_CAB> SALES_CAB { get; set; }
     }
 }

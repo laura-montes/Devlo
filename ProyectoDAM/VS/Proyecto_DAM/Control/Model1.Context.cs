@@ -30,12 +30,16 @@ namespace Control
         public virtual DbSet<CATEGORY> CATEGORies { get; set; }
         public virtual DbSet<CONTACT> CONTACTS { get; set; }
         public virtual DbSet<PRODUCT> PRODUCTS { get; set; }
-        public virtual DbSet<SALE> SALES { get; set; }
+        public virtual DbSet<SALES_CAB> SALES_CAB { get; set; }
+        public virtual DbSet<SALES_LIN> SALES_LIN { get; set; }
         public virtual DbSet<STATE> STATES { get; set; }
         public virtual DbSet<SUPPLIER> SUPPLIERS { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<USER> USERS { get; set; }
         public virtual DbSet<V_CONTACTS> V_CONTACTS { get; set; }
+        public virtual DbSet<V_PRODUCTS> V_PRODUCTS { get; set; }
+        public virtual DbSet<V_SALES> V_SALES { get; set; }
+        public virtual DbSet<V_SALESEDIT> V_SALESEDIT { get; set; }
         public virtual DbSet<View_CONTACTS> View_CONTACTS { get; set; }
         public virtual DbSet<database_firewall_rules> database_firewall_rules { get; set; }
         public virtual DbSet<ipv6_database_firewall_rules> ipv6_database_firewall_rules { get; set; }
@@ -157,6 +161,72 @@ namespace Control
                 new ObjectParameter("CULTURA", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PA_ADD_PRODUCT", cODEParameter, nAMEParameter, dESCRIPTIONParameter, cATEGORYParameter, sUPPLIERParameter, sTOCKParameter, sELL_PRICEParameter, sUPLIER_PRICEParameter, iNVOKERParameter, uSUARIOParameter, cULTURAParameter, rETCODE, mENSAJE);
+        }
+    
+        public virtual int PA_ADD_SALE_CAB(Nullable<int> iDCONTACT, Nullable<decimal> tOTAL_PRICE, string cOMENTS, Nullable<System.DateTime> oRDER_DATE, Nullable<int> iNVOKER, string uSUARIO, string cULTURA, ObjectParameter rETCODE, ObjectParameter mENSAJE, ObjectParameter iDCAB)
+        {
+            var iDCONTACTParameter = iDCONTACT.HasValue ?
+                new ObjectParameter("IDCONTACT", iDCONTACT) :
+                new ObjectParameter("IDCONTACT", typeof(int));
+    
+            var tOTAL_PRICEParameter = tOTAL_PRICE.HasValue ?
+                new ObjectParameter("TOTAL_PRICE", tOTAL_PRICE) :
+                new ObjectParameter("TOTAL_PRICE", typeof(decimal));
+    
+            var cOMENTSParameter = cOMENTS != null ?
+                new ObjectParameter("COMENTS", cOMENTS) :
+                new ObjectParameter("COMENTS", typeof(string));
+    
+            var oRDER_DATEParameter = oRDER_DATE.HasValue ?
+                new ObjectParameter("ORDER_DATE", oRDER_DATE) :
+                new ObjectParameter("ORDER_DATE", typeof(System.DateTime));
+    
+            var iNVOKERParameter = iNVOKER.HasValue ?
+                new ObjectParameter("INVOKER", iNVOKER) :
+                new ObjectParameter("INVOKER", typeof(int));
+    
+            var uSUARIOParameter = uSUARIO != null ?
+                new ObjectParameter("USUARIO", uSUARIO) :
+                new ObjectParameter("USUARIO", typeof(string));
+    
+            var cULTURAParameter = cULTURA != null ?
+                new ObjectParameter("CULTURA", cULTURA) :
+                new ObjectParameter("CULTURA", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PA_ADD_SALE_CAB", iDCONTACTParameter, tOTAL_PRICEParameter, cOMENTSParameter, oRDER_DATEParameter, iNVOKERParameter, uSUARIOParameter, cULTURAParameter, rETCODE, mENSAJE, iDCAB);
+        }
+    
+        public virtual int PA_ADD_SALE_LIN(Nullable<int> n_LIN, Nullable<int> iDPRODUCT, Nullable<int> uNITS, Nullable<int> iDCAB, Nullable<int> iNVOKER, string uSUARIO, string cULTURA, ObjectParameter rETCODE, ObjectParameter mENSAJE)
+        {
+            var n_LINParameter = n_LIN.HasValue ?
+                new ObjectParameter("N_LIN", n_LIN) :
+                new ObjectParameter("N_LIN", typeof(int));
+    
+            var iDPRODUCTParameter = iDPRODUCT.HasValue ?
+                new ObjectParameter("IDPRODUCT", iDPRODUCT) :
+                new ObjectParameter("IDPRODUCT", typeof(int));
+    
+            var uNITSParameter = uNITS.HasValue ?
+                new ObjectParameter("UNITS", uNITS) :
+                new ObjectParameter("UNITS", typeof(int));
+    
+            var iDCABParameter = iDCAB.HasValue ?
+                new ObjectParameter("IDCAB", iDCAB) :
+                new ObjectParameter("IDCAB", typeof(int));
+    
+            var iNVOKERParameter = iNVOKER.HasValue ?
+                new ObjectParameter("INVOKER", iNVOKER) :
+                new ObjectParameter("INVOKER", typeof(int));
+    
+            var uSUARIOParameter = uSUARIO != null ?
+                new ObjectParameter("USUARIO", uSUARIO) :
+                new ObjectParameter("USUARIO", typeof(string));
+    
+            var cULTURAParameter = cULTURA != null ?
+                new ObjectParameter("CULTURA", cULTURA) :
+                new ObjectParameter("CULTURA", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PA_ADD_SALE_LIN", n_LINParameter, iDPRODUCTParameter, uNITSParameter, iDCABParameter, iNVOKERParameter, uSUARIOParameter, cULTURAParameter, rETCODE, mENSAJE);
         }
     
         public virtual int PA_ADD_SUPPLIER(string nAME, string dESCRIPTION, Nullable<int> iNVOKER, string uSUARIO, string cULTURA, ObjectParameter rETCODE, ObjectParameter mENSAJE)
@@ -576,6 +646,68 @@ namespace Control
         public virtual int sp_upgraddiagrams()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
+        }
+    
+        public virtual int PA_UPDATE_SALE(Nullable<int> iDCAB, Nullable<int> n_LIN, Nullable<int> iDPRODUCT, Nullable<int> uNITS, Nullable<int> iDLIN, Nullable<decimal> tOTAL_PRICE, Nullable<int> iNVOKER, string uSUARIO, string cULTURA, ObjectParameter rETCODE, ObjectParameter mENSAJE)
+        {
+            var iDCABParameter = iDCAB.HasValue ?
+                new ObjectParameter("IDCAB", iDCAB) :
+                new ObjectParameter("IDCAB", typeof(int));
+    
+            var n_LINParameter = n_LIN.HasValue ?
+                new ObjectParameter("N_LIN", n_LIN) :
+                new ObjectParameter("N_LIN", typeof(int));
+    
+            var iDPRODUCTParameter = iDPRODUCT.HasValue ?
+                new ObjectParameter("IDPRODUCT", iDPRODUCT) :
+                new ObjectParameter("IDPRODUCT", typeof(int));
+    
+            var uNITSParameter = uNITS.HasValue ?
+                new ObjectParameter("UNITS", uNITS) :
+                new ObjectParameter("UNITS", typeof(int));
+    
+            var iDLINParameter = iDLIN.HasValue ?
+                new ObjectParameter("IDLIN", iDLIN) :
+                new ObjectParameter("IDLIN", typeof(int));
+    
+            var tOTAL_PRICEParameter = tOTAL_PRICE.HasValue ?
+                new ObjectParameter("TOTAL_PRICE", tOTAL_PRICE) :
+                new ObjectParameter("TOTAL_PRICE", typeof(decimal));
+    
+            var iNVOKERParameter = iNVOKER.HasValue ?
+                new ObjectParameter("INVOKER", iNVOKER) :
+                new ObjectParameter("INVOKER", typeof(int));
+    
+            var uSUARIOParameter = uSUARIO != null ?
+                new ObjectParameter("USUARIO", uSUARIO) :
+                new ObjectParameter("USUARIO", typeof(string));
+    
+            var cULTURAParameter = cULTURA != null ?
+                new ObjectParameter("CULTURA", cULTURA) :
+                new ObjectParameter("CULTURA", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PA_UPDATE_SALE", iDCABParameter, n_LINParameter, iDPRODUCTParameter, uNITSParameter, iDLINParameter, tOTAL_PRICEParameter, iNVOKERParameter, uSUARIOParameter, cULTURAParameter, rETCODE, mENSAJE);
+        }
+    
+        public virtual int PA_DELETE_SALE(Nullable<int> iDCAB, Nullable<int> iNVOKER, string uSUARIO, string cULTURA, ObjectParameter rETCODE, ObjectParameter mENSAJE)
+        {
+            var iDCABParameter = iDCAB.HasValue ?
+                new ObjectParameter("IDCAB", iDCAB) :
+                new ObjectParameter("IDCAB", typeof(int));
+    
+            var iNVOKERParameter = iNVOKER.HasValue ?
+                new ObjectParameter("INVOKER", iNVOKER) :
+                new ObjectParameter("INVOKER", typeof(int));
+    
+            var uSUARIOParameter = uSUARIO != null ?
+                new ObjectParameter("USUARIO", uSUARIO) :
+                new ObjectParameter("USUARIO", typeof(string));
+    
+            var cULTURAParameter = cULTURA != null ?
+                new ObjectParameter("CULTURA", cULTURA) :
+                new ObjectParameter("CULTURA", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PA_DELETE_SALE", iDCABParameter, iNVOKERParameter, uSUARIOParameter, cULTURAParameter, rETCODE, mENSAJE);
         }
     }
 }

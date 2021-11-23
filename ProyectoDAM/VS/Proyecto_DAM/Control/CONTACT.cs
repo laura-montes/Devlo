@@ -17,7 +17,7 @@ namespace Control
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public CONTACT()
         {
-            this.SALES = new HashSet<SALE>();
+            this.SALES_CAB = new HashSet<SALES_CAB>();
         }
     
         public int IDCONTACT { get; set; }
@@ -31,6 +31,6 @@ namespace Control
         public Nullable<System.DateTime> ADDED_DATE { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SALE> SALES { get; set; }
+        public virtual ICollection<SALES_CAB> SALES_CAB { get; set; }
     }
 }

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="54f910f021554c318f35f378e2b8640e" Name="Diagram1">
+        <EntityTypeShape EntityType="db_devloModel.CATEGORY" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_devloModel.CONTACT" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_devloModel.PRODUCT" Width="1.5" PointX="3" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_devloModel.SALES_CAB" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_devloModel.SALES_LIN" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_devloModel.STATE" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_devloModel.SUPPLIER" Width="1.5" PointX="0.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_devloModel.sysdiagram" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_devloModel.USER" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_devloModel.V_CONTACTS" Width="1.5" PointX="6.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_devloModel.V_PRODUCTS" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_devloModel.V_SALES" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_devloModel.V_SALESEDIT" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_devloModel.View_CONTACTS" Width="1.5" PointX="8.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_devloModel.database_firewall_rules" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_devloModel.ipv6_database_firewall_rules" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="db_devloModel.FK_PRODUCTS_CATEGORY" ManuallyRouted="false" />
+        <AssociationConnector Association="db_devloModel.FK_SALES_CAB_CONTACTS" ManuallyRouted="false" />
+        <AssociationConnector Association="db_devloModel.FK_PRODUCTS_SUPPLIERS" ManuallyRouted="false" />
+        <AssociationConnector Association="db_devloModel.FK_SALES_LIN_PRODUCTS" ManuallyRouted="false" />
+        <AssociationConnector Association="db_devloModel.FK_SALES_CAB_STATES" ManuallyRouted="false" />
+        <AssociationConnector Association="db_devloModel.FK_SALES_LIN_SALES_CAB" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -86,12 +86,13 @@ namespace Proyecto_DAM.Forms.Products
             this.TxtDescription.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.TxtDescription.FocusedState.BorderColor = System.Drawing.Color.Transparent;
             this.TxtDescription.FocusedState.Parent = this.TxtDescription;
-            this.TxtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.TxtDescription.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtDescription.ForeColor = System.Drawing.Color.Black;
             this.TxtDescription.HoverState.BorderColor = System.Drawing.Color.Transparent;
             this.TxtDescription.HoverState.Parent = this.TxtDescription;
             this.TxtDescription.Location = new System.Drawing.Point(317, 354);
-            this.TxtDescription.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.TxtDescription.Margin = new System.Windows.Forms.Padding(5);
+            this.TxtDescription.Multiline = true;
             this.TxtDescription.Name = "TxtDescription";
             this.TxtDescription.PasswordChar = '\0';
             this.TxtDescription.PlaceholderText = "";
@@ -136,12 +137,12 @@ namespace Proyecto_DAM.Forms.Products
             this.TxtName.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.TxtName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.TxtName.FocusedState.Parent = this.TxtName;
-            this.TxtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtName.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtName.ForeColor = System.Drawing.Color.Black;
             this.TxtName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.TxtName.HoverState.Parent = this.TxtName;
             this.TxtName.Location = new System.Drawing.Point(413, 231);
-            this.TxtName.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.TxtName.Margin = new System.Windows.Forms.Padding(5);
             this.TxtName.Name = "TxtName";
             this.TxtName.PasswordChar = '\0';
             this.TxtName.PlaceholderText = "";
@@ -161,7 +162,7 @@ namespace Proyecto_DAM.Forms.Products
             this.BtnSave.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.BtnSave.DisabledState.Parent = this.BtnSave;
             this.BtnSave.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
-            this.BtnSave.Font = new System.Drawing.Font("Louis George Café", 12F);
+            this.BtnSave.Font = new System.Drawing.Font("Louis George Café", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnSave.ForeColor = System.Drawing.Color.White;
             this.BtnSave.HoverState.Parent = this.BtnSave;
             this.BtnSave.Location = new System.Drawing.Point(875, 572);
@@ -194,7 +195,7 @@ namespace Proyecto_DAM.Forms.Products
             this.LblAddProduct.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
             this.LblAddProduct.Location = new System.Drawing.Point(139, 18);
             this.LblAddProduct.Name = "LblAddProduct";
-            this.LblAddProduct.Size = new System.Drawing.Size(280, 41);
+            this.LblAddProduct.Size = new System.Drawing.Size(272, 40);
             this.LblAddProduct.TabIndex = 0;
             this.LblAddProduct.Text = "Añadir proveedor";
             // 

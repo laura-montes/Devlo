@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity.Core.Objects;
 using System.Linq;
 
@@ -192,6 +193,86 @@ namespace Control
 
 			db.PA_DELETE_PRODUCT(
 				idProduct,
+				0,
+				"",
+				"",
+				message,
+				retcode
+				);
+
+			return retcode.Value.ToString();
+		}
+
+
+		//SALES
+		public string pa_add_sale(int? idcontact, decimal? totalPrice, string coments, DateTime fecha, List<SALES_LIN> lineas)
+		{
+			ObjectParameter message = new ObjectParameter("MENSAJE", typeof(string));
+			ObjectParameter retcode = new ObjectParameter("RETCODE", typeof(int));
+			ObjectParameter idCab = new ObjectParameter("IDCAB", typeof(int));
+
+			db.PA_ADD_SALE_CAB(
+				idcontact,
+				totalPrice,
+				coments,
+				fecha,
+				0,
+				"",
+				"",
+				message,
+				retcode,
+				idCab
+				);
+
+				int contador = 1;
+				foreach(SALES_LIN linea in lineas){
+
+					db.PA_ADD_SALE_LIN(
+					contador,
+					linea.IDPRODUCT,
+					linea.UNITS,
+					int.Parse(idCab.Value.ToString()),
+					0,
+					"",
+					"",
+					message,
+					retcode
+					);
+
+					contador++;
+				}
+
+			return retcode.Value.ToString();
+		}
+		public string pa_update_sale(int? idcab, int? n_lin, int? idproduct, int? units, int? idlin, decimal? totalprice){
+
+			ObjectParameter message = new ObjectParameter("MENSAJE", typeof(string));
+			ObjectParameter retcode = new ObjectParameter("RETCODE", typeof(int));
+
+			db.PA_UPDATE_SALE(
+				idcab,
+				n_lin,
+				idproduct,
+				units,
+				idlin,
+				totalprice,
+				0,
+				"",
+				"",
+				message,
+				retcode
+				);
+
+			return retcode.Value.ToString();
+		}
+		public string pa_deleteSale(int? idSale)
+		{
+
+			ObjectParameter message = new ObjectParameter("MENSAJE", typeof(string));
+			ObjectParameter retcode = new ObjectParameter("RETCODE", typeof(int));
+
+			db.PA_DELETE_SALE(
+				idSale,
 				0,
 				"",
 				"",
