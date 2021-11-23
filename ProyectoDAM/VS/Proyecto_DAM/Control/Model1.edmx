@@ -1,0 +1,1414 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="db_devloModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CATEGORY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="50" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="CONTACTS">
+          <Key>
+            <PropertyRef Name="IDCONTACT" />
+          </Key>
+          <Property Name="IDCONTACT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="50" />
+          <Property Name="SURNAMES" Type="varchar" MaxLength="50" />
+          <Property Name="PHONE" Type="varchar" MaxLength="50" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="50" />
+          <Property Name="ADDRESS" Type="varchar" MaxLength="100" />
+          <Property Name="ROLE" Type="varchar" MaxLength="50" />
+          <Property Name="OBSERVATIONS" Type="varchar(max)" />
+          <Property Name="ADDED_DATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PRODUCTS">
+          <Key>
+            <PropertyRef Name="IDPRODUCT" />
+          </Key>
+          <Property Name="IDPRODUCT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CODE" Type="int" />
+          <Property Name="NAME" Type="varchar" MaxLength="50" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="100" />
+          <Property Name="CATEGORY" Type="int" />
+          <Property Name="SUPPLIER" Type="int" />
+          <Property Name="STOCK" Type="int" />
+          <Property Name="SELL_PRICE" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="SUPPLIER_PRICE" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="SALES_CAB">
+          <Key>
+            <PropertyRef Name="IDCAB" />
+          </Key>
+          <Property Name="IDCAB" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="STATE" Type="int" />
+          <Property Name="IDCONTACT" Type="int" />
+          <Property Name="TOTAL_PRICE" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="COMENTS" Type="varchar(max)" />
+          <Property Name="FECHA_PEDIDO" Type="datetime" />
+        </EntityType>
+        <EntityType Name="SALES_LIN">
+          <Key>
+            <PropertyRef Name="IDLIN" />
+          </Key>
+          <Property Name="IDLIN" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="N_LIN" Type="int" />
+          <Property Name="IDPRODUCT" Type="int" />
+          <Property Name="UNITS" Type="int" />
+          <Property Name="IDCAB" Type="int" />
+        </EntityType>
+        <EntityType Name="STATES">
+          <Key>
+            <PropertyRef Name="IDSTATE" />
+          </Key>
+          <Property Name="IDSTATE" Type="int" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SUPPLIERS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="50" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="USERS">
+          <Key>
+            <PropertyRef Name="EMAIL" />
+          </Key>
+          <Property Name="EMAIL" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PASSWD" Type="varchar" MaxLength="50" />
+          <Property Name="NAME" Type="varchar" MaxLength="50" />
+          <Property Name="SURNAMES" Type="varchar" MaxLength="50" />
+          <Property Name="ADMIN" Type="int" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'db_devlo.dbo.V_CONTACTS' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="V_CONTACTS">
+          <Key>
+            <PropertyRef Name="FULL_NAME" />
+          </Key>
+          <Property Name="FULL_NAME" Type="varchar" MaxLength="101" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'db_devlo.dbo.V_PRODUCTS' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="V_PRODUCTS">
+          <Key>
+            <PropertyRef Name="IDPRODUCT" />
+            <PropertyRef Name="IDCATEGORY" />
+            <PropertyRef Name="IDSUPPLIER" />
+          </Key>
+          <Property Name="CODE" Type="int" />
+          <Property Name="NAME" Type="varchar" MaxLength="50" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="100" />
+          <Property Name="STOCK" Type="int" />
+          <Property Name="SELL_PRICE" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="SUPPLIER_PRICE" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="CATEGORY" Type="varchar" MaxLength="50" />
+          <Property Name="SUPPLIER" Type="varchar" MaxLength="50" />
+          <Property Name="IDPRODUCT" Type="int" Nullable="false" />
+          <Property Name="IDCATEGORY" Type="int" Nullable="false" />
+          <Property Name="IDSUPPLIER" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'db_devlo.dbo.V_SALES' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="V_SALES">
+          <Key>
+            <PropertyRef Name="IDCAB" />
+          </Key>
+          <Property Name="IDCAB" Type="int" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="50" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="50" />
+          <Property Name="FECHA_PEDIDO" Type="datetime" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'db_devlo.dbo.V_SALESEDIT' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="V_SALESEDIT">
+          <Key>
+            <PropertyRef Name="IDCAB" />
+            <PropertyRef Name="IDLIN" />
+          </Key>
+          <Property Name="IDCAB" Type="int" Nullable="false" />
+          <Property Name="CONTACTO" Type="varchar" MaxLength="50" />
+          <Property Name="FECHA_PEDIDO" Type="datetime" />
+          <Property Name="TOTAL_PRICE" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="IDLIN" Type="int" Nullable="false" />
+          <Property Name="N_LIN" Type="int" />
+          <Property Name="PRODUCTO" Type="varchar" MaxLength="50" />
+          <Property Name="UNITS" Type="int" />
+          <Property Name="SELL_PRICE" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="IDPRODUCT" Type="int" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'db_devlo.dbo.View_CONTACTS' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="View_CONTACTS">
+          <Key>
+            <PropertyRef Name="IDCONTACT" />
+          </Key>
+          <Property Name="IDCONTACT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="50" />
+          <Property Name="SURNAMES" Type="varchar" MaxLength="50" />
+          <Property Name="PHONE" Type="varchar" MaxLength="50" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="50" />
+          <Property Name="ADDRESS" Type="varchar" MaxLength="100" />
+          <Property Name="ROLE" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'db_devlo.sys.database_firewall_rules' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="database_firewall_rules">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="start_ip_address" />
+            <PropertyRef Name="end_ip_address" />
+            <PropertyRef Name="create_date" />
+            <PropertyRef Name="modify_date" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="start_ip_address" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="end_ip_address" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="create_date" Type="datetime" Nullable="false" />
+          <Property Name="modify_date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'db_devlo.sys.ipv6_database_firewall_rules' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="ipv6_database_firewall_rules">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="start_ipv6_address" />
+            <PropertyRef Name="end_ipv6_address" />
+            <PropertyRef Name="create_date" />
+            <PropertyRef Name="modify_date" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="start_ipv6_address" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="end_ipv6_address" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="create_date" Type="datetime" Nullable="false" />
+          <Property Name="modify_date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_PRODUCTS_CATEGORY">
+          <End Role="CATEGORY" Type="Self.CATEGORY" Multiplicity="0..1" />
+          <End Role="PRODUCTS" Type="Self.PRODUCTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATEGORY">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PRODUCTS">
+              <PropertyRef Name="CATEGORY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRODUCTS_SUPPLIERS">
+          <End Role="SUPPLIERS" Type="Self.SUPPLIERS" Multiplicity="0..1" />
+          <End Role="PRODUCTS" Type="Self.PRODUCTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUPPLIERS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PRODUCTS">
+              <PropertyRef Name="SUPPLIER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SALES_CAB_CONTACTS">
+          <End Role="CONTACTS" Type="Self.CONTACTS" Multiplicity="0..1" />
+          <End Role="SALES_CAB" Type="Self.SALES_CAB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CONTACTS">
+              <PropertyRef Name="IDCONTACT" />
+            </Principal>
+            <Dependent Role="SALES_CAB">
+              <PropertyRef Name="IDCONTACT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SALES_CAB_STATES">
+          <End Role="STATES" Type="Self.STATES" Multiplicity="0..1" />
+          <End Role="SALES_CAB" Type="Self.SALES_CAB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STATES">
+              <PropertyRef Name="IDSTATE" />
+            </Principal>
+            <Dependent Role="SALES_CAB">
+              <PropertyRef Name="STATE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SALES_LIN_PRODUCTS">
+          <End Role="PRODUCTS" Type="Self.PRODUCTS" Multiplicity="0..1" />
+          <End Role="SALES_LIN" Type="Self.SALES_LIN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTS">
+              <PropertyRef Name="IDPRODUCT" />
+            </Principal>
+            <Dependent Role="SALES_LIN">
+              <PropertyRef Name="IDPRODUCT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SALES_LIN_SALES_CAB">
+          <End Role="SALES_CAB" Type="Self.SALES_CAB" Multiplicity="0..1" />
+          <End Role="SALES_LIN" Type="Self.SALES_LIN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SALES_CAB">
+              <PropertyRef Name="IDCAB" />
+            </Principal>
+            <Dependent Role="SALES_LIN">
+              <PropertyRef Name="IDCAB" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="PA_ADD_CATEGORY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NAME" Type="varchar" Mode="In" />
+          <Parameter Name="DESCRIPTION" Type="varchar" Mode="In" />
+          <Parameter Name="INVOKER" Type="int" Mode="In" />
+          <Parameter Name="USUARIO" Type="varchar" Mode="In" />
+          <Parameter Name="CULTURA" Type="varchar" Mode="In" />
+          <Parameter Name="RETCODE" Type="int" Mode="InOut" />
+          <Parameter Name="MENSAJE" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="PA_ADD_CONTACT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NAME" Type="varchar" Mode="In" />
+          <Parameter Name="SURNAMES" Type="varchar" Mode="In" />
+          <Parameter Name="PHONE" Type="varchar" Mode="In" />
+          <Parameter Name="EMAIL" Type="varchar" Mode="In" />
+          <Parameter Name="ADDRESS" Type="varchar" Mode="In" />
+          <Parameter Name="ROLE" Type="varchar" Mode="In" />
+          <Parameter Name="OBSERVATIONS" Type="varchar(max)" Mode="In" />
+          <Parameter Name="INVOKER" Type="int" Mode="In" />
+          <Parameter Name="USUARIO" Type="varchar" Mode="In" />
+          <Parameter Name="CULTURA" Type="varchar" Mode="In" />
+          <Parameter Name="RETCODE" Type="int" Mode="InOut" />
+          <Parameter Name="MENSAJE" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="PA_ADD_PRODUCT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CODE" Type="int" Mode="In" />
+          <Parameter Name="NAME" Type="varchar" Mode="In" />
+          <Parameter Name="DESCRIPTION" Type="varchar" Mode="In" />
+          <Parameter Name="CATEGORY" Type="int" Mode="In" />
+          <Parameter Name="SUPPLIER" Type="int" Mode="In" />
+          <Parameter Name="STOCK" Type="int" Mode="In" />
+          <Parameter Name="SELL_PRICE" Type="decimal" Mode="In" />
+          <Parameter Name="SUPLIER_PRICE" Type="decimal" Mode="In" />
+          <Parameter Name="INVOKER" Type="int" Mode="In" />
+          <Parameter Name="USUARIO" Type="varchar" Mode="In" />
+          <Parameter Name="CULTURA" Type="varchar" Mode="In" />
+          <Parameter Name="RETCODE" Type="int" Mode="InOut" />
+          <Parameter Name="MENSAJE" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="PA_ADD_SALE_CAB" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDCONTACT" Type="int" Mode="In" />
+          <Parameter Name="TOTAL_PRICE" Type="decimal" Mode="In" />
+          <Parameter Name="COMENTS" Type="varchar(max)" Mode="In" />
+          <Parameter Name="ORDER_DATE" Type="datetime" Mode="In" />
+          <Parameter Name="INVOKER" Type="int" Mode="In" />
+          <Parameter Name="USUARIO" Type="varchar" Mode="In" />
+          <Parameter Name="CULTURA" Type="varchar" Mode="In" />
+          <Parameter Name="RETCODE" Type="int" Mode="InOut" />
+          <Parameter Name="MENSAJE" Type="varchar" Mode="InOut" />
+          <Parameter Name="IDCAB" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="PA_ADD_SALE_LIN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="N_LIN" Type="int" Mode="In" />
+          <Parameter Name="IDPRODUCT" Type="int" Mode="In" />
+          <Parameter Name="UNITS" Type="int" Mode="In" />
+          <Parameter Name="IDCAB" Type="int" Mode="In" />
+          <Parameter Name="INVOKER" Type="int" Mode="In" />
+          <Parameter Name="USUARIO" Type="varchar" Mode="In" />
+          <Parameter Name="CULTURA" Type="varchar" Mode="In" />
+          <Parameter Name="RETCODE" Type="int" Mode="InOut" />
+          <Parameter Name="MENSAJE" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="PA_ADD_SUPPLIER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NAME" Type="varchar" Mode="In" />
+          <Parameter Name="DESCRIPTION" Type="varchar" Mode="In" />
+          <Parameter Name="INVOKER" Type="int" Mode="In" />
+          <Parameter Name="USUARIO" Type="varchar" Mode="In" />
+          <Parameter Name="CULTURA" Type="varchar" Mode="In" />
+          <Parameter Name="RETCODE" Type="int" Mode="InOut" />
+          <Parameter Name="MENSAJE" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="PA_CHECK_LOGIN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="EMAIL" Type="varchar" Mode="In" />
+          <Parameter Name="PASSWD" Type="varchar" Mode="In" />
+          <Parameter Name="INVOKER" Type="int" Mode="In" />
+          <Parameter Name="USUARIO" Type="varchar" Mode="In" />
+          <Parameter Name="CULTURA" Type="varchar" Mode="In" />
+          <Parameter Name="RETCODE" Type="int" Mode="InOut" />
+          <Parameter Name="MENSAJE" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="PA_DELETE_CATEGORY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NAME" Type="varchar" Mode="In" />
+          <Parameter Name="DESCRIPTION" Type="varchar" Mode="In" />
+          <Parameter Name="INVOKER" Type="int" Mode="In" />
+          <Parameter Name="USUARIO" Type="varchar" Mode="In" />
+          <Parameter Name="CULTURA" Type="varchar" Mode="In" />
+          <Parameter Name="RETCODE" Type="int" Mode="InOut" />
+          <Parameter Name="MENSAJE" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="PA_DELETE_CONTACT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID_CONTACT" Type="int" Mode="In" />
+          <Parameter Name="INVOKER" Type="int" Mode="In" />
+          <Parameter Name="USUARIO" Type="varchar" Mode="In" />
+          <Parameter Name="CULTURA" Type="varchar" Mode="In" />
+          <Parameter Name="RETCODE" Type="int" Mode="InOut" />
+          <Parameter Name="MENSAJE" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="PA_DELETE_PRODUCT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID_PRODUCT" Type="int" Mode="In" />
+          <Parameter Name="INVOKER" Type="int" Mode="In" />
+          <Parameter Name="USUARIO" Type="varchar" Mode="In" />
+          <Parameter Name="CULTURA" Type="varchar" Mode="In" />
+          <Parameter Name="RETCODE" Type="int" Mode="InOut" />
+          <Parameter Name="MENSAJE" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="PA_DELETE_SALE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDCAB" Type="int" Mode="In" />
+          <Parameter Name="INVOKER" Type="int" Mode="In" />
+          <Parameter Name="USUARIO" Type="varchar" Mode="In" />
+          <Parameter Name="CULTURA" Type="varchar" Mode="In" />
+          <Parameter Name="RETCODE" Type="int" Mode="InOut" />
+          <Parameter Name="MENSAJE" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="PA_DELETE_SUPPLIER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NAME" Type="varchar" Mode="In" />
+          <Parameter Name="DESCRIPTION" Type="varchar" Mode="In" />
+          <Parameter Name="INVOKER" Type="int" Mode="In" />
+          <Parameter Name="USUARIO" Type="varchar" Mode="In" />
+          <Parameter Name="CULTURA" Type="varchar" Mode="In" />
+          <Parameter Name="RETCODE" Type="int" Mode="InOut" />
+          <Parameter Name="MENSAJE" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="PA_UPDATE_CATEGORY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="NAME" Type="varchar" Mode="In" />
+          <Parameter Name="DESCRIPTION" Type="varchar" Mode="In" />
+          <Parameter Name="INVOKER" Type="int" Mode="In" />
+          <Parameter Name="USUARIO" Type="varchar" Mode="In" />
+          <Parameter Name="CULTURA" Type="varchar" Mode="In" />
+          <Parameter Name="RETCODE" Type="int" Mode="InOut" />
+          <Parameter Name="MENSAJE" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="PA_UPDATE_CONTACT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID_CONTACT" Type="int" Mode="In" />
+          <Parameter Name="NAME" Type="varchar" Mode="In" />
+          <Parameter Name="SURNAME" Type="varchar" Mode="In" />
+          <Parameter Name="PHONE" Type="varchar" Mode="In" />
+          <Parameter Name="EMAIL" Type="varchar" Mode="In" />
+          <Parameter Name="ADDRESS" Type="varchar" Mode="In" />
+          <Parameter Name="ROLE" Type="varchar" Mode="In" />
+          <Parameter Name="OBSERVATIONS" Type="varchar(max)" Mode="In" />
+          <Parameter Name="INVOKER" Type="int" Mode="In" />
+          <Parameter Name="USUARIO" Type="varchar" Mode="In" />
+          <Parameter Name="CULTURA" Type="varchar" Mode="In" />
+          <Parameter Name="RETCODE" Type="int" Mode="InOut" />
+          <Parameter Name="MENSAJE" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="PA_UPDATE_PRODUCT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CODE" Type="int" Mode="In" />
+          <Parameter Name="NAME" Type="varchar" Mode="In" />
+          <Parameter Name="DESCRIPTION" Type="varchar" Mode="In" />
+          <Parameter Name="CATEGORY" Type="int" Mode="In" />
+          <Parameter Name="SUPPLIER" Type="int" Mode="In" />
+          <Parameter Name="STOCK" Type="int" Mode="In" />
+          <Parameter Name="SELL_PRICE" Type="decimal" Mode="In" />
+          <Parameter Name="SUPLIER_PRICE" Type="decimal" Mode="In" />
+          <Parameter Name="INVOKER" Type="int" Mode="In" />
+          <Parameter Name="USUARIO" Type="varchar" Mode="In" />
+          <Parameter Name="CULTURA" Type="varchar" Mode="In" />
+          <Parameter Name="RETCODE" Type="int" Mode="InOut" />
+          <Parameter Name="MENSAJE" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="PA_UPDATE_SALE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDCAB" Type="int" Mode="In" />
+          <Parameter Name="N_LIN" Type="int" Mode="In" />
+          <Parameter Name="IDPRODUCT" Type="int" Mode="In" />
+          <Parameter Name="UNITS" Type="int" Mode="In" />
+          <Parameter Name="IDLIN" Type="int" Mode="In" />
+          <Parameter Name="TOTAL_PRICE" Type="decimal" Mode="In" />
+          <Parameter Name="INVOKER" Type="int" Mode="In" />
+          <Parameter Name="USUARIO" Type="varchar" Mode="In" />
+          <Parameter Name="CULTURA" Type="varchar" Mode="In" />
+          <Parameter Name="RETCODE" Type="int" Mode="InOut" />
+          <Parameter Name="MENSAJE" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="PA_UPDATE_SUPPLIER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="NAME" Type="varchar" Mode="In" />
+          <Parameter Name="DESCRIPTION" Type="varchar" Mode="In" />
+          <Parameter Name="INVOKER" Type="int" Mode="In" />
+          <Parameter Name="USUARIO" Type="varchar" Mode="In" />
+          <Parameter Name="CULTURA" Type="varchar" Mode="In" />
+          <Parameter Name="RETCODE" Type="int" Mode="InOut" />
+          <Parameter Name="MENSAJE" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="PAH" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TEXTO" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="PAP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NOMBRE_PA" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="db_devloModelStoreContainer">
+          <EntitySet Name="CATEGORY" EntityType="Self.CATEGORY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CONTACTS" EntityType="Self.CONTACTS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PRODUCTS" EntityType="Self.PRODUCTS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SALES_CAB" EntityType="Self.SALES_CAB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SALES_LIN" EntityType="Self.SALES_LIN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STATES" EntityType="Self.STATES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SUPPLIERS" EntityType="Self.SUPPLIERS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USERS" EntityType="Self.USERS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="V_CONTACTS" EntityType="Self.V_CONTACTS" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [V_CONTACTS].[FULL_NAME] AS [FULL_NAME]
+    FROM [dbo].[V_CONTACTS] AS [V_CONTACTS]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_PRODUCTS" EntityType="Self.V_PRODUCTS" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [V_PRODUCTS].[CODE] AS [CODE], 
+    [V_PRODUCTS].[NAME] AS [NAME], 
+    [V_PRODUCTS].[DESCRIPTION] AS [DESCRIPTION], 
+    [V_PRODUCTS].[STOCK] AS [STOCK], 
+    [V_PRODUCTS].[SELL_PRICE] AS [SELL_PRICE], 
+    [V_PRODUCTS].[SUPPLIER_PRICE] AS [SUPPLIER_PRICE], 
+    [V_PRODUCTS].[CATEGORY] AS [CATEGORY], 
+    [V_PRODUCTS].[SUPPLIER] AS [SUPPLIER], 
+    [V_PRODUCTS].[IDPRODUCT] AS [IDPRODUCT], 
+    [V_PRODUCTS].[IDCATEGORY] AS [IDCATEGORY], 
+    [V_PRODUCTS].[IDSUPPLIER] AS [IDSUPPLIER]
+    FROM [dbo].[V_PRODUCTS] AS [V_PRODUCTS]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_SALES" EntityType="Self.V_SALES" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [V_SALES].[IDCAB] AS [IDCAB], 
+    [V_SALES].[NAME] AS [NAME], 
+    [V_SALES].[DESCRIPTION] AS [DESCRIPTION], 
+    [V_SALES].[FECHA_PEDIDO] AS [FECHA_PEDIDO]
+    FROM [dbo].[V_SALES] AS [V_SALES]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_SALESEDIT" EntityType="Self.V_SALESEDIT" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [V_SALESEDIT].[IDCAB] AS [IDCAB], 
+    [V_SALESEDIT].[CONTACTO] AS [CONTACTO], 
+    [V_SALESEDIT].[FECHA_PEDIDO] AS [FECHA_PEDIDO], 
+    [V_SALESEDIT].[TOTAL_PRICE] AS [TOTAL_PRICE], 
+    [V_SALESEDIT].[IDLIN] AS [IDLIN], 
+    [V_SALESEDIT].[N_LIN] AS [N_LIN], 
+    [V_SALESEDIT].[PRODUCTO] AS [PRODUCTO], 
+    [V_SALESEDIT].[UNITS] AS [UNITS], 
+    [V_SALESEDIT].[SELL_PRICE] AS [SELL_PRICE], 
+    [V_SALESEDIT].[IDPRODUCT] AS [IDPRODUCT]
+    FROM [dbo].[V_SALESEDIT] AS [V_SALESEDIT]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_CONTACTS" EntityType="Self.View_CONTACTS" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_CONTACTS].[IDCONTACT] AS [IDCONTACT], 
+    [View_CONTACTS].[NAME] AS [NAME], 
+    [View_CONTACTS].[SURNAMES] AS [SURNAMES], 
+    [View_CONTACTS].[PHONE] AS [PHONE], 
+    [View_CONTACTS].[EMAIL] AS [EMAIL], 
+    [View_CONTACTS].[ADDRESS] AS [ADDRESS], 
+    [View_CONTACTS].[ROLE] AS [ROLE]
+    FROM [dbo].[View_CONTACTS] AS [View_CONTACTS]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="database_firewall_rules" EntityType="Self.database_firewall_rules" store:Type="Views" store:Schema="sys">
+            <DefiningQuery>SELECT 
+    [database_firewall_rules].[id] AS [id], 
+    [database_firewall_rules].[name] AS [name], 
+    [database_firewall_rules].[start_ip_address] AS [start_ip_address], 
+    [database_firewall_rules].[end_ip_address] AS [end_ip_address], 
+    [database_firewall_rules].[create_date] AS [create_date], 
+    [database_firewall_rules].[modify_date] AS [modify_date]
+    FROM [sys].[database_firewall_rules] AS [database_firewall_rules]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ipv6_database_firewall_rules" EntityType="Self.ipv6_database_firewall_rules" store:Type="Views" store:Schema="sys">
+            <DefiningQuery>SELECT 
+    [ipv6_database_firewall_rules].[id] AS [id], 
+    [ipv6_database_firewall_rules].[name] AS [name], 
+    [ipv6_database_firewall_rules].[start_ipv6_address] AS [start_ipv6_address], 
+    [ipv6_database_firewall_rules].[end_ipv6_address] AS [end_ipv6_address], 
+    [ipv6_database_firewall_rules].[create_date] AS [create_date], 
+    [ipv6_database_firewall_rules].[modify_date] AS [modify_date]
+    FROM [sys].[ipv6_database_firewall_rules] AS [ipv6_database_firewall_rules]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_PRODUCTS_CATEGORY" Association="Self.FK_PRODUCTS_CATEGORY">
+            <End Role="CATEGORY" EntitySet="CATEGORY" />
+            <End Role="PRODUCTS" EntitySet="PRODUCTS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRODUCTS_SUPPLIERS" Association="Self.FK_PRODUCTS_SUPPLIERS">
+            <End Role="SUPPLIERS" EntitySet="SUPPLIERS" />
+            <End Role="PRODUCTS" EntitySet="PRODUCTS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SALES_CAB_CONTACTS" Association="Self.FK_SALES_CAB_CONTACTS">
+            <End Role="CONTACTS" EntitySet="CONTACTS" />
+            <End Role="SALES_CAB" EntitySet="SALES_CAB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SALES_CAB_STATES" Association="Self.FK_SALES_CAB_STATES">
+            <End Role="STATES" EntitySet="STATES" />
+            <End Role="SALES_CAB" EntitySet="SALES_CAB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SALES_LIN_PRODUCTS" Association="Self.FK_SALES_LIN_PRODUCTS">
+            <End Role="PRODUCTS" EntitySet="PRODUCTS" />
+            <End Role="SALES_LIN" EntitySet="SALES_LIN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SALES_LIN_SALES_CAB" Association="Self.FK_SALES_LIN_SALES_CAB">
+            <End Role="SALES_CAB" EntitySet="SALES_CAB" />
+            <End Role="SALES_LIN" EntitySet="SALES_LIN" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="db_devloModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CATEGORY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PRODUCTS" Relationship="Self.FK_PRODUCTS_CATEGORY" FromRole="CATEGORY" ToRole="PRODUCTS" />
+        </EntityType>
+        <EntityType Name="CONTACT">
+          <Key>
+            <PropertyRef Name="IDCONTACT" />
+          </Key>
+          <Property Name="IDCONTACT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SURNAMES" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PHONE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ADDRESS" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ROLE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OBSERVATIONS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ADDED_DATE" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="SALES_CAB" Relationship="Self.FK_SALES_CAB_CONTACTS" FromRole="CONTACTS" ToRole="SALES_CAB" />
+        </EntityType>
+        <EntityType Name="PRODUCT">
+          <Key>
+            <PropertyRef Name="IDPRODUCT" />
+          </Key>
+          <Property Name="IDPRODUCT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CODE" Type="Int32" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CATEGORY" Type="Int32" />
+          <Property Name="SUPPLIER" Type="Int32" />
+          <Property Name="STOCK" Type="Int32" />
+          <Property Name="SELL_PRICE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="SUPPLIER_PRICE" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="CATEGORY1" Relationship="Self.FK_PRODUCTS_CATEGORY" FromRole="PRODUCTS" ToRole="CATEGORY" />
+          <NavigationProperty Name="SUPPLIER1" Relationship="Self.FK_PRODUCTS_SUPPLIERS" FromRole="PRODUCTS" ToRole="SUPPLIERS" />
+          <NavigationProperty Name="SALES_LIN" Relationship="Self.FK_SALES_LIN_PRODUCTS" FromRole="PRODUCTS" ToRole="SALES_LIN" />
+        </EntityType>
+        <EntityType Name="SALES_CAB">
+          <Key>
+            <PropertyRef Name="IDCAB" />
+          </Key>
+          <Property Name="IDCAB" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="STATE" Type="Int32" />
+          <Property Name="IDCONTACT" Type="Int32" />
+          <Property Name="TOTAL_PRICE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="COMENTS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FECHA_PEDIDO" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="CONTACT" Relationship="Self.FK_SALES_CAB_CONTACTS" FromRole="SALES_CAB" ToRole="CONTACTS" />
+          <NavigationProperty Name="STATE1" Relationship="Self.FK_SALES_CAB_STATES" FromRole="SALES_CAB" ToRole="STATES" />
+          <NavigationProperty Name="SALES_LIN" Relationship="Self.FK_SALES_LIN_SALES_CAB" FromRole="SALES_CAB" ToRole="SALES_LIN" />
+        </EntityType>
+        <EntityType Name="SALES_LIN">
+          <Key>
+            <PropertyRef Name="IDLIN" />
+          </Key>
+          <Property Name="IDLIN" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="N_LIN" Type="Int32" />
+          <Property Name="IDPRODUCT" Type="Int32" />
+          <Property Name="UNITS" Type="Int32" />
+          <Property Name="IDCAB" Type="Int32" />
+          <NavigationProperty Name="PRODUCT" Relationship="Self.FK_SALES_LIN_PRODUCTS" FromRole="SALES_LIN" ToRole="PRODUCTS" />
+          <NavigationProperty Name="SALES_CAB" Relationship="Self.FK_SALES_LIN_SALES_CAB" FromRole="SALES_LIN" ToRole="SALES_CAB" />
+        </EntityType>
+        <EntityType Name="STATE">
+          <Key>
+            <PropertyRef Name="IDSTATE" />
+          </Key>
+          <Property Name="IDSTATE" Type="Int32" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="SALES_CAB" Relationship="Self.FK_SALES_CAB_STATES" FromRole="STATES" ToRole="SALES_CAB" />
+        </EntityType>
+        <EntityType Name="SUPPLIER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PRODUCTS" Relationship="Self.FK_PRODUCTS_SUPPLIERS" FromRole="SUPPLIERS" ToRole="PRODUCTS" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="USER">
+          <Key>
+            <PropertyRef Name="EMAIL" />
+          </Key>
+          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PASSWD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SURNAMES" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ADMIN" Type="Int32" />
+        </EntityType>
+        <EntityType Name="V_CONTACTS">
+          <Key>
+            <PropertyRef Name="FULL_NAME" />
+          </Key>
+          <Property Name="FULL_NAME" Type="String" MaxLength="101" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="V_PRODUCTS">
+          <Key>
+            <PropertyRef Name="IDPRODUCT" />
+            <PropertyRef Name="IDCATEGORY" />
+            <PropertyRef Name="IDSUPPLIER" />
+          </Key>
+          <Property Name="CODE" Type="Int32" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="STOCK" Type="Int32" />
+          <Property Name="SELL_PRICE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="SUPPLIER_PRICE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CATEGORY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SUPPLIER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IDPRODUCT" Type="Int32" Nullable="false" />
+          <Property Name="IDCATEGORY" Type="Int32" Nullable="false" />
+          <Property Name="IDSUPPLIER" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="V_SALES">
+          <Key>
+            <PropertyRef Name="IDCAB" />
+          </Key>
+          <Property Name="IDCAB" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FECHA_PEDIDO" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="V_SALESEDIT">
+          <Key>
+            <PropertyRef Name="IDCAB" />
+            <PropertyRef Name="IDLIN" />
+          </Key>
+          <Property Name="IDCAB" Type="Int32" Nullable="false" />
+          <Property Name="CONTACTO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FECHA_PEDIDO" Type="DateTime" Precision="3" />
+          <Property Name="TOTAL_PRICE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="IDLIN" Type="Int32" Nullable="false" />
+          <Property Name="N_LIN" Type="Int32" />
+          <Property Name="PRODUCTO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UNITS" Type="Int32" />
+          <Property Name="SELL_PRICE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="IDPRODUCT" Type="Int32" />
+        </EntityType>
+        <EntityType Name="View_CONTACTS">
+          <Key>
+            <PropertyRef Name="IDCONTACT" />
+          </Key>
+          <Property Name="IDCONTACT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SURNAMES" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PHONE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ADDRESS" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ROLE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="database_firewall_rules">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="start_ip_address" />
+            <PropertyRef Name="end_ip_address" />
+            <PropertyRef Name="create_date" />
+            <PropertyRef Name="modify_date" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="start_ip_address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="end_ip_address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="modify_date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="ipv6_database_firewall_rules">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="start_ipv6_address" />
+            <PropertyRef Name="end_ipv6_address" />
+            <PropertyRef Name="create_date" />
+            <PropertyRef Name="modify_date" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="start_ipv6_address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="end_ipv6_address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="modify_date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <Association Name="FK_PRODUCTS_CATEGORY">
+          <End Role="CATEGORY" Type="Self.CATEGORY" Multiplicity="0..1" />
+          <End Role="PRODUCTS" Type="Self.PRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATEGORY">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PRODUCTS">
+              <PropertyRef Name="CATEGORY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SALES_CAB_CONTACTS">
+          <End Role="CONTACTS" Type="Self.CONTACT" Multiplicity="0..1" />
+          <End Role="SALES_CAB" Type="Self.SALES_CAB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CONTACTS">
+              <PropertyRef Name="IDCONTACT" />
+            </Principal>
+            <Dependent Role="SALES_CAB">
+              <PropertyRef Name="IDCONTACT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRODUCTS_SUPPLIERS">
+          <End Role="SUPPLIERS" Type="Self.SUPPLIER" Multiplicity="0..1" />
+          <End Role="PRODUCTS" Type="Self.PRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUPPLIERS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PRODUCTS">
+              <PropertyRef Name="SUPPLIER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SALES_LIN_PRODUCTS">
+          <End Role="PRODUCTS" Type="Self.PRODUCT" Multiplicity="0..1" />
+          <End Role="SALES_LIN" Type="Self.SALES_LIN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTS">
+              <PropertyRef Name="IDPRODUCT" />
+            </Principal>
+            <Dependent Role="SALES_LIN">
+              <PropertyRef Name="IDPRODUCT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SALES_CAB_STATES">
+          <End Role="STATES" Type="Self.STATE" Multiplicity="0..1" />
+          <End Role="SALES_CAB" Type="Self.SALES_CAB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STATES">
+              <PropertyRef Name="IDSTATE" />
+            </Principal>
+            <Dependent Role="SALES_CAB">
+              <PropertyRef Name="STATE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SALES_LIN_SALES_CAB">
+          <End Role="SALES_CAB" Type="Self.SALES_CAB" Multiplicity="0..1" />
+          <End Role="SALES_LIN" Type="Self.SALES_LIN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SALES_CAB">
+              <PropertyRef Name="IDCAB" />
+            </Principal>
+            <Dependent Role="SALES_LIN">
+              <PropertyRef Name="IDCAB" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="db_devloEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CATEGORies" EntityType="Self.CATEGORY" />
+          <EntitySet Name="CONTACTS" EntityType="Self.CONTACT" />
+          <EntitySet Name="PRODUCTS" EntityType="Self.PRODUCT" />
+          <EntitySet Name="SALES_CAB" EntityType="Self.SALES_CAB" />
+          <EntitySet Name="SALES_LIN" EntityType="Self.SALES_LIN" />
+          <EntitySet Name="STATES" EntityType="Self.STATE" />
+          <EntitySet Name="SUPPLIERS" EntityType="Self.SUPPLIER" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="USERS" EntityType="Self.USER" />
+          <EntitySet Name="V_CONTACTS" EntityType="Self.V_CONTACTS" />
+          <EntitySet Name="V_PRODUCTS" EntityType="Self.V_PRODUCTS" />
+          <EntitySet Name="V_SALES" EntityType="Self.V_SALES" />
+          <EntitySet Name="V_SALESEDIT" EntityType="Self.V_SALESEDIT" />
+          <EntitySet Name="View_CONTACTS" EntityType="Self.View_CONTACTS" />
+          <EntitySet Name="database_firewall_rules" EntityType="Self.database_firewall_rules" />
+          <EntitySet Name="ipv6_database_firewall_rules" EntityType="Self.ipv6_database_firewall_rules" />
+          <AssociationSet Name="FK_PRODUCTS_CATEGORY" Association="Self.FK_PRODUCTS_CATEGORY">
+            <End Role="CATEGORY" EntitySet="CATEGORies" />
+            <End Role="PRODUCTS" EntitySet="PRODUCTS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SALES_CAB_CONTACTS" Association="Self.FK_SALES_CAB_CONTACTS">
+            <End Role="CONTACTS" EntitySet="CONTACTS" />
+            <End Role="SALES_CAB" EntitySet="SALES_CAB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRODUCTS_SUPPLIERS" Association="Self.FK_PRODUCTS_SUPPLIERS">
+            <End Role="SUPPLIERS" EntitySet="SUPPLIERS" />
+            <End Role="PRODUCTS" EntitySet="PRODUCTS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SALES_LIN_PRODUCTS" Association="Self.FK_SALES_LIN_PRODUCTS">
+            <End Role="PRODUCTS" EntitySet="PRODUCTS" />
+            <End Role="SALES_LIN" EntitySet="SALES_LIN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SALES_CAB_STATES" Association="Self.FK_SALES_CAB_STATES">
+            <End Role="STATES" EntitySet="STATES" />
+            <End Role="SALES_CAB" EntitySet="SALES_CAB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SALES_LIN_SALES_CAB" Association="Self.FK_SALES_LIN_SALES_CAB">
+            <End Role="SALES_CAB" EntitySet="SALES_CAB" />
+            <End Role="SALES_LIN" EntitySet="SALES_LIN" />
+          </AssociationSet>
+          <FunctionImport Name="PA_ADD_CATEGORY">
+            <Parameter Name="NAME" Mode="In" Type="String" />
+            <Parameter Name="DESCRIPTION" Mode="In" Type="String" />
+            <Parameter Name="INVOKER" Mode="In" Type="Int32" />
+            <Parameter Name="USUARIO" Mode="In" Type="String" />
+            <Parameter Name="CULTURA" Mode="In" Type="String" />
+            <Parameter Name="RETCODE" Mode="InOut" Type="Int32" />
+            <Parameter Name="MENSAJE" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PA_ADD_CONTACT">
+            <Parameter Name="NAME" Mode="In" Type="String" />
+            <Parameter Name="SURNAMES" Mode="In" Type="String" />
+            <Parameter Name="PHONE" Mode="In" Type="String" />
+            <Parameter Name="EMAIL" Mode="In" Type="String" />
+            <Parameter Name="ADDRESS" Mode="In" Type="String" />
+            <Parameter Name="ROLE" Mode="In" Type="String" />
+            <Parameter Name="OBSERVATIONS" Mode="In" Type="String" />
+            <Parameter Name="INVOKER" Mode="In" Type="Int32" />
+            <Parameter Name="USUARIO" Mode="In" Type="String" />
+            <Parameter Name="CULTURA" Mode="In" Type="String" />
+            <Parameter Name="RETCODE" Mode="InOut" Type="Int32" />
+            <Parameter Name="MENSAJE" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PA_ADD_PRODUCT">
+            <Parameter Name="CODE" Mode="In" Type="Int32" />
+            <Parameter Name="NAME" Mode="In" Type="String" />
+            <Parameter Name="DESCRIPTION" Mode="In" Type="String" />
+            <Parameter Name="CATEGORY" Mode="In" Type="Int32" />
+            <Parameter Name="SUPPLIER" Mode="In" Type="Int32" />
+            <Parameter Name="STOCK" Mode="In" Type="Int32" />
+            <Parameter Name="SELL_PRICE" Mode="In" Type="Decimal" />
+            <Parameter Name="SUPLIER_PRICE" Mode="In" Type="Decimal" />
+            <Parameter Name="INVOKER" Mode="In" Type="Int32" />
+            <Parameter Name="USUARIO" Mode="In" Type="String" />
+            <Parameter Name="CULTURA" Mode="In" Type="String" />
+            <Parameter Name="RETCODE" Mode="InOut" Type="Int32" />
+            <Parameter Name="MENSAJE" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PA_ADD_SALE_CAB">
+            <Parameter Name="IDCONTACT" Mode="In" Type="Int32" />
+            <Parameter Name="TOTAL_PRICE" Mode="In" Type="Decimal" />
+            <Parameter Name="COMENTS" Mode="In" Type="String" />
+            <Parameter Name="ORDER_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="INVOKER" Mode="In" Type="Int32" />
+            <Parameter Name="USUARIO" Mode="In" Type="String" />
+            <Parameter Name="CULTURA" Mode="In" Type="String" />
+            <Parameter Name="RETCODE" Mode="InOut" Type="Int32" />
+            <Parameter Name="MENSAJE" Mode="InOut" Type="String" />
+            <Parameter Name="IDCAB" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="PA_ADD_SALE_LIN">
+            <Parameter Name="N_LIN" Mode="In" Type="Int32" />
+            <Parameter Name="IDPRODUCT" Mode="In" Type="Int32" />
+            <Parameter Name="UNITS" Mode="In" Type="Int32" />
+            <Parameter Name="IDCAB" Mode="In" Type="Int32" />
+            <Parameter Name="INVOKER" Mode="In" Type="Int32" />
+            <Parameter Name="USUARIO" Mode="In" Type="String" />
+            <Parameter Name="CULTURA" Mode="In" Type="String" />
+            <Parameter Name="RETCODE" Mode="InOut" Type="Int32" />
+            <Parameter Name="MENSAJE" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PA_ADD_SUPPLIER">
+            <Parameter Name="NAME" Mode="In" Type="String" />
+            <Parameter Name="DESCRIPTION" Mode="In" Type="String" />
+            <Parameter Name="INVOKER" Mode="In" Type="Int32" />
+            <Parameter Name="USUARIO" Mode="In" Type="String" />
+            <Parameter Name="CULTURA" Mode="In" Type="String" />
+            <Parameter Name="RETCODE" Mode="InOut" Type="Int32" />
+            <Parameter Name="MENSAJE" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PA_CHECK_LOGIN">
+            <Parameter Name="EMAIL" Mode="In" Type="String" />
+            <Parameter Name="PASSWD" Mode="In" Type="String" />
+            <Parameter Name="INVOKER" Mode="In" Type="Int32" />
+            <Parameter Name="USUARIO" Mode="In" Type="String" />
+            <Parameter Name="CULTURA" Mode="In" Type="String" />
+            <Parameter Name="RETCODE" Mode="InOut" Type="Int32" />
+            <Parameter Name="MENSAJE" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PA_DELETE_CATEGORY">
+            <Parameter Name="NAME" Mode="In" Type="String" />
+            <Parameter Name="DESCRIPTION" Mode="In" Type="String" />
+            <Parameter Name="INVOKER" Mode="In" Type="Int32" />
+            <Parameter Name="USUARIO" Mode="In" Type="String" />
+            <Parameter Name="CULTURA" Mode="In" Type="String" />
+            <Parameter Name="RETCODE" Mode="InOut" Type="Int32" />
+            <Parameter Name="MENSAJE" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PA_DELETE_CONTACT">
+            <Parameter Name="ID_CONTACT" Mode="In" Type="Int32" />
+            <Parameter Name="INVOKER" Mode="In" Type="Int32" />
+            <Parameter Name="USUARIO" Mode="In" Type="String" />
+            <Parameter Name="CULTURA" Mode="In" Type="String" />
+            <Parameter Name="RETCODE" Mode="InOut" Type="Int32" />
+            <Parameter Name="MENSAJE" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PA_DELETE_PRODUCT">
+            <Parameter Name="ID_PRODUCT" Mode="In" Type="Int32" />
+            <Parameter Name="INVOKER" Mode="In" Type="Int32" />
+            <Parameter Name="USUARIO" Mode="In" Type="String" />
+            <Parameter Name="CULTURA" Mode="In" Type="String" />
+            <Parameter Name="RETCODE" Mode="InOut" Type="Int32" />
+            <Parameter Name="MENSAJE" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PA_DELETE_SUPPLIER">
+            <Parameter Name="NAME" Mode="In" Type="String" />
+            <Parameter Name="DESCRIPTION" Mode="In" Type="String" />
+            <Parameter Name="INVOKER" Mode="In" Type="Int32" />
+            <Parameter Name="USUARIO" Mode="In" Type="String" />
+            <Parameter Name="CULTURA" Mode="In" Type="String" />
+            <Parameter Name="RETCODE" Mode="InOut" Type="Int32" />
+            <Parameter Name="MENSAJE" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PA_UPDATE_CATEGORY">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="NAME" Mode="In" Type="String" />
+            <Parameter Name="DESCRIPTION" Mode="In" Type="String" />
+            <Parameter Name="INVOKER" Mode="In" Type="Int32" />
+            <Parameter Name="USUARIO" Mode="In" Type="String" />
+            <Parameter Name="CULTURA" Mode="In" Type="String" />
+            <Parameter Name="RETCODE" Mode="InOut" Type="Int32" />
+            <Parameter Name="MENSAJE" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PA_UPDATE_CONTACT">
+            <Parameter Name="ID_CONTACT" Mode="In" Type="Int32" />
+            <Parameter Name="NAME" Mode="In" Type="String" />
+            <Parameter Name="SURNAME" Mode="In" Type="String" />
+            <Parameter Name="PHONE" Mode="In" Type="String" />
+            <Parameter Name="EMAIL" Mode="In" Type="String" />
+            <Parameter Name="ADDRESS" Mode="In" Type="String" />
+            <Parameter Name="ROLE" Mode="In" Type="String" />
+            <Parameter Name="OBSERVATIONS" Mode="In" Type="String" />
+            <Parameter Name="INVOKER" Mode="In" Type="Int32" />
+            <Parameter Name="USUARIO" Mode="In" Type="String" />
+            <Parameter Name="CULTURA" Mode="In" Type="String" />
+            <Parameter Name="RETCODE" Mode="InOut" Type="Int32" />
+            <Parameter Name="MENSAJE" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PA_UPDATE_PRODUCT">
+            <Parameter Name="CODE" Mode="In" Type="Int32" />
+            <Parameter Name="NAME" Mode="In" Type="String" />
+            <Parameter Name="DESCRIPTION" Mode="In" Type="String" />
+            <Parameter Name="CATEGORY" Mode="In" Type="Int32" />
+            <Parameter Name="SUPPLIER" Mode="In" Type="Int32" />
+            <Parameter Name="STOCK" Mode="In" Type="Int32" />
+            <Parameter Name="SELL_PRICE" Mode="In" Type="Decimal" />
+            <Parameter Name="SUPLIER_PRICE" Mode="In" Type="Decimal" />
+            <Parameter Name="INVOKER" Mode="In" Type="Int32" />
+            <Parameter Name="USUARIO" Mode="In" Type="String" />
+            <Parameter Name="CULTURA" Mode="In" Type="String" />
+            <Parameter Name="RETCODE" Mode="InOut" Type="Int32" />
+            <Parameter Name="MENSAJE" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PA_UPDATE_SUPPLIER">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="NAME" Mode="In" Type="String" />
+            <Parameter Name="DESCRIPTION" Mode="In" Type="String" />
+            <Parameter Name="INVOKER" Mode="In" Type="Int32" />
+            <Parameter Name="USUARIO" Mode="In" Type="String" />
+            <Parameter Name="CULTURA" Mode="In" Type="String" />
+            <Parameter Name="RETCODE" Mode="InOut" Type="Int32" />
+            <Parameter Name="MENSAJE" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PAH" ReturnType="Collection(String)">
+          <Parameter Name="TEXTO" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PAP">
+          <Parameter Name="NOMBRE_PA" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(db_devloModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(db_devloModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <FunctionImport Name="PA_UPDATE_SALE">
+            <Parameter Name="IDCAB" Mode="In" Type="Int32" />
+            <Parameter Name="N_LIN" Mode="In" Type="Int32" />
+            <Parameter Name="IDPRODUCT" Mode="In" Type="Int32" />
+            <Parameter Name="UNITS" Mode="In" Type="Int32" />
+            <Parameter Name="IDLIN" Mode="In" Type="Int32" />
+            <Parameter Name="TOTAL_PRICE" Mode="In" Type="Decimal" />
+            <Parameter Name="INVOKER" Mode="In" Type="Int32" />
+            <Parameter Name="USUARIO" Mode="In" Type="String" />
+            <Parameter Name="CULTURA" Mode="In" Type="String" />
+            <Parameter Name="RETCODE" Mode="InOut" Type="Int32" />
+            <Parameter Name="MENSAJE" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PA_DELETE_SALE">
+            <Parameter Name="IDCAB" Mode="In" Type="Int32" />
+            <Parameter Name="INVOKER" Mode="In" Type="Int32" />
+            <Parameter Name="USUARIO" Mode="In" Type="String" />
+            <Parameter Name="CULTURA" Mode="In" Type="String" />
+            <Parameter Name="RETCODE" Mode="InOut" Type="Int32" />
+            <Parameter Name="MENSAJE" Mode="InOut" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="db_devloModelStoreContainer" CdmEntityContainer="db_devloEntities">
+          <EntitySetMapping Name="CATEGORies">
+            <EntityTypeMapping TypeName="db_devloModel.CATEGORY">
+              <MappingFragment StoreEntitySet="CATEGORY">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CONTACTS">
+            <EntityTypeMapping TypeName="db_devloModel.CONTACT">
+              <MappingFragment StoreEntitySet="CONTACTS">
+                <ScalarProperty Name="IDCONTACT" ColumnName="IDCONTACT" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="SURNAMES" ColumnName="SURNAMES" />
+                <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="ROLE" ColumnName="ROLE" />
+                <ScalarProperty Name="OBSERVATIONS" ColumnName="OBSERVATIONS" />
+                <ScalarProperty Name="ADDED_DATE" ColumnName="ADDED_DATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRODUCTS">
+            <EntityTypeMapping TypeName="db_devloModel.PRODUCT">
+              <MappingFragment StoreEntitySet="PRODUCTS">
+                <ScalarProperty Name="IDPRODUCT" ColumnName="IDPRODUCT" />
+                <ScalarProperty Name="CODE" ColumnName="CODE" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="CATEGORY" ColumnName="CATEGORY" />
+                <ScalarProperty Name="SUPPLIER" ColumnName="SUPPLIER" />
+                <ScalarProperty Name="STOCK" ColumnName="STOCK" />
+                <ScalarProperty Name="SELL_PRICE" ColumnName="SELL_PRICE" />
+                <ScalarProperty Name="SUPPLIER_PRICE" ColumnName="SUPPLIER_PRICE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SALES_CAB">
+            <EntityTypeMapping TypeName="db_devloModel.SALES_CAB">
+              <MappingFragment StoreEntitySet="SALES_CAB">
+                <ScalarProperty Name="IDCAB" ColumnName="IDCAB" />
+                <ScalarProperty Name="STATE" ColumnName="STATE" />
+                <ScalarProperty Name="IDCONTACT" ColumnName="IDCONTACT" />
+                <ScalarProperty Name="TOTAL_PRICE" ColumnName="TOTAL_PRICE" />
+                <ScalarProperty Name="COMENTS" ColumnName="COMENTS" />
+                <ScalarProperty Name="FECHA_PEDIDO" ColumnName="FECHA_PEDIDO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SALES_LIN">
+            <EntityTypeMapping TypeName="db_devloModel.SALES_LIN">
+              <MappingFragment StoreEntitySet="SALES_LIN">
+                <ScalarProperty Name="IDLIN" ColumnName="IDLIN" />
+                <ScalarProperty Name="N_LIN" ColumnName="N_LIN" />
+                <ScalarProperty Name="IDPRODUCT" ColumnName="IDPRODUCT" />
+                <ScalarProperty Name="UNITS" ColumnName="UNITS" />
+                <ScalarProperty Name="IDCAB" ColumnName="IDCAB" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STATES">
+            <EntityTypeMapping TypeName="db_devloModel.STATE">
+              <MappingFragment StoreEntitySet="STATES">
+                <ScalarProperty Name="IDSTATE" ColumnName="IDSTATE" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SUPPLIERS">
+            <EntityTypeMapping TypeName="db_devloModel.SUPPLIER">
+              <MappingFragment StoreEntitySet="SUPPLIERS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="db_devloModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USERS">
+            <EntityTypeMapping TypeName="db_devloModel.USER">
+              <MappingFragment StoreEntitySet="USERS">
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="PASSWD" ColumnName="PASSWD" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="SURNAMES" ColumnName="SURNAMES" />
+                <ScalarProperty Name="ADMIN" ColumnName="ADMIN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_CONTACTS">
+            <EntityTypeMapping TypeName="db_devloModel.V_CONTACTS">
+              <MappingFragment StoreEntitySet="V_CONTACTS">
+                <ScalarProperty Name="FULL_NAME" ColumnName="FULL_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_PRODUCTS">
+            <EntityTypeMapping TypeName="db_devloModel.V_PRODUCTS">
+              <MappingFragment StoreEntitySet="V_PRODUCTS">
+                <ScalarProperty Name="CODE" ColumnName="CODE" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="STOCK" ColumnName="STOCK" />
+                <ScalarProperty Name="SELL_PRICE" ColumnName="SELL_PRICE" />
+                <ScalarProperty Name="SUPPLIER_PRICE" ColumnName="SUPPLIER_PRICE" />
+                <ScalarProperty Name="CATEGORY" ColumnName="CATEGORY" />
+                <ScalarProperty Name="SUPPLIER" ColumnName="SUPPLIER" />
+                <ScalarProperty Name="IDPRODUCT" ColumnName="IDPRODUCT" />
+                <ScalarProperty Name="IDCATEGORY" ColumnName="IDCATEGORY" />
+                <ScalarProperty Name="IDSUPPLIER" ColumnName="IDSUPPLIER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_SALES">
+            <EntityTypeMapping TypeName="db_devloModel.V_SALES">
+              <MappingFragment StoreEntitySet="V_SALES">
+                <ScalarProperty Name="FECHA_PEDIDO" ColumnName="FECHA_PEDIDO" />
+                <ScalarProperty Name="IDCAB" ColumnName="IDCAB" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_SALESEDIT">
+            <EntityTypeMapping TypeName="db_devloModel.V_SALESEDIT">
+              <MappingFragment StoreEntitySet="V_SALESEDIT">
+                <ScalarProperty Name="IDPRODUCT" ColumnName="IDPRODUCT" />
+                <ScalarProperty Name="SELL_PRICE" ColumnName="SELL_PRICE" />
+                <ScalarProperty Name="IDCAB" ColumnName="IDCAB" />
+                <ScalarProperty Name="CONTACTO" ColumnName="CONTACTO" />
+                <ScalarProperty Name="FECHA_PEDIDO" ColumnName="FECHA_PEDIDO" />
+                <ScalarProperty Name="TOTAL_PRICE" ColumnName="TOTAL_PRICE" />
+                <ScalarProperty Name="IDLIN" ColumnName="IDLIN" />
+                <ScalarProperty Name="N_LIN" ColumnName="N_LIN" />
+                <ScalarProperty Name="PRODUCTO" ColumnName="PRODUCTO" />
+                <ScalarProperty Name="UNITS" ColumnName="UNITS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_CONTACTS">
+            <EntityTypeMapping TypeName="db_devloModel.View_CONTACTS">
+              <MappingFragment StoreEntitySet="View_CONTACTS">
+                <ScalarProperty Name="IDCONTACT" ColumnName="IDCONTACT" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="SURNAMES" ColumnName="SURNAMES" />
+                <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="ROLE" ColumnName="ROLE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="database_firewall_rules">
+            <EntityTypeMapping TypeName="db_devloModel.database_firewall_rules">
+              <MappingFragment StoreEntitySet="database_firewall_rules">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="start_ip_address" ColumnName="start_ip_address" />
+                <ScalarProperty Name="end_ip_address" ColumnName="end_ip_address" />
+                <ScalarProperty Name="create_date" ColumnName="create_date" />
+                <ScalarProperty Name="modify_date" ColumnName="modify_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ipv6_database_firewall_rules">
+            <EntityTypeMapping TypeName="db_devloModel.ipv6_database_firewall_rules">
+              <MappingFragment StoreEntitySet="ipv6_database_firewall_rules">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="start_ipv6_address" ColumnName="start_ipv6_address" />
+                <ScalarProperty Name="end_ipv6_address" ColumnName="end_ipv6_address" />
+                <ScalarProperty Name="create_date" ColumnName="create_date" />
+                <ScalarProperty Name="modify_date" ColumnName="modify_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="PA_ADD_CATEGORY" FunctionName="db_devloModel.Store.PA_ADD_CATEGORY" />
+          <FunctionImportMapping FunctionImportName="PA_ADD_CONTACT" FunctionName="db_devloModel.Store.PA_ADD_CONTACT" />
+          <FunctionImportMapping FunctionImportName="PA_ADD_PRODUCT" FunctionName="db_devloModel.Store.PA_ADD_PRODUCT" />
+          <FunctionImportMapping FunctionImportName="PA_ADD_SALE_CAB" FunctionName="db_devloModel.Store.PA_ADD_SALE_CAB" />
+          <FunctionImportMapping FunctionImportName="PA_ADD_SALE_LIN" FunctionName="db_devloModel.Store.PA_ADD_SALE_LIN" />
+          <FunctionImportMapping FunctionImportName="PA_ADD_SUPPLIER" FunctionName="db_devloModel.Store.PA_ADD_SUPPLIER" />
+          <FunctionImportMapping FunctionImportName="PA_CHECK_LOGIN" FunctionName="db_devloModel.Store.PA_CHECK_LOGIN" />
+          <FunctionImportMapping FunctionImportName="PA_DELETE_CATEGORY" FunctionName="db_devloModel.Store.PA_DELETE_CATEGORY" />
+          <FunctionImportMapping FunctionImportName="PA_DELETE_CONTACT" FunctionName="db_devloModel.Store.PA_DELETE_CONTACT" />
+          <FunctionImportMapping FunctionImportName="PA_DELETE_PRODUCT" FunctionName="db_devloModel.Store.PA_DELETE_PRODUCT" />
+          <FunctionImportMapping FunctionImportName="PA_DELETE_SUPPLIER" FunctionName="db_devloModel.Store.PA_DELETE_SUPPLIER" />
+          <FunctionImportMapping FunctionImportName="PA_UPDATE_CATEGORY" FunctionName="db_devloModel.Store.PA_UPDATE_CATEGORY" />
+          <FunctionImportMapping FunctionImportName="PA_UPDATE_CONTACT" FunctionName="db_devloModel.Store.PA_UPDATE_CONTACT" />
+          <FunctionImportMapping FunctionImportName="PA_UPDATE_PRODUCT" FunctionName="db_devloModel.Store.PA_UPDATE_PRODUCT" />
+          <FunctionImportMapping FunctionImportName="PA_UPDATE_SUPPLIER" FunctionName="db_devloModel.Store.PA_UPDATE_SUPPLIER" />
+          <FunctionImportMapping FunctionImportName="PAH" FunctionName="db_devloModel.Store.PAH" />
+          <FunctionImportMapping FunctionImportName="PAP" FunctionName="db_devloModel.Store.PAP" />
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="db_devloModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="db_devloModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="db_devloModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="db_devloModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="db_devloModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="db_devloModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="db_devloModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="db_devloModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="db_devloModel.Store.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="PA_UPDATE_SALE" FunctionName="db_devloModel.Store.PA_UPDATE_SALE" />
+          <FunctionImportMapping FunctionImportName="PA_DELETE_SALE" FunctionName="db_devloModel.Store.PA_DELETE_SALE" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
