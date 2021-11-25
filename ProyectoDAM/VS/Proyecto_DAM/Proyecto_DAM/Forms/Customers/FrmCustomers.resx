@@ -120,10 +120,31 @@
   <metadata name="IDCONTACT.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="EditColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="DetailColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="DetailColumn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAAOwAAADsAXkocb0AAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
+        AAACoklEQVRYR+2Vz48MQRTHx2/+AYlw51/AIi7YCJGwNwcHFmEODsJUNfqAiPtiNsR9mK6aSFxkjQv2
+        4IBkZ6q6lz2IbBwxSDZrx/f1PDXdZpbOrkQk/Ule0vm+V+9Vv6p+XcjJyflvaPv+UqtL24z2rhvlPbFa
+        TsO+sU2HStbJZwM5QLG8bPFED4urUPCkVXIK1s5ob00gT0xU/JWcZmGENbkdb9dMJLZ4y8uR8nY1qmLd
+        1F1/NRk9k4a3v4JOhIn4BnWN02Wn3S4sQWGBBN850ctIy32kc8i8UIypefuxmVe8dhbP57OsjYnPWsnb
+        bjE2Uq/7y9kdFwiVOAL9OfwttqdGicPJIi/KwyugXYhzUC4tRzPdDROIW/ECJT81tdjNsgMtvsP+flbm
+        MIdVYhD6Z/Jj4zdY7k+ovCInavU7O1ysIfIbJb/YwDtFZ09Gz7EWF5EHOdwRBaUdXb9XZDmNvV/ahIAZ
+        2Fy/JAR8jygJ7DRLDtLYN8ZSCt78HGyGarHcxSrPpwTUYpZ6gP8DxUwG/lqWHKSRD/aRpR66xycusdTl
+        L26gxVIPv99A4gjwrR9iOQV8GY5AjLOUInkE+Ew3spwmeQlpCLHsyHIJrRZHOdxhamKn8/fZfAqj5U0O
+        xKcjBll2dNvYa2Eg7v36rYdVsRc+mhUUM8Ly/HR+OnKUF9AUu0hDhd1uEOH/8IwTw8Q4Njbcrgwt47B4
+        EPG9+jlNy9mnIQKNFuewqDPFMFZpvGZJQDEofADrXnPhWXTmbObiSVB4AAkanIhsEsmvmsDbYx/I9e8q
+        Z9aQRVV/Ax0X+RDzJhE/YaqlrZxuYdAvNdTe8U5xl/hPFuFiHlv07zgJtbCp5ZYw8K6hM4/xxu9R6GvH
+        4ucx8mHsbl5Qu3Nycv4NhcIPzZ3jvGZtAD0AAAAASUVORK5CYII=
+</value>
+  </data>
+  <metadata name="EditColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="EditColumn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
@@ -406,9 +427,6 @@
         tv8PlH3KhXl7thwAAAAASUVORK5CYII=
 </value>
   </data>
-  <metadata name="db_devloDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <metadata name="cONTACTSTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>351, 17</value>
   </metadata>

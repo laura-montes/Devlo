@@ -12,12 +12,9 @@ namespace Control
     using System;
     using System.Collections.Generic;
     
-    public partial class USER
+    public partial class V_CONTACTS_ADDED_DATE
     {
-        public string EMAIL { get; set; }
-        public string PASSWD { get; set; }
-        public string NAME { get; set; }
-        public string SURNAMES { get; set; }
-        public Nullable<int> ROL { get; set; }
+        public int CLIENTES { get; set; }
+        public Nullable<System.DateTime> ADDED_DATE { get; set; }
     }
 }

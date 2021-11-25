@@ -29,7 +29,8 @@ namespace Proyecto_DAM
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
-        }
+			this.Location = new Point(100, 100);
+		}
 
 		private void PctBxClose_Click(object sender, EventArgs e)
 		{
@@ -50,29 +51,31 @@ namespace Proyecto_DAM
 			}
 		}
 
-		private void loginCheck()
+		internal Boolean loginCheck()
         {
 			try
 			{
 				if (utilidades.pa_login(TxtUser.Text.ToUpper(), TxtPassword.Text.ToUpper()).Equals("0"))
 				{
-					MessageBox.Show("CREDENCIALES CORRECTAS");
+					Program.SetMainForm(new FrmGeneral());
+					Program.ShowMainForm();
 
-					FrmGeneral frmGeneral = new FrmGeneral();
-					this.Hide();
-					frmGeneral.Show();
+					this.Close();
+					return true;
 				}
 				else
 				{
 					TxtUser.Text = "";
 					TxtPassword.Text = "";
-					MessageBox.Show("CREDENCIALES INCORRECTAS");
+					MessageBox.Show("Usuario y/o contraseña incorrectas.");
+					return false;
 
 				}
 			}
 			catch (Exception ex)
 			{
 				MessageBox.Show(ex.ToString());
+				return true;
 			}
 		}
         private void TxtPassword_KeyDown(object sender, KeyEventArgs e)

@@ -43,6 +43,8 @@ namespace Control
         public virtual DbSet<View_CONTACTS> View_CONTACTS { get; set; }
         public virtual DbSet<database_firewall_rules> database_firewall_rules { get; set; }
         public virtual DbSet<ipv6_database_firewall_rules> ipv6_database_firewall_rules { get; set; }
+        public virtual DbSet<V_CONTACTS_ADDED_DATE> V_CONTACTS_ADDED_DATE { get; set; }
+        public virtual DbSet<V_SALES_ADDED_DATE> V_SALES_ADDED_DATE { get; set; }
     
         public virtual int PA_ADD_CATEGORY(string nAME, string dESCRIPTION, Nullable<int> iNVOKER, string uSUARIO, string cULTURA, ObjectParameter rETCODE, ObjectParameter mENSAJE)
         {
@@ -708,6 +710,78 @@ namespace Control
                 new ObjectParameter("CULTURA", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PA_DELETE_SALE", iDCABParameter, iNVOKERParameter, uSUARIOParameter, cULTURAParameter, rETCODE, mENSAJE);
+        }
+    
+        public virtual int PA_COUNT_USERS(Nullable<System.DateTime> dATE, Nullable<int> iNVOKER, string uSUARIO, string cULTURA, ObjectParameter rETCODE, ObjectParameter mENSAJE, ObjectParameter cANTIDAD)
+        {
+            var dATEParameter = dATE.HasValue ?
+                new ObjectParameter("DATE", dATE) :
+                new ObjectParameter("DATE", typeof(System.DateTime));
+    
+            var iNVOKERParameter = iNVOKER.HasValue ?
+                new ObjectParameter("INVOKER", iNVOKER) :
+                new ObjectParameter("INVOKER", typeof(int));
+    
+            var uSUARIOParameter = uSUARIO != null ?
+                new ObjectParameter("USUARIO", uSUARIO) :
+                new ObjectParameter("USUARIO", typeof(string));
+    
+            var cULTURAParameter = cULTURA != null ?
+                new ObjectParameter("CULTURA", cULTURA) :
+                new ObjectParameter("CULTURA", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PA_COUNT_USERS", dATEParameter, iNVOKERParameter, uSUARIOParameter, cULTURAParameter, rETCODE, mENSAJE, cANTIDAD);
+        }
+    
+        public virtual int PA_COUNT_DAILYEARNS(Nullable<int> iNVOKER, string uSUARIO, string cULTURA, ObjectParameter rETCODE, ObjectParameter mENSAJE, ObjectParameter cANTIDAD)
+        {
+            var iNVOKERParameter = iNVOKER.HasValue ?
+                new ObjectParameter("INVOKER", iNVOKER) :
+                new ObjectParameter("INVOKER", typeof(int));
+    
+            var uSUARIOParameter = uSUARIO != null ?
+                new ObjectParameter("USUARIO", uSUARIO) :
+                new ObjectParameter("USUARIO", typeof(string));
+    
+            var cULTURAParameter = cULTURA != null ?
+                new ObjectParameter("CULTURA", cULTURA) :
+                new ObjectParameter("CULTURA", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PA_COUNT_DAILYEARNS", iNVOKERParameter, uSUARIOParameter, cULTURAParameter, rETCODE, mENSAJE, cANTIDAD);
+        }
+    
+        public virtual int PA_COUNT_PRODUCTS(Nullable<int> iNVOKER, string uSUARIO, string cULTURA, ObjectParameter rETCODE, ObjectParameter mENSAJE, ObjectParameter cANTIDAD)
+        {
+            var iNVOKERParameter = iNVOKER.HasValue ?
+                new ObjectParameter("INVOKER", iNVOKER) :
+                new ObjectParameter("INVOKER", typeof(int));
+    
+            var uSUARIOParameter = uSUARIO != null ?
+                new ObjectParameter("USUARIO", uSUARIO) :
+                new ObjectParameter("USUARIO", typeof(string));
+    
+            var cULTURAParameter = cULTURA != null ?
+                new ObjectParameter("CULTURA", cULTURA) :
+                new ObjectParameter("CULTURA", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PA_COUNT_PRODUCTS", iNVOKERParameter, uSUARIOParameter, cULTURAParameter, rETCODE, mENSAJE, cANTIDAD);
+        }
+    
+        public virtual int PA_COUNT_MONTHLYEARNS(Nullable<int> iNVOKER, string uSUARIO, string cULTURA, ObjectParameter rETCODE, ObjectParameter mENSAJE, ObjectParameter cANTIDAD)
+        {
+            var iNVOKERParameter = iNVOKER.HasValue ?
+                new ObjectParameter("INVOKER", iNVOKER) :
+                new ObjectParameter("INVOKER", typeof(int));
+    
+            var uSUARIOParameter = uSUARIO != null ?
+                new ObjectParameter("USUARIO", uSUARIO) :
+                new ObjectParameter("USUARIO", typeof(string));
+    
+            var cULTURAParameter = cULTURA != null ?
+                new ObjectParameter("CULTURA", cULTURA) :
+                new ObjectParameter("CULTURA", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PA_COUNT_MONTHLYEARNS", iNVOKERParameter, uSUARIOParameter, cULTURAParameter, rETCODE, mENSAJE, cANTIDAD);
         }
     }
 }

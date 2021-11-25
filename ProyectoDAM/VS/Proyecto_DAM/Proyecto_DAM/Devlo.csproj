@@ -161,6 +161,18 @@
     <Compile Include="Forms\Customers\FrmEditContact.Designer.cs">
       <DependentUpon>FrmEditContact.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmEditMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmEditMessage.Designer.cs">
+      <DependentUpon>FrmEditMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmAddMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmAddMessage.Designer.cs">
+      <DependentUpon>FrmAddMessage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmDashBoard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,6 +190,12 @@
     </Compile>
     <Compile Include="Forms\FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmDeleteMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmDeleteMessage.Designer.cs">
+      <DependentUpon>FrmDeleteMessage.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Products\FrmAddSupplier.cs">
       <SubType>Form</SubType>
@@ -260,6 +278,12 @@
     <EmbeddedResource Include="Forms\Customers\FrmEditContact.resx">
       <DependentUpon>FrmEditContact.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmEditMessage.resx">
+      <DependentUpon>FrmEditMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmAddMessage.resx">
+      <DependentUpon>FrmAddMessage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmDashBoard.resx">
       <DependentUpon>FrmDashBoard.cs</DependentUpon>
     </EmbeddedResource>
@@ -268,6 +292,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmDeleteMessage.resx">
+      <DependentUpon>FrmDeleteMessage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Products\FrmAddCategory.resx">
       <DependentUpon>FrmAddCategory.cs</DependentUpon>

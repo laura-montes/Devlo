@@ -30,25 +30,26 @@ namespace Proyecto_DAM
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCustomer));
             this.PanelContainer = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2VScrollBar1 = new Guna.UI2.WinForms.Guna2VScrollBar();
             this.DataGridViewCustomers = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IDCONTACT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SurnamesColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EditColumn = new System.Windows.Forms.DataGridViewImageColumn();
-            this.DeleteColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.cONTACTSBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.db_devloDataSet = new Proyecto_DAM.db_devloDataSet();
             this.BtnFilter = new Guna.UI2.WinForms.Guna2Button();
             this.BtnAddCustomers = new Guna.UI2.WinForms.Guna2Button();
             this.TxtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.cONTACTSTableAdapter = new Proyecto_DAM.db_devloDataSetTableAdapters.CONTACTSTableAdapter();
+            this.IDCONTACT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SurnamesColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DetailColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.EditColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.DeleteColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.PanelContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewCustomers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cONTACTSBindingSource)).BeginInit();
@@ -97,41 +98,41 @@ namespace Proyecto_DAM
             this.DataGridViewCustomers.AllowUserToOrderColumns = true;
             this.DataGridViewCustomers.AllowUserToResizeColumns = false;
             this.DataGridViewCustomers.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.DataGridViewCustomers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
+            this.DataGridViewCustomers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DataGridViewCustomers.AutoGenerateColumns = false;
             this.DataGridViewCustomers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DataGridViewCustomers.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.DataGridViewCustomers.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DataGridViewCustomers.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.DataGridViewCustomers.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataGridViewCustomers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.DataGridViewCustomers.ColumnHeadersHeight = 50;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGridViewCustomers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.DataGridViewCustomers.ColumnHeadersHeight = 30;
             this.DataGridViewCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.DataGridViewCustomers.ColumnHeadersVisible = false;
             this.DataGridViewCustomers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.NameColumn,
             this.IDCONTACT,
+            this.NameColumn,
             this.SurnamesColumn,
+            this.DetailColumn,
             this.EditColumn,
             this.DeleteColumn});
             this.DataGridViewCustomers.DataSource = this.cONTACTSBindingSource;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataGridViewCustomers.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGridViewCustomers.DefaultCellStyle = dataGridViewCellStyle3;
             this.DataGridViewCustomers.EnableHeadersVisualStyles = false;
             this.DataGridViewCustomers.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
             this.DataGridViewCustomers.Location = new System.Drawing.Point(20, 85);
@@ -139,15 +140,16 @@ namespace Proyecto_DAM
             this.DataGridViewCustomers.MultiSelect = false;
             this.DataGridViewCustomers.Name = "DataGridViewCustomers";
             this.DataGridViewCustomers.ReadOnly = true;
+            this.DataGridViewCustomers.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.DataGridViewCustomers.RowHeadersVisible = false;
             this.DataGridViewCustomers.RowHeadersWidth = 51;
             this.DataGridViewCustomers.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
-            this.DataGridViewCustomers.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            this.DataGridViewCustomers.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.DataGridViewCustomers.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DataGridViewCustomers.RowTemplate.Height = 34;
             this.DataGridViewCustomers.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -161,12 +163,12 @@ namespace Proyecto_DAM
             this.DataGridViewCustomers.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
             this.DataGridViewCustomers.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.DataGridViewCustomers.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
-            this.DataGridViewCustomers.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.DataGridViewCustomers.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
             this.DataGridViewCustomers.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.DataGridViewCustomers.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DataGridViewCustomers.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DataGridViewCustomers.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.DataGridViewCustomers.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.DataGridViewCustomers.ThemeStyle.HeaderStyle.Height = 50;
+            this.DataGridViewCustomers.ThemeStyle.HeaderStyle.Height = 30;
             this.DataGridViewCustomers.ThemeStyle.ReadOnly = true;
             this.DataGridViewCustomers.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.DataGridViewCustomers.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
@@ -176,59 +178,6 @@ namespace Proyecto_DAM
             this.DataGridViewCustomers.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
             this.DataGridViewCustomers.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.DataGridViewCustomers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewCustomers_CellClick);
-            this.DataGridViewCustomers.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewCustomers_CellDoubleClick);
-            // 
-            // NameColumn
-            // 
-            this.NameColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.NameColumn.DataPropertyName = "NAME";
-            this.NameColumn.FillWeight = 6.417114F;
-            this.NameColumn.HeaderText = "NAME";
-            this.NameColumn.MinimumWidth = 6;
-            this.NameColumn.Name = "NameColumn";
-            this.NameColumn.ReadOnly = true;
-            this.NameColumn.Width = 6;
-            // 
-            // IDCONTACT
-            // 
-            this.IDCONTACT.DataPropertyName = "IDCONTACT";
-            this.IDCONTACT.HeaderText = "IDCONTACT";
-            this.IDCONTACT.MinimumWidth = 6;
-            this.IDCONTACT.Name = "IDCONTACT";
-            this.IDCONTACT.ReadOnly = true;
-            this.IDCONTACT.Visible = false;
-            // 
-            // SurnamesColumn
-            // 
-            this.SurnamesColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.SurnamesColumn.DataPropertyName = "SURNAMES";
-            this.SurnamesColumn.FillWeight = 242.004F;
-            this.SurnamesColumn.HeaderText = "SURNAMES";
-            this.SurnamesColumn.MinimumWidth = 6;
-            this.SurnamesColumn.Name = "SurnamesColumn";
-            this.SurnamesColumn.ReadOnly = true;
-            // 
-            // EditColumn
-            // 
-            this.EditColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.EditColumn.FillWeight = 80.66309F;
-            this.EditColumn.HeaderText = "";
-            this.EditColumn.Image = ((System.Drawing.Image)(resources.GetObject("EditColumn.Image")));
-            this.EditColumn.MinimumWidth = 6;
-            this.EditColumn.Name = "EditColumn";
-            this.EditColumn.ReadOnly = true;
-            this.EditColumn.Width = 50;
-            // 
-            // DeleteColumn
-            // 
-            this.DeleteColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.DeleteColumn.FillWeight = 70.91583F;
-            this.DeleteColumn.HeaderText = "";
-            this.DeleteColumn.Image = ((System.Drawing.Image)(resources.GetObject("DeleteColumn.Image")));
-            this.DeleteColumn.MinimumWidth = 6;
-            this.DeleteColumn.Name = "DeleteColumn";
-            this.DeleteColumn.ReadOnly = true;
-            this.DeleteColumn.Width = 65;
             // 
             // cONTACTSBindingSource
             // 
@@ -322,6 +271,68 @@ namespace Proyecto_DAM
             // 
             this.cONTACTSTableAdapter.ClearBeforeFill = true;
             // 
+            // IDCONTACT
+            // 
+            this.IDCONTACT.DataPropertyName = "IDCONTACT";
+            this.IDCONTACT.HeaderText = "ID";
+            this.IDCONTACT.MinimumWidth = 6;
+            this.IDCONTACT.Name = "IDCONTACT";
+            this.IDCONTACT.ReadOnly = true;
+            this.IDCONTACT.Visible = false;
+            // 
+            // NameColumn
+            // 
+            this.NameColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.NameColumn.DataPropertyName = "NAME";
+            this.NameColumn.FillWeight = 6.417114F;
+            this.NameColumn.HeaderText = "Nombre";
+            this.NameColumn.MinimumWidth = 6;
+            this.NameColumn.Name = "NameColumn";
+            this.NameColumn.ReadOnly = true;
+            this.NameColumn.Width = 121;
+            // 
+            // SurnamesColumn
+            // 
+            this.SurnamesColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.SurnamesColumn.DataPropertyName = "SURNAMES";
+            this.SurnamesColumn.FillWeight = 242.004F;
+            this.SurnamesColumn.HeaderText = "Apellidos";
+            this.SurnamesColumn.MinimumWidth = 6;
+            this.SurnamesColumn.Name = "SurnamesColumn";
+            this.SurnamesColumn.ReadOnly = true;
+            // 
+            // DetailColumn
+            // 
+            this.DetailColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.DetailColumn.HeaderText = "";
+            this.DetailColumn.Image = ((System.Drawing.Image)(resources.GetObject("DetailColumn.Image")));
+            this.DetailColumn.MinimumWidth = 6;
+            this.DetailColumn.Name = "DetailColumn";
+            this.DetailColumn.ReadOnly = true;
+            this.DetailColumn.Width = 75;
+            // 
+            // EditColumn
+            // 
+            this.EditColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.EditColumn.FillWeight = 80.66309F;
+            this.EditColumn.HeaderText = "";
+            this.EditColumn.Image = ((System.Drawing.Image)(resources.GetObject("EditColumn.Image")));
+            this.EditColumn.MinimumWidth = 6;
+            this.EditColumn.Name = "EditColumn";
+            this.EditColumn.ReadOnly = true;
+            this.EditColumn.Width = 50;
+            // 
+            // DeleteColumn
+            // 
+            this.DeleteColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.DeleteColumn.FillWeight = 70.91583F;
+            this.DeleteColumn.HeaderText = "";
+            this.DeleteColumn.Image = ((System.Drawing.Image)(resources.GetObject("DeleteColumn.Image")));
+            this.DeleteColumn.MinimumWidth = 6;
+            this.DeleteColumn.Name = "DeleteColumn";
+            this.DeleteColumn.ReadOnly = true;
+            this.DeleteColumn.Width = 65;
+            // 
             // FrmCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -353,9 +364,10 @@ namespace Proyecto_DAM
 		private db_devloDataSet db_devloDataSet;
 		private System.Windows.Forms.BindingSource cONTACTSBindingSource;
 		private db_devloDataSetTableAdapters.CONTACTSTableAdapter cONTACTSTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn IDCONTACT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn SurnamesColumn;
+        private System.Windows.Forms.DataGridViewImageColumn DetailColumn;
         private System.Windows.Forms.DataGridViewImageColumn EditColumn;
         private System.Windows.Forms.DataGridViewImageColumn DeleteColumn;
     }

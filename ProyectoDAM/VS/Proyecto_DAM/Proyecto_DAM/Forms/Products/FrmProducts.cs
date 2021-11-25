@@ -51,6 +51,7 @@ namespace Proyecto_DAM.Forms.Products
             frmAddProduct.Dock = DockStyle.Fill;
             this.Close();
             frmAddProduct.Show();
+            
         }
 
         private void BtnAddCategory_Click(object sender, EventArgs e)
@@ -68,6 +69,7 @@ namespace Proyecto_DAM.Forms.Products
             frmAddCategory.Dock = DockStyle.Fill;
             this.Close();
             frmAddCategory.Show();
+            
         }
 
         private void BtnAddSupplier_Click(object sender, EventArgs e)
@@ -85,6 +87,7 @@ namespace Proyecto_DAM.Forms.Products
             frmAddSupplier.Dock = DockStyle.Fill;
             this.Close();
             frmAddSupplier.Show();
+            
         }
 
         private void FrmProducts_Load(object sender, EventArgs e)
@@ -110,13 +113,24 @@ namespace Proyecto_DAM.Forms.Products
             }
             else if (DataGridViewProducts.Rows[e.RowIndex].Cells["Delete"].Selected)
             {
-                if (MessageBox.Show("¿Desea eliminar el contacto?\nEsta opción no se podrá deshacer.", "Devlo", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                FrmDeleteMessage frmDeleteMessage = new FrmDeleteMessage();
+                frmDeleteMessage.Show();
+
+                if (frmDeleteMessage.BtnYes.DialogResult == DialogResult.Yes)
                 {
                     // BORRAR
                     int idProduct = int.Parse(DataGridViewProducts.Rows[e.RowIndex].Cells["IdProduct"].Value.ToString());
                    utilities.pa_deleteProduct(idProduct);
                     this.pRODUCTSTableAdapter.FillBy(this.db_devloDataSetProducts.PRODUCTS);
                 }
+                else
+                {
+                    frmDeleteMessage.Close();
+                }
+            } else if (DataGridViewProducts.Rows[e.RowIndex].Cells["Detail"].Selected)
+            {
+                int idProduct = int.Parse(DataGridViewProducts.Rows[e.RowIndex].Cells["IDPRODUCT"].Value.ToString());
+                detailProduct(idProduct);
             }
         }
 
@@ -132,16 +146,7 @@ namespace Proyecto_DAM.Forms.Products
             frmEditProduct.Dock = DockStyle.Fill;
             this.Close();
             frmEditProduct.Show();
-        }
-
-        private void DataGridViewProducts_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (DataGridViewProducts.Rows[e.RowIndex].Cells["CODIGO"].Selected || DataGridViewProducts.Rows[e.RowIndex].Cells["NOMBRE"].Selected ||
-                DataGridViewProducts.Rows[e.RowIndex].Cells["CATEGORIA"].Selected || DataGridViewProducts.Rows[e.RowIndex].Cells["PROVEEDOR"].Selected)
-            {
-                int idProduct = int.Parse(DataGridViewProducts.Rows[e.RowIndex].Cells["IDPRODUCT"].Value.ToString());
-                detailProduct(idProduct);
-            }
+            
         }
 
 
@@ -157,6 +162,7 @@ namespace Proyecto_DAM.Forms.Products
             frmDetailProduct.Dock = DockStyle.Fill;
             this.Close();
             frmDetailProduct.Show();
+            
         }
 	}
 }

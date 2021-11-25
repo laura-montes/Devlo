@@ -1,4 +1,5 @@
 ﻿using Control;
+using Proyecto_DAM.Forms;
 using Proyecto_DAM.Forms.Customers;
 using System;
 using System.Windows.Forms;
@@ -16,9 +17,14 @@ namespace Proyecto_DAM
 
         private void FrmCustomer_Load(object sender, EventArgs e)
         {
-			// CARGA DE CONTACTOS
-			this.cONTACTSTableAdapter.Fill(this.db_devloDataSet.CONTACTS);
+            loadContacts();
 		}
+
+        private void loadContacts()
+        {
+            // CARGA DE CONTACTOS
+            this.cONTACTSTableAdapter.Fill(this.db_devloDataSet.CONTACTS);
+        }
 
 		private void BtnFilter_Click(object sender, EventArgs e)
 		{
@@ -37,7 +43,8 @@ namespace Proyecto_DAM
             frmAddContact.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             frmAddContact.Dock = DockStyle.Fill;
             this.Close();
-            frmAddContact.Show(); 
+            frmAddContact.Show();
+            
         }
 
 		private void TxtSearch_KeyUp(object sender, KeyEventArgs e)
@@ -45,19 +52,6 @@ namespace Proyecto_DAM
             // BUSQUEDA DE CONTACTO TECLA POR TECLA
             this.cONTACTSTableAdapter.DynamicSearch(db_devloDataSet.CONTACTS, "%" + TxtSearch.Text.Trim()+ "%");
 
-        }
-
-        private void DataGridViewCustomers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-            if (DataGridViewCustomers.Rows[e.RowIndex].Cells["NameColumn"].Selected || DataGridViewCustomers.Rows[e.RowIndex].Cells["SurnamesColumn"].Selected)
-            {
-                // CAMBIAR
-                int idContact = int.Parse(DataGridViewCustomers.Rows[e.RowIndex].Cells["IdContact"].Value.ToString());
-                detailContact(idContact);
-            }
-
-            
         }
         private void DataGridViewCustomers_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -69,13 +63,27 @@ namespace Proyecto_DAM
             }
             else if (DataGridViewCustomers.Rows[e.RowIndex].Cells["DeleteColumn"].Selected)
             {
-                if (MessageBox.Show("¿Desea eliminar el contacto?\nEsta opción no se podrá deshacer.", "Devlo", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                FrmDeleteMessage frmDeleteMessage = new FrmDeleteMessage();
+                frmDeleteMessage.Show();
+                if (frmDeleteMessage.BtnYes.DialogResult == DialogResult.Yes)
                 {
+                    frmDeleteMessage.Close();
+
                     // BORRAR
                     int idContact = int.Parse(DataGridViewCustomers.Rows[e.RowIndex].Cells["IdContact"].Value.ToString());
                     utilities.pa_deleteContact(idContact);
                     this.cONTACTSTableAdapter.Fill(this.db_devloDataSet.CONTACTS);
+
+                    loadContacts();
                 }
+                else
+                {
+                    frmDeleteMessage.Close();
+                }
+            } else if (DataGridViewCustomers.Rows[e.RowIndex].Cells["DetailColumn"].Selected){
+                // DETALLE
+                int idContact = int.Parse(DataGridViewCustomers.Rows[e.RowIndex].Cells["IdContact"].Value.ToString());
+                detailContact(idContact);
             }
         }
 
@@ -89,8 +97,8 @@ namespace Proyecto_DAM
             panelLoad.Controls.Add(frmEditContact);
             frmEditContact.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             frmEditContact.Dock = DockStyle.Fill;
-            this.Close();
             frmEditContact.Show();
+            this.Close();
         }
 
         private void detailContact(int id)
@@ -103,8 +111,8 @@ namespace Proyecto_DAM
             panelLoad.Controls.Add(frmDetailContact);
             frmDetailContact.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             frmDetailContact.Dock = DockStyle.Fill;
-            this.Close();
             frmDetailContact.Show();
+            this.Close();
         }
     }
 }

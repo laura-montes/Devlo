@@ -27,7 +27,6 @@ namespace Proyecto_DAM.Forms.Sales
 		//INDICE DEL ITEM LISTVIEW
 		int indice;
 
-
 		DateTime thisDay = DateTime.Today;
 
 		public FrmEditSale(int idSale)
@@ -71,6 +70,8 @@ namespace Proyecto_DAM.Forms.Sales
 
 				LstViewProducts.Items.Add(lvi);
 
+
+
 				//LBL PRECIO
 				price = double.Parse(linea.TOTAL_PRICE.ToString());
 				LblEuros.Text = price.ToString() + ",00€";
@@ -80,7 +81,7 @@ namespace Proyecto_DAM.Forms.Sales
 
 		private void LstViewProducts_Click(object sender, EventArgs e)
 		{
-			FrmSelectCuantity frmSelectCuantity = new FrmSelectCuantity();
+			FrmSelectCuantity frmSelectCuantity = new FrmSelectCuantity(int.Parse(LstViewProducts.Items[indice].SubItems[1].Text));
 
 			if (frmSelectCuantity.ShowDialog() == DialogResult.OK)
 			{
@@ -113,12 +114,12 @@ namespace Proyecto_DAM.Forms.Sales
 			{
 
 				utilities.pa_update_sale(
-					int.Parse(sale_lin.SubItems[3].Text),
-					int.Parse(sale_lin.SubItems[4].Text),
-					int.Parse(sale_lin.SubItems[5].Text),
-					int.Parse(sale_lin.SubItems[1].Text),
-					int.Parse(sale_lin.SubItems[2].Text),
-					decimal.Parse(price.ToString("0.00"))
+					int.Parse(sale_lin.SubItems[3].Text),//NOMBRE
+					int.Parse(sale_lin.SubItems[4].Text),//UNIDADES
+					int.Parse(sale_lin.SubItems[5].Text),//ID_LIN
+					int.Parse(sale_lin.SubItems[1].Text),//ID_CAB
+					int.Parse(sale_lin.SubItems[2].Text),//N_LIN
+					decimal.Parse(price.ToString("0.00"))//ID_PRODUCT
 				);
 			}
 
@@ -127,7 +128,7 @@ namespace Proyecto_DAM.Forms.Sales
 
 		private void DataGridViewProducts_CellClick(object sender, DataGridViewCellEventArgs e)
 		{
-			
+
 			product = new Classes.Product();
 
 			if (DataGridViewProducts.Rows[e.RowIndex].Cells["CODE"].Selected || DataGridViewProducts.Rows[e.RowIndex].Cells["NAME"].Selected)
@@ -146,12 +147,12 @@ namespace Proyecto_DAM.Forms.Sales
 				product.Category = int.Parse(DataGridViewProducts.Rows[e.RowIndex].Cells["SUPPLIER"].Value.ToString());
 
 
-				FrmSelectCuantity frmSelectCuantity = new FrmSelectCuantity();
+				FrmSelectCuantity frmSelectCuantity = new FrmSelectCuantity(1);
 
 				if (frmSelectCuantity.ShowDialog() == DialogResult.OK)
 				{
 					int cuantity = frmSelectCuantity.Cuantity; //lee la propiedad
-					//MessageBox.Show(cuantity.ToString());
+															   //MessageBox.Show(cuantity.ToString());
 					product.Units = cuantity;
 
 

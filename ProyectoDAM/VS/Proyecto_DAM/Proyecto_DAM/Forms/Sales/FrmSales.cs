@@ -37,8 +37,9 @@ namespace Proyecto_DAM.Forms.Ventas
             panelLoad.Controls.Add(frmAddSale);
             frmAddSale.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             frmAddSale.Dock = DockStyle.Fill;
-            this.Close();
+            
             frmAddSale.Show();
+            this.Close();
         }
 
         private void BtnFilter_Click(object sender, EventArgs e)
@@ -66,13 +67,22 @@ namespace Proyecto_DAM.Forms.Ventas
             }
             else if (DataGridViewSales.Rows[e.RowIndex].Cells["Delete"].Selected)
             {
-                if (MessageBox.Show("¿Desea eliminar el contacto?\nEsta opción no se podrá deshacer.", "Devlo", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                FrmDeleteMessage frmDeleteMessage = new FrmDeleteMessage();
+                frmDeleteMessage.Show();
+                if (frmDeleteMessage.BtnYes.DialogResult.Equals("Yes"))
                 {
                     // BORRAR
                     int idSale = int.Parse(DataGridViewSales.Rows[e.RowIndex].Cells["IDCAB"].Value.ToString());
                     utilities.pa_deleteSale(idSale);
                     this.v_SALESTableAdapter.Fill(this.db_devloDataSetSales.V_SALES);
                 }
+                else{
+                    frmDeleteMessage.Close();
+                }
+            } else if (DataGridViewSales.Rows[e.RowIndex].Cells["Detail"].Selected)
+            {
+                int idSale = int.Parse(DataGridViewSales.Rows[e.RowIndex].Cells["IDCAB"].Value.ToString());
+                detalSale(idSale);
             }
         }
 
@@ -86,38 +96,9 @@ namespace Proyecto_DAM.Forms.Ventas
             panelLoad.Controls.Add(frmEditSale);
             frmEditSale.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             frmEditSale.Dock = DockStyle.Fill;
-            this.Close();
+            
             frmEditSale.Show();
-        }
-
-        private void DataGridViewSales_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-            if (DataGridViewSales.Rows[e.RowIndex].Cells["IDCAB"].Selected || DataGridViewSales.Rows[e.RowIndex].Cells["NAME"].Selected ||
-                DataGridViewSales.Rows[e.RowIndex].Cells["DESCRIPTION"].Selected || DataGridViewSales.Rows[e.RowIndex].Cells["FECHA_PEDIDO"].Selected)
-            {
-                int idSale = int.Parse(DataGridViewSales.Rows[e.RowIndex].Cells["IDCAB"].Value.ToString());
-                detalSale(idSale);
-            }
-
-            /*SaveFileDialog save = new SaveFileDialog();
-            //save.fileName
-            string html = "<table><tr><td>PRUEBA DE PDF</td></tr></table>";
-            if (save.ShowDialog() == DialogResult.OK)
-            {
-                using (FileStream stream = new FileStream(save.FileName, FileMode.Create))
-                {
-                    Document pdf = new Document(PageSize.A4, 25, 25, 25, 25);
-                    PdfWriter writer = PdfWriter.GetInstance(pdf, stream);
-
-                    pdf.Open();
-
-                    pdf.Add(new Phrase("Prueba"));
-
-                    pdf.Close();
-                    stream.Close();
-                }
-            }*/
+            this.Close();
         }
 
         public void detalSale(int id){
@@ -130,8 +111,9 @@ namespace Proyecto_DAM.Forms.Ventas
             panelLoad.Controls.Add(frmDetailSale);
             frmDetailSale.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             frmDetailSale.Dock = DockStyle.Fill;
-            this.Close();
+            
             frmDetailSale.Show();
+            this.Close();
         }
     }
 }
