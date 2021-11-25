@@ -66,7 +66,7 @@ namespace Proyecto_DAM.Forms.Sales
 
             }
 
-            utilities.pa_add_sale(int.Parse(CmbBxContact.SelectedValue.ToString()), decimal.Parse(price.ToString("0.00")),null, guna2DateTimePicker1.Value, lineas);
+            utilities.pa_add_sale(int.Parse(CmbBxContact.SelectedValue.ToString()), decimal.Parse(price.ToString("0.00")), null, guna2DateTimePicker1.Value, lineas);
 
             //BORRAMOS LOS ELEMENTOS DE LA LISTA AL GUARDAR
             products.Clear();
@@ -94,13 +94,13 @@ namespace Proyecto_DAM.Forms.Sales
                 product.Code = int.Parse(DataGridViewProducts.Rows[e.RowIndex].Cells["CODE"].Value.ToString());
                 product.Sell_price = double.Parse(DataGridViewProducts.Rows[e.RowIndex].Cells["SELL_PRICE"].Value.ToString());
 
-                
+
 
                 product.Supplier = int.Parse(DataGridViewProducts.Rows[e.RowIndex].Cells["SUPPLIER"].Value.ToString());
                 product.Category = int.Parse(DataGridViewProducts.Rows[e.RowIndex].Cells["SUPPLIER"].Value.ToString());
 
 
-                FrmSelectCuantity frmSelectCuantity = new FrmSelectCuantity();
+                FrmSelectCuantity frmSelectCuantity = new FrmSelectCuantity(1);
 
                 if (frmSelectCuantity.ShowDialog() == DialogResult.OK)
                 {
@@ -121,7 +121,7 @@ namespace Proyecto_DAM.Forms.Sales
                 }
 
                 products.Add(product);
-            } 
+            }
         }
         public void volver()
         {

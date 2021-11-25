@@ -8,7 +8,7 @@ namespace Control
 	public class Utilities
 	{
 		//BBDD CONECTION
-		db_devloEntities db = new db_devloEntities();
+				db_devloEntities db = new db_devloEntities();
 
 
 		//CHECK LOGIN
@@ -281,6 +281,102 @@ namespace Control
 				);
 
 			return retcode.Value.ToString();
+		}
+
+
+		//FUNCTIONS
+		public string count_users(DateTime fecha){
+
+			ObjectParameter message = new ObjectParameter("MENSAJE", typeof(string));
+			ObjectParameter retcode = new ObjectParameter("RETCODE", typeof(int));
+			ObjectParameter cantidad = new ObjectParameter("CANTIDAD", typeof(int));
+
+			db.PA_COUNT_USERS(
+				fecha,
+				0,
+				"",
+				"",
+				message,
+				retcode,
+				cantidad
+				);
+
+			return cantidad.Value.ToString();
+		}
+
+		public string count_users()
+		{
+
+			ObjectParameter message = new ObjectParameter("MENSAJE", typeof(string));
+			ObjectParameter retcode = new ObjectParameter("RETCODE", typeof(int));
+			ObjectParameter cantidad = new ObjectParameter("CANTIDAD", typeof(int));
+
+			db.PA_COUNT_USERS(
+				null,
+				1,
+				"",
+				"",
+				message,
+				retcode,
+				cantidad
+				);
+
+			return cantidad.Value.ToString();
+		}
+
+		public string count_products()
+		{
+
+			ObjectParameter message = new ObjectParameter("MENSAJE", typeof(string));
+			ObjectParameter retcode = new ObjectParameter("RETCODE", typeof(int));
+			ObjectParameter cantidad = new ObjectParameter("CANTIDAD", typeof(int));
+
+			db.PA_COUNT_PRODUCTS(
+				0,
+				"",
+				"",
+				message,
+				retcode,
+				cantidad
+				);
+
+			return cantidad.Value.ToString();
+		}
+		public string count_dailyEarns()
+		{
+
+			ObjectParameter message = new ObjectParameter("MENSAJE", typeof(string));
+			ObjectParameter retcode = new ObjectParameter("RETCODE", typeof(int));
+			ObjectParameter cantidad = new ObjectParameter("CANTIDAD", typeof(int));
+
+			db.PA_COUNT_DAILYEARNS(
+				0,
+				"",
+				"",
+				message,
+				retcode,
+				cantidad
+				);
+
+			return cantidad.Value.ToString();
+		}
+		public string count_monthlyEarns()
+		{
+
+			ObjectParameter message = new ObjectParameter("MENSAJE", typeof(string));
+			ObjectParameter retcode = new ObjectParameter("RETCODE", typeof(int));
+			ObjectParameter cantidad = new ObjectParameter("CANTIDAD", typeof(int));
+
+			db.PA_COUNT_MONTHLYEARNS(
+				0,
+				"",
+				"",
+				message,
+				retcode,
+				cantidad
+				);
+
+			return cantidad.Value.ToString();
 		}
 	}
 } 

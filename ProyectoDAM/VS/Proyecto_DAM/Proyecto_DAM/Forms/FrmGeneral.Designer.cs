@@ -95,6 +95,7 @@ namespace Proyecto_DAM
             this.BtnDashboard.Size = new System.Drawing.Size(180, 46);
             this.BtnDashboard.TabIndex = 13;
             this.BtnDashboard.Text = "Dashboard";
+            this.BtnDashboard.Click += new System.EventHandler(this.BtnDashboard_Click);
             // 
             // BtnSales
             // 

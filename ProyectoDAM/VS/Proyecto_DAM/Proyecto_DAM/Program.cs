@@ -20,7 +20,7 @@ namespace Proyecto_DAM
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new FrmDetailSale(3));
+			Application.Run(new FrmGeneral());
 		}
 	}
 }

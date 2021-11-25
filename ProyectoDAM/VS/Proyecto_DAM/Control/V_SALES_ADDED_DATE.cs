@@ -12,18 +12,9 @@ namespace Control
     using System;
     using System.Collections.Generic;
     
-    public partial class V_SALESEDIT
+    public partial class V_SALES_ADDED_DATE
     {
-        public int IDCAB { get; set; }
-        public string CONTACTO { get; set; }
+        public decimal VENTAS { get; set; }
         public Nullable<System.DateTime> FECHA_PEDIDO { get; set; }
-        public Nullable<decimal> TOTAL_PRICE { get; set; }
-        public int IDLIN { get; set; }
-        public Nullable<int> N_LIN { get; set; }
-        public string PRODUCTO { get; set; }
-        public Nullable<int> UNITS { get; set; }
-        public Nullable<decimal> SELL_PRICE { get; set; }
-        public Nullable<int> IDPRODUCT { get; set; }
-        public string SURNAMES { get; set; }
     }
 }

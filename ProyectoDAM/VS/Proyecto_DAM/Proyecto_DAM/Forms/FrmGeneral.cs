@@ -25,23 +25,20 @@ namespace Proyecto_DAM
         {
             this.Location = new Point(100, 100);
             LblClock.Text = DateTime.Now.ToString("HH:mm:ss");
-            
+
+
+            FrmDashBoard frmDashboard = new FrmDashBoard();
+            frmDashboard.TopLevel = false;
+            PanelLoad.Controls.Add(frmDashboard);
+            frmDashboard.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frmDashboard.Dock = DockStyle.Fill;
+            frmDashboard.Show();
         }
 
         private void TimerClock_Tick(object sender, EventArgs e)
         {
             var time = DateTime.Now.ToString("HH:mm:ss");
             LblClock.Text = time;
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-            /*FrmDashBoard frmDashboard = new FrmDashBoard();
-            frmDashboard.TopLevel = false;
-            PanelLoad.Controls.Add(frmDashboard);
-            frmDashboard.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            frmDashboard.Dock = DockStyle.Fill;
-            frmDashboard.Show();*/
         }
 
         private void BtnCustomers_Click(object sender, EventArgs e)
@@ -141,6 +138,34 @@ namespace Proyecto_DAM
             BtnCustomers.BackColor = Color.FromArgb(184,148,104);
             BtnProducts.BackColor = Color.FromArgb(184, 148, 104);
             BtnSales.BackColor = Color.FromArgb(184, 148, 104);
+        }
+
+        private void BtnDashboard_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                formsList = Application.OpenForms;
+                foreach (Form forms in formsList)
+                {
+                    if (forms.Name != "FrmGeneral")
+                    {
+                        forms.Close();
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+
+            //normalColor();
+            //this.BackColor = Color.FromArgb(217, 175, 123);
+            FrmDashBoard frmDashboard = new FrmDashBoard();
+            frmDashboard.TopLevel = false;
+            PanelLoad.Controls.Add(frmDashboard);
+            frmDashboard.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frmDashboard.Dock = DockStyle.Fill;
+            frmDashboard.Show();
         }
     }
 
