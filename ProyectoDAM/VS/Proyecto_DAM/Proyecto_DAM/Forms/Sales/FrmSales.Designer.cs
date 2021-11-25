@@ -38,19 +38,20 @@ namespace Proyecto_DAM.Forms.Ventas
             this.PanelContainer = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2VScrollBar1 = new Guna.UI2.WinForms.Guna2VScrollBar();
             this.DataGridViewSales = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.IDCAB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DESCRIPTION = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FECHA_PEDIDO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fill = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.vSALESBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.db_devloDataSetSales = new Proyecto_DAM.db_devloDataSetSales();
             this.BtnFilter = new Guna.UI2.WinForms.Guna2Button();
             this.BtnAdd = new Guna.UI2.WinForms.Guna2Button();
             this.TxtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.v_SALESTableAdapter = new Proyecto_DAM.db_devloDataSetSalesTableAdapters.V_SALESTableAdapter();
+            this.IDCAB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DESCRIPTION = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FECHA_PEDIDO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fill = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Detail = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.PanelContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewSales)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vSALESBindingSource)).BeginInit();
@@ -124,6 +125,7 @@ namespace Proyecto_DAM.Forms.Ventas
             this.DESCRIPTION,
             this.FECHA_PEDIDO,
             this.fill,
+            this.Detail,
             this.Edit,
             this.Delete});
             this.DataGridViewSales.DataSource = this.vSALESBindingSource;
@@ -181,72 +183,6 @@ namespace Proyecto_DAM.Forms.Ventas
             this.DataGridViewSales.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
             this.DataGridViewSales.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.DataGridViewSales.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewSales_CellClick);
-            this.DataGridViewSales.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewSales_CellDoubleClick);
-            // 
-            // IDCAB
-            // 
-            this.IDCAB.DataPropertyName = "IDCAB";
-            this.IDCAB.HeaderText = "IDCAB";
-            this.IDCAB.MinimumWidth = 6;
-            this.IDCAB.Name = "IDCAB";
-            this.IDCAB.ReadOnly = true;
-            this.IDCAB.Visible = false;
-            // 
-            // NAME
-            // 
-            this.NAME.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.NAME.DataPropertyName = "NAME";
-            this.NAME.HeaderText = "Nombre";
-            this.NAME.MinimumWidth = 6;
-            this.NAME.Name = "NAME";
-            this.NAME.ReadOnly = true;
-            this.NAME.Width = 120;
-            // 
-            // DESCRIPTION
-            // 
-            this.DESCRIPTION.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.DESCRIPTION.DataPropertyName = "DESCRIPTION";
-            this.DESCRIPTION.HeaderText = "Estado";
-            this.DESCRIPTION.MinimumWidth = 6;
-            this.DESCRIPTION.Name = "DESCRIPTION";
-            this.DESCRIPTION.ReadOnly = true;
-            this.DESCRIPTION.Width = 107;
-            // 
-            // FECHA_PEDIDO
-            // 
-            this.FECHA_PEDIDO.DataPropertyName = "FECHA_PEDIDO";
-            this.FECHA_PEDIDO.HeaderText = "Fecha pedido";
-            this.FECHA_PEDIDO.MinimumWidth = 6;
-            this.FECHA_PEDIDO.Name = "FECHA_PEDIDO";
-            this.FECHA_PEDIDO.ReadOnly = true;
-            // 
-            // fill
-            // 
-            this.fill.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.fill.HeaderText = "";
-            this.fill.MinimumWidth = 6;
-            this.fill.Name = "fill";
-            this.fill.ReadOnly = true;
-            // 
-            // Edit
-            // 
-            this.Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Edit.HeaderText = "";
-            this.Edit.Image = ((System.Drawing.Image)(resources.GetObject("Edit.Image")));
-            this.Edit.MinimumWidth = 6;
-            this.Edit.Name = "Edit";
-            this.Edit.ReadOnly = true;
-            this.Edit.Width = 50;
-            // 
-            // Delete
-            // 
-            this.Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Delete.HeaderText = "";
-            this.Delete.Image = ((System.Drawing.Image)(resources.GetObject("Delete.Image")));
-            this.Delete.MinimumWidth = 6;
-            this.Delete.Name = "Delete";
-            this.Delete.ReadOnly = true;
-            this.Delete.Width = 65;
             // 
             // vSALESBindingSource
             // 
@@ -340,6 +276,81 @@ namespace Proyecto_DAM.Forms.Ventas
             // 
             this.v_SALESTableAdapter.ClearBeforeFill = true;
             // 
+            // IDCAB
+            // 
+            this.IDCAB.DataPropertyName = "IDCAB";
+            this.IDCAB.HeaderText = "IDCAB";
+            this.IDCAB.MinimumWidth = 6;
+            this.IDCAB.Name = "IDCAB";
+            this.IDCAB.ReadOnly = true;
+            this.IDCAB.Visible = false;
+            // 
+            // NAME
+            // 
+            this.NAME.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.NAME.DataPropertyName = "NAME";
+            this.NAME.HeaderText = "Nombre";
+            this.NAME.MinimumWidth = 6;
+            this.NAME.Name = "NAME";
+            this.NAME.ReadOnly = true;
+            this.NAME.Width = 120;
+            // 
+            // DESCRIPTION
+            // 
+            this.DESCRIPTION.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.DESCRIPTION.DataPropertyName = "DESCRIPTION";
+            this.DESCRIPTION.HeaderText = "Estado";
+            this.DESCRIPTION.MinimumWidth = 6;
+            this.DESCRIPTION.Name = "DESCRIPTION";
+            this.DESCRIPTION.ReadOnly = true;
+            this.DESCRIPTION.Width = 107;
+            // 
+            // FECHA_PEDIDO
+            // 
+            this.FECHA_PEDIDO.DataPropertyName = "FECHA_PEDIDO";
+            this.FECHA_PEDIDO.HeaderText = "Fecha pedido";
+            this.FECHA_PEDIDO.MinimumWidth = 6;
+            this.FECHA_PEDIDO.Name = "FECHA_PEDIDO";
+            this.FECHA_PEDIDO.ReadOnly = true;
+            // 
+            // fill
+            // 
+            this.fill.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.fill.HeaderText = "";
+            this.fill.MinimumWidth = 6;
+            this.fill.Name = "fill";
+            this.fill.ReadOnly = true;
+            // 
+            // Detail
+            // 
+            this.Detail.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Detail.HeaderText = "";
+            this.Detail.Image = ((System.Drawing.Image)(resources.GetObject("Detail.Image")));
+            this.Detail.MinimumWidth = 6;
+            this.Detail.Name = "Detail";
+            this.Detail.ReadOnly = true;
+            this.Detail.Width = 75;
+            // 
+            // Edit
+            // 
+            this.Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Edit.HeaderText = "";
+            this.Edit.Image = ((System.Drawing.Image)(resources.GetObject("Edit.Image")));
+            this.Edit.MinimumWidth = 6;
+            this.Edit.Name = "Edit";
+            this.Edit.ReadOnly = true;
+            this.Edit.Width = 50;
+            // 
+            // Delete
+            // 
+            this.Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Delete.HeaderText = "";
+            this.Delete.Image = ((System.Drawing.Image)(resources.GetObject("Delete.Image")));
+            this.Delete.MinimumWidth = 6;
+            this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
+            this.Delete.Width = 65;
+            // 
             // FrmSales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -374,12 +385,13 @@ namespace Proyecto_DAM.Forms.Ventas
 		private System.Windows.Forms.BindingSource vSALESBindingSource;
 		private db_devloDataSetSalesTableAdapters.V_SALESTableAdapter v_SALESTableAdapter;
         private Guna.UI2.WinForms.Guna2VScrollBar guna2VScrollBar1;
-		private System.Windows.Forms.DataGridViewTextBoxColumn IDCAB;
-		private System.Windows.Forms.DataGridViewTextBoxColumn NAME;
-		private System.Windows.Forms.DataGridViewTextBoxColumn DESCRIPTION;
-		private System.Windows.Forms.DataGridViewTextBoxColumn FECHA_PEDIDO;
-		private System.Windows.Forms.DataGridViewTextBoxColumn fill;
-		private System.Windows.Forms.DataGridViewImageColumn Edit;
-		private System.Windows.Forms.DataGridViewImageColumn Delete;
-	}
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDCAB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NAME;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DESCRIPTION;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FECHA_PEDIDO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fill;
+        private System.Windows.Forms.DataGridViewImageColumn Detail;
+        private System.Windows.Forms.DataGridViewImageColumn Edit;
+        private System.Windows.Forms.DataGridViewImageColumn Delete;
+    }
 }

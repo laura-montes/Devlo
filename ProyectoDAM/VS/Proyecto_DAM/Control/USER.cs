@@ -18,6 +18,6 @@ namespace Control
         public string PASSWD { get; set; }
         public string NAME { get; set; }
         public string SURNAMES { get; set; }
-        public Nullable<int> ADMIN { get; set; }
+        public Nullable<int> ROL { get; set; }
     }
 }

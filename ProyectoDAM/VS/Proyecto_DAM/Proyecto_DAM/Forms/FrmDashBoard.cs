@@ -23,10 +23,10 @@ namespace Proyecto_DAM
 			RadioBtnSales.Checked = false;
 
 			Utilities utilities = new Utilities();
-			label1.Text = utilities.count_users();
-			label2.Text = utilities.count_products();
-			label3.Text = utilities.count_dailyEarns().ToString() + ",00€";
-			label4.Text = utilities.count_monthlyEarns().ToString() + ",00€";
+			LblCustomerNumber.Text = utilities.count_users();
+			LblProductsNumber.Text = utilities.count_products();
+			LblEarnedTodayNumber.Text = utilities.count_dailyEarns().ToString() + ",00€";
+			LblEarnedMonthNumber.Text = utilities.count_monthlyEarns().ToString() + ",00€";
 
 			contactos_fecha = db.V_CONTACTS_ADDED_DATE.ToList();
 			ventas_fecha = db.V_SALES_ADDED_DATE.ToList();
@@ -58,7 +58,7 @@ namespace Proyecto_DAM
 			AreaDataSetCustomers.DataPoints.Clear();
 			foreach(V_CONTACTS_ADDED_DATE registro in contactos_fecha){
 				//Add("Texto", posicion)
-				AreaDataSetCustomers.DataPoints.Add(registro.ADDED_DATE.ToString(), registro.CLIENTES);
+				AreaDataSetCustomers.DataPoints.Add(registro.ADDED_DATE.ToString().Substring(0,10), registro.CLIENTES);
 			}
 		}
 
@@ -69,7 +69,7 @@ namespace Proyecto_DAM
 			foreach (V_SALES_ADDED_DATE registro in ventas_fecha)
 			{
 				//Add("Texto", posicion)
-				AreaDataSetSales.DataPoints.Add(registro.FECHA_PEDIDO.ToString(), double.Parse(registro.VENTAS.ToString()));
+				AreaDataSetSales.DataPoints.Add(registro.FECHA_PEDIDO.ToString().Substring(0,10), double.Parse(registro.VENTAS.ToString()));
 			}
 		}
 

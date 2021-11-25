@@ -72,7 +72,7 @@ namespace Proyecto_DAM.Forms.Sales
             // 
             // PanelContainer
             // 
-            this.PanelContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
+            this.PanelContainer.BackColor = System.Drawing.Color.White;
             this.PanelContainer.Controls.Add(this.TxtCustomer);
             this.PanelContainer.Controls.Add(this.DateTimePickerSaleDate);
             this.PanelContainer.Controls.Add(this.PanelData);
@@ -100,15 +100,14 @@ namespace Proyecto_DAM.Forms.Sales
             this.TxtCustomer.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.TxtCustomer.DisabledState.Parent = this.TxtCustomer;
             this.TxtCustomer.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.TxtCustomer.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.TxtCustomer.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.TxtCustomer.FocusedState.Parent = this.TxtCustomer;
-            this.TxtCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtCustomer.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtCustomer.ForeColor = System.Drawing.Color.Black;
             this.TxtCustomer.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.TxtCustomer.HoverState.Parent = this.TxtCustomer;
             this.TxtCustomer.Location = new System.Drawing.Point(249, 92);
-            this.TxtCustomer.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.TxtCustomer.Margin = new System.Windows.Forms.Padding(5);
             this.TxtCustomer.Name = "TxtCustomer";
             this.TxtCustomer.PasswordChar = '\0';
             this.TxtCustomer.PlaceholderText = "";
@@ -124,8 +123,8 @@ namespace Proyecto_DAM.Forms.Sales
             this.DateTimePickerSaleDate.BorderRadius = 8;
             this.DateTimePickerSaleDate.BorderThickness = 2;
             this.DateTimePickerSaleDate.CheckedState.Parent = this.DateTimePickerSaleDate;
-            this.DateTimePickerSaleDate.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.DateTimePickerSaleDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.DateTimePickerSaleDate.FillColor = System.Drawing.Color.White;
+            this.DateTimePickerSaleDate.Font = new System.Drawing.Font("Louis George Café", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DateTimePickerSaleDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.DateTimePickerSaleDate.HoverState.Parent = this.DateTimePickerSaleDate;
             this.DateTimePickerSaleDate.Location = new System.Drawing.Point(664, 92);
@@ -147,7 +146,7 @@ namespace Proyecto_DAM.Forms.Sales
             this.PanelData.Controls.Add(this.guna2VSeparator1);
             this.PanelData.Controls.Add(this.DataGridViewProducts);
             this.PanelData.Controls.Add(this.TxtSearch);
-            this.PanelData.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
+            this.PanelData.FillColor = System.Drawing.Color.White;
             this.PanelData.Location = new System.Drawing.Point(84, 143);
             this.PanelData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PanelData.Name = "PanelData";
@@ -191,21 +190,21 @@ namespace Proyecto_DAM.Forms.Sales
             // LblEuros
             // 
             this.LblEuros.AutoSize = true;
-            this.LblEuros.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblEuros.Font = new System.Drawing.Font("Louis George Café", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblEuros.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
-            this.LblEuros.Location = new System.Drawing.Point(812, 384);
+            this.LblEuros.Location = new System.Drawing.Point(790, 384);
             this.LblEuros.Name = "LblEuros";
-            this.LblEuros.Size = new System.Drawing.Size(119, 32);
+            this.LblEuros.Size = new System.Drawing.Size(130, 34);
             this.LblEuros.TabIndex = 8;
             this.LblEuros.Text = "000,00€";
             // 
             // LblTotal
             // 
             this.LblTotal.AutoSize = true;
-            this.LblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTotal.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblTotal.Location = new System.Drawing.Point(685, 391);
             this.LblTotal.Name = "LblTotal";
-            this.LblTotal.Size = new System.Drawing.Size(62, 25);
+            this.LblTotal.Size = new System.Drawing.Size(57, 24);
             this.LblTotal.TabIndex = 7;
             this.LblTotal.Text = "Total:";
             // 
@@ -300,7 +299,7 @@ namespace Proyecto_DAM.Forms.Sales
             this.DataGridViewProducts.ThemeStyle.ReadOnly = true;
             this.DataGridViewProducts.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.DataGridViewProducts.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.DataGridViewProducts.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DataGridViewProducts.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Louis George Café", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DataGridViewProducts.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
             this.DataGridViewProducts.ThemeStyle.RowsStyle.Height = 34;
             this.DataGridViewProducts.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
@@ -392,7 +391,7 @@ namespace Proyecto_DAM.Forms.Sales
             this.TxtSearch.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
             this.TxtSearch.FocusedState.BorderColor = System.Drawing.Color.Transparent;
             this.TxtSearch.FocusedState.Parent = this.TxtSearch;
-            this.TxtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtSearch.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtSearch.ForeColor = System.Drawing.Color.Empty;
             this.TxtSearch.HoverState.BorderColor = System.Drawing.Color.Transparent;
             this.TxtSearch.HoverState.Parent = this.TxtSearch;
@@ -411,20 +410,20 @@ namespace Proyecto_DAM.Forms.Sales
             // LblSupplier
             // 
             this.LblSupplier.AutoSize = true;
-            this.LblSupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblSupplier.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblSupplier.Location = new System.Drawing.Point(592, 96);
             this.LblSupplier.Name = "LblSupplier";
-            this.LblSupplier.Size = new System.Drawing.Size(73, 25);
+            this.LblSupplier.Size = new System.Drawing.Size(66, 24);
             this.LblSupplier.TabIndex = 13;
             this.LblSupplier.Text = "Fecha:";
             // 
             // LblCustomer
             // 
             this.LblCustomer.AutoSize = true;
-            this.LblCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblCustomer.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblCustomer.Location = new System.Drawing.Point(83, 92);
             this.LblCustomer.Name = "LblCustomer";
-            this.LblCustomer.Size = new System.Drawing.Size(163, 25);
+            this.LblCustomer.Size = new System.Drawing.Size(161, 24);
             this.LblCustomer.TabIndex = 12;
             this.LblCustomer.Text = "Cliente/Empresa:";
             // 
@@ -439,7 +438,7 @@ namespace Proyecto_DAM.Forms.Sales
             this.BtnSave.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.BtnSave.DisabledState.Parent = this.BtnSave;
             this.BtnSave.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
-            this.BtnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSave.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnSave.ForeColor = System.Drawing.Color.White;
             this.BtnSave.HoverState.Parent = this.BtnSave;
             this.BtnSave.Location = new System.Drawing.Point(867, 598);
@@ -468,11 +467,11 @@ namespace Proyecto_DAM.Forms.Sales
             // LblInfo
             // 
             this.LblInfo.AutoSize = true;
-            this.LblInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblInfo.Font = new System.Drawing.Font("Louis George Café", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
             this.LblInfo.Location = new System.Drawing.Point(139, 18);
             this.LblInfo.Name = "LblInfo";
-            this.LblInfo.Size = new System.Drawing.Size(191, 38);
+            this.LblInfo.Size = new System.Drawing.Size(192, 40);
             this.LblInfo.TabIndex = 0;
             this.LblInfo.Text = "Editar venta";
             // 
@@ -484,6 +483,7 @@ namespace Proyecto_DAM.Forms.Sales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1172, 678);
             this.Controls.Add(this.PanelContainer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

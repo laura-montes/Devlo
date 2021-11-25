@@ -39,18 +39,22 @@ namespace Proyecto_DAM
             this.LblClock = new System.Windows.Forms.Label();
             this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
             this.TimerClock = new System.Windows.Forms.Timer(this.components);
-            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2CirclePictureBox3 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.PanelLoad = new System.Windows.Forms.Panel();
+            this.PanelWindow = new Guna.UI2.WinForms.Guna2Panel();
+            this.PanelOption = new Guna.UI2.WinForms.Guna2Panel();
+            this.PctBxMinimize = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.PctBxExit = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.guna2CirclePictureBox3 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.PanelLoad = new System.Windows.Forms.Panel();
             this.PanelGeneral.SuspendLayout();
-            this.guna2Panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox3)).BeginInit();
+            this.PanelWindow.SuspendLayout();
+            this.PanelOption.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PctBxMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PctBxExit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -163,7 +167,7 @@ namespace Proyecto_DAM
             this.BtnCustomers.HoverState.Parent = this.BtnCustomers;
             this.BtnCustomers.Image = ((System.Drawing.Image)(resources.GetObject("BtnCustomers.Image")));
             this.BtnCustomers.ImageSize = new System.Drawing.Size(30, 30);
-            this.BtnCustomers.Location = new System.Drawing.Point(12, 317);
+            this.BtnCustomers.Location = new System.Drawing.Point(12, 312);
             this.BtnCustomers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnCustomers.Name = "BtnCustomers";
             this.BtnCustomers.ShadowDecoration.Parent = this.BtnCustomers;
@@ -198,41 +202,63 @@ namespace Proyecto_DAM
             this.TimerClock.Interval = 1000;
             this.TimerClock.Tick += new System.EventHandler(this.TimerClock_Tick);
             // 
-            // guna2Panel2
+            // PanelLoad
             // 
-            this.guna2Panel2.BackColor = System.Drawing.Color.White;
-            this.guna2Panel2.Controls.Add(this.guna2CirclePictureBox3);
-            this.guna2Panel2.Controls.Add(this.PctBxExit);
-            this.guna2Panel2.Controls.Add(this.guna2Panel3);
-            this.guna2Panel2.Controls.Add(this.label5);
-            this.guna2Panel2.Controls.Add(this.label6);
-            this.guna2Panel2.Controls.Add(this.guna2CirclePictureBox1);
-            this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Panel2.Location = new System.Drawing.Point(262, 0);
-            this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.ShadowDecoration.Parent = this.guna2Panel2;
-            this.guna2Panel2.Size = new System.Drawing.Size(1172, 90);
-            this.guna2Panel2.TabIndex = 1;
+            this.PanelLoad.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.PanelLoad.Font = new System.Drawing.Font("Louis George Café", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PanelLoad.Location = new System.Drawing.Point(262, 87);
+            this.PanelLoad.Name = "PanelLoad";
+            this.PanelLoad.Size = new System.Drawing.Size(1172, 715);
+            this.PanelLoad.TabIndex = 2;
             // 
-            // guna2CirclePictureBox3
+            // PanelWindow
             // 
-            this.guna2CirclePictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox3.Image")));
-            this.guna2CirclePictureBox3.ImageRotate = 0F;
-            this.guna2CirclePictureBox3.Location = new System.Drawing.Point(1096, 38);
-            this.guna2CirclePictureBox3.Name = "guna2CirclePictureBox3";
-            this.guna2CirclePictureBox3.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox3.ShadowDecoration.Parent = this.guna2CirclePictureBox3;
-            this.guna2CirclePictureBox3.Size = new System.Drawing.Size(22, 12);
-            this.guna2CirclePictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2CirclePictureBox3.TabIndex = 13;
-            this.guna2CirclePictureBox3.TabStop = false;
+            this.PanelWindow.BackColor = System.Drawing.Color.White;
+            this.PanelWindow.Controls.Add(this.PanelOption);
+            this.PanelWindow.Controls.Add(this.guna2CirclePictureBox3);
+            this.PanelWindow.Controls.Add(this.guna2Panel3);
+            this.PanelWindow.Controls.Add(this.label5);
+            this.PanelWindow.Controls.Add(this.label6);
+            this.PanelWindow.Controls.Add(this.guna2CirclePictureBox1);
+            this.PanelWindow.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PanelWindow.Location = new System.Drawing.Point(262, 0);
+            this.PanelWindow.Name = "PanelWindow";
+            this.PanelWindow.ShadowDecoration.Parent = this.PanelWindow;
+            this.PanelWindow.Size = new System.Drawing.Size(1172, 90);
+            this.PanelWindow.TabIndex = 3;
+            this.PanelWindow.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmGeneral_MouseDown);
+            // 
+            // PanelOption
+            // 
+            this.PanelOption.Controls.Add(this.PctBxMinimize);
+            this.PanelOption.Controls.Add(this.PctBxExit);
+            this.PanelOption.Location = new System.Drawing.Point(1085, 0);
+            this.PanelOption.Name = "PanelOption";
+            this.PanelOption.ShadowDecoration.Parent = this.PanelOption;
+            this.PanelOption.Size = new System.Drawing.Size(87, 46);
+            this.PanelOption.TabIndex = 0;
+            // 
+            // PctBxMinimize
+            // 
+            this.PctBxMinimize.FillColor = System.Drawing.Color.Transparent;
+            this.PctBxMinimize.Image = ((System.Drawing.Image)(resources.GetObject("PctBxMinimize.Image")));
+            this.PctBxMinimize.ImageRotate = 0F;
+            this.PctBxMinimize.Location = new System.Drawing.Point(3, 1);
+            this.PctBxMinimize.Name = "PctBxMinimize";
+            this.PctBxMinimize.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.PctBxMinimize.ShadowDecoration.Parent = this.PctBxMinimize;
+            this.PctBxMinimize.Size = new System.Drawing.Size(38, 42);
+            this.PctBxMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PctBxMinimize.TabIndex = 14;
+            this.PctBxMinimize.TabStop = false;
+            this.PctBxMinimize.Click += new System.EventHandler(this.PctBxMinimize_Click);
             // 
             // PctBxExit
             // 
             this.PctBxExit.FillColor = System.Drawing.Color.Transparent;
             this.PctBxExit.Image = ((System.Drawing.Image)(resources.GetObject("PctBxExit.Image")));
             this.PctBxExit.ImageRotate = 0F;
-            this.PctBxExit.Location = new System.Drawing.Point(1131, 1);
+            this.PctBxExit.Location = new System.Drawing.Point(47, 1);
             this.PctBxExit.Name = "PctBxExit";
             this.PctBxExit.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.PctBxExit.ShadowDecoration.Parent = this.PctBxExit;
@@ -241,6 +267,19 @@ namespace Proyecto_DAM
             this.PctBxExit.TabIndex = 12;
             this.PctBxExit.TabStop = false;
             this.PctBxExit.Click += new System.EventHandler(this.PctBxExit_Click);
+            // 
+            // guna2CirclePictureBox3
+            // 
+            this.guna2CirclePictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox3.Image")));
+            this.guna2CirclePictureBox3.ImageRotate = 0F;
+            this.guna2CirclePictureBox3.Location = new System.Drawing.Point(178, 36);
+            this.guna2CirclePictureBox3.Name = "guna2CirclePictureBox3";
+            this.guna2CirclePictureBox3.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CirclePictureBox3.ShadowDecoration.Parent = this.guna2CirclePictureBox3;
+            this.guna2CirclePictureBox3.Size = new System.Drawing.Size(22, 12);
+            this.guna2CirclePictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2CirclePictureBox3.TabIndex = 13;
+            this.guna2CirclePictureBox3.TabStop = false;
             // 
             // guna2Panel3
             // 
@@ -256,7 +295,7 @@ namespace Proyecto_DAM
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Louis George Café", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
-            this.label5.Location = new System.Drawing.Point(1011, 25);
+            this.label5.Location = new System.Drawing.Point(93, 23);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(71, 29);
             this.label5.TabIndex = 10;
@@ -268,7 +307,7 @@ namespace Proyecto_DAM
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Louis George Café", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(1017, 54);
+            this.label6.Location = new System.Drawing.Point(99, 52);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(50, 18);
             this.label6.TabIndex = 11;
@@ -278,7 +317,7 @@ namespace Proyecto_DAM
             // 
             this.guna2CirclePictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox1.Image")));
             this.guna2CirclePictureBox1.ImageRotate = 0F;
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(946, 25);
+            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(28, 23);
             this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
             this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CirclePictureBox1.ShadowDecoration.Parent = this.guna2CirclePictureBox1;
@@ -287,22 +326,13 @@ namespace Proyecto_DAM
             this.guna2CirclePictureBox1.TabIndex = 0;
             this.guna2CirclePictureBox1.TabStop = false;
             // 
-            // PanelLoad
-            // 
-            this.PanelLoad.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.PanelLoad.Font = new System.Drawing.Font("Louis George Café", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PanelLoad.Location = new System.Drawing.Point(262, 87);
-            this.PanelLoad.Name = "PanelLoad";
-            this.PanelLoad.Size = new System.Drawing.Size(1172, 715);
-            this.PanelLoad.TabIndex = 2;
-            // 
             // FrmGeneral
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1434, 802);
+            this.Controls.Add(this.PanelWindow);
             this.Controls.Add(this.PanelLoad);
-            this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.PanelGeneral);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -310,12 +340,15 @@ namespace Proyecto_DAM
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmGeneral";
             this.Load += new System.EventHandler(this.FrmGeneral_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmGeneral_MouseDown);
             this.PanelGeneral.ResumeLayout(false);
             this.PanelGeneral.PerformLayout();
-            this.guna2Panel2.ResumeLayout(false);
-            this.guna2Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox3)).EndInit();
+            this.PanelWindow.ResumeLayout(false);
+            this.PanelWindow.PerformLayout();
+            this.PanelOption.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PctBxMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PctBxExit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -327,17 +360,19 @@ namespace Proyecto_DAM
         private System.Windows.Forms.Label LblClock;
         private Guna.UI2.WinForms.Guna2Separator guna2Separator1;
         private System.Windows.Forms.Timer TimerClock;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         public System.Windows.Forms.Panel PanelLoad;
         private Guna.UI2.WinForms.Guna2Button BtnDashboard;
         private Guna.UI2.WinForms.Guna2Button BtnSales;
         private Guna.UI2.WinForms.Guna2Button BtnProducts;
         private Guna.UI2.WinForms.Guna2Button BtnCustomers;
+        private Guna.UI2.WinForms.Guna2Panel PanelWindow;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox PctBxMinimize;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox3;
         private Guna.UI2.WinForms.Guna2CirclePictureBox PctBxExit;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
+        private Guna.UI2.WinForms.Guna2Panel PanelOption;
     }
 }

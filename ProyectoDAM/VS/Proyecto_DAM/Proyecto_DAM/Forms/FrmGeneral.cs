@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,9 +17,12 @@ namespace Proyecto_DAM
     {
         private FormCollection formsList;
 
+  
+
         public FrmGeneral()
         {
             InitializeComponent();
+
         }
 
         private void FrmGeneral_Load(object sender, EventArgs e)
@@ -33,6 +37,9 @@ namespace Proyecto_DAM
             frmDashboard.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             frmDashboard.Dock = DockStyle.Fill;
             frmDashboard.Show();
+
+
+            
         }
 
         private void TimerClock_Tick(object sender, EventArgs e)
@@ -43,6 +50,7 @@ namespace Proyecto_DAM
 
         private void BtnCustomers_Click(object sender, EventArgs e)
         {
+            
             try
             {
                 formsList = Application.OpenForms;
@@ -59,19 +67,21 @@ namespace Proyecto_DAM
                 MessageBox.Show(ex.ToString());
             }
 
-            //normalColor();
-            //this.BackColor = Color.FromArgb(217, 175, 123);
-
             FrmCustomer frmCustomer = new FrmCustomer();
             frmCustomer.TopLevel = false;
             PanelLoad.Controls.Add(frmCustomer);
             frmCustomer.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             frmCustomer.Dock = DockStyle.Fill;
             frmCustomer.Show();
+            //normalColor();
+            //this.BackColor = Color.FromArgb(217, 175, 123);
+
+
         }
 
         private void BtnProducts_Click(object sender, EventArgs e)
         {
+            
 
             try
             {
@@ -89,15 +99,16 @@ namespace Proyecto_DAM
 
             }
 
-            //normalColor();
-            //this.BackColor = Color.FromArgb(217, 175, 123);
-
             FrmProducts frmProducts = new FrmProducts();
             frmProducts.TopLevel = false;
             PanelLoad.Controls.Add(frmProducts);
             frmProducts.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             frmProducts.Dock = DockStyle.Fill;
             frmProducts.Show();
+            //normalColor();
+            //this.BackColor = Color.FromArgb(217, 175, 123);
+
+
         }
 
         private void PctBxExit_Click(object sender, EventArgs e)
@@ -107,6 +118,8 @@ namespace Proyecto_DAM
 
         private void BtnSales_Click(object sender, EventArgs e)
         {
+            
+
             try
             {
                 formsList = Application.OpenForms;
@@ -123,15 +136,17 @@ namespace Proyecto_DAM
 
             }
 
-            //normalColor();
-            //this.BackColor = Color.FromArgb(217, 175, 123);
-
             FrmSales frmSales = new FrmSales();
             frmSales.TopLevel = false;
             PanelLoad.Controls.Add(frmSales);
             frmSales.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             frmSales.Dock = DockStyle.Fill;
             frmSales.Show();
+
+            //normalColor();
+            //this.BackColor = Color.FromArgb(217, 175, 123);
+
+
         }
         private void normalColor()
         {
@@ -142,6 +157,8 @@ namespace Proyecto_DAM
 
         private void BtnDashboard_Click(object sender, EventArgs e)
         {
+            
+
             try
             {
                 formsList = Application.OpenForms;
@@ -158,15 +175,35 @@ namespace Proyecto_DAM
 
             }
 
-            //normalColor();
-            //this.BackColor = Color.FromArgb(217, 175, 123);
             FrmDashBoard frmDashboard = new FrmDashBoard();
             frmDashboard.TopLevel = false;
             PanelLoad.Controls.Add(frmDashboard);
             frmDashboard.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             frmDashboard.Dock = DockStyle.Fill;
             frmDashboard.Show();
+
+            //normalColor();
+            //this.BackColor = Color.FromArgb(217, 175, 123);
+
         }
+
+        private void PctBxMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState= FormWindowState.Minimized;
+        }
+
+        // Mover ventana
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
+        private void FrmGeneral_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
     }
 
     

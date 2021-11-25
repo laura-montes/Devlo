@@ -133,7 +133,7 @@ namespace Proyecto_DAM.Forms.Products
             this.TxtCost_Price.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.TxtCost_Price.HoverState.Parent = this.TxtCost_Price;
             this.TxtCost_Price.Location = new System.Drawing.Point(175, 148);
-            this.TxtCost_Price.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.TxtCost_Price.Margin = new System.Windows.Forms.Padding(5);
             this.TxtCost_Price.Name = "TxtCost_Price";
             this.TxtCost_Price.PasswordChar = '\0';
             this.TxtCost_Price.PlaceholderText = "";
@@ -192,7 +192,7 @@ namespace Proyecto_DAM.Forms.Products
             this.TxtSell_Price.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.TxtSell_Price.HoverState.Parent = this.TxtSell_Price;
             this.TxtSell_Price.Location = new System.Drawing.Point(175, 89);
-            this.TxtSell_Price.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.TxtSell_Price.Margin = new System.Windows.Forms.Padding(5);
             this.TxtSell_Price.Name = "TxtSell_Price";
             this.TxtSell_Price.PasswordChar = '\0';
             this.TxtSell_Price.PlaceholderText = "";
@@ -221,7 +221,7 @@ namespace Proyecto_DAM.Forms.Products
             this.TxtStock.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.TxtStock.HoverState.Parent = this.TxtStock;
             this.TxtStock.Location = new System.Drawing.Point(175, 30);
-            this.TxtStock.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.TxtStock.Margin = new System.Windows.Forms.Padding(5);
             this.TxtStock.Name = "TxtStock";
             this.TxtStock.PasswordChar = '\0';
             this.TxtStock.PlaceholderText = "";
@@ -344,7 +344,7 @@ namespace Proyecto_DAM.Forms.Products
             this.TxtDescription.HoverState.BorderColor = System.Drawing.Color.Transparent;
             this.TxtDescription.HoverState.Parent = this.TxtDescription;
             this.TxtDescription.Location = new System.Drawing.Point(121, 447);
-            this.TxtDescription.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.TxtDescription.Margin = new System.Windows.Forms.Padding(5);
             this.TxtDescription.Name = "TxtDescription";
             this.TxtDescription.PasswordChar = '\0';
             this.TxtDescription.PlaceholderText = "";
@@ -424,7 +424,7 @@ namespace Proyecto_DAM.Forms.Products
             this.TxtCode.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.TxtCode.HoverState.Parent = this.TxtCode;
             this.TxtCode.Location = new System.Drawing.Point(219, 129);
-            this.TxtCode.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.TxtCode.Margin = new System.Windows.Forms.Padding(5);
             this.TxtCode.Name = "TxtCode";
             this.TxtCode.PasswordChar = '\0';
             this.TxtCode.PlaceholderText = "";
@@ -453,7 +453,7 @@ namespace Proyecto_DAM.Forms.Products
             this.TxtName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.TxtName.HoverState.Parent = this.TxtName;
             this.TxtName.Location = new System.Drawing.Point(219, 199);
-            this.TxtName.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.TxtName.Margin = new System.Windows.Forms.Padding(5);
             this.TxtName.Name = "TxtName";
             this.TxtName.PasswordChar = '\0';
             this.TxtName.PlaceholderText = "";
@@ -479,6 +479,7 @@ namespace Proyecto_DAM.Forms.Products
             this.BtnSave.Location = new System.Drawing.Point(875, 572);
             this.BtnSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnSave.Name = "BtnSave";
+            this.BtnSave.ShadowDecoration.Color = System.Drawing.Color.DarkRed;
             this.BtnSave.ShadowDecoration.Parent = this.BtnSave;
             this.BtnSave.Size = new System.Drawing.Size(180, 46);
             this.BtnSave.TabIndex = 2;
@@ -506,7 +507,7 @@ namespace Proyecto_DAM.Forms.Products
             this.LblAddProduct.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
             this.LblAddProduct.Location = new System.Drawing.Point(139, 18);
             this.LblAddProduct.Name = "LblAddProduct";
-            this.LblAddProduct.Size = new System.Drawing.Size(263, 41);
+            this.LblAddProduct.Size = new System.Drawing.Size(254, 40);
             this.LblAddProduct.TabIndex = 0;
             this.LblAddProduct.Text = "Añadir producto";
             // 

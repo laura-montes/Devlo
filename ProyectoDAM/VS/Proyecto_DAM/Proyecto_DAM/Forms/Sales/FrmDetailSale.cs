@@ -3,6 +3,7 @@ using DocumentFormat.OpenXml.Wordprocessing;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using iTextSharp.tool.xml;
+using Proyecto_DAM.Forms.Ventas;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -86,13 +87,9 @@ namespace Proyecto_DAM.Forms.Sales
                         }
 
                         // ALMACENAMOS LA ULTIMA COLUMNA Y FILA CON REGISTROS PARA EL TOTAL
-                        columnAux = columnIndex;
-                        MessageBox.Show("Columna: "+columnIndex.ToString());
-                        
+                        columnAux = columnIndex; 
                     }
                     rowAux = rowIndex;
-                    MessageBox.Show("Fila: "+rowIndex.ToString());
-
                 }
                 // AÑADIMOS EL TOTAL
                 excel.Cells[rowAux+3, columnAux] = "Total: " + LblEuros.Text;
@@ -173,5 +170,18 @@ namespace Proyecto_DAM.Forms.Sales
 		{
 			this.v_SALESEDITTableAdapter.FillByIdCab(this.db_devloDataSetDetailSale.V_SALESEDIT, idSale);
         }
-	}
+
+        private void PctBxBack_Click(object sender, EventArgs e)
+        {
+            FrmSales frmSales = new FrmSales();
+            frmSales.TopLevel = false;
+            FrmGeneral frmGeneral = (FrmGeneral)Application.OpenForms["FrmGeneral"];
+            Panel panelLoad = (Panel)frmGeneral.Controls["Panelload"];
+            panelLoad.Controls.Add(frmSales);
+            frmSales.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frmSales.Dock = DockStyle.Fill;
+            this.Close();
+            frmSales.Show();
+        }
+    }
 }

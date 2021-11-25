@@ -95,7 +95,7 @@
           <Property Name="PASSWD" Type="varchar" MaxLength="50" />
           <Property Name="NAME" Type="varchar" MaxLength="50" />
           <Property Name="SURNAMES" Type="varchar" MaxLength="50" />
-          <Property Name="ADMIN" Type="int" />
+          <Property Name="ROL" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'db_devlo.dbo.V_CONTACTS' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -112,7 +112,7 @@ advertencia 6002: La tabla o vista 'db_devlo.dbo.V_CONTACTS_ADDED_DATE' no tiene
             <PropertyRef Name="CLIENTES" />
           </Key>
           <Property Name="CLIENTES" Type="int" Nullable="false" />
-          <Property Name="ADDED_DATE" Type="datetime" />
+          <Property Name="ADDED_DATE" Type="date" />
         </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'db_devlo.dbo.V_PRODUCTS' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -780,7 +780,7 @@ advertencia 6002: La tabla o vista 'db_devlo.sys.ipv6_database_firewall_rules' n
           <Property Name="PASSWD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="SURNAMES" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ADMIN" Type="Int32" />
+          <Property Name="ROL" Type="Int32" />
         </EntityType>
         <EntityType Name="V_CONTACTS">
           <Key>
@@ -1262,7 +1262,7 @@ advertencia 6002: La tabla o vista 'db_devlo.sys.ipv6_database_firewall_rules' n
             <PropertyRef Name="CLIENTES" />
           </Key>
           <Property Name="CLIENTES" Type="Int32" Nullable="false" />
-          <Property Name="ADDED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="ADDED_DATE" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="V_SALES_ADDED_DATE">
           <Key>
@@ -1370,11 +1370,11 @@ advertencia 6002: La tabla o vista 'db_devlo.sys.ipv6_database_firewall_rules' n
           <EntitySetMapping Name="USERS">
             <EntityTypeMapping TypeName="db_devloModel.USER">
               <MappingFragment StoreEntitySet="USERS">
+                <ScalarProperty Name="ROL" ColumnName="ROL" />
                 <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
                 <ScalarProperty Name="PASSWD" ColumnName="PASSWD" />
                 <ScalarProperty Name="NAME" ColumnName="NAME" />
                 <ScalarProperty Name="SURNAMES" ColumnName="SURNAMES" />
-                <ScalarProperty Name="ADMIN" ColumnName="ADMIN" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

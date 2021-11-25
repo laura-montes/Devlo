@@ -12,6 +12,7 @@ namespace Proyecto_DAM
 {
 	static class Program
 	{
+		static ApplicationContext MainContext = new ApplicationContext();
 		/// <summary>
 		/// Punto de entrada principal para la aplicación.
 		/// </summary>
@@ -20,7 +21,19 @@ namespace Proyecto_DAM
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new FrmGeneral());
+
+			MainContext.MainForm = new FrmLogin();
+			Application.Run(MainContext);
+            }
+
+		public static void SetMainForm(Form MainForm)
+		{
+			MainContext.MainForm = MainForm;
+		}
+
+		public static void ShowMainForm()
+		{
+			MainContext.MainForm.Show();
 		}
 	}
 }

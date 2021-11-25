@@ -38,10 +38,11 @@ namespace Proyecto_DAM.Forms.Sales
             // LblInfo
             // 
             this.LblInfo.AutoSize = true;
+            this.LblInfo.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblInfo.Location = new System.Drawing.Point(42, 39);
             this.LblInfo.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.LblInfo.Name = "LblInfo";
-            this.LblInfo.Size = new System.Drawing.Size(402, 25);
+            this.LblInfo.Size = new System.Drawing.Size(404, 24);
             this.LblInfo.TabIndex = 0;
             this.LblInfo.Text = "Seleccione la cantidad deseada de producto.";
             // 
@@ -54,7 +55,7 @@ namespace Proyecto_DAM.Forms.Sales
             this.NumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.NumericUpDown.DisabledState.Parent = this.NumericUpDown;
             this.NumericUpDown.FocusedState.Parent = this.NumericUpDown;
-            this.NumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.NumericUpDown.Font = new System.Drawing.Font("Louis George Café", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NumericUpDown.ForeColor = System.Drawing.Color.Black;
             this.NumericUpDown.Location = new System.Drawing.Point(151, 86);
             this.NumericUpDown.Name = "NumericUpDown";
@@ -82,7 +83,7 @@ namespace Proyecto_DAM.Forms.Sales
             this.BtnAccept.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.BtnAccept.DisabledState.Parent = this.BtnAccept;
             this.BtnAccept.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
-            this.BtnAccept.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnAccept.Font = new System.Drawing.Font("Louis George Café", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnAccept.ForeColor = System.Drawing.Color.White;
             this.BtnAccept.HoverState.Parent = this.BtnAccept;
             this.BtnAccept.Location = new System.Drawing.Point(362, 137);
