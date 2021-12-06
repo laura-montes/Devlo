@@ -20,17 +20,17 @@ namespace Proyecto_DAM {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("db_devloDataSetDetailSale")]
+    [global::System.Xml.Serialization.XmlRootAttribute("db_devloDataSetSalesStates")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class db_devloDataSetDetailSale : global::System.Data.DataSet {
+    public partial class db_devloDataSetSalesStates : global::System.Data.DataSet {
         
-        private V_SALESEDITDataTable tableV_SALESEDIT;
+        private STATESDataTable tableSTATES;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public db_devloDataSetDetailSale() {
+        public db_devloDataSetSalesStates() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace Proyecto_DAM {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected db_devloDataSetDetailSale(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected db_devloDataSetSalesStates(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace Proyecto_DAM {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["V_SALESEDIT"] != null)) {
-                    base.Tables.Add(new V_SALESEDITDataTable(ds.Tables["V_SALESEDIT"]));
+                if ((ds.Tables["STATES"] != null)) {
+                    base.Tables.Add(new STATESDataTable(ds.Tables["STATES"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace Proyecto_DAM {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public V_SALESEDITDataTable V_SALESEDIT {
+        public STATESDataTable STATES {
             get {
-                return this.tableV_SALESEDIT;
+                return this.tableSTATES;
             }
         }
         
@@ -127,7 +127,7 @@ namespace Proyecto_DAM {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            db_devloDataSetDetailSale cln = ((db_devloDataSetDetailSale)(base.Clone()));
+            db_devloDataSetSalesStates cln = ((db_devloDataSetSalesStates)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace Proyecto_DAM {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["V_SALESEDIT"] != null)) {
-                    base.Tables.Add(new V_SALESEDITDataTable(ds.Tables["V_SALESEDIT"]));
+                if ((ds.Tables["STATES"] != null)) {
+                    base.Tables.Add(new STATESDataTable(ds.Tables["STATES"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace Proyecto_DAM {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableV_SALESEDIT = ((V_SALESEDITDataTable)(base.Tables["V_SALESEDIT"]));
+            this.tableSTATES = ((STATESDataTable)(base.Tables["STATES"]));
             if ((initTable == true)) {
-                if ((this.tableV_SALESEDIT != null)) {
-                    this.tableV_SALESEDIT.InitVars();
+                if ((this.tableSTATES != null)) {
+                    this.tableSTATES.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace Proyecto_DAM {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "db_devloDataSetDetailSale";
+            this.DataSetName = "db_devloDataSetSalesStates";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/db_devloDataSetDetailSale.xsd";
+            this.Namespace = "http://tempuri.org/db_devloDataSetSalesStates.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableV_SALESEDIT = new V_SALESEDITDataTable();
-            base.Tables.Add(this.tableV_SALESEDIT);
+            this.tableSTATES = new STATESDataTable();
+            base.Tables.Add(this.tableSTATES);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeV_SALESEDIT() {
+        private bool ShouldSerializeSTATES() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace Proyecto_DAM {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            db_devloDataSetDetailSale ds = new db_devloDataSetDetailSale();
+            db_devloDataSetSalesStates ds = new db_devloDataSetSalesStates();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,41 +270,23 @@ namespace Proyecto_DAM {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void V_SALESEDITRowChangeEventHandler(object sender, V_SALESEDITRowChangeEvent e);
+        public delegate void STATESRowChangeEventHandler(object sender, STATESRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class V_SALESEDITDataTable : global::System.Data.TypedTableBase<V_SALESEDITRow> {
+        public partial class STATESDataTable : global::System.Data.TypedTableBase<STATESRow> {
             
-            private global::System.Data.DataColumn columnIDCAB;
+            private global::System.Data.DataColumn columnIDSTATE;
             
-            private global::System.Data.DataColumn columnCONTACTO;
-            
-            private global::System.Data.DataColumn columnFECHA_PEDIDO;
-            
-            private global::System.Data.DataColumn columnTOTAL_PRICE;
-            
-            private global::System.Data.DataColumn columnIDLIN;
-            
-            private global::System.Data.DataColumn columnN_LIN;
-            
-            private global::System.Data.DataColumn columnPRODUCTO;
-            
-            private global::System.Data.DataColumn columnUNITS;
-            
-            private global::System.Data.DataColumn columnSELL_PRICE;
-            
-            private global::System.Data.DataColumn columnIDPRODUCT;
-            
-            private global::System.Data.DataColumn columnIMPORTE;
+            private global::System.Data.DataColumn columnDESCRIPTION;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public V_SALESEDITDataTable() {
-                this.TableName = "V_SALESEDIT";
+            public STATESDataTable() {
+                this.TableName = "STATES";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -312,7 +294,7 @@ namespace Proyecto_DAM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal V_SALESEDITDataTable(global::System.Data.DataTable table) {
+            internal STATESDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -329,96 +311,24 @@ namespace Proyecto_DAM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected V_SALESEDITDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected STATESDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn IDCABColumn {
+            public global::System.Data.DataColumn IDSTATEColumn {
                 get {
-                    return this.columnIDCAB;
+                    return this.columnIDSTATE;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn CONTACTOColumn {
+            public global::System.Data.DataColumn DESCRIPTIONColumn {
                 get {
-                    return this.columnCONTACTO;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn FECHA_PEDIDOColumn {
-                get {
-                    return this.columnFECHA_PEDIDO;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn TOTAL_PRICEColumn {
-                get {
-                    return this.columnTOTAL_PRICE;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn IDLINColumn {
-                get {
-                    return this.columnIDLIN;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn N_LINColumn {
-                get {
-                    return this.columnN_LIN;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn PRODUCTOColumn {
-                get {
-                    return this.columnPRODUCTO;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn UNITSColumn {
-                get {
-                    return this.columnUNITS;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn SELL_PRICEColumn {
-                get {
-                    return this.columnSELL_PRICE;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn IDPRODUCTColumn {
-                get {
-                    return this.columnIDPRODUCT;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn IMPORTEColumn {
-                get {
-                    return this.columnIMPORTE;
+                    return this.columnDESCRIPTION;
                 }
             }
             
@@ -433,55 +343,53 @@ namespace Proyecto_DAM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public V_SALESEDITRow this[int index] {
+            public STATESRow this[int index] {
                 get {
-                    return ((V_SALESEDITRow)(this.Rows[index]));
+                    return ((STATESRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event V_SALESEDITRowChangeEventHandler V_SALESEDITRowChanging;
+            public event STATESRowChangeEventHandler STATESRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event V_SALESEDITRowChangeEventHandler V_SALESEDITRowChanged;
+            public event STATESRowChangeEventHandler STATESRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event V_SALESEDITRowChangeEventHandler V_SALESEDITRowDeleting;
+            public event STATESRowChangeEventHandler STATESRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event V_SALESEDITRowChangeEventHandler V_SALESEDITRowDeleted;
+            public event STATESRowChangeEventHandler STATESRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddV_SALESEDITRow(V_SALESEDITRow row) {
+            public void AddSTATESRow(STATESRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public V_SALESEDITRow AddV_SALESEDITRow(int IDCAB, string CONTACTO, System.DateTime FECHA_PEDIDO, decimal TOTAL_PRICE, int IDLIN, int N_LIN, string PRODUCTO, int UNITS, decimal SELL_PRICE, int IDPRODUCT, decimal IMPORTE) {
-                V_SALESEDITRow rowV_SALESEDITRow = ((V_SALESEDITRow)(this.NewRow()));
+            public STATESRow AddSTATESRow(int IDSTATE, string DESCRIPTION) {
+                STATESRow rowSTATESRow = ((STATESRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        IDCAB,
-                        CONTACTO,
-                        FECHA_PEDIDO,
-                        TOTAL_PRICE,
-                        IDLIN,
-                        N_LIN,
-                        PRODUCTO,
-                        UNITS,
-                        SELL_PRICE,
-                        IDPRODUCT,
-                        IMPORTE};
-                rowV_SALESEDITRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowV_SALESEDITRow);
-                return rowV_SALESEDITRow;
+                        IDSTATE,
+                        DESCRIPTION};
+                rowSTATESRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowSTATESRow);
+                return rowSTATESRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public STATESRow FindByIDSTATE(int IDSTATE) {
+                return ((STATESRow)(this.Rows.Find(new object[] {
+                            IDSTATE})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                V_SALESEDITDataTable cln = ((V_SALESEDITDataTable)(base.Clone()));
+                STATESDataTable cln = ((STATESDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -489,81 +397,54 @@ namespace Proyecto_DAM {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new V_SALESEDITDataTable();
+                return new STATESDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columnIDCAB = base.Columns["IDCAB"];
-                this.columnCONTACTO = base.Columns["CONTACTO"];
-                this.columnFECHA_PEDIDO = base.Columns["FECHA_PEDIDO"];
-                this.columnTOTAL_PRICE = base.Columns["TOTAL_PRICE"];
-                this.columnIDLIN = base.Columns["IDLIN"];
-                this.columnN_LIN = base.Columns["N_LIN"];
-                this.columnPRODUCTO = base.Columns["PRODUCTO"];
-                this.columnUNITS = base.Columns["UNITS"];
-                this.columnSELL_PRICE = base.Columns["SELL_PRICE"];
-                this.columnIDPRODUCT = base.Columns["IDPRODUCT"];
-                this.columnIMPORTE = base.Columns["IMPORTE"];
+                this.columnIDSTATE = base.Columns["IDSTATE"];
+                this.columnDESCRIPTION = base.Columns["DESCRIPTION"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnIDCAB = new global::System.Data.DataColumn("IDCAB", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnIDCAB);
-                this.columnCONTACTO = new global::System.Data.DataColumn("CONTACTO", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCONTACTO);
-                this.columnFECHA_PEDIDO = new global::System.Data.DataColumn("FECHA_PEDIDO", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFECHA_PEDIDO);
-                this.columnTOTAL_PRICE = new global::System.Data.DataColumn("TOTAL_PRICE", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTOTAL_PRICE);
-                this.columnIDLIN = new global::System.Data.DataColumn("IDLIN", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnIDLIN);
-                this.columnN_LIN = new global::System.Data.DataColumn("N_LIN", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnN_LIN);
-                this.columnPRODUCTO = new global::System.Data.DataColumn("PRODUCTO", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPRODUCTO);
-                this.columnUNITS = new global::System.Data.DataColumn("UNITS", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUNITS);
-                this.columnSELL_PRICE = new global::System.Data.DataColumn("SELL_PRICE", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSELL_PRICE);
-                this.columnIDPRODUCT = new global::System.Data.DataColumn("IDPRODUCT", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnIDPRODUCT);
-                this.columnIMPORTE = new global::System.Data.DataColumn("IMPORTE", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnIMPORTE);
-                this.columnIDCAB.AllowDBNull = false;
-                this.columnCONTACTO.MaxLength = 50;
-                this.columnIDLIN.AllowDBNull = false;
-                this.columnPRODUCTO.MaxLength = 50;
-                this.columnIMPORTE.ReadOnly = true;
+                this.columnIDSTATE = new global::System.Data.DataColumn("IDSTATE", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIDSTATE);
+                this.columnDESCRIPTION = new global::System.Data.DataColumn("DESCRIPTION", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDESCRIPTION);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnIDSTATE}, true));
+                this.columnIDSTATE.AllowDBNull = false;
+                this.columnIDSTATE.Unique = true;
+                this.columnDESCRIPTION.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public V_SALESEDITRow NewV_SALESEDITRow() {
-                return ((V_SALESEDITRow)(this.NewRow()));
+            public STATESRow NewSTATESRow() {
+                return ((STATESRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new V_SALESEDITRow(builder);
+                return new STATESRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(V_SALESEDITRow);
+                return typeof(STATESRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.V_SALESEDITRowChanged != null)) {
-                    this.V_SALESEDITRowChanged(this, new V_SALESEDITRowChangeEvent(((V_SALESEDITRow)(e.Row)), e.Action));
+                if ((this.STATESRowChanged != null)) {
+                    this.STATESRowChanged(this, new STATESRowChangeEvent(((STATESRow)(e.Row)), e.Action));
                 }
             }
             
@@ -571,8 +452,8 @@ namespace Proyecto_DAM {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.V_SALESEDITRowChanging != null)) {
-                    this.V_SALESEDITRowChanging(this, new V_SALESEDITRowChangeEvent(((V_SALESEDITRow)(e.Row)), e.Action));
+                if ((this.STATESRowChanging != null)) {
+                    this.STATESRowChanging(this, new STATESRowChangeEvent(((STATESRow)(e.Row)), e.Action));
                 }
             }
             
@@ -580,8 +461,8 @@ namespace Proyecto_DAM {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.V_SALESEDITRowDeleted != null)) {
-                    this.V_SALESEDITRowDeleted(this, new V_SALESEDITRowChangeEvent(((V_SALESEDITRow)(e.Row)), e.Action));
+                if ((this.STATESRowDeleted != null)) {
+                    this.STATESRowDeleted(this, new STATESRowChangeEvent(((STATESRow)(e.Row)), e.Action));
                 }
             }
             
@@ -589,14 +470,14 @@ namespace Proyecto_DAM {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.V_SALESEDITRowDeleting != null)) {
-                    this.V_SALESEDITRowDeleting(this, new V_SALESEDITRowChangeEvent(((V_SALESEDITRow)(e.Row)), e.Action));
+                if ((this.STATESRowDeleting != null)) {
+                    this.STATESRowDeleting(this, new STATESRowChangeEvent(((STATESRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemoveV_SALESEDITRow(V_SALESEDITRow row) {
+            public void RemoveSTATESRow(STATESRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -605,7 +486,7 @@ namespace Proyecto_DAM {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                db_devloDataSetDetailSale ds = new db_devloDataSetDetailSale();
+                db_devloDataSetSalesStates ds = new db_devloDataSetSalesStates();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -623,7 +504,7 @@ namespace Proyecto_DAM {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "V_SALESEDITDataTable";
+                attribute2.FixedValue = "STATESDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -667,289 +548,54 @@ namespace Proyecto_DAM {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class V_SALESEDITRow : global::System.Data.DataRow {
+        public partial class STATESRow : global::System.Data.DataRow {
             
-            private V_SALESEDITDataTable tableV_SALESEDIT;
+            private STATESDataTable tableSTATES;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal V_SALESEDITRow(global::System.Data.DataRowBuilder rb) : 
+            internal STATESRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableV_SALESEDIT = ((V_SALESEDITDataTable)(this.Table));
+                this.tableSTATES = ((STATESDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int IDCAB {
+            public int IDSTATE {
                 get {
-                    return ((int)(this[this.tableV_SALESEDIT.IDCABColumn]));
+                    return ((int)(this[this.tableSTATES.IDSTATEColumn]));
                 }
                 set {
-                    this[this.tableV_SALESEDIT.IDCABColumn] = value;
+                    this[this.tableSTATES.IDSTATEColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string CONTACTO {
-                get {
-                    try {
-                        return ((string)(this[this.tableV_SALESEDIT.CONTACTOColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CONTACTO\' de la tabla \'V_SALESEDIT\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableV_SALESEDIT.CONTACTOColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime FECHA_PEDIDO {
+            public string DESCRIPTION {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableV_SALESEDIT.FECHA_PEDIDOColumn]));
+                        return ((string)(this[this.tableSTATES.DESCRIPTIONColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'FECHA_PEDIDO\' de la tabla \'V_SALESEDIT\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'DESCRIPTION\' de la tabla \'STATES\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableV_SALESEDIT.FECHA_PEDIDOColumn] = value;
+                    this[this.tableSTATES.DESCRIPTIONColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal TOTAL_PRICE {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableV_SALESEDIT.TOTAL_PRICEColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'TOTAL_PRICE\' de la tabla \'V_SALESEDIT\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableV_SALESEDIT.TOTAL_PRICEColumn] = value;
-                }
+            public bool IsDESCRIPTIONNull() {
+                return this.IsNull(this.tableSTATES.DESCRIPTIONColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int IDLIN {
-                get {
-                    return ((int)(this[this.tableV_SALESEDIT.IDLINColumn]));
-                }
-                set {
-                    this[this.tableV_SALESEDIT.IDLINColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int N_LIN {
-                get {
-                    try {
-                        return ((int)(this[this.tableV_SALESEDIT.N_LINColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'N_LIN\' de la tabla \'V_SALESEDIT\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableV_SALESEDIT.N_LINColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string PRODUCTO {
-                get {
-                    try {
-                        return ((string)(this[this.tableV_SALESEDIT.PRODUCTOColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'PRODUCTO\' de la tabla \'V_SALESEDIT\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableV_SALESEDIT.PRODUCTOColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int UNITS {
-                get {
-                    try {
-                        return ((int)(this[this.tableV_SALESEDIT.UNITSColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'UNITS\' de la tabla \'V_SALESEDIT\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableV_SALESEDIT.UNITSColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal SELL_PRICE {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableV_SALESEDIT.SELL_PRICEColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'SELL_PRICE\' de la tabla \'V_SALESEDIT\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableV_SALESEDIT.SELL_PRICEColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int IDPRODUCT {
-                get {
-                    try {
-                        return ((int)(this[this.tableV_SALESEDIT.IDPRODUCTColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'IDPRODUCT\' de la tabla \'V_SALESEDIT\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableV_SALESEDIT.IDPRODUCTColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal IMPORTE {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableV_SALESEDIT.IMPORTEColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'IMPORTE\' de la tabla \'V_SALESEDIT\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableV_SALESEDIT.IMPORTEColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsCONTACTONull() {
-                return this.IsNull(this.tableV_SALESEDIT.CONTACTOColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetCONTACTONull() {
-                this[this.tableV_SALESEDIT.CONTACTOColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsFECHA_PEDIDONull() {
-                return this.IsNull(this.tableV_SALESEDIT.FECHA_PEDIDOColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetFECHA_PEDIDONull() {
-                this[this.tableV_SALESEDIT.FECHA_PEDIDOColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsTOTAL_PRICENull() {
-                return this.IsNull(this.tableV_SALESEDIT.TOTAL_PRICEColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetTOTAL_PRICENull() {
-                this[this.tableV_SALESEDIT.TOTAL_PRICEColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsN_LINNull() {
-                return this.IsNull(this.tableV_SALESEDIT.N_LINColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetN_LINNull() {
-                this[this.tableV_SALESEDIT.N_LINColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsPRODUCTONull() {
-                return this.IsNull(this.tableV_SALESEDIT.PRODUCTOColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetPRODUCTONull() {
-                this[this.tableV_SALESEDIT.PRODUCTOColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsUNITSNull() {
-                return this.IsNull(this.tableV_SALESEDIT.UNITSColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetUNITSNull() {
-                this[this.tableV_SALESEDIT.UNITSColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsSELL_PRICENull() {
-                return this.IsNull(this.tableV_SALESEDIT.SELL_PRICEColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetSELL_PRICENull() {
-                this[this.tableV_SALESEDIT.SELL_PRICEColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsIDPRODUCTNull() {
-                return this.IsNull(this.tableV_SALESEDIT.IDPRODUCTColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetIDPRODUCTNull() {
-                this[this.tableV_SALESEDIT.IDPRODUCTColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsIMPORTENull() {
-                return this.IsNull(this.tableV_SALESEDIT.IMPORTEColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetIMPORTENull() {
-                this[this.tableV_SALESEDIT.IMPORTEColumn] = global::System.Convert.DBNull;
+            public void SetDESCRIPTIONNull() {
+                this[this.tableSTATES.DESCRIPTIONColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -957,22 +603,22 @@ namespace Proyecto_DAM {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class V_SALESEDITRowChangeEvent : global::System.EventArgs {
+        public class STATESRowChangeEvent : global::System.EventArgs {
             
-            private V_SALESEDITRow eventRow;
+            private STATESRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public V_SALESEDITRowChangeEvent(V_SALESEDITRow row, global::System.Data.DataRowAction action) {
+            public STATESRowChangeEvent(STATESRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public V_SALESEDITRow Row {
+            public STATESRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -988,7 +634,7 @@ namespace Proyecto_DAM {
         }
     }
 }
-namespace Proyecto_DAM.db_devloDataSetDetailSaleTableAdapters {
+namespace Proyecto_DAM.db_devloDataSetSalesStatesTableAdapters {
     
     
     /// <summary>
@@ -1000,7 +646,7 @@ namespace Proyecto_DAM.db_devloDataSetDetailSaleTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class V_SALESEDITTableAdapter : global::System.ComponentModel.Component {
+    public partial class STATESTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -1014,7 +660,7 @@ namespace Proyecto_DAM.db_devloDataSetDetailSaleTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public V_SALESEDITTableAdapter() {
+        public STATESTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -1111,19 +757,36 @@ namespace Proyecto_DAM.db_devloDataSetDetailSaleTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "V_SALESEDIT";
-            tableMapping.ColumnMappings.Add("IDCAB", "IDCAB");
-            tableMapping.ColumnMappings.Add("CONTACTO", "CONTACTO");
-            tableMapping.ColumnMappings.Add("FECHA_PEDIDO", "FECHA_PEDIDO");
-            tableMapping.ColumnMappings.Add("TOTAL_PRICE", "TOTAL_PRICE");
-            tableMapping.ColumnMappings.Add("IDLIN", "IDLIN");
-            tableMapping.ColumnMappings.Add("N_LIN", "N_LIN");
-            tableMapping.ColumnMappings.Add("PRODUCTO", "PRODUCTO");
-            tableMapping.ColumnMappings.Add("UNITS", "UNITS");
-            tableMapping.ColumnMappings.Add("SELL_PRICE", "SELL_PRICE");
-            tableMapping.ColumnMappings.Add("IDPRODUCT", "IDPRODUCT");
-            tableMapping.ColumnMappings.Add("IMPORTE", "IMPORTE");
+            tableMapping.DataSetTable = "STATES";
+            tableMapping.ColumnMappings.Add("IDSTATE", "IDSTATE");
+            tableMapping.ColumnMappings.Add("DESCRIPTION", "DESCRIPTION");
             this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[STATES] WHERE (([IDSTATE] = @Original_IDSTATE) AND ((@IsNull_D" +
+                "ESCRIPTION = 1 AND [DESCRIPTION] IS NULL) OR ([DESCRIPTION] = @Original_DESCRIPT" +
+                "ION)))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IDSTATE", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDSTATE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DESCRIPTION", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DESCRIPTION", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DESCRIPTION", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DESCRIPTION", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[STATES] ([IDSTATE], [DESCRIPTION]) VALUES (@IDSTATE, @DESCRIPT" +
+                "ION);\r\nSELECT IDSTATE, DESCRIPTION FROM STATES WHERE (IDSTATE = @IDSTATE)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDSTATE", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDSTATE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DESCRIPTION", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DESCRIPTION", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[STATES] SET [IDSTATE] = @IDSTATE, [DESCRIPTION] = @DESCRIPTION WHERE (([IDSTATE] = @Original_IDSTATE) AND ((@IsNull_DESCRIPTION = 1 AND [DESCRIPTION] IS NULL) OR ([DESCRIPTION] = @Original_DESCRIPTION)));
+SELECT IDSTATE, DESCRIPTION FROM STATES WHERE (IDSTATE = @IDSTATE)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDSTATE", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDSTATE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DESCRIPTION", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DESCRIPTION", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IDSTATE", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IDSTATE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DESCRIPTION", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DESCRIPTION", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DESCRIPTION", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DESCRIPTION", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1136,25 +799,18 @@ namespace Proyecto_DAM.db_devloDataSetDetailSaleTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT IDCAB, CONTACTO, FECHA_PEDIDO, TOTAL_PRICE, IDLIN, N_LIN, PRODUCTO, UNITS," +
-                " SELL_PRICE, IDPRODUCT, IMPORTE\r\nFROM     V_SALESEDIT";
+            this._commandCollection[0].CommandText = "SELECT IDSTATE, DESCRIPTION FROM dbo.STATES";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT CONTACTO, FECHA_PEDIDO, IDCAB, IDLIN, IDPRODUCT, IMPORTE, N_LIN, PRODUCTO," +
-                " SELL_PRICE, TOTAL_PRICE, UNITS FROM V_SALESEDIT WHERE (IDCAB LIKE @IDCAB)";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDCAB", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "IDCAB", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(db_devloDataSetDetailSale.V_SALESEDITDataTable dataTable) {
+        public virtual int Fill(db_devloDataSetSalesStates.STATESDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1167,9 +823,9 @@ namespace Proyecto_DAM.db_devloDataSetDetailSaleTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual db_devloDataSetDetailSale.V_SALESEDITDataTable GetData() {
+        public virtual db_devloDataSetSalesStates.STATESDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            db_devloDataSetDetailSale.V_SALESEDITDataTable dataTable = new db_devloDataSetDetailSale.V_SALESEDITDataTable();
+            db_devloDataSetSalesStates.STATESDataTable dataTable = new db_devloDataSetSalesStates.STATESDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1177,27 +833,133 @@ namespace Proyecto_DAM.db_devloDataSetDetailSaleTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByIdCab(db_devloDataSetDetailSale.V_SALESEDITDataTable dataTable, int IDCAB) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(IDCAB));
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
+        public virtual int Update(db_devloDataSetSalesStates.STATESDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(db_devloDataSetSalesStates dataSet) {
+            return this.Adapter.Update(dataSet, "STATES");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(int Original_IDSTATE, string Original_DESCRIPTION) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_IDSTATE));
+            if ((Original_DESCRIPTION == null)) {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_DESCRIPTION));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual db_devloDataSetDetailSale.V_SALESEDITDataTable GetDataBy(int IDCAB) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(IDCAB));
-            db_devloDataSetDetailSale.V_SALESEDITDataTable dataTable = new db_devloDataSetDetailSale.V_SALESEDITDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(int IDSTATE, string DESCRIPTION) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(IDSTATE));
+            if ((DESCRIPTION == null)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(DESCRIPTION));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(int IDSTATE, string DESCRIPTION, int Original_IDSTATE, string Original_DESCRIPTION) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(IDSTATE));
+            if ((DESCRIPTION == null)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(DESCRIPTION));
+            }
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_IDSTATE));
+            if ((Original_DESCRIPTION == null)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_DESCRIPTION));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string DESCRIPTION, int Original_IDSTATE, string Original_DESCRIPTION) {
+            return this.Update(Original_IDSTATE, DESCRIPTION, Original_IDSTATE, Original_DESCRIPTION);
         }
     }
     
@@ -1213,6 +975,8 @@ namespace Proyecto_DAM.db_devloDataSetDetailSaleTableAdapters {
         
         private UpdateOrderOption _updateOrder;
         
+        private STATESTableAdapter _sTATESTableAdapter;
+        
         private bool _backupDataSetBeforeUpdate;
         
         private global::System.Data.IDbConnection _connection;
@@ -1225,6 +989,20 @@ namespace Proyecto_DAM.db_devloDataSetDetailSaleTableAdapters {
             }
             set {
                 this._updateOrder = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public STATESTableAdapter STATESTableAdapter {
+            get {
+                return this._sTATESTableAdapter;
+            }
+            set {
+                this._sTATESTableAdapter = value;
             }
         }
         
@@ -1247,6 +1025,10 @@ namespace Proyecto_DAM.db_devloDataSetDetailSaleTableAdapters {
                 if ((this._connection != null)) {
                     return this._connection;
                 }
+                if (((this._sTATESTableAdapter != null) 
+                            && (this._sTATESTableAdapter.Connection != null))) {
+                    return this._sTATESTableAdapter.Connection;
+                }
                 return null;
             }
             set {
@@ -1260,6 +1042,9 @@ namespace Proyecto_DAM.db_devloDataSetDetailSaleTableAdapters {
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
+                if ((this._sTATESTableAdapter != null)) {
+                    count = (count + 1);
+                }
                 return count;
             }
         }
@@ -1269,8 +1054,17 @@ namespace Proyecto_DAM.db_devloDataSetDetailSaleTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateUpdatedRows(db_devloDataSetDetailSale dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(db_devloDataSetSalesStates dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
+            if ((this._sTATESTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.STATES.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._sTATESTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             return result;
         }
         
@@ -1279,8 +1073,16 @@ namespace Proyecto_DAM.db_devloDataSetDetailSaleTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateInsertedRows(db_devloDataSetDetailSale dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(db_devloDataSetSalesStates dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
+            if ((this._sTATESTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.STATES.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._sTATESTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             return result;
         }
         
@@ -1289,8 +1091,16 @@ namespace Proyecto_DAM.db_devloDataSetDetailSaleTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateDeletedRows(db_devloDataSetDetailSale dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(db_devloDataSetSalesStates dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
+            if ((this._sTATESTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.STATES.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._sTATESTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             return result;
         }
         
@@ -1323,12 +1133,17 @@ namespace Proyecto_DAM.db_devloDataSetDetailSaleTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public virtual int UpdateAll(db_devloDataSetDetailSale dataSet) {
+        public virtual int UpdateAll(db_devloDataSetSalesStates dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
             if ((dataSet.HasChanges() == false)) {
                 return 0;
+            }
+            if (((this._sTATESTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._sTATESTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("Todos los TableAdapters administrados por un TableAdapterManager deben usar la mi" +
+                        "sma cadena de conexión.");
             }
             global::System.Data.IDbConnection workConnection = this.Connection;
             if ((workConnection == null)) {
@@ -1362,6 +1177,15 @@ namespace Proyecto_DAM.db_devloDataSetDetailSaleTableAdapters {
             try {
                 // ---- Prepare for update -----------
                 //
+                if ((this._sTATESTableAdapter != null)) {
+                    revertConnections.Add(this._sTATESTableAdapter, this._sTATESTableAdapter.Connection);
+                    this._sTATESTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._sTATESTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._sTATESTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._sTATESTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._sTATESTableAdapter.Adapter);
+                    }
+                }
                 // 
                 //---- Perform updates -----------
                 //
@@ -1419,6 +1243,10 @@ namespace Proyecto_DAM.db_devloDataSetDetailSaleTableAdapters {
             finally {
                 if (workConnOpened) {
                     workConnection.Close();
+                }
+                if ((this._sTATESTableAdapter != null)) {
+                    this._sTATESTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._sTATESTableAdapter]));
+                    this._sTATESTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

@@ -31,6 +31,28 @@ namespace Control
 			return retcode.Value.ToString();
 		}
 
+		public string pa_recover_password(string name, string email)
+		{
+
+			ObjectParameter message = new ObjectParameter("MENSAJE", typeof(string));
+			ObjectParameter retcode = new ObjectParameter("RETCODE", typeof(int));
+			ObjectParameter password = new ObjectParameter("PASSWORD", typeof(string));
+
+			db.PA_RECOVER_PASSWORD(
+				name,
+				email,
+				0,
+				"",
+				"",
+				retcode,
+				message,
+				password
+				);
+
+			return message.Value.ToString();
+		}
+
+
 		//CONTACT
 		public string pa_addContact(string name, string surnames, string phone, string email, string address, string role, string observations)
 		{
@@ -244,7 +266,7 @@ namespace Control
 
 			return retcode.Value.ToString();
 		}
-		public string pa_update_sale(int? idcab, int? n_lin, int? idproduct, int? units, int? idlin, decimal? totalprice){
+		public string pa_update_sale(int? idcab, int? n_lin, int? idproduct, int? units, int? idlin, decimal? totalprice, int state){
 
 			ObjectParameter message = new ObjectParameter("MENSAJE", typeof(string));
 			ObjectParameter retcode = new ObjectParameter("RETCODE", typeof(int));
@@ -256,6 +278,7 @@ namespace Control
 				units,
 				idlin,
 				totalprice,
+				state,
 				0,
 				"",
 				"",

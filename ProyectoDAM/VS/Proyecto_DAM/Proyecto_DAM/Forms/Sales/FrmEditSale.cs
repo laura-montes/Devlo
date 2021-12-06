@@ -25,7 +25,7 @@ namespace Proyecto_DAM.Forms.Sales
 		List<double> precio_unitario = new List<double>();
 
 		//INDICE DEL ITEM LISTVIEW
-		int indice;
+		int index;
 
 		DateTime thisDay = DateTime.Today;
 
@@ -49,7 +49,7 @@ namespace Proyecto_DAM.Forms.Sales
 		}
 
 		private void FrmEditSale_Load(object sender, EventArgs e)
-		{
+		{			
 			this.pRODUCTSTableAdapter.FillBy(this.db_devloDataSetProducts.PRODUCTS);
 
 			sale = db.V_SALESEDIT.Where(x => x.IDCAB == idSale);
@@ -75,36 +75,30 @@ namespace Proyecto_DAM.Forms.Sales
 				//LBL PRECIO
 				price = double.Parse(linea.TOTAL_PRICE.ToString());
 				LblEuros.Text = price.ToString() + ",00€";
+
+
+				//COMBOBOX
+				IEnumerable<STATE> states = db.STATES.ToList();
+				this.sTATESTableAdapter.Fill(this.db_devloDataSetSalesStates.STATES);
+				int index = 0;
+				foreach (STATE item in states)
+				{
+					if (item.IDSTATE == sale.ElementAt(0).STATE)
+					{
+						index = states.ToList().IndexOf(item);
+					}
+				}
+
+				guna2ComboBox1.SelectedIndex = index;
 			}
 
-		}
-
-		private void LstViewProducts_Click(object sender, EventArgs e)
-		{
-			FrmSelectCuantity frmSelectCuantity = new FrmSelectCuantity(int.Parse(LstViewProducts.Items[indice].SubItems[1].Text));
-
-			if (frmSelectCuantity.ShowDialog() == DialogResult.OK)
-			{
-				int cuantity = frmSelectCuantity.Cuantity; //lee la propiedad
-
-				double cantidad_anterior = double.Parse(LstViewProducts.Items[indice].SubItems[1].Text);
-				//CAMBIO LA CANTIDAD DEL PRODUCTO 
-				LstViewProducts.Items[indice].SubItems[1].Text = cuantity.ToString();
-
-				price = price - cantidad_anterior * precio_unitario[indice];
-
-				price = price + cuantity * precio_unitario[indice];
-
-				LblEuros.Text = price.ToString() + ",00€";
-
-			}
 		}
 
 		private void LstViewProducts_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			if (LstViewProducts.SelectedIndices.Count > 0)
 			{
-				indice = int.Parse(LstViewProducts.SelectedIndices[0].ToString());
+				index = int.Parse(LstViewProducts.SelectedIndices[0].ToString());
 			}
 		}
 
@@ -119,7 +113,8 @@ namespace Proyecto_DAM.Forms.Sales
 					int.Parse(sale_lin.SubItems[5].Text),//ID_LIN
 					int.Parse(sale_lin.SubItems[1].Text),//ID_CAB
 					int.Parse(sale_lin.SubItems[2].Text),//N_LIN
-					decimal.Parse(price.ToString("0.00"))//ID_PRODUCT
+					decimal.Parse(price.ToString("0.00")),//ID_PRODUCT
+					int.Parse(guna2ComboBox1.SelectedValue.ToString())
 				);
 			}
 
@@ -173,5 +168,52 @@ namespace Proyecto_DAM.Forms.Sales
 				}
 			}
 		}
-	}
+
+		private void LstViewProducts_MouseClick(object sender, MouseEventArgs e)
+		{
+			switch (e.Button)
+			{
+
+				case MouseButtons.Left:
+					// Left click
+
+					FrmSelectCuantity frmSelectCuantity = new FrmSelectCuantity(int.Parse(LstViewProducts.Items[index].SubItems[1].Text));
+
+					if (frmSelectCuantity.ShowDialog() == DialogResult.OK)
+					{
+						int cuantity = frmSelectCuantity.Cuantity; //lee la propiedad
+
+						double cantidad_anterior = double.Parse(LstViewProducts.Items[index].SubItems[1].Text);
+						//CAMBIO LA CANTIDAD DEL PRODUCTO 
+						LstViewProducts.Items[index].SubItems[1].Text = cuantity.ToString();
+
+						price = price - cantidad_anterior * precio_unitario[index];
+
+						price = price + cuantity * precio_unitario[index];
+
+						LblEuros.Text = price.ToString() + ",00€";
+
+					}
+					break;
+
+				case MouseButtons.Right:
+					// Right click
+
+					price = price - double.Parse(LstViewProducts.Items[index].SubItems[1].Text) * double.Parse(precio_unitario[index].ToString());
+
+
+
+					LblEuros.Text = price.ToString() + ",00€";
+
+					LstViewProducts.Items.RemoveAt(index);
+					precio_unitario.RemoveAt(index);
+					if(precio_unitario.Count == 0){
+						LblEuros.Text = 0.ToString() + ",00€";
+					}
+
+					break;
+
+			}
+		}
+    }
 }

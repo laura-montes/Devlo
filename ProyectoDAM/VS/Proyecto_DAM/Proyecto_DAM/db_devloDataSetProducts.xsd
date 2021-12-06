@@ -48,15 +48,21 @@ FROM            PRODUCTS INNER JOIN
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        IDPRODUCT, CODE, NAME, STOCK, SELL_PRICE, CATEGORY, SUPPLIER
-FROM            PRODUCTS</CommandText>
+FROM            PRODUCTS
+WHERE STOCK&gt;0</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="db_devloConnectionString (Settings)" DbObjectName="db_devlo.dbo.PRODUCTS" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="SortGridViewByName" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy1" GeneratorSourceName="SortGridViewByName" GetMethodModifier="Public" GetMethodName="GetDataBy1" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="SortGridViewByName">
+              <DbSource ConnectionRef="db_devloConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="SortGridViewByName" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy1" GeneratorSourceName="SortGridViewByName" GetMethodModifier="Public" GetMethodName="GetDataBy1" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="SortGridViewByName">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT CATEGORY, CODE, IDPRODUCT, NAME, SELL_PRICE, STOCK, SUPPLIER FROM PRODUCTS ORDER BY NAME</CommandText>
+                    <CommandText>SELECT        PRODUCTS.IDPRODUCT, PRODUCTS.CODE, PRODUCTS.NAME, PRODUCTS.STOCK, PRODUCTS.SELL_PRICE, CATEGORY.NAME AS CATEGORY, PRODUCTS.CATEGORY AS IDCATEGORY, 
+                         PRODUCTS.SUPPLIER AS IDSUPPLIER, SUPPLIERS.NAME AS SUPPLIER
+FROM            PRODUCTS INNER JOIN
+                         CATEGORY ON PRODUCTS.CATEGORY = CATEGORY.ID INNER JOIN
+                         SUPPLIERS ON PRODUCTS.SUPPLIER = SUPPLIERS.ID
+ORDER BY PRODUCTS.NAME</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>

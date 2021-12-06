@@ -33,6 +33,7 @@ namespace Proyecto_DAM
 
 			addCustomerGraphicValues();
 			addSalesGraphicValues();
+
 		}
 
 		private void changeChart(RadioButton radioButton)

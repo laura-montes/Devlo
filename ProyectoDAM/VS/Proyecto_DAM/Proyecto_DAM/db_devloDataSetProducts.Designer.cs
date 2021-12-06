@@ -1098,12 +1098,16 @@ FROM            PRODUCTS INNER JOIN
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = "SELECT        IDPRODUCT, CODE, NAME, STOCK, SELL_PRICE, CATEGORY, SUPPLIER\r\nFROM " +
-                "           PRODUCTS";
+                "           PRODUCTS\r\nWHERE STOCK>0";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT CATEGORY, CODE, IDPRODUCT, NAME, SELL_PRICE, STOCK, SUPPLIER FROM PRODUCTS" +
-                " ORDER BY NAME";
+            this._commandCollection[3].CommandText = @"SELECT        PRODUCTS.IDPRODUCT, PRODUCTS.CODE, PRODUCTS.NAME, PRODUCTS.STOCK, PRODUCTS.SELL_PRICE, CATEGORY.NAME AS CATEGORY, PRODUCTS.CATEGORY AS IDCATEGORY, 
+                         PRODUCTS.SUPPLIER AS IDSUPPLIER, SUPPLIERS.NAME AS SUPPLIER
+FROM            PRODUCTS INNER JOIN
+                         CATEGORY ON PRODUCTS.CATEGORY = CATEGORY.ID INNER JOIN
+                         SUPPLIERS ON PRODUCTS.SUPPLIER = SUPPLIERS.ID
+ORDER BY PRODUCTS.NAME";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
         }
         

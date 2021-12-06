@@ -20,17 +20,17 @@ namespace Proyecto_DAM {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("db_devloDataSetDetailSale")]
+    [global::System.Xml.Serialization.XmlRootAttribute("db_devloDataSetFnSales")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class db_devloDataSetDetailSale : global::System.Data.DataSet {
+    public partial class db_devloDataSetFnSales : global::System.Data.DataSet {
         
-        private V_SALESEDITDataTable tableV_SALESEDIT;
+        private FN_SALES_BETWEEN_DATESDataTable tableFN_SALES_BETWEEN_DATES;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public db_devloDataSetDetailSale() {
+        public db_devloDataSetFnSales() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace Proyecto_DAM {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected db_devloDataSetDetailSale(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected db_devloDataSetFnSales(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace Proyecto_DAM {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["V_SALESEDIT"] != null)) {
-                    base.Tables.Add(new V_SALESEDITDataTable(ds.Tables["V_SALESEDIT"]));
+                if ((ds.Tables["FN_SALES_BETWEEN_DATES"] != null)) {
+                    base.Tables.Add(new FN_SALES_BETWEEN_DATESDataTable(ds.Tables["FN_SALES_BETWEEN_DATES"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace Proyecto_DAM {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public V_SALESEDITDataTable V_SALESEDIT {
+        public FN_SALES_BETWEEN_DATESDataTable FN_SALES_BETWEEN_DATES {
             get {
-                return this.tableV_SALESEDIT;
+                return this.tableFN_SALES_BETWEEN_DATES;
             }
         }
         
@@ -127,7 +127,7 @@ namespace Proyecto_DAM {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            db_devloDataSetDetailSale cln = ((db_devloDataSetDetailSale)(base.Clone()));
+            db_devloDataSetFnSales cln = ((db_devloDataSetFnSales)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace Proyecto_DAM {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["V_SALESEDIT"] != null)) {
-                    base.Tables.Add(new V_SALESEDITDataTable(ds.Tables["V_SALESEDIT"]));
+                if ((ds.Tables["FN_SALES_BETWEEN_DATES"] != null)) {
+                    base.Tables.Add(new FN_SALES_BETWEEN_DATESDataTable(ds.Tables["FN_SALES_BETWEEN_DATES"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace Proyecto_DAM {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableV_SALESEDIT = ((V_SALESEDITDataTable)(base.Tables["V_SALESEDIT"]));
+            this.tableFN_SALES_BETWEEN_DATES = ((FN_SALES_BETWEEN_DATESDataTable)(base.Tables["FN_SALES_BETWEEN_DATES"]));
             if ((initTable == true)) {
-                if ((this.tableV_SALESEDIT != null)) {
-                    this.tableV_SALESEDIT.InitVars();
+                if ((this.tableFN_SALES_BETWEEN_DATES != null)) {
+                    this.tableFN_SALES_BETWEEN_DATES.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace Proyecto_DAM {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "db_devloDataSetDetailSale";
+            this.DataSetName = "db_devloDataSetFnSales";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/db_devloDataSetDetailSale.xsd";
+            this.Namespace = "http://tempuri.org/db_devloDataSetFnSales.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableV_SALESEDIT = new V_SALESEDITDataTable();
-            base.Tables.Add(this.tableV_SALESEDIT);
+            this.tableFN_SALES_BETWEEN_DATES = new FN_SALES_BETWEEN_DATESDataTable();
+            base.Tables.Add(this.tableFN_SALES_BETWEEN_DATES);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeV_SALESEDIT() {
+        private bool ShouldSerializeFN_SALES_BETWEEN_DATES() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace Proyecto_DAM {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            db_devloDataSetDetailSale ds = new db_devloDataSetDetailSale();
+            db_devloDataSetFnSales ds = new db_devloDataSetFnSales();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,18 +270,22 @@ namespace Proyecto_DAM {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void V_SALESEDITRowChangeEventHandler(object sender, V_SALESEDITRowChangeEvent e);
+        public delegate void FN_SALES_BETWEEN_DATESRowChangeEventHandler(object sender, FN_SALES_BETWEEN_DATESRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class V_SALESEDITDataTable : global::System.Data.TypedTableBase<V_SALESEDITRow> {
+        public partial class FN_SALES_BETWEEN_DATESDataTable : global::System.Data.TypedTableBase<FN_SALES_BETWEEN_DATESRow> {
             
             private global::System.Data.DataColumn columnIDCAB;
             
+            private global::System.Data.DataColumn columnIDCONTACT;
+            
             private global::System.Data.DataColumn columnCONTACTO;
+            
+            private global::System.Data.DataColumn columnSURNAMES;
             
             private global::System.Data.DataColumn columnFECHA_PEDIDO;
             
@@ -299,12 +303,12 @@ namespace Proyecto_DAM {
             
             private global::System.Data.DataColumn columnIDPRODUCT;
             
-            private global::System.Data.DataColumn columnIMPORTE;
+            private global::System.Data.DataColumn columnSTATE;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public V_SALESEDITDataTable() {
-                this.TableName = "V_SALESEDIT";
+            public FN_SALES_BETWEEN_DATESDataTable() {
+                this.TableName = "FN_SALES_BETWEEN_DATES";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -312,7 +316,7 @@ namespace Proyecto_DAM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal V_SALESEDITDataTable(global::System.Data.DataTable table) {
+            internal FN_SALES_BETWEEN_DATESDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -329,7 +333,7 @@ namespace Proyecto_DAM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected V_SALESEDITDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected FN_SALES_BETWEEN_DATESDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -344,9 +348,25 @@ namespace Proyecto_DAM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn IDCONTACTColumn {
+                get {
+                    return this.columnIDCONTACT;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn CONTACTOColumn {
                 get {
                     return this.columnCONTACTO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn SURNAMESColumn {
+                get {
+                    return this.columnSURNAMES;
                 }
             }
             
@@ -416,9 +436,9 @@ namespace Proyecto_DAM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn IMPORTEColumn {
+            public global::System.Data.DataColumn STATEColumn {
                 get {
-                    return this.columnIMPORTE;
+                    return this.columnSTATE;
                 }
             }
             
@@ -433,37 +453,39 @@ namespace Proyecto_DAM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public V_SALESEDITRow this[int index] {
+            public FN_SALES_BETWEEN_DATESRow this[int index] {
                 get {
-                    return ((V_SALESEDITRow)(this.Rows[index]));
+                    return ((FN_SALES_BETWEEN_DATESRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event V_SALESEDITRowChangeEventHandler V_SALESEDITRowChanging;
+            public event FN_SALES_BETWEEN_DATESRowChangeEventHandler FN_SALES_BETWEEN_DATESRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event V_SALESEDITRowChangeEventHandler V_SALESEDITRowChanged;
+            public event FN_SALES_BETWEEN_DATESRowChangeEventHandler FN_SALES_BETWEEN_DATESRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event V_SALESEDITRowChangeEventHandler V_SALESEDITRowDeleting;
+            public event FN_SALES_BETWEEN_DATESRowChangeEventHandler FN_SALES_BETWEEN_DATESRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event V_SALESEDITRowChangeEventHandler V_SALESEDITRowDeleted;
+            public event FN_SALES_BETWEEN_DATESRowChangeEventHandler FN_SALES_BETWEEN_DATESRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddV_SALESEDITRow(V_SALESEDITRow row) {
+            public void AddFN_SALES_BETWEEN_DATESRow(FN_SALES_BETWEEN_DATESRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public V_SALESEDITRow AddV_SALESEDITRow(int IDCAB, string CONTACTO, System.DateTime FECHA_PEDIDO, decimal TOTAL_PRICE, int IDLIN, int N_LIN, string PRODUCTO, int UNITS, decimal SELL_PRICE, int IDPRODUCT, decimal IMPORTE) {
-                V_SALESEDITRow rowV_SALESEDITRow = ((V_SALESEDITRow)(this.NewRow()));
+            public FN_SALES_BETWEEN_DATESRow AddFN_SALES_BETWEEN_DATESRow(int IDCAB, int IDCONTACT, string CONTACTO, string SURNAMES, System.DateTime FECHA_PEDIDO, decimal TOTAL_PRICE, int IDLIN, int N_LIN, string PRODUCTO, int UNITS, decimal SELL_PRICE, int IDPRODUCT, int STATE) {
+                FN_SALES_BETWEEN_DATESRow rowFN_SALES_BETWEEN_DATESRow = ((FN_SALES_BETWEEN_DATESRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         IDCAB,
+                        IDCONTACT,
                         CONTACTO,
+                        SURNAMES,
                         FECHA_PEDIDO,
                         TOTAL_PRICE,
                         IDLIN,
@@ -472,16 +494,16 @@ namespace Proyecto_DAM {
                         UNITS,
                         SELL_PRICE,
                         IDPRODUCT,
-                        IMPORTE};
-                rowV_SALESEDITRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowV_SALESEDITRow);
-                return rowV_SALESEDITRow;
+                        STATE};
+                rowFN_SALES_BETWEEN_DATESRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowFN_SALES_BETWEEN_DATESRow);
+                return rowFN_SALES_BETWEEN_DATESRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                V_SALESEDITDataTable cln = ((V_SALESEDITDataTable)(base.Clone()));
+                FN_SALES_BETWEEN_DATESDataTable cln = ((FN_SALES_BETWEEN_DATESDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -489,14 +511,16 @@ namespace Proyecto_DAM {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new V_SALESEDITDataTable();
+                return new FN_SALES_BETWEEN_DATESDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
                 this.columnIDCAB = base.Columns["IDCAB"];
+                this.columnIDCONTACT = base.Columns["IDCONTACT"];
                 this.columnCONTACTO = base.Columns["CONTACTO"];
+                this.columnSURNAMES = base.Columns["SURNAMES"];
                 this.columnFECHA_PEDIDO = base.Columns["FECHA_PEDIDO"];
                 this.columnTOTAL_PRICE = base.Columns["TOTAL_PRICE"];
                 this.columnIDLIN = base.Columns["IDLIN"];
@@ -505,7 +529,7 @@ namespace Proyecto_DAM {
                 this.columnUNITS = base.Columns["UNITS"];
                 this.columnSELL_PRICE = base.Columns["SELL_PRICE"];
                 this.columnIDPRODUCT = base.Columns["IDPRODUCT"];
-                this.columnIMPORTE = base.Columns["IMPORTE"];
+                this.columnSTATE = base.Columns["STATE"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -513,8 +537,12 @@ namespace Proyecto_DAM {
             private void InitClass() {
                 this.columnIDCAB = new global::System.Data.DataColumn("IDCAB", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnIDCAB);
+                this.columnIDCONTACT = new global::System.Data.DataColumn("IDCONTACT", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIDCONTACT);
                 this.columnCONTACTO = new global::System.Data.DataColumn("CONTACTO", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCONTACTO);
+                this.columnSURNAMES = new global::System.Data.DataColumn("SURNAMES", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSURNAMES);
                 this.columnFECHA_PEDIDO = new global::System.Data.DataColumn("FECHA_PEDIDO", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFECHA_PEDIDO);
                 this.columnTOTAL_PRICE = new global::System.Data.DataColumn("TOTAL_PRICE", typeof(decimal), null, global::System.Data.MappingType.Element);
@@ -531,39 +559,40 @@ namespace Proyecto_DAM {
                 base.Columns.Add(this.columnSELL_PRICE);
                 this.columnIDPRODUCT = new global::System.Data.DataColumn("IDPRODUCT", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnIDPRODUCT);
-                this.columnIMPORTE = new global::System.Data.DataColumn("IMPORTE", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnIMPORTE);
+                this.columnSTATE = new global::System.Data.DataColumn("STATE", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSTATE);
                 this.columnIDCAB.AllowDBNull = false;
                 this.columnCONTACTO.MaxLength = 50;
+                this.columnSURNAMES.ReadOnly = true;
+                this.columnSURNAMES.MaxLength = 50;
                 this.columnIDLIN.AllowDBNull = false;
                 this.columnPRODUCTO.MaxLength = 50;
-                this.columnIMPORTE.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public V_SALESEDITRow NewV_SALESEDITRow() {
-                return ((V_SALESEDITRow)(this.NewRow()));
+            public FN_SALES_BETWEEN_DATESRow NewFN_SALES_BETWEEN_DATESRow() {
+                return ((FN_SALES_BETWEEN_DATESRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new V_SALESEDITRow(builder);
+                return new FN_SALES_BETWEEN_DATESRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(V_SALESEDITRow);
+                return typeof(FN_SALES_BETWEEN_DATESRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.V_SALESEDITRowChanged != null)) {
-                    this.V_SALESEDITRowChanged(this, new V_SALESEDITRowChangeEvent(((V_SALESEDITRow)(e.Row)), e.Action));
+                if ((this.FN_SALES_BETWEEN_DATESRowChanged != null)) {
+                    this.FN_SALES_BETWEEN_DATESRowChanged(this, new FN_SALES_BETWEEN_DATESRowChangeEvent(((FN_SALES_BETWEEN_DATESRow)(e.Row)), e.Action));
                 }
             }
             
@@ -571,8 +600,8 @@ namespace Proyecto_DAM {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.V_SALESEDITRowChanging != null)) {
-                    this.V_SALESEDITRowChanging(this, new V_SALESEDITRowChangeEvent(((V_SALESEDITRow)(e.Row)), e.Action));
+                if ((this.FN_SALES_BETWEEN_DATESRowChanging != null)) {
+                    this.FN_SALES_BETWEEN_DATESRowChanging(this, new FN_SALES_BETWEEN_DATESRowChangeEvent(((FN_SALES_BETWEEN_DATESRow)(e.Row)), e.Action));
                 }
             }
             
@@ -580,8 +609,8 @@ namespace Proyecto_DAM {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.V_SALESEDITRowDeleted != null)) {
-                    this.V_SALESEDITRowDeleted(this, new V_SALESEDITRowChangeEvent(((V_SALESEDITRow)(e.Row)), e.Action));
+                if ((this.FN_SALES_BETWEEN_DATESRowDeleted != null)) {
+                    this.FN_SALES_BETWEEN_DATESRowDeleted(this, new FN_SALES_BETWEEN_DATESRowChangeEvent(((FN_SALES_BETWEEN_DATESRow)(e.Row)), e.Action));
                 }
             }
             
@@ -589,14 +618,14 @@ namespace Proyecto_DAM {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.V_SALESEDITRowDeleting != null)) {
-                    this.V_SALESEDITRowDeleting(this, new V_SALESEDITRowChangeEvent(((V_SALESEDITRow)(e.Row)), e.Action));
+                if ((this.FN_SALES_BETWEEN_DATESRowDeleting != null)) {
+                    this.FN_SALES_BETWEEN_DATESRowDeleting(this, new FN_SALES_BETWEEN_DATESRowChangeEvent(((FN_SALES_BETWEEN_DATESRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemoveV_SALESEDITRow(V_SALESEDITRow row) {
+            public void RemoveFN_SALES_BETWEEN_DATESRow(FN_SALES_BETWEEN_DATESRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -605,7 +634,7 @@ namespace Proyecto_DAM {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                db_devloDataSetDetailSale ds = new db_devloDataSetDetailSale();
+                db_devloDataSetFnSales ds = new db_devloDataSetFnSales();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -623,7 +652,7 @@ namespace Proyecto_DAM {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "V_SALESEDITDataTable";
+                attribute2.FixedValue = "FN_SALES_BETWEEN_DATESDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -667,25 +696,42 @@ namespace Proyecto_DAM {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class V_SALESEDITRow : global::System.Data.DataRow {
+        public partial class FN_SALES_BETWEEN_DATESRow : global::System.Data.DataRow {
             
-            private V_SALESEDITDataTable tableV_SALESEDIT;
+            private FN_SALES_BETWEEN_DATESDataTable tableFN_SALES_BETWEEN_DATES;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal V_SALESEDITRow(global::System.Data.DataRowBuilder rb) : 
+            internal FN_SALES_BETWEEN_DATESRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableV_SALESEDIT = ((V_SALESEDITDataTable)(this.Table));
+                this.tableFN_SALES_BETWEEN_DATES = ((FN_SALES_BETWEEN_DATESDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int IDCAB {
                 get {
-                    return ((int)(this[this.tableV_SALESEDIT.IDCABColumn]));
+                    return ((int)(this[this.tableFN_SALES_BETWEEN_DATES.IDCABColumn]));
                 }
                 set {
-                    this[this.tableV_SALESEDIT.IDCABColumn] = value;
+                    this[this.tableFN_SALES_BETWEEN_DATES.IDCABColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int IDCONTACT {
+                get {
+                    try {
+                        return ((int)(this[this.tableFN_SALES_BETWEEN_DATES.IDCONTACTColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'IDCONTACT\' de la tabla \'FN_SALES_BETWEEN_DATES\' es DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableFN_SALES_BETWEEN_DATES.IDCONTACTColumn] = value;
                 }
             }
             
@@ -694,14 +740,32 @@ namespace Proyecto_DAM {
             public string CONTACTO {
                 get {
                     try {
-                        return ((string)(this[this.tableV_SALESEDIT.CONTACTOColumn]));
+                        return ((string)(this[this.tableFN_SALES_BETWEEN_DATES.CONTACTOColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CONTACTO\' de la tabla \'V_SALESEDIT\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CONTACTO\' de la tabla \'FN_SALES_BETWEEN_DATES\' es DBNull." +
+                                "", e);
                     }
                 }
                 set {
-                    this[this.tableV_SALESEDIT.CONTACTOColumn] = value;
+                    this[this.tableFN_SALES_BETWEEN_DATES.CONTACTOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string SURNAMES {
+                get {
+                    try {
+                        return ((string)(this[this.tableFN_SALES_BETWEEN_DATES.SURNAMESColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'SURNAMES\' de la tabla \'FN_SALES_BETWEEN_DATES\' es DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableFN_SALES_BETWEEN_DATES.SURNAMESColumn] = value;
                 }
             }
             
@@ -710,14 +774,15 @@ namespace Proyecto_DAM {
             public System.DateTime FECHA_PEDIDO {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableV_SALESEDIT.FECHA_PEDIDOColumn]));
+                        return ((global::System.DateTime)(this[this.tableFN_SALES_BETWEEN_DATES.FECHA_PEDIDOColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'FECHA_PEDIDO\' de la tabla \'V_SALESEDIT\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'FECHA_PEDIDO\' de la tabla \'FN_SALES_BETWEEN_DATES\' es DBN" +
+                                "ull.", e);
                     }
                 }
                 set {
-                    this[this.tableV_SALESEDIT.FECHA_PEDIDOColumn] = value;
+                    this[this.tableFN_SALES_BETWEEN_DATES.FECHA_PEDIDOColumn] = value;
                 }
             }
             
@@ -726,14 +791,15 @@ namespace Proyecto_DAM {
             public decimal TOTAL_PRICE {
                 get {
                     try {
-                        return ((decimal)(this[this.tableV_SALESEDIT.TOTAL_PRICEColumn]));
+                        return ((decimal)(this[this.tableFN_SALES_BETWEEN_DATES.TOTAL_PRICEColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'TOTAL_PRICE\' de la tabla \'V_SALESEDIT\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'TOTAL_PRICE\' de la tabla \'FN_SALES_BETWEEN_DATES\' es DBNu" +
+                                "ll.", e);
                     }
                 }
                 set {
-                    this[this.tableV_SALESEDIT.TOTAL_PRICEColumn] = value;
+                    this[this.tableFN_SALES_BETWEEN_DATES.TOTAL_PRICEColumn] = value;
                 }
             }
             
@@ -741,10 +807,10 @@ namespace Proyecto_DAM {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int IDLIN {
                 get {
-                    return ((int)(this[this.tableV_SALESEDIT.IDLINColumn]));
+                    return ((int)(this[this.tableFN_SALES_BETWEEN_DATES.IDLINColumn]));
                 }
                 set {
-                    this[this.tableV_SALESEDIT.IDLINColumn] = value;
+                    this[this.tableFN_SALES_BETWEEN_DATES.IDLINColumn] = value;
                 }
             }
             
@@ -753,14 +819,14 @@ namespace Proyecto_DAM {
             public int N_LIN {
                 get {
                     try {
-                        return ((int)(this[this.tableV_SALESEDIT.N_LINColumn]));
+                        return ((int)(this[this.tableFN_SALES_BETWEEN_DATES.N_LINColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'N_LIN\' de la tabla \'V_SALESEDIT\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'N_LIN\' de la tabla \'FN_SALES_BETWEEN_DATES\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableV_SALESEDIT.N_LINColumn] = value;
+                    this[this.tableFN_SALES_BETWEEN_DATES.N_LINColumn] = value;
                 }
             }
             
@@ -769,14 +835,15 @@ namespace Proyecto_DAM {
             public string PRODUCTO {
                 get {
                     try {
-                        return ((string)(this[this.tableV_SALESEDIT.PRODUCTOColumn]));
+                        return ((string)(this[this.tableFN_SALES_BETWEEN_DATES.PRODUCTOColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'PRODUCTO\' de la tabla \'V_SALESEDIT\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'PRODUCTO\' de la tabla \'FN_SALES_BETWEEN_DATES\' es DBNull." +
+                                "", e);
                     }
                 }
                 set {
-                    this[this.tableV_SALESEDIT.PRODUCTOColumn] = value;
+                    this[this.tableFN_SALES_BETWEEN_DATES.PRODUCTOColumn] = value;
                 }
             }
             
@@ -785,14 +852,14 @@ namespace Proyecto_DAM {
             public int UNITS {
                 get {
                     try {
-                        return ((int)(this[this.tableV_SALESEDIT.UNITSColumn]));
+                        return ((int)(this[this.tableFN_SALES_BETWEEN_DATES.UNITSColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'UNITS\' de la tabla \'V_SALESEDIT\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'UNITS\' de la tabla \'FN_SALES_BETWEEN_DATES\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableV_SALESEDIT.UNITSColumn] = value;
+                    this[this.tableFN_SALES_BETWEEN_DATES.UNITSColumn] = value;
                 }
             }
             
@@ -801,14 +868,15 @@ namespace Proyecto_DAM {
             public decimal SELL_PRICE {
                 get {
                     try {
-                        return ((decimal)(this[this.tableV_SALESEDIT.SELL_PRICEColumn]));
+                        return ((decimal)(this[this.tableFN_SALES_BETWEEN_DATES.SELL_PRICEColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'SELL_PRICE\' de la tabla \'V_SALESEDIT\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'SELL_PRICE\' de la tabla \'FN_SALES_BETWEEN_DATES\' es DBNul" +
+                                "l.", e);
                     }
                 }
                 set {
-                    this[this.tableV_SALESEDIT.SELL_PRICEColumn] = value;
+                    this[this.tableFN_SALES_BETWEEN_DATES.SELL_PRICEColumn] = value;
                 }
             }
             
@@ -817,139 +885,164 @@ namespace Proyecto_DAM {
             public int IDPRODUCT {
                 get {
                     try {
-                        return ((int)(this[this.tableV_SALESEDIT.IDPRODUCTColumn]));
+                        return ((int)(this[this.tableFN_SALES_BETWEEN_DATES.IDPRODUCTColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'IDPRODUCT\' de la tabla \'V_SALESEDIT\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'IDPRODUCT\' de la tabla \'FN_SALES_BETWEEN_DATES\' es DBNull" +
+                                ".", e);
                     }
                 }
                 set {
-                    this[this.tableV_SALESEDIT.IDPRODUCTColumn] = value;
+                    this[this.tableFN_SALES_BETWEEN_DATES.IDPRODUCTColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal IMPORTE {
+            public int STATE {
                 get {
                     try {
-                        return ((decimal)(this[this.tableV_SALESEDIT.IMPORTEColumn]));
+                        return ((int)(this[this.tableFN_SALES_BETWEEN_DATES.STATEColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'IMPORTE\' de la tabla \'V_SALESEDIT\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'STATE\' de la tabla \'FN_SALES_BETWEEN_DATES\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableV_SALESEDIT.IMPORTEColumn] = value;
+                    this[this.tableFN_SALES_BETWEEN_DATES.STATEColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsIDCONTACTNull() {
+                return this.IsNull(this.tableFN_SALES_BETWEEN_DATES.IDCONTACTColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetIDCONTACTNull() {
+                this[this.tableFN_SALES_BETWEEN_DATES.IDCONTACTColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsCONTACTONull() {
-                return this.IsNull(this.tableV_SALESEDIT.CONTACTOColumn);
+                return this.IsNull(this.tableFN_SALES_BETWEEN_DATES.CONTACTOColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetCONTACTONull() {
-                this[this.tableV_SALESEDIT.CONTACTOColumn] = global::System.Convert.DBNull;
+                this[this.tableFN_SALES_BETWEEN_DATES.CONTACTOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsSURNAMESNull() {
+                return this.IsNull(this.tableFN_SALES_BETWEEN_DATES.SURNAMESColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetSURNAMESNull() {
+                this[this.tableFN_SALES_BETWEEN_DATES.SURNAMESColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsFECHA_PEDIDONull() {
-                return this.IsNull(this.tableV_SALESEDIT.FECHA_PEDIDOColumn);
+                return this.IsNull(this.tableFN_SALES_BETWEEN_DATES.FECHA_PEDIDOColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetFECHA_PEDIDONull() {
-                this[this.tableV_SALESEDIT.FECHA_PEDIDOColumn] = global::System.Convert.DBNull;
+                this[this.tableFN_SALES_BETWEEN_DATES.FECHA_PEDIDOColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsTOTAL_PRICENull() {
-                return this.IsNull(this.tableV_SALESEDIT.TOTAL_PRICEColumn);
+                return this.IsNull(this.tableFN_SALES_BETWEEN_DATES.TOTAL_PRICEColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetTOTAL_PRICENull() {
-                this[this.tableV_SALESEDIT.TOTAL_PRICEColumn] = global::System.Convert.DBNull;
+                this[this.tableFN_SALES_BETWEEN_DATES.TOTAL_PRICEColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsN_LINNull() {
-                return this.IsNull(this.tableV_SALESEDIT.N_LINColumn);
+                return this.IsNull(this.tableFN_SALES_BETWEEN_DATES.N_LINColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetN_LINNull() {
-                this[this.tableV_SALESEDIT.N_LINColumn] = global::System.Convert.DBNull;
+                this[this.tableFN_SALES_BETWEEN_DATES.N_LINColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsPRODUCTONull() {
-                return this.IsNull(this.tableV_SALESEDIT.PRODUCTOColumn);
+                return this.IsNull(this.tableFN_SALES_BETWEEN_DATES.PRODUCTOColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetPRODUCTONull() {
-                this[this.tableV_SALESEDIT.PRODUCTOColumn] = global::System.Convert.DBNull;
+                this[this.tableFN_SALES_BETWEEN_DATES.PRODUCTOColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsUNITSNull() {
-                return this.IsNull(this.tableV_SALESEDIT.UNITSColumn);
+                return this.IsNull(this.tableFN_SALES_BETWEEN_DATES.UNITSColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetUNITSNull() {
-                this[this.tableV_SALESEDIT.UNITSColumn] = global::System.Convert.DBNull;
+                this[this.tableFN_SALES_BETWEEN_DATES.UNITSColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsSELL_PRICENull() {
-                return this.IsNull(this.tableV_SALESEDIT.SELL_PRICEColumn);
+                return this.IsNull(this.tableFN_SALES_BETWEEN_DATES.SELL_PRICEColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetSELL_PRICENull() {
-                this[this.tableV_SALESEDIT.SELL_PRICEColumn] = global::System.Convert.DBNull;
+                this[this.tableFN_SALES_BETWEEN_DATES.SELL_PRICEColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsIDPRODUCTNull() {
-                return this.IsNull(this.tableV_SALESEDIT.IDPRODUCTColumn);
+                return this.IsNull(this.tableFN_SALES_BETWEEN_DATES.IDPRODUCTColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetIDPRODUCTNull() {
-                this[this.tableV_SALESEDIT.IDPRODUCTColumn] = global::System.Convert.DBNull;
+                this[this.tableFN_SALES_BETWEEN_DATES.IDPRODUCTColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsIMPORTENull() {
-                return this.IsNull(this.tableV_SALESEDIT.IMPORTEColumn);
+            public bool IsSTATENull() {
+                return this.IsNull(this.tableFN_SALES_BETWEEN_DATES.STATEColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetIMPORTENull() {
-                this[this.tableV_SALESEDIT.IMPORTEColumn] = global::System.Convert.DBNull;
+            public void SetSTATENull() {
+                this[this.tableFN_SALES_BETWEEN_DATES.STATEColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -957,22 +1050,22 @@ namespace Proyecto_DAM {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class V_SALESEDITRowChangeEvent : global::System.EventArgs {
+        public class FN_SALES_BETWEEN_DATESRowChangeEvent : global::System.EventArgs {
             
-            private V_SALESEDITRow eventRow;
+            private FN_SALES_BETWEEN_DATESRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public V_SALESEDITRowChangeEvent(V_SALESEDITRow row, global::System.Data.DataRowAction action) {
+            public FN_SALES_BETWEEN_DATESRowChangeEvent(FN_SALES_BETWEEN_DATESRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public V_SALESEDITRow Row {
+            public FN_SALES_BETWEEN_DATESRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -988,7 +1081,7 @@ namespace Proyecto_DAM {
         }
     }
 }
-namespace Proyecto_DAM.db_devloDataSetDetailSaleTableAdapters {
+namespace Proyecto_DAM.db_devloDataSetFnSalesTableAdapters {
     
     
     /// <summary>
@@ -1000,7 +1093,7 @@ namespace Proyecto_DAM.db_devloDataSetDetailSaleTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class V_SALESEDITTableAdapter : global::System.ComponentModel.Component {
+    public partial class FN_SALES_BETWEEN_DATESTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -1014,7 +1107,7 @@ namespace Proyecto_DAM.db_devloDataSetDetailSaleTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public V_SALESEDITTableAdapter() {
+        public FN_SALES_BETWEEN_DATESTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -1111,9 +1204,11 @@ namespace Proyecto_DAM.db_devloDataSetDetailSaleTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "V_SALESEDIT";
+            tableMapping.DataSetTable = "FN_SALES_BETWEEN_DATES";
             tableMapping.ColumnMappings.Add("IDCAB", "IDCAB");
+            tableMapping.ColumnMappings.Add("IDCONTACT", "IDCONTACT");
             tableMapping.ColumnMappings.Add("CONTACTO", "CONTACTO");
+            tableMapping.ColumnMappings.Add("SURNAMES", "SURNAMES");
             tableMapping.ColumnMappings.Add("FECHA_PEDIDO", "FECHA_PEDIDO");
             tableMapping.ColumnMappings.Add("TOTAL_PRICE", "TOTAL_PRICE");
             tableMapping.ColumnMappings.Add("IDLIN", "IDLIN");
@@ -1122,7 +1217,7 @@ namespace Proyecto_DAM.db_devloDataSetDetailSaleTableAdapters {
             tableMapping.ColumnMappings.Add("UNITS", "UNITS");
             tableMapping.ColumnMappings.Add("SELL_PRICE", "SELL_PRICE");
             tableMapping.ColumnMappings.Add("IDPRODUCT", "IDPRODUCT");
-            tableMapping.ColumnMappings.Add("IMPORTE", "IMPORTE");
+            tableMapping.ColumnMappings.Add("STATE", "STATE");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1136,26 +1231,27 @@ namespace Proyecto_DAM.db_devloDataSetDetailSaleTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT IDCAB, CONTACTO, FECHA_PEDIDO, TOTAL_PRICE, IDLIN, N_LIN, PRODUCTO, UNITS," +
-                " SELL_PRICE, IDPRODUCT, IMPORTE\r\nFROM     V_SALESEDIT";
+            this._commandCollection[0].CommandText = "SELECT IDCAB, IDCONTACT, CONTACTO, SURNAMES, FECHA_PEDIDO, TOTAL_PRICE, IDLIN, N_" +
+                "LIN, PRODUCTO, UNITS, SELL_PRICE, IDPRODUCT, STATE FROM dbo.FN_SALES_BETWEEN_DAT" +
+                "ES(@IDCONTACT, @FIRSTDATE, @SECONDDATE)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT CONTACTO, FECHA_PEDIDO, IDCAB, IDLIN, IDPRODUCT, IMPORTE, N_LIN, PRODUCTO," +
-                " SELL_PRICE, TOTAL_PRICE, UNITS FROM V_SALESEDIT WHERE (IDCAB LIKE @IDCAB)";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDCAB", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "IDCAB", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDCONTACT", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FIRSTDATE", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SECONDDATE", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(db_devloDataSetDetailSale.V_SALESEDITDataTable dataTable) {
+        public virtual int Fill(db_devloDataSetFnSales.FN_SALES_BETWEEN_DATESDataTable dataTable, int IDCONTACT, System.DateTime FIRSTDATE, System.DateTime SECONDDATE) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(IDCONTACT));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(FIRSTDATE));
+            this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(SECONDDATE));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -1167,35 +1263,12 @@ namespace Proyecto_DAM.db_devloDataSetDetailSaleTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual db_devloDataSetDetailSale.V_SALESEDITDataTable GetData() {
+        public virtual db_devloDataSetFnSales.FN_SALES_BETWEEN_DATESDataTable GetData(int IDCONTACT, System.DateTime FIRSTDATE, System.DateTime SECONDDATE) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            db_devloDataSetDetailSale.V_SALESEDITDataTable dataTable = new db_devloDataSetDetailSale.V_SALESEDITDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByIdCab(db_devloDataSetDetailSale.V_SALESEDITDataTable dataTable, int IDCAB) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(IDCAB));
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual db_devloDataSetDetailSale.V_SALESEDITDataTable GetDataBy(int IDCAB) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(IDCAB));
-            db_devloDataSetDetailSale.V_SALESEDITDataTable dataTable = new db_devloDataSetDetailSale.V_SALESEDITDataTable();
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(IDCONTACT));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(FIRSTDATE));
+            this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(SECONDDATE));
+            db_devloDataSetFnSales.FN_SALES_BETWEEN_DATESDataTable dataTable = new db_devloDataSetFnSales.FN_SALES_BETWEEN_DATESDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1269,7 +1342,7 @@ namespace Proyecto_DAM.db_devloDataSetDetailSaleTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateUpdatedRows(db_devloDataSetDetailSale dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(db_devloDataSetFnSales dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1279,7 +1352,7 @@ namespace Proyecto_DAM.db_devloDataSetDetailSaleTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateInsertedRows(db_devloDataSetDetailSale dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(db_devloDataSetFnSales dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1289,7 +1362,7 @@ namespace Proyecto_DAM.db_devloDataSetDetailSaleTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateDeletedRows(db_devloDataSetDetailSale dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(db_devloDataSetFnSales dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             return result;
         }
@@ -1323,7 +1396,7 @@ namespace Proyecto_DAM.db_devloDataSetDetailSaleTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public virtual int UpdateAll(db_devloDataSetDetailSale dataSet) {
+        public virtual int UpdateAll(db_devloDataSetFnSales dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

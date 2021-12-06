@@ -12,12 +12,18 @@ namespace Control
     using System;
     using System.Collections.Generic;
     
-    public partial class V_SALES
+    public partial class ROL_USERS
     {
-        public int IDCAB { get; set; }
-        public string NAME { get; set; }
-        public string DESCRIPTION { get; set; }
-        public Nullable<System.DateTime> FECHA_PEDIDO { get; set; }
-        public string STATE { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public ROL_USERS()
+        {
+            this.USERS = new HashSet<USER>();
+        }
+    
+        public int ID_ROL { get; set; }
+        public string ROL { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<USER> USERS { get; set; }
     }
 }

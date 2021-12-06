@@ -10,14 +10,21 @@
 namespace Control
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class V_SALES
+    public partial class PA_SALES_BETWEENDATES_Result
     {
         public int IDCAB { get; set; }
-        public string NAME { get; set; }
-        public string DESCRIPTION { get; set; }
+        public Nullable<int> IDCONTACT { get; set; }
+        public string CONTACTO { get; set; }
+        public string SURNAMES { get; set; }
         public Nullable<System.DateTime> FECHA_PEDIDO { get; set; }
-        public string STATE { get; set; }
+        public Nullable<decimal> TOTAL_PRICE { get; set; }
+        public int IDLIN { get; set; }
+        public Nullable<int> N_LIN { get; set; }
+        public string PRODUCTO { get; set; }
+        public Nullable<int> UNITS { get; set; }
+        public Nullable<decimal> SELL_PRICE { get; set; }
+        public Nullable<int> IDPRODUCT { get; set; }
+        public Nullable<int> STATE { get; set; }
     }
 }

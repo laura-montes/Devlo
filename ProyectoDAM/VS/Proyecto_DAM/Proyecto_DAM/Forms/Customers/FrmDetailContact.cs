@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Control;
+using Proyecto_DAM.Forms.Messages;
 
 namespace Proyecto_DAM.Forms.Customers
 {
@@ -60,6 +61,11 @@ namespace Proyecto_DAM.Forms.Customers
             frmCustomer.Dock = DockStyle.Fill;
             this.Close();
             frmCustomer.Show();
+        }
+
+        private void BtnSave_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

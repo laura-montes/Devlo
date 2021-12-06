@@ -25,5 +25,8 @@ namespace Control
         public Nullable<decimal> SELL_PRICE { get; set; }
         public Nullable<int> IDPRODUCT { get; set; }
         public string SURNAMES { get; set; }
+        public Nullable<int> STATE { get; set; }
+        public string STATEDESCRIPTION { get; set; }
+        public Nullable<decimal> IMPORTE { get; set; }
     }
 }

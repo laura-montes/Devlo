@@ -287,6 +287,8 @@ namespace Proyecto_DAM {
             
             private global::System.Data.DataColumn columnFECHA_PEDIDO;
             
+            private global::System.Data.DataColumn columnSTATE;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public V_SALESDataTable() {
@@ -354,6 +356,14 @@ namespace Proyecto_DAM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn STATEColumn {
+                get {
+                    return this.columnSTATE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -389,13 +399,14 @@ namespace Proyecto_DAM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public V_SALESRow AddV_SALESRow(int IDCAB, string NAME, string DESCRIPTION, System.DateTime FECHA_PEDIDO) {
+            public V_SALESRow AddV_SALESRow(int IDCAB, string NAME, string DESCRIPTION, System.DateTime FECHA_PEDIDO, string STATE) {
                 V_SALESRow rowV_SALESRow = ((V_SALESRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         IDCAB,
                         NAME,
                         DESCRIPTION,
-                        FECHA_PEDIDO};
+                        FECHA_PEDIDO,
+                        STATE};
                 rowV_SALESRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowV_SALESRow);
                 return rowV_SALESRow;
@@ -429,6 +440,7 @@ namespace Proyecto_DAM {
                 this.columnNAME = base.Columns["NAME"];
                 this.columnDESCRIPTION = base.Columns["DESCRIPTION"];
                 this.columnFECHA_PEDIDO = base.Columns["FECHA_PEDIDO"];
+                this.columnSTATE = base.Columns["STATE"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -442,12 +454,15 @@ namespace Proyecto_DAM {
                 base.Columns.Add(this.columnDESCRIPTION);
                 this.columnFECHA_PEDIDO = new global::System.Data.DataColumn("FECHA_PEDIDO", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFECHA_PEDIDO);
+                this.columnSTATE = new global::System.Data.DataColumn("STATE", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSTATE);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnIDCAB}, true));
                 this.columnIDCAB.AllowDBNull = false;
                 this.columnIDCAB.Unique = true;
                 this.columnNAME.MaxLength = 50;
                 this.columnDESCRIPTION.MaxLength = 50;
+                this.columnSTATE.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -649,6 +664,22 @@ namespace Proyecto_DAM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string STATE {
+                get {
+                    try {
+                        return ((string)(this[this.tableV_SALES.STATEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'STATE\' de la tabla \'V_SALES\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableV_SALES.STATEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsNAMENull() {
                 return this.IsNull(this.tableV_SALES.NAMEColumn);
             }
@@ -681,6 +712,18 @@ namespace Proyecto_DAM {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetFECHA_PEDIDONull() {
                 this[this.tableV_SALES.FECHA_PEDIDOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsSTATENull() {
+                return this.IsNull(this.tableV_SALES.STATEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetSTATENull() {
+                this[this.tableV_SALES.STATEColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -847,6 +890,7 @@ namespace Proyecto_DAM.db_devloDataSetSalesTableAdapters {
             tableMapping.ColumnMappings.Add("NAME", "NAME");
             tableMapping.ColumnMappings.Add("DESCRIPTION", "DESCRIPTION");
             tableMapping.ColumnMappings.Add("FECHA_PEDIDO", "FECHA_PEDIDO");
+            tableMapping.ColumnMappings.Add("STATE", "STATE");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -860,21 +904,31 @@ namespace Proyecto_DAM.db_devloDataSetSalesTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        IDCAB, NAME, DESCRIPTION, FECHA_PEDIDO\r\nFROM            V_SALES";
+            this._commandCollection[0].CommandText = "SELECT        IDCAB, NAME, DESCRIPTION, FECHA_PEDIDO, STATE\r\nFROM            V_SA" +
+                "LES";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT DESCRIPTION, FECHA_PEDIDO, IDCAB, NAME FROM V_SALES WHERE (NAME LIKE @NAME" +
-                ")";
+            this._commandCollection[1].CommandText = "SELECT DESCRIPTION, FECHA_PEDIDO, IDCAB, NAME, STATE FROM V_SALES WHERE (NAME LIK" +
+                "E @NAME)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NAME", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "NAME", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT DESCRIPTION, FECHA_PEDIDO, IDCAB, NAME FROM V_SALES ORDER BY NAME";
+            this._commandCollection[2].CommandText = "SELECT DESCRIPTION, FECHA_PEDIDO, IDCAB, NAME, STATE FROM V_SALES ORDER BY FECHA_" +
+                "PEDIDO DESC";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "SELECT DESCRIPTION, FECHA_PEDIDO, IDCAB, NAME, STATE FROM V_SALES ORDER BY NAME";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = "SELECT DESCRIPTION, FECHA_PEDIDO, IDCAB, NAME, STATE FROM V_SALES ORDER BY STATE";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -941,7 +995,7 @@ namespace Proyecto_DAM.db_devloDataSetSalesTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int SortGridByName(db_devloDataSetSales.V_SALESDataTable dataTable) {
+        public virtual int SortGridByDateDESC(db_devloDataSetSales.V_SALESDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -954,8 +1008,56 @@ namespace Proyecto_DAM.db_devloDataSetSalesTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual db_devloDataSetSales.V_SALESDataTable GetDataBy1() {
+        public virtual db_devloDataSetSales.V_SALESDataTable GetDataBy3() {
             this.Adapter.SelectCommand = this.CommandCollection[2];
+            db_devloDataSetSales.V_SALESDataTable dataTable = new db_devloDataSetSales.V_SALESDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int SortGridByName(db_devloDataSetSales.V_SALESDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual db_devloDataSetSales.V_SALESDataTable GetDataBy1() {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            db_devloDataSetSales.V_SALESDataTable dataTable = new db_devloDataSetSales.V_SALESDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int SortGridByState(db_devloDataSetSales.V_SALESDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual db_devloDataSetSales.V_SALESDataTable GetDataBy2() {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             db_devloDataSetSales.V_SALESDataTable dataTable = new db_devloDataSetSales.V_SALESDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

@@ -105,6 +105,7 @@ namespace Proyecto_DAM
             this.LblForgottenPassword.Size = new System.Drawing.Size(225, 23);
             this.LblForgottenPassword.TabIndex = 5;
             this.LblForgottenPassword.Text = "¿Olvidaste la contraseña?";
+            this.LblForgottenPassword.Click += new System.EventHandler(this.LblForgottenPassword_Click);
             // 
             // TxtUser
             // 
@@ -215,6 +216,7 @@ namespace Proyecto_DAM
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.Load += new System.EventHandler(this.FrmLogin_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmLogin_MouseDown);
             ((System.ComponentModel.ISupportInitialize)(this.PctBxShape)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PctBxIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PctBxClose)).EndInit();

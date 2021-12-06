@@ -58,6 +58,11 @@ namespace Proyecto_DAM.Forms.Sales
             this.NumericUpDown.Font = new System.Drawing.Font("Louis George Café", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NumericUpDown.ForeColor = System.Drawing.Color.Black;
             this.NumericUpDown.Location = new System.Drawing.Point(151, 86);
+            this.NumericUpDown.Maximum = new decimal(new int[] {
+            999,
+            0,
+            0,
+            0});
             this.NumericUpDown.Name = "NumericUpDown";
             this.NumericUpDown.ShadowDecoration.Parent = this.NumericUpDown;
             this.NumericUpDown.Size = new System.Drawing.Size(157, 57);

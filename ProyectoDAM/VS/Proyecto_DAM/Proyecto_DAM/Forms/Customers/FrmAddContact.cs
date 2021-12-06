@@ -54,6 +54,11 @@ namespace Proyecto_DAM
 
         private void PctBxBack_Click(object sender, EventArgs e)
         {
+            goBack();
+        }
+
+        private void goBack()
+        {
             FrmCustomer frmCustomer = new FrmCustomer();
             frmCustomer.TopLevel = false;
             FrmGeneral frmGeneral = (FrmGeneral)Application.OpenForms["FrmGeneral"];

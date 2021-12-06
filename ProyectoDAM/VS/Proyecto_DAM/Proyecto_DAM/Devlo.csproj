@@ -119,6 +119,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>db_devloDataSetDetailSale.xsd</DependentUpon>
     </Compile>
+    <Compile Include="db_devloDataSetFnSales.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>db_devloDataSetFnSales.xsd</DependentUpon>
+    </Compile>
     <Compile Include="db_devloDataSetProducts.cs">
       <DependentUpon>db_devloDataSetProducts.xsd</DependentUpon>
     </Compile>
@@ -131,6 +136,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>db_devloDataSetSales.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="db_devloDataSetSalesStates.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>db_devloDataSetSalesStates.xsd</DependentUpon>
     </Compile>
     <Compile Include="db_devloDataSetSuppliers.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -161,10 +171,10 @@
     <Compile Include="Forms\Customers\FrmEditContact.Designer.cs">
       <DependentUpon>FrmEditContact.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FrmEditMessage.cs">
+    <Compile Include="Forms\Messages\FrmEditMessage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FrmEditMessage.Designer.cs">
+    <Compile Include="Forms\Messages\FrmEditMessage.Designer.cs">
       <DependentUpon>FrmEditMessage.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmAddMessage.cs">
@@ -191,11 +201,17 @@
     <Compile Include="Forms\FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FrmDeleteMessage.cs">
+    <Compile Include="Forms\Messages\FrmDeleteMessage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FrmDeleteMessage.Designer.cs">
+    <Compile Include="Forms\Messages\FrmDeleteMessage.Designer.cs">
       <DependentUpon>FrmDeleteMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Messages\FrmReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Messages\FrmReport.Designer.cs">
+      <DependentUpon>FrmReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Products\FrmAddSupplier.cs">
       <SubType>Form</SubType>
@@ -263,6 +279,12 @@
     <Compile Include="Forms\Sales\FrmSelectCuantity.Designer.cs">
       <DependentUpon>FrmSelectCuantity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Users\FrmAddUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\FrmAddUser.Designer.cs">
+      <DependentUpon>FrmAddUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="HTML\pdf_generator.html" />
@@ -278,7 +300,7 @@
     <EmbeddedResource Include="Forms\Customers\FrmEditContact.resx">
       <DependentUpon>FrmEditContact.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmEditMessage.resx">
+    <EmbeddedResource Include="Forms\Messages\FrmEditMessage.resx">
       <DependentUpon>FrmEditMessage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmAddMessage.resx">
@@ -293,8 +315,11 @@
     <EmbeddedResource Include="Forms\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmDeleteMessage.resx">
+    <EmbeddedResource Include="Forms\Messages\FrmDeleteMessage.resx">
       <DependentUpon>FrmDeleteMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Messages\FrmReport.resx">
+      <DependentUpon>FrmReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Products\FrmAddCategory.resx">
       <DependentUpon>FrmAddCategory.cs</DependentUpon>
@@ -328,6 +353,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Sales\FrmSelectCuantity.resx">
       <DependentUpon>FrmSelectCuantity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Users\FrmAddUser.resx">
+      <DependentUpon>FrmAddUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -372,6 +400,17 @@
     <None Include="db_devloDataSetDetailSale.xss">
       <DependentUpon>db_devloDataSetDetailSale.xsd</DependentUpon>
     </None>
+    <None Include="db_devloDataSetFnSales.xsc">
+      <DependentUpon>db_devloDataSetFnSales.xsd</DependentUpon>
+    </None>
+    <None Include="db_devloDataSetFnSales.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>db_devloDataSetFnSales.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="db_devloDataSetFnSales.xss">
+      <DependentUpon>db_devloDataSetFnSales.xsd</DependentUpon>
+    </None>
     <None Include="db_devloDataSetProducts.xsc">
       <DependentUpon>db_devloDataSetProducts.xsd</DependentUpon>
     </None>
@@ -393,6 +432,17 @@
     </None>
     <None Include="db_devloDataSetSales.xss">
       <DependentUpon>db_devloDataSetSales.xsd</DependentUpon>
+    </None>
+    <None Include="db_devloDataSetSalesStates.xsc">
+      <DependentUpon>db_devloDataSetSalesStates.xsd</DependentUpon>
+    </None>
+    <None Include="db_devloDataSetSalesStates.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>db_devloDataSetSalesStates.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="db_devloDataSetSalesStates.xss">
+      <DependentUpon>db_devloDataSetSalesStates.xsd</DependentUpon>
     </None>
     <None Include="db_devloDataSetSuppliers.xsc">
       <DependentUpon>db_devloDataSetSuppliers.xsd</DependentUpon>

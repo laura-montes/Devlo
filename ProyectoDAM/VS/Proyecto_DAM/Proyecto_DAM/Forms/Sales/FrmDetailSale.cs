@@ -15,6 +15,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Document = iTextSharp.text.Document;
+using Paragraph = iTextSharp.text.Paragraph;
 
 namespace Proyecto_DAM.Forms.Sales
 {
@@ -31,6 +32,7 @@ namespace Proyecto_DAM.Forms.Sales
             this.idSale = idSale;
             vista = db.V_SALESEDIT.Where(x => x.IDCAB == idSale);
             TxtCliente.Text = vista.ElementAt(0).CONTACTO.ToString();
+            TxtState.Text = vista.ElementAt(0).STATEDESCRIPTION.ToString();
 
             string date = vista.ElementAt(0).FECHA_PEDIDO.ToString().Substring(0, 10);
             DatePicker.Value = DateTime.Parse(date);
@@ -76,15 +78,6 @@ namespace Proyecto_DAM.Forms.Sales
                     {
                         columnIndex++;
                         excel.Cells[rowIndex + 1, columnIndex] = fila.Cells[column.Name].Value;
-                        if (column.Name.Equals("Cantidad"))
-                        {
-                            number1 = Convert.ToInt32(fila.Cells[column.Name].Value);
-                        } else if (column.Name.Equals("P_Unitario"))
-                        {
-                            number2 = Convert.ToInt32(fila.Cells[column.Name].Value);
-                            int total = number1 * number2;
-                            //excel.Cells[rowIndex + 1, columnIndex+1] = total;
-                        }
 
                         // ALMACENAMOS LA ULTIMA COLUMNA Y FILA CON REGISTROS PARA EL TOTAL
                         columnAux = columnIndex; 
@@ -119,16 +112,25 @@ namespace Proyecto_DAM.Forms.Sales
         public void GeneratePDF(iTextSharp.text.Document document)
         {
             SaveFileDialog save = new SaveFileDialog();
-            //save.fileName
+            save.FileName = TxtCliente.Text + "_" + DatePicker.Value.ToString().Substring(0,10).Replace('/', '_');
+            save.Filter = "PDF (*.pdf)|*.pdf|Todos los archivos (*.*)|*.*";
+            save.FilterIndex = 1;
+
             string html =Properties.Resources.pdf_generator.ToString();
             // REEMPLAZAMOS POR LOS DATOS
             html = html.Replace("@Customer",TxtCliente.Text);
             html = html.Replace("@Date", DatePicker.Value.ToString().Substring(0,10));
             html = html.Replace("@Number", idSale.ToString());
-            html = html.Replace("@Total",LblEuros.Text+"€");
+            html = html.Replace("@Subtotal",LblEuros.Text);
+
+            double iva = Convert.ToDouble(LblEuros.Text.Substring(0,LblEuros.Text.IndexOf('€'))) * 0.21;
+            html = html.Replace("@IVA",iva.ToString()+"€");
+
+            double total = Convert.ToDouble(LblEuros.Text.Substring(0, LblEuros.Text.IndexOf('€'))) + iva;
+            html = html.Replace("@Total","  "+ total.ToString()+"€");
+
 
             string rows = string.Empty;
-            decimal total = 0;
 
             // AGREGAMOS INFORMACION DEL GRID VIEW EN FORMA DE TABLA EN HTML
             foreach (DataGridViewRow row in DataGridViewProductsInSale.Rows)
@@ -136,7 +138,8 @@ namespace Proyecto_DAM.Forms.Sales
                 rows += "<tr>";
                 rows += "<td>" + row.Cells["Cantidad"].Value.ToString() + "</td>";
                 rows += "<td>" + row.Cells["Descripcion"].Value.ToString() + "</td>";
-                rows += "<td>" + row.Cells["P_Unitario"].Value.ToString() + "</td>";
+                rows += "<td>" + row.Cells["P_Unitario"].Value.ToString() + "€</td>";
+                rows += "<td>" + row.Cells["Importe"].Value.ToString() + "€</td>";
                 rows += "</tr>";
             }
 
@@ -153,12 +156,12 @@ namespace Proyecto_DAM.Forms.Sales
 
                     pdf.Open();
 
-                    pdf.Add(new Phrase(""));
+                    StringReader sr = new StringReader(html);
 
-                    using (StringReader sr=new StringReader(html))
-                    {
-                        XMLWorkerHelper.GetInstance().ParseXHtml(writer,pdf,sr);
-                    }
+                    pdf.Add(new Paragraph());
+
+                    XMLWorkerHelper.GetInstance().ParseXHtml(writer,pdf,sr);
+
 
                     pdf.Close();
                     stream.Close();
@@ -169,6 +172,8 @@ namespace Proyecto_DAM.Forms.Sales
 		private void FrmDetailSale_Load(object sender, EventArgs e)
 		{
 			this.v_SALESEDITTableAdapter.FillByIdCab(this.db_devloDataSetDetailSale.V_SALESEDIT, idSale);
+
+           
         }
 
         private void PctBxBack_Click(object sender, EventArgs e)

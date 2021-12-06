@@ -113,7 +113,7 @@ namespace Proyecto_DAM.Forms.Products
             }
             else if (DataGridViewProducts.Rows[e.RowIndex].Cells["Delete"].Selected)
             {
-                FrmDeleteMessage frmDeleteMessage = new FrmDeleteMessage();
+                /*FrmDeleteMessage frmDeleteMessage = new FrmDeleteMessage();
                 frmDeleteMessage.Show();
 
                 if (frmDeleteMessage.BtnYes.DialogResult == DialogResult.Yes)
@@ -126,7 +126,7 @@ namespace Proyecto_DAM.Forms.Products
                 else
                 {
                     frmDeleteMessage.Close();
-                }
+                }*/
             } else if (DataGridViewProducts.Rows[e.RowIndex].Cells["Detail"].Selected)
             {
                 int idProduct = int.Parse(DataGridViewProducts.Rows[e.RowIndex].Cells["IDPRODUCT"].Value.ToString());
@@ -163,6 +163,11 @@ namespace Proyecto_DAM.Forms.Products
             this.Close();
             frmDetailProduct.Show();
             
+        }
+
+		private void BtnFilter_Click(object sender, EventArgs e)
+		{
+            this.pRODUCTSTableAdapter.SortGridViewByName(this.db_devloDataSetProducts.PRODUCTS);
         }
 	}
 }

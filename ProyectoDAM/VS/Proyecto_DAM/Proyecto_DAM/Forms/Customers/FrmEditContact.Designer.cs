@@ -48,8 +48,6 @@ namespace Proyecto_DAM.Forms.Customers
             this.LblMandatory = new System.Windows.Forms.Label();
             this.LblInfo = new System.Windows.Forms.Label();
             this.PanelContainer = new Guna.UI2.WinForms.Guna2Panel();
-            this.CmbBxRelations = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.LblRelation = new System.Windows.Forms.Label();
             this.LblObservations = new System.Windows.Forms.Label();
             this.TxtObservations = new Guna.UI2.WinForms.Guna2TextBox();
             this.BtnSave = new Guna.UI2.WinForms.Guna2Button();
@@ -352,8 +350,6 @@ namespace Proyecto_DAM.Forms.Customers
             // PanelContainer
             // 
             this.PanelContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.PanelContainer.Controls.Add(this.CmbBxRelations);
-            this.PanelContainer.Controls.Add(this.LblRelation);
             this.PanelContainer.Controls.Add(this.LblObservations);
             this.PanelContainer.Controls.Add(this.TxtObservations);
             this.PanelContainer.Controls.Add(this.BtnSave);
@@ -377,39 +373,6 @@ namespace Proyecto_DAM.Forms.Customers
             this.PanelContainer.ShadowDecoration.Parent = this.PanelContainer;
             this.PanelContainer.Size = new System.Drawing.Size(1085, 646);
             this.PanelContainer.TabIndex = 3;
-            // 
-            // CmbBxRelations
-            // 
-            this.CmbBxRelations.BackColor = System.Drawing.Color.Transparent;
-            this.CmbBxRelations.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
-            this.CmbBxRelations.BorderRadius = 8;
-            this.CmbBxRelations.BorderThickness = 2;
-            this.CmbBxRelations.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.CmbBxRelations.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbBxRelations.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.CmbBxRelations.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.CmbBxRelations.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.CmbBxRelations.FocusedState.Parent = this.CmbBxRelations;
-            this.CmbBxRelations.Font = new System.Drawing.Font("Louis George Café", 12F);
-            this.CmbBxRelations.ForeColor = System.Drawing.Color.Black;
-            this.CmbBxRelations.HoverState.Parent = this.CmbBxRelations;
-            this.CmbBxRelations.ItemHeight = 30;
-            this.CmbBxRelations.ItemsAppearance.Parent = this.CmbBxRelations;
-            this.CmbBxRelations.Location = new System.Drawing.Point(568, 413);
-            this.CmbBxRelations.Name = "CmbBxRelations";
-            this.CmbBxRelations.ShadowDecoration.Parent = this.CmbBxRelations;
-            this.CmbBxRelations.Size = new System.Drawing.Size(455, 36);
-            this.CmbBxRelations.TabIndex = 27;
-            // 
-            // LblRelation
-            // 
-            this.LblRelation.AutoSize = true;
-            this.LblRelation.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblRelation.Location = new System.Drawing.Point(564, 386);
-            this.LblRelation.Name = "LblRelation";
-            this.LblRelation.Size = new System.Drawing.Size(102, 24);
-            this.LblRelation.TabIndex = 26;
-            this.LblRelation.Text = "Relaciones";
             // 
             // LblObservations
             // 
@@ -513,8 +476,6 @@ namespace Proyecto_DAM.Forms.Customers
         private Guna.UI2.WinForms.Guna2Panel PanelContainer;
         private System.Windows.Forms.Label LblObservations;
         private Guna.UI2.WinForms.Guna2TextBox TxtObservations;
-        private Guna.UI2.WinForms.Guna2ComboBox CmbBxRelations;
-        private System.Windows.Forms.Label LblRelation;
         internal System.Windows.Forms.Label LblInfo;
         internal Guna.UI2.WinForms.Guna2Button BtnSave;
     }

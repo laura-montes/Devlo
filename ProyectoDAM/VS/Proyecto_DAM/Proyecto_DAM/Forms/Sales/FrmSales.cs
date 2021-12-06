@@ -44,7 +44,10 @@ namespace Proyecto_DAM.Forms.Ventas
 
         private void BtnFilter_Click(object sender, EventArgs e)
         {
-
+            //LOS 3 FILTOS
+            this.v_SALESTableAdapter.SortGridByName(this.db_devloDataSetSales.V_SALES); //NOMBRE
+            this.v_SALESTableAdapter.SortGridByDateDESC(this.db_devloDataSetSales.V_SALES); //FECHA DESCENDENTE EJ: 30/12 - 29/12 - ....
+            this.v_SALESTableAdapter.SortGridByState(this.db_devloDataSetSales.V_SALES); //ESTADO
         }
 
         private void FrmSales_Load(object sender, EventArgs e)
@@ -67,7 +70,7 @@ namespace Proyecto_DAM.Forms.Ventas
             }
             else if (DataGridViewSales.Rows[e.RowIndex].Cells["Delete"].Selected)
             {
-                FrmDeleteMessage frmDeleteMessage = new FrmDeleteMessage();
+                /*FrmDeleteMessage frmDeleteMessage = new FrmDeleteMessage();
                 frmDeleteMessage.Show();
                 if (frmDeleteMessage.BtnYes.DialogResult.Equals("Yes"))
                 {
@@ -78,7 +81,7 @@ namespace Proyecto_DAM.Forms.Ventas
                 }
                 else{
                     frmDeleteMessage.Close();
-                }
+                }*/
             } else if (DataGridViewSales.Rows[e.RowIndex].Cells["Detail"].Selected)
             {
                 int idSale = int.Parse(DataGridViewSales.Rows[e.RowIndex].Cells["IDCAB"].Value.ToString());
