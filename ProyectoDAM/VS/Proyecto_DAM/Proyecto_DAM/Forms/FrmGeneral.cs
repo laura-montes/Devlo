@@ -1,4 +1,6 @@
-﻿using Proyecto_DAM.Forms.Products;
+﻿using Proyecto_DAM.Forms;
+using Proyecto_DAM.Forms.Products;
+using Proyecto_DAM.Forms.Users;
 using Proyecto_DAM.Forms.Ventas;
 using System;
 using System.Collections.Generic;
@@ -6,7 +8,11 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
+using System.Net.Security;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,9 +22,7 @@ namespace Proyecto_DAM
     public partial class FrmGeneral : Form
     {
         private FormCollection formsList;
-
-  
-
+        private int counter = 0;
         public FrmGeneral()
         {
             InitializeComponent();
@@ -37,9 +41,6 @@ namespace Proyecto_DAM
             frmDashboard.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             frmDashboard.Dock = DockStyle.Fill;
             frmDashboard.Show();
-
-
-            
         }
 
         private void TimerClock_Tick(object sender, EventArgs e)
@@ -64,7 +65,7 @@ namespace Proyecto_DAM
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+
             }
 
             FrmCustomer frmCustomer = new FrmCustomer();
@@ -204,7 +205,91 @@ namespace Proyecto_DAM
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-    }
+        private void guna2CirclePictureBox3_Click(object sender, EventArgs e)
+        {
+            switch (counter)
+            {
+                case 0:
+                    if (LblRole.Text.Equals("admin"))
+                    {
+                        PanelUser.Visible = true;
+                        PanelUser2.Visible = true;
+                        counter = 1;
+                    }
+                    else if (LblRole.Text.Equals("ventas"))
+                    {
+                        PanelUser2.Visible = true;
+                        counter = 1;
+                    }
+                    break;
+                case 1:
+                    PanelUser.Visible = false;
+                    PanelUser2.Visible = false;
+                    counter = 0;
+                    break;
+            }
 
-    
+           
+
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                formsList = Application.OpenForms;
+                foreach (Form forms in formsList)
+                {
+                    if (forms.Name != "FrmGeneral")
+                    {
+                        forms.Close();
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+
+            FrmAddUser frmAddUser = new FrmAddUser();
+            frmAddUser.TopLevel = false;
+            PanelLoad.Controls.Add(frmAddUser);
+            frmAddUser.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frmAddUser.Dock = DockStyle.Fill;
+            frmAddUser.Show();
+
+            PanelUser.Visible = false;
+            PanelUser2.Visible = false;
+        }
+
+        private void BtnEditProfile_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                formsList = Application.OpenForms;
+                foreach (Form forms in formsList)
+                {
+                    if (forms.Name != "FrmGeneral")
+                    {
+                        forms.Close();
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+
+            FrmChangePassword frmChangePassword = new FrmChangePassword();
+            frmChangePassword.TopLevel = false;
+            PanelLoad.Controls.Add(frmChangePassword);
+            frmChangePassword.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frmChangePassword.Dock = DockStyle.Fill;
+            frmChangePassword.Show();
+
+            PanelUser.Visible = false;
+            PanelUser2.Visible = false;
+        }
+    }    
 }

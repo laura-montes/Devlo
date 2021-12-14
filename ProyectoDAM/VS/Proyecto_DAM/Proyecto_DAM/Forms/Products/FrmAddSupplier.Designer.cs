@@ -45,7 +45,7 @@ namespace Proyecto_DAM.Forms.Products
             // 
             // PanelContainer
             // 
-            this.PanelContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
+            this.PanelContainer.BackColor = System.Drawing.Color.White;
             this.PanelContainer.Controls.Add(this.LblObservations);
             this.PanelContainer.Controls.Add(this.TxtDescription);
             this.PanelContainer.Controls.Add(this.LblMandatory);
@@ -83,12 +83,11 @@ namespace Proyecto_DAM.Forms.Products
             this.TxtDescription.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.TxtDescription.DisabledState.Parent = this.TxtDescription;
             this.TxtDescription.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.TxtDescription.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.TxtDescription.FocusedState.BorderColor = System.Drawing.Color.Transparent;
+            this.TxtDescription.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.TxtDescription.FocusedState.Parent = this.TxtDescription;
             this.TxtDescription.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtDescription.ForeColor = System.Drawing.Color.Black;
-            this.TxtDescription.HoverState.BorderColor = System.Drawing.Color.Transparent;
+            this.TxtDescription.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.TxtDescription.HoverState.Parent = this.TxtDescription;
             this.TxtDescription.Location = new System.Drawing.Point(317, 354);
             this.TxtDescription.Margin = new System.Windows.Forms.Padding(5);
@@ -134,12 +133,11 @@ namespace Proyecto_DAM.Forms.Products
             this.TxtName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.TxtName.DisabledState.Parent = this.TxtName;
             this.TxtName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.TxtName.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.TxtName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TxtName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.TxtName.FocusedState.Parent = this.TxtName;
             this.TxtName.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtName.ForeColor = System.Drawing.Color.Black;
-            this.TxtName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TxtName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.TxtName.HoverState.Parent = this.TxtName;
             this.TxtName.Location = new System.Drawing.Point(413, 231);
             this.TxtName.Margin = new System.Windows.Forms.Padding(5);
@@ -203,6 +201,7 @@ namespace Proyecto_DAM.Forms.Products
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1172, 678);
             this.Controls.Add(this.PanelContainer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

@@ -299,6 +299,8 @@ namespace Proyecto_DAM {
             
             private global::System.Data.DataColumn columnIDPRODUCT;
             
+            private global::System.Data.DataColumn columnIMPORTE;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public V_SALESEDITDataTable() {
@@ -414,6 +416,14 @@ namespace Proyecto_DAM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn IMPORTEColumn {
+                get {
+                    return this.columnIMPORTE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -449,7 +459,7 @@ namespace Proyecto_DAM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public V_SALESEDITRow AddV_SALESEDITRow(int IDCAB, string CONTACTO, System.DateTime FECHA_PEDIDO, decimal TOTAL_PRICE, int IDLIN, int N_LIN, string PRODUCTO, int UNITS, decimal SELL_PRICE, int IDPRODUCT) {
+            public V_SALESEDITRow AddV_SALESEDITRow(int IDCAB, string CONTACTO, System.DateTime FECHA_PEDIDO, decimal TOTAL_PRICE, int IDLIN, int N_LIN, string PRODUCTO, int UNITS, decimal SELL_PRICE, int IDPRODUCT, decimal IMPORTE) {
                 V_SALESEDITRow rowV_SALESEDITRow = ((V_SALESEDITRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         IDCAB,
@@ -461,7 +471,8 @@ namespace Proyecto_DAM {
                         PRODUCTO,
                         UNITS,
                         SELL_PRICE,
-                        IDPRODUCT};
+                        IDPRODUCT,
+                        IMPORTE};
                 rowV_SALESEDITRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowV_SALESEDITRow);
                 return rowV_SALESEDITRow;
@@ -494,6 +505,7 @@ namespace Proyecto_DAM {
                 this.columnUNITS = base.Columns["UNITS"];
                 this.columnSELL_PRICE = base.Columns["SELL_PRICE"];
                 this.columnIDPRODUCT = base.Columns["IDPRODUCT"];
+                this.columnIMPORTE = base.Columns["IMPORTE"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -519,10 +531,13 @@ namespace Proyecto_DAM {
                 base.Columns.Add(this.columnSELL_PRICE);
                 this.columnIDPRODUCT = new global::System.Data.DataColumn("IDPRODUCT", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnIDPRODUCT);
+                this.columnIMPORTE = new global::System.Data.DataColumn("IMPORTE", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIMPORTE);
                 this.columnIDCAB.AllowDBNull = false;
                 this.columnCONTACTO.MaxLength = 50;
                 this.columnIDLIN.AllowDBNull = false;
                 this.columnPRODUCTO.MaxLength = 50;
+                this.columnIMPORTE.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -815,6 +830,22 @@ namespace Proyecto_DAM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal IMPORTE {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableV_SALESEDIT.IMPORTEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'IMPORTE\' de la tabla \'V_SALESEDIT\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableV_SALESEDIT.IMPORTEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsCONTACTONull() {
                 return this.IsNull(this.tableV_SALESEDIT.CONTACTOColumn);
             }
@@ -907,6 +938,18 @@ namespace Proyecto_DAM {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetIDPRODUCTNull() {
                 this[this.tableV_SALESEDIT.IDPRODUCTColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsIMPORTENull() {
+                return this.IsNull(this.tableV_SALESEDIT.IMPORTEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetIMPORTENull() {
+                this[this.tableV_SALESEDIT.IMPORTEColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1079,6 +1122,7 @@ namespace Proyecto_DAM.db_devloDataSetDetailSaleTableAdapters {
             tableMapping.ColumnMappings.Add("UNITS", "UNITS");
             tableMapping.ColumnMappings.Add("SELL_PRICE", "SELL_PRICE");
             tableMapping.ColumnMappings.Add("IDPRODUCT", "IDPRODUCT");
+            tableMapping.ColumnMappings.Add("IMPORTE", "IMPORTE");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1096,12 +1140,12 @@ namespace Proyecto_DAM.db_devloDataSetDetailSaleTableAdapters {
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT IDCAB, CONTACTO, FECHA_PEDIDO, TOTAL_PRICE, IDLIN, N_LIN, PRODUCTO, UNITS," +
-                " SELL_PRICE, IDPRODUCT FROM dbo.V_SALESEDIT";
+                " SELL_PRICE, IDPRODUCT, IMPORTE\r\nFROM     V_SALESEDIT";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT IDCAB, CONTACTO, FECHA_PEDIDO, TOTAL_PRICE, IDLIN, N_LIN, PRODUCTO, UNITS," +
-                " SELL_PRICE, IDPRODUCT FROM dbo.V_SALESEDIT WHERE IDCAB LIKE @IDCAB\r\n";
+            this._commandCollection[1].CommandText = "SELECT CONTACTO, FECHA_PEDIDO, IDCAB, IDLIN, IDPRODUCT, IMPORTE, N_LIN, PRODUCTO," +
+                " SELL_PRICE, TOTAL_PRICE, UNITS FROM V_SALESEDIT WHERE (IDCAB LIKE @IDCAB)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDCAB", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "IDCAB", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }

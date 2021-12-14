@@ -40,22 +40,27 @@ namespace Proyecto_DAM
             this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
             this.TimerClock = new System.Windows.Forms.Timer(this.components);
             this.PanelLoad = new System.Windows.Forms.Panel();
+            this.PanelUser = new Guna.UI2.WinForms.Guna2Panel();
+            this.BtnAddUsers = new Guna.UI2.WinForms.Guna2Button();
+            this.BtnChangePassword = new Guna.UI2.WinForms.Guna2Button();
             this.PanelWindow = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.PanelUser2 = new Guna.UI2.WinForms.Guna2Panel();
             this.PanelOption = new Guna.UI2.WinForms.Guna2Panel();
             this.PctBxMinimize = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.PctBxExit = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2CirclePictureBox3 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.LblName = new System.Windows.Forms.Label();
+            this.LblRole = new System.Windows.Forms.Label();
             this.PanelGeneral.SuspendLayout();
+            this.PanelUser.SuspendLayout();
             this.PanelWindow.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
+            this.PanelUser2.SuspendLayout();
             this.PanelOption.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PctBxMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PctBxExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelGeneral
@@ -90,7 +95,7 @@ namespace Proyecto_DAM
             this.BtnDashboard.HoverState.Parent = this.BtnDashboard;
             this.BtnDashboard.Image = ((System.Drawing.Image)(resources.GetObject("BtnDashboard.Image")));
             this.BtnDashboard.ImageSize = new System.Drawing.Size(30, 30);
-            this.BtnDashboard.Location = new System.Drawing.Point(22, 246);
+            this.BtnDashboard.Location = new System.Drawing.Point(27, 246);
             this.BtnDashboard.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnDashboard.Name = "BtnDashboard";
             this.BtnDashboard.ShadowDecoration.BorderRadius = 1;
@@ -117,7 +122,7 @@ namespace Proyecto_DAM
             this.BtnSales.HoverState.Parent = this.BtnSales;
             this.BtnSales.Image = ((System.Drawing.Image)(resources.GetObject("BtnSales.Image")));
             this.BtnSales.ImageSize = new System.Drawing.Size(30, 30);
-            this.BtnSales.Location = new System.Drawing.Point(12, 455);
+            this.BtnSales.Location = new System.Drawing.Point(8, 455);
             this.BtnSales.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnSales.Name = "BtnSales";
             this.BtnSales.ShadowDecoration.Parent = this.BtnSales;
@@ -204,29 +209,117 @@ namespace Proyecto_DAM
             // 
             // PanelLoad
             // 
-            this.PanelLoad.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.PanelLoad.BackColor = System.Drawing.Color.White;
             this.PanelLoad.Font = new System.Drawing.Font("Louis George Café", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PanelLoad.Location = new System.Drawing.Point(262, 87);
+            this.PanelLoad.Location = new System.Drawing.Point(262, 128);
             this.PanelLoad.Name = "PanelLoad";
-            this.PanelLoad.Size = new System.Drawing.Size(1172, 715);
+            this.PanelLoad.Size = new System.Drawing.Size(1172, 674);
             this.PanelLoad.TabIndex = 2;
+            // 
+            // PanelUser
+            // 
+            this.PanelUser.BackColor = System.Drawing.Color.White;
+            this.PanelUser.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
+            this.PanelUser.BorderRadius = 8;
+            this.PanelUser.BorderThickness = 2;
+            this.PanelUser.Controls.Add(this.BtnAddUsers);
+            this.PanelUser.FillColor = System.Drawing.Color.White;
+            this.PanelUser.Location = new System.Drawing.Point(218, 90);
+            this.PanelUser.Name = "PanelUser";
+            this.PanelUser.ShadowDecoration.Parent = this.PanelUser;
+            this.PanelUser.Size = new System.Drawing.Size(191, 40);
+            this.PanelUser.TabIndex = 14;
+            this.PanelUser.Visible = false;
+            // 
+            // BtnAddUsers
+            // 
+            this.BtnAddUsers.BackColor = System.Drawing.Color.White;
+            this.BtnAddUsers.BorderRadius = 8;
+            this.BtnAddUsers.CheckedState.Parent = this.BtnAddUsers;
+            this.BtnAddUsers.CustomImages.Parent = this.BtnAddUsers;
+            this.BtnAddUsers.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.BtnAddUsers.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.BtnAddUsers.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.BtnAddUsers.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnAddUsers.DisabledState.Parent = this.BtnAddUsers;
+            this.BtnAddUsers.FillColor = System.Drawing.Color.White;
+            this.BtnAddUsers.Font = new System.Drawing.Font("Louis George Café", 9F);
+            this.BtnAddUsers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
+            this.BtnAddUsers.HoverState.Parent = this.BtnAddUsers;
+            this.BtnAddUsers.Location = new System.Drawing.Point(3, 6);
+            this.BtnAddUsers.Name = "BtnAddUsers";
+            this.BtnAddUsers.ShadowDecoration.Parent = this.BtnAddUsers;
+            this.BtnAddUsers.Size = new System.Drawing.Size(185, 26);
+            this.BtnAddUsers.TabIndex = 0;
+            this.BtnAddUsers.Text = "Añadir usuarios";
+            this.BtnAddUsers.Click += new System.EventHandler(this.guna2Button1_Click);
+            // 
+            // BtnChangePassword
+            // 
+            this.BtnChangePassword.BorderRadius = 8;
+            this.BtnChangePassword.CheckedState.Parent = this.BtnChangePassword;
+            this.BtnChangePassword.CustomImages.Parent = this.BtnChangePassword;
+            this.BtnChangePassword.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.BtnChangePassword.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.BtnChangePassword.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.BtnChangePassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnChangePassword.DisabledState.Parent = this.BtnChangePassword;
+            this.BtnChangePassword.FillColor = System.Drawing.Color.White;
+            this.BtnChangePassword.Font = new System.Drawing.Font("Louis George Café", 9F);
+            this.BtnChangePassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
+            this.BtnChangePassword.HoverState.Parent = this.BtnChangePassword;
+            this.BtnChangePassword.Location = new System.Drawing.Point(3, 6);
+            this.BtnChangePassword.Name = "BtnChangePassword";
+            this.BtnChangePassword.ShadowDecoration.Parent = this.BtnChangePassword;
+            this.BtnChangePassword.Size = new System.Drawing.Size(185, 26);
+            this.BtnChangePassword.TabIndex = 1;
+            this.BtnChangePassword.Text = "Cambiar contraseña";
+            this.BtnChangePassword.Click += new System.EventHandler(this.BtnEditProfile_Click);
             // 
             // PanelWindow
             // 
             this.PanelWindow.BackColor = System.Drawing.Color.White;
+            this.PanelWindow.Controls.Add(this.guna2PictureBox1);
+            this.PanelWindow.Controls.Add(this.PanelUser2);
+            this.PanelWindow.Controls.Add(this.PanelUser);
             this.PanelWindow.Controls.Add(this.PanelOption);
             this.PanelWindow.Controls.Add(this.guna2CirclePictureBox3);
-            this.PanelWindow.Controls.Add(this.guna2Panel3);
-            this.PanelWindow.Controls.Add(this.label5);
-            this.PanelWindow.Controls.Add(this.label6);
-            this.PanelWindow.Controls.Add(this.guna2CirclePictureBox1);
+            this.PanelWindow.Controls.Add(this.LblName);
+            this.PanelWindow.Controls.Add(this.LblRole);
             this.PanelWindow.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelWindow.Location = new System.Drawing.Point(262, 0);
             this.PanelWindow.Name = "PanelWindow";
             this.PanelWindow.ShadowDecoration.Parent = this.PanelWindow;
-            this.PanelWindow.Size = new System.Drawing.Size(1172, 90);
+            this.PanelWindow.Size = new System.Drawing.Size(1172, 130);
             this.PanelWindow.TabIndex = 3;
             this.PanelWindow.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmGeneral_MouseDown);
+            // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(21, 12);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
+            this.guna2PictureBox1.Size = new System.Drawing.Size(95, 66);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox1.TabIndex = 16;
+            this.guna2PictureBox1.TabStop = false;
+            // 
+            // PanelUser2
+            // 
+            this.PanelUser2.BackColor = System.Drawing.Color.White;
+            this.PanelUser2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
+            this.PanelUser2.BorderRadius = 8;
+            this.PanelUser2.BorderThickness = 2;
+            this.PanelUser2.Controls.Add(this.BtnChangePassword);
+            this.PanelUser2.FillColor = System.Drawing.Color.White;
+            this.PanelUser2.Location = new System.Drawing.Point(218, 52);
+            this.PanelUser2.Name = "PanelUser2";
+            this.PanelUser2.ShadowDecoration.Parent = this.PanelUser2;
+            this.PanelUser2.Size = new System.Drawing.Size(191, 38);
+            this.PanelUser2.TabIndex = 15;
+            this.PanelUser2.Visible = false;
             // 
             // PanelOption
             // 
@@ -272,7 +365,7 @@ namespace Proyecto_DAM
             // 
             this.guna2CirclePictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox3.Image")));
             this.guna2CirclePictureBox3.ImageRotate = 0F;
-            this.guna2CirclePictureBox3.Location = new System.Drawing.Point(178, 36);
+            this.guna2CirclePictureBox3.Location = new System.Drawing.Point(218, 36);
             this.guna2CirclePictureBox3.Name = "guna2CirclePictureBox3";
             this.guna2CirclePictureBox3.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CirclePictureBox3.ShadowDecoration.Parent = this.guna2CirclePictureBox3;
@@ -280,51 +373,31 @@ namespace Proyecto_DAM
             this.guna2CirclePictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2CirclePictureBox3.TabIndex = 13;
             this.guna2CirclePictureBox3.TabStop = false;
+            this.guna2CirclePictureBox3.Click += new System.EventHandler(this.guna2CirclePictureBox3_Click);
             // 
-            // guna2Panel3
+            // LblName
             // 
-            this.guna2Panel3.Location = new System.Drawing.Point(0, 87);
-            this.guna2Panel3.Name = "guna2Panel3";
-            this.guna2Panel3.ShadowDecoration.Parent = this.guna2Panel3;
-            this.guna2Panel3.Size = new System.Drawing.Size(1172, 712);
-            this.guna2Panel3.TabIndex = 2;
+            this.LblName.AutoSize = true;
+            this.LblName.BackColor = System.Drawing.Color.Transparent;
+            this.LblName.Font = new System.Drawing.Font("Louis George Café", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
+            this.LblName.Location = new System.Drawing.Point(133, 23);
+            this.LblName.Name = "LblName";
+            this.LblName.Size = new System.Drawing.Size(74, 29);
+            this.LblName.TabIndex = 10;
+            this.LblName.Text = "Laura";
             // 
-            // label5
+            // LblRole
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Louis George Café", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
-            this.label5.Location = new System.Drawing.Point(93, 23);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(71, 29);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Devlo";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Louis George Café", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(99, 52);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(50, 18);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "admin";
-            // 
-            // guna2CirclePictureBox1
-            // 
-            this.guna2CirclePictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox1.Image")));
-            this.guna2CirclePictureBox1.ImageRotate = 0F;
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(28, 23);
-            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
-            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox1.ShadowDecoration.Parent = this.guna2CirclePictureBox1;
-            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(57, 47);
-            this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2CirclePictureBox1.TabIndex = 0;
-            this.guna2CirclePictureBox1.TabStop = false;
+            this.LblRole.AutoSize = true;
+            this.LblRole.BackColor = System.Drawing.Color.Transparent;
+            this.LblRole.Font = new System.Drawing.Font("Louis George Café", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblRole.ForeColor = System.Drawing.Color.Black;
+            this.LblRole.Location = new System.Drawing.Point(139, 52);
+            this.LblRole.Name = "LblRole";
+            this.LblRole.Size = new System.Drawing.Size(50, 18);
+            this.LblRole.TabIndex = 11;
+            this.LblRole.Text = "admin";
             // 
             // FrmGeneral
             // 
@@ -332,8 +405,8 @@ namespace Proyecto_DAM
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1434, 802);
             this.Controls.Add(this.PanelWindow);
-            this.Controls.Add(this.PanelLoad);
             this.Controls.Add(this.PanelGeneral);
+            this.Controls.Add(this.PanelLoad);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmGeneral";
@@ -343,13 +416,15 @@ namespace Proyecto_DAM
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmGeneral_MouseDown);
             this.PanelGeneral.ResumeLayout(false);
             this.PanelGeneral.PerformLayout();
+            this.PanelUser.ResumeLayout(false);
             this.PanelWindow.ResumeLayout(false);
             this.PanelWindow.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
+            this.PanelUser2.ResumeLayout(false);
             this.PanelOption.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PctBxMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PctBxExit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -369,10 +444,13 @@ namespace Proyecto_DAM
         private Guna.UI2.WinForms.Guna2CirclePictureBox PctBxMinimize;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox3;
         private Guna.UI2.WinForms.Guna2CirclePictureBox PctBxExit;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
+        private System.Windows.Forms.Label LblName;
+        private System.Windows.Forms.Label LblRole;
         private Guna.UI2.WinForms.Guna2Panel PanelOption;
+        private Guna.UI2.WinForms.Guna2Button BtnChangePassword;
+        private Guna.UI2.WinForms.Guna2Panel PanelUser;
+        private Guna.UI2.WinForms.Guna2Button BtnAddUsers;
+        private Guna.UI2.WinForms.Guna2Panel PanelUser2;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
     }
 }

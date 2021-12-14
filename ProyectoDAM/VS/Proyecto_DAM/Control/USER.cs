@@ -19,5 +19,7 @@ namespace Control
         public string NAME { get; set; }
         public string SURNAMES { get; set; }
         public Nullable<int> ROL { get; set; }
+    
+        public virtual ROL_USERS ROL_USERS { get; set; }
     }
 }

@@ -16,5 +16,15 @@ namespace Proyecto_DAM.Forms
         {
             InitializeComponent();
         }
+
+        private void BtnOk_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void FrmAddMessage_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

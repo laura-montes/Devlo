@@ -45,6 +45,8 @@ namespace Control
         public virtual DbSet<ipv6_database_firewall_rules> ipv6_database_firewall_rules { get; set; }
         public virtual DbSet<V_CONTACTS_ADDED_DATE> V_CONTACTS_ADDED_DATE { get; set; }
         public virtual DbSet<V_SALES_ADDED_DATE> V_SALES_ADDED_DATE { get; set; }
+        public virtual DbSet<ROL_USERS> ROL_USERS { get; set; }
+        public virtual DbSet<V_SALES_BETWEEN_DATES> V_SALES_BETWEEN_DATES { get; set; }
     
         public virtual int PA_ADD_CATEGORY(string nAME, string dESCRIPTION, Nullable<int> iNVOKER, string uSUARIO, string cULTURA, ObjectParameter rETCODE, ObjectParameter mENSAJE)
         {
@@ -650,7 +652,7 @@ namespace Control
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
         }
     
-        public virtual int PA_UPDATE_SALE(Nullable<int> iDCAB, Nullable<int> n_LIN, Nullable<int> iDPRODUCT, Nullable<int> uNITS, Nullable<int> iDLIN, Nullable<decimal> tOTAL_PRICE, Nullable<int> iNVOKER, string uSUARIO, string cULTURA, ObjectParameter rETCODE, ObjectParameter mENSAJE)
+        public virtual int PA_UPDATE_SALE(Nullable<int> iDCAB, Nullable<int> n_LIN, Nullable<int> iDPRODUCT, Nullable<int> uNITS, Nullable<int> iDLIN, Nullable<decimal> tOTAL_PRICE, Nullable<int> sTATE, Nullable<int> iNVOKER, string uSUARIO, string cULTURA, ObjectParameter rETCODE, ObjectParameter mENSAJE)
         {
             var iDCABParameter = iDCAB.HasValue ?
                 new ObjectParameter("IDCAB", iDCAB) :
@@ -676,6 +678,10 @@ namespace Control
                 new ObjectParameter("TOTAL_PRICE", tOTAL_PRICE) :
                 new ObjectParameter("TOTAL_PRICE", typeof(decimal));
     
+            var sTATEParameter = sTATE.HasValue ?
+                new ObjectParameter("STATE", sTATE) :
+                new ObjectParameter("STATE", typeof(int));
+    
             var iNVOKERParameter = iNVOKER.HasValue ?
                 new ObjectParameter("INVOKER", iNVOKER) :
                 new ObjectParameter("INVOKER", typeof(int));
@@ -688,7 +694,7 @@ namespace Control
                 new ObjectParameter("CULTURA", cULTURA) :
                 new ObjectParameter("CULTURA", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PA_UPDATE_SALE", iDCABParameter, n_LINParameter, iDPRODUCTParameter, uNITSParameter, iDLINParameter, tOTAL_PRICEParameter, iNVOKERParameter, uSUARIOParameter, cULTURAParameter, rETCODE, mENSAJE);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PA_UPDATE_SALE", iDCABParameter, n_LINParameter, iDPRODUCTParameter, uNITSParameter, iDLINParameter, tOTAL_PRICEParameter, sTATEParameter, iNVOKERParameter, uSUARIOParameter, cULTURAParameter, rETCODE, mENSAJE);
         }
     
         public virtual int PA_DELETE_SALE(Nullable<int> iDCAB, Nullable<int> iNVOKER, string uSUARIO, string cULTURA, ObjectParameter rETCODE, ObjectParameter mENSAJE)
@@ -782,6 +788,111 @@ namespace Control
                 new ObjectParameter("CULTURA", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PA_COUNT_MONTHLYEARNS", iNVOKERParameter, uSUARIOParameter, cULTURAParameter, rETCODE, mENSAJE, cANTIDAD);
+        }
+    
+        [DbFunction("db_devloEntities", "FN_SALES_BETWEEN_DATES")]
+        public virtual IQueryable<FN_SALES_BETWEEN_DATES_Result> FN_SALES_BETWEEN_DATES(Nullable<int> iDCONTACT, Nullable<System.DateTime> fIRSTDATE, Nullable<System.DateTime> sECONDDATE)
+        {
+            var iDCONTACTParameter = iDCONTACT.HasValue ?
+                new ObjectParameter("IDCONTACT", iDCONTACT) :
+                new ObjectParameter("IDCONTACT", typeof(int));
+    
+            var fIRSTDATEParameter = fIRSTDATE.HasValue ?
+                new ObjectParameter("FIRSTDATE", fIRSTDATE) :
+                new ObjectParameter("FIRSTDATE", typeof(System.DateTime));
+    
+            var sECONDDATEParameter = sECONDDATE.HasValue ?
+                new ObjectParameter("SECONDDATE", sECONDDATE) :
+                new ObjectParameter("SECONDDATE", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<FN_SALES_BETWEEN_DATES_Result>("[db_devloEntities].[FN_SALES_BETWEEN_DATES](@IDCONTACT, @FIRSTDATE, @SECONDDATE)", iDCONTACTParameter, fIRSTDATEParameter, sECONDDATEParameter);
+        }
+    
+        public virtual ObjectResult<PA_SALES_BETWEENDATES_Result> PA_SALES_BETWEENDATES(Nullable<int> iDCONTACT, Nullable<System.DateTime> fIRSTDATE, Nullable<System.DateTime> sECONDDATE, Nullable<int> iNVOKER, string uSUARIO, string cULTURA, ObjectParameter rETCODE, ObjectParameter mENSAJE)
+        {
+            var iDCONTACTParameter = iDCONTACT.HasValue ?
+                new ObjectParameter("IDCONTACT", iDCONTACT) :
+                new ObjectParameter("IDCONTACT", typeof(int));
+    
+            var fIRSTDATEParameter = fIRSTDATE.HasValue ?
+                new ObjectParameter("FIRSTDATE", fIRSTDATE) :
+                new ObjectParameter("FIRSTDATE", typeof(System.DateTime));
+    
+            var sECONDDATEParameter = sECONDDATE.HasValue ?
+                new ObjectParameter("SECONDDATE", sECONDDATE) :
+                new ObjectParameter("SECONDDATE", typeof(System.DateTime));
+    
+            var iNVOKERParameter = iNVOKER.HasValue ?
+                new ObjectParameter("INVOKER", iNVOKER) :
+                new ObjectParameter("INVOKER", typeof(int));
+    
+            var uSUARIOParameter = uSUARIO != null ?
+                new ObjectParameter("USUARIO", uSUARIO) :
+                new ObjectParameter("USUARIO", typeof(string));
+    
+            var cULTURAParameter = cULTURA != null ?
+                new ObjectParameter("CULTURA", cULTURA) :
+                new ObjectParameter("CULTURA", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PA_SALES_BETWEENDATES_Result>("PA_SALES_BETWEENDATES", iDCONTACTParameter, fIRSTDATEParameter, sECONDDATEParameter, iNVOKERParameter, uSUARIOParameter, cULTURAParameter, rETCODE, mENSAJE);
+        }
+    
+        public virtual int PA_ADD_USER(string nAME, string sURNAMES, string eMAIL, string pASSWORD, Nullable<int> rOLE, Nullable<int> iNVOKER, string uSUARIO, string cULTURA, ObjectParameter rETCODE, ObjectParameter mENSAJE)
+        {
+            var nAMEParameter = nAME != null ?
+                new ObjectParameter("NAME", nAME) :
+                new ObjectParameter("NAME", typeof(string));
+    
+            var sURNAMESParameter = sURNAMES != null ?
+                new ObjectParameter("SURNAMES", sURNAMES) :
+                new ObjectParameter("SURNAMES", typeof(string));
+    
+            var eMAILParameter = eMAIL != null ?
+                new ObjectParameter("EMAIL", eMAIL) :
+                new ObjectParameter("EMAIL", typeof(string));
+    
+            var pASSWORDParameter = pASSWORD != null ?
+                new ObjectParameter("PASSWORD", pASSWORD) :
+                new ObjectParameter("PASSWORD", typeof(string));
+    
+            var rOLEParameter = rOLE.HasValue ?
+                new ObjectParameter("ROLE", rOLE) :
+                new ObjectParameter("ROLE", typeof(int));
+    
+            var iNVOKERParameter = iNVOKER.HasValue ?
+                new ObjectParameter("INVOKER", iNVOKER) :
+                new ObjectParameter("INVOKER", typeof(int));
+    
+            var uSUARIOParameter = uSUARIO != null ?
+                new ObjectParameter("USUARIO", uSUARIO) :
+                new ObjectParameter("USUARIO", typeof(string));
+    
+            var cULTURAParameter = cULTURA != null ?
+                new ObjectParameter("CULTURA", cULTURA) :
+                new ObjectParameter("CULTURA", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PA_ADD_USER", nAMEParameter, sURNAMESParameter, eMAILParameter, pASSWORDParameter, rOLEParameter, iNVOKERParameter, uSUARIOParameter, cULTURAParameter, rETCODE, mENSAJE);
+        }
+    
+        public virtual int PA_RECOVER_PASSWORD(string eMAIL, Nullable<int> iNVOKER, string uSUARIO, string cULTURA, ObjectParameter rETCODE, ObjectParameter mENSAJE, ObjectParameter pASSWORD)
+        {
+            var eMAILParameter = eMAIL != null ?
+                new ObjectParameter("EMAIL", eMAIL) :
+                new ObjectParameter("EMAIL", typeof(string));
+    
+            var iNVOKERParameter = iNVOKER.HasValue ?
+                new ObjectParameter("INVOKER", iNVOKER) :
+                new ObjectParameter("INVOKER", typeof(int));
+    
+            var uSUARIOParameter = uSUARIO != null ?
+                new ObjectParameter("USUARIO", uSUARIO) :
+                new ObjectParameter("USUARIO", typeof(string));
+    
+            var cULTURAParameter = cULTURA != null ?
+                new ObjectParameter("CULTURA", cULTURA) :
+                new ObjectParameter("CULTURA", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PA_RECOVER_PASSWORD", eMAILParameter, iNVOKERParameter, uSUARIOParameter, cULTURAParameter, rETCODE, mENSAJE, pASSWORD);
         }
     }
 }

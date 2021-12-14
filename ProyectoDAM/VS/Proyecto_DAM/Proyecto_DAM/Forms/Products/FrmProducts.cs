@@ -15,6 +15,7 @@ namespace Proyecto_DAM.Forms.Products
     {
         // CONTADOR PARA VISUALIZAR O NO LAS OPCIONES DE AÑADIR
         int counter = 0;
+        int counterFilter = 0;
         Utilities utilities = new Utilities();
 
         public FrmProducts()
@@ -92,10 +93,15 @@ namespace Proyecto_DAM.Forms.Products
 
         private void FrmProducts_Load(object sender, EventArgs e)
 		{
-			// TODO: esta línea de código carga datos en la tabla 'db_devloDataSetProducts.PRODUCTS' Puede moverla o quitarla según sea necesario.
-			this.pRODUCTSTableAdapter.FillGridView(this.db_devloDataSetProducts.PRODUCTS);
+            // TODO: esta línea de código carga datos en la tabla 'db_devloDataSetProducts.PRODUCTS' Puede moverla o quitarla según sea necesario.
+            loadProducts();
 
 		}
+
+        private void loadProducts()
+        {
+            this.pRODUCTSTableAdapter.FillGridView(this.db_devloDataSetProducts.PRODUCTS);
+        }
 
 		private void TxtSearch_KeyUp(object sender, KeyEventArgs e)
 		{
@@ -113,20 +119,8 @@ namespace Proyecto_DAM.Forms.Products
             }
             else if (DataGridViewProducts.Rows[e.RowIndex].Cells["Delete"].Selected)
             {
-                FrmDeleteMessage frmDeleteMessage = new FrmDeleteMessage();
-                frmDeleteMessage.Show();
-
-                if (frmDeleteMessage.BtnYes.DialogResult == DialogResult.Yes)
-                {
-                    // BORRAR
-                    int idProduct = int.Parse(DataGridViewProducts.Rows[e.RowIndex].Cells["IdProduct"].Value.ToString());
-                   utilities.pa_deleteProduct(idProduct);
-                    this.pRODUCTSTableAdapter.FillBy(this.db_devloDataSetProducts.PRODUCTS);
-                }
-                else
-                {
-                    frmDeleteMessage.Close();
-                }
+                FrmDeleteMessage frm = new FrmDeleteMessage(int.Parse(DataGridViewProducts.Rows[e.RowIndex].Cells["IDPRODUCT"].Value.ToString()), "products");
+                frm.Show();
             } else if (DataGridViewProducts.Rows[e.RowIndex].Cells["Detail"].Selected)
             {
                 int idProduct = int.Parse(DataGridViewProducts.Rows[e.RowIndex].Cells["IDPRODUCT"].Value.ToString());
@@ -164,5 +158,25 @@ namespace Proyecto_DAM.Forms.Products
             frmDetailProduct.Show();
             
         }
-	}
+
+		private void BtnFilter_Click(object sender, EventArgs e)
+		{
+            if (counterFilter==0)
+            {
+                this.pRODUCTSTableAdapter.SortGridViewByName(this.db_devloDataSetProducts.PRODUCTS);
+                counterFilter = 1;
+            }
+            else
+            {
+                loadProducts();
+                counterFilter = 0;
+            }
+            
+        }
+
+        private void BtnRefresh_Click(object sender, EventArgs e)
+        {
+            loadProducts();
+        }
+    }
 }

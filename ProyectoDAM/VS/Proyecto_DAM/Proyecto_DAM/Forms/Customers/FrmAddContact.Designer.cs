@@ -31,8 +31,6 @@ namespace Proyecto_DAM
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAddContact));
             this.PanelContainer = new Guna.UI2.WinForms.Guna2Panel();
-            this.CmbBxRelations = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.LblRelation = new System.Windows.Forms.Label();
             this.LblObservations = new System.Windows.Forms.Label();
             this.TxtObservations = new Guna.UI2.WinForms.Guna2TextBox();
             this.LblMandatory = new System.Windows.Forms.Label();
@@ -59,9 +57,7 @@ namespace Proyecto_DAM
             // 
             // PanelContainer
             // 
-            this.PanelContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.PanelContainer.Controls.Add(this.CmbBxRelations);
-            this.PanelContainer.Controls.Add(this.LblRelation);
+            this.PanelContainer.BackColor = System.Drawing.Color.White;
             this.PanelContainer.Controls.Add(this.LblObservations);
             this.PanelContainer.Controls.Add(this.TxtObservations);
             this.PanelContainer.Controls.Add(this.LblMandatory);
@@ -85,41 +81,6 @@ namespace Proyecto_DAM
             this.PanelContainer.Size = new System.Drawing.Size(1085, 646);
             this.PanelContainer.TabIndex = 2;
             // 
-            // CmbBxRelations
-            // 
-            this.CmbBxRelations.BackColor = System.Drawing.Color.Transparent;
-            this.CmbBxRelations.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
-            this.CmbBxRelations.BorderRadius = 8;
-            this.CmbBxRelations.BorderThickness = 2;
-            this.CmbBxRelations.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.CmbBxRelations.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbBxRelations.Enabled = false;
-            this.CmbBxRelations.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.CmbBxRelations.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.CmbBxRelations.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.CmbBxRelations.FocusedState.Parent = this.CmbBxRelations;
-            this.CmbBxRelations.Font = new System.Drawing.Font("Louis George Café", 12F);
-            this.CmbBxRelations.ForeColor = System.Drawing.Color.Black;
-            this.CmbBxRelations.HoverState.Parent = this.CmbBxRelations;
-            this.CmbBxRelations.ItemHeight = 30;
-            this.CmbBxRelations.ItemsAppearance.Parent = this.CmbBxRelations;
-            this.CmbBxRelations.Location = new System.Drawing.Point(568, 433);
-            this.CmbBxRelations.Name = "CmbBxRelations";
-            this.CmbBxRelations.ShadowDecoration.Parent = this.CmbBxRelations;
-            this.CmbBxRelations.Size = new System.Drawing.Size(455, 36);
-            this.CmbBxRelations.TabIndex = 25;
-            // 
-            // LblRelation
-            // 
-            this.LblRelation.AutoSize = true;
-            this.LblRelation.Enabled = false;
-            this.LblRelation.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblRelation.Location = new System.Drawing.Point(564, 406);
-            this.LblRelation.Name = "LblRelation";
-            this.LblRelation.Size = new System.Drawing.Size(102, 24);
-            this.LblRelation.TabIndex = 24;
-            this.LblRelation.Text = "Relaciones";
-            // 
             // LblObservations
             // 
             this.LblObservations.AutoSize = true;
@@ -142,19 +103,18 @@ namespace Proyecto_DAM
             this.TxtObservations.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.TxtObservations.DisabledState.Parent = this.TxtObservations;
             this.TxtObservations.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.TxtObservations.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.TxtObservations.FocusedState.BorderColor = System.Drawing.Color.Transparent;
+            this.TxtObservations.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.TxtObservations.FocusedState.Parent = this.TxtObservations;
             this.TxtObservations.Font = new System.Drawing.Font("Louis George Café", 12F);
             this.TxtObservations.ForeColor = System.Drawing.Color.Black;
-            this.TxtObservations.HoverState.BorderColor = System.Drawing.Color.Transparent;
+            this.TxtObservations.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.TxtObservations.HoverState.Parent = this.TxtObservations;
             this.TxtObservations.Location = new System.Drawing.Point(568, 280);
             this.TxtObservations.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TxtObservations.Multiline = true;
             this.TxtObservations.Name = "TxtObservations";
             this.TxtObservations.PasswordChar = '\0';
             this.TxtObservations.PlaceholderText = "";
-            this.TxtObservations.ReadOnly = true;
             this.TxtObservations.SelectedText = "";
             this.TxtObservations.ShadowDecoration.Parent = this.TxtObservations;
             this.TxtObservations.Size = new System.Drawing.Size(455, 88);
@@ -182,12 +142,11 @@ namespace Proyecto_DAM
             this.TxtAddress.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.TxtAddress.DisabledState.Parent = this.TxtAddress;
             this.TxtAddress.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.TxtAddress.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.TxtAddress.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TxtAddress.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.TxtAddress.FocusedState.Parent = this.TxtAddress;
-            this.TxtAddress.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtAddress.Font = new System.Drawing.Font("Louis George Café", 12F);
             this.TxtAddress.ForeColor = System.Drawing.Color.Black;
-            this.TxtAddress.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TxtAddress.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.TxtAddress.HoverState.Parent = this.TxtAddress;
             this.TxtAddress.Location = new System.Drawing.Point(195, 494);
             this.TxtAddress.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -261,12 +220,11 @@ namespace Proyecto_DAM
             this.TxtEmail.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.TxtEmail.DisabledState.Parent = this.TxtEmail;
             this.TxtEmail.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.TxtEmail.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.TxtEmail.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TxtEmail.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.TxtEmail.FocusedState.Parent = this.TxtEmail;
-            this.TxtEmail.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtEmail.Font = new System.Drawing.Font("Louis George Café", 12F);
             this.TxtEmail.ForeColor = System.Drawing.Color.Black;
-            this.TxtEmail.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TxtEmail.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.TxtEmail.HoverState.Parent = this.TxtEmail;
             this.TxtEmail.Location = new System.Drawing.Point(195, 433);
             this.TxtEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -290,12 +248,11 @@ namespace Proyecto_DAM
             this.TxtPhone.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.TxtPhone.DisabledState.Parent = this.TxtPhone;
             this.TxtPhone.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.TxtPhone.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.TxtPhone.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TxtPhone.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.TxtPhone.FocusedState.Parent = this.TxtPhone;
-            this.TxtPhone.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtPhone.Font = new System.Drawing.Font("Louis George Café", 12F);
             this.TxtPhone.ForeColor = System.Drawing.Color.Black;
-            this.TxtPhone.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TxtPhone.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.TxtPhone.HoverState.Parent = this.TxtPhone;
             this.TxtPhone.Location = new System.Drawing.Point(195, 374);
             this.TxtPhone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -319,12 +276,11 @@ namespace Proyecto_DAM
             this.TxtSurname.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.TxtSurname.DisabledState.Parent = this.TxtSurname;
             this.TxtSurname.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.TxtSurname.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.TxtSurname.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TxtSurname.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.TxtSurname.FocusedState.Parent = this.TxtSurname;
-            this.TxtSurname.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtSurname.Font = new System.Drawing.Font("Louis George Café", 12F);
             this.TxtSurname.ForeColor = System.Drawing.Color.Black;
-            this.TxtSurname.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TxtSurname.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.TxtSurname.HoverState.Parent = this.TxtSurname;
             this.TxtSurname.Location = new System.Drawing.Point(195, 312);
             this.TxtSurname.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -348,12 +304,11 @@ namespace Proyecto_DAM
             this.TxtName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.TxtName.DisabledState.Parent = this.TxtName;
             this.TxtName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.TxtName.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.TxtName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TxtName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.TxtName.FocusedState.Parent = this.TxtName;
             this.TxtName.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtName.ForeColor = System.Drawing.Color.Black;
-            this.TxtName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TxtName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.TxtName.HoverState.Parent = this.TxtName;
             this.TxtName.Location = new System.Drawing.Point(195, 247);
             this.TxtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -367,10 +322,10 @@ namespace Proyecto_DAM
             // 
             // ShadowpanelContainer
             // 
-            this.ShadowpanelContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
+            this.ShadowpanelContainer.BackColor = System.Drawing.Color.White;
             this.ShadowpanelContainer.Controls.Add(this.ChckCompany);
             this.ShadowpanelContainer.Controls.Add(this.ChckCustomer);
-            this.ShadowpanelContainer.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
+            this.ShadowpanelContainer.FillColor = System.Drawing.Color.White;
             this.ShadowpanelContainer.Location = new System.Drawing.Point(53, 91);
             this.ShadowpanelContainer.Name = "ShadowpanelContainer";
             this.ShadowpanelContainer.ShadowColor = System.Drawing.Color.DarkGray;
@@ -504,7 +459,5 @@ namespace Proyecto_DAM
         private System.Windows.Forms.Label LblMandatory;
         private System.Windows.Forms.Label LblObservations;
         private Guna.UI2.WinForms.Guna2TextBox TxtObservations;
-        private Guna.UI2.WinForms.Guna2ComboBox CmbBxRelations;
-        private System.Windows.Forms.Label LblRelation;
     }
 }

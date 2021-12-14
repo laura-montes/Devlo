@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Control;
+using Proyecto_DAM.Forms.Messages;
 
 namespace Proyecto_DAM.Forms.Customers
 {
@@ -61,5 +62,40 @@ namespace Proyecto_DAM.Forms.Customers
             this.Close();
             frmCustomer.Show();
         }
-    }
+
+        private void BtnSave_Click(object sender, EventArgs e)
+        {
+            //BOTON DE GENERAR EL REPORTE
+            FrmReport frmReport = new FrmReport(idContact);
+            frmReport.Show();
+        }
+
+		private void ChckCustomer_CheckedChanged(object sender, EventArgs e)
+		{
+            if (contact.ElementAt(0).ROLE.ToUpper().Equals("COMPANY"))
+            {
+                ChckCustomer.Checked = false;
+                ChckCompany.Checked = true;
+            }
+            else if (contact.ElementAt(0).ROLE.ToUpper().Equals("CUSTOMER"))
+            {
+                ChckCompany.Checked = false;
+                ChckCustomer.Checked = true;
+            }
+        }
+
+		private void ChckCompany_CheckedChanged(object sender, EventArgs e)
+		{
+            if (contact.ElementAt(0).ROLE.ToUpper().Equals("COMPANY"))
+            {
+                ChckCustomer.Checked = false;
+                ChckCompany.Checked = true;
+            }
+            else if (contact.ElementAt(0).ROLE.ToUpper().Equals("CUSTOMER"))
+            {
+                ChckCompany.Checked = false;
+                ChckCustomer.Checked = true;
+            }
+        }
+	}
 }
