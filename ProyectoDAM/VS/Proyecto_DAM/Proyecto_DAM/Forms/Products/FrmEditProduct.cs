@@ -30,6 +30,11 @@ namespace Proyecto_DAM.Forms.Products
 
         private void PctBxBack_Click(object sender, EventArgs e)
         {
+            goBack();
+        }
+
+        private void goBack()
+        {
             FrmProducts frmProducts = new FrmProducts();
             frmProducts.TopLevel = false;
             FrmGeneral frmGeneral = (FrmGeneral)Application.OpenForms["FrmGeneral"];
@@ -43,17 +48,36 @@ namespace Proyecto_DAM.Forms.Products
 
 		private void BtnSave_Click(object sender, EventArgs e)
 		{
-            utilities.pa_update_product(
-                int.Parse(TxtCode.Text),
-                TxtName.Text,
-                TxtDescription.Text,
-                int.Parse(CmbBxCategory.SelectedValue.ToString()),
-                int.Parse(CmbBxSupplier.SelectedValue.ToString()),
-                int.Parse(TxtStock.Text),
-                decimal.Parse(TxtSell_Price.Text),
-                decimal.Parse(TxtCost_Price.Text)
-            );
-
+            try
+            {
+                if (String.IsNullOrEmpty(TxtName.Text))
+                {
+                    FrmAddMessage frm = new FrmAddMessage();
+                    frm.Show();
+                }
+                else
+                {
+                    utilities.pa_update_product(
+                    int.Parse(TxtCode.Text),
+                    TxtName.Text,
+                    TxtDescription.Text,
+                    int.Parse(CmbBxCategory.SelectedValue.ToString()),
+                    int.Parse(CmbBxSupplier.SelectedValue.ToString()),
+                    int.Parse(TxtStock.Text),
+                    decimal.Parse(TxtSell_Price.Text),
+                    decimal.Parse(TxtCost_Price.Text));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error");
+            }
+            clear();
+            goBack();
+            
+        }
+        private void clear()
+        {
             TxtCode.Text = "";
             TxtName.Text = "";
             TxtCost_Price.Text = "";

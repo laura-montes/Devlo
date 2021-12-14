@@ -68,6 +68,7 @@ namespace Proyecto_DAM.Forms
             this.BtnYes.Size = new System.Drawing.Size(88, 45);
             this.BtnYes.TabIndex = 2;
             this.BtnYes.Text = "Sí";
+            this.BtnYes.Click += new System.EventHandler(this.BtnYes_Click);
             // 
             // BtnNo
             // 
@@ -76,7 +77,7 @@ namespace Proyecto_DAM.Forms
             this.BtnNo.BorderThickness = 2;
             this.BtnNo.CheckedState.Parent = this.BtnNo;
             this.BtnNo.CustomImages.Parent = this.BtnNo;
-            this.BtnNo.DialogResult = System.Windows.Forms.DialogResult.No;
+            this.BtnNo.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BtnNo.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.BtnNo.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.BtnNo.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -92,6 +93,7 @@ namespace Proyecto_DAM.Forms
             this.BtnNo.Size = new System.Drawing.Size(88, 45);
             this.BtnNo.TabIndex = 3;
             this.BtnNo.Text = "No";
+            this.BtnNo.Click += new System.EventHandler(this.BtnNo_Click);
             // 
             // label1
             // 
@@ -118,6 +120,7 @@ namespace Proyecto_DAM.Forms
             this.Name = "FrmDeleteMessage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmPersonalMessage";
+            this.Load += new System.EventHandler(this.FrmDeleteMessage_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

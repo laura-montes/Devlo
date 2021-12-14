@@ -59,7 +59,7 @@ namespace Proyecto_DAM.Forms.Products
             // 
             // PanelContainer
             // 
-            this.PanelContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
+            this.PanelContainer.BackColor = System.Drawing.Color.White;
             this.PanelContainer.Controls.Add(this.txtSupplier);
             this.PanelContainer.Controls.Add(this.txtCategory);
             this.PanelContainer.Controls.Add(this.PanelData);
@@ -95,22 +95,21 @@ namespace Proyecto_DAM.Forms.Products
             this.txtSupplier.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtSupplier.DisabledState.Parent = this.txtSupplier;
             this.txtSupplier.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtSupplier.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.txtSupplier.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtSupplier.FocusedState.Parent = this.txtSupplier;
             this.txtSupplier.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSupplier.ForeColor = System.Drawing.Color.Black;
-            this.txtSupplier.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSupplier.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.txtSupplier.HoverState.Parent = this.txtSupplier;
             this.txtSupplier.Location = new System.Drawing.Point(239, 338);
-            this.txtSupplier.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtSupplier.Margin = new System.Windows.Forms.Padding(5);
             this.txtSupplier.Name = "txtSupplier";
             this.txtSupplier.PasswordChar = '\0';
             this.txtSupplier.PlaceholderText = "";
             this.txtSupplier.ReadOnly = true;
             this.txtSupplier.SelectedText = "";
             this.txtSupplier.ShadowDecoration.Parent = this.txtSupplier;
-            this.txtSupplier.Size = new System.Drawing.Size(316, 36);
+            this.txtSupplier.Size = new System.Drawing.Size(337, 36);
             this.txtSupplier.TabIndex = 31;
             // 
             // txtCategory
@@ -125,22 +124,21 @@ namespace Proyecto_DAM.Forms.Products
             this.txtCategory.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtCategory.DisabledState.Parent = this.txtCategory;
             this.txtCategory.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtCategory.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.txtCategory.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCategory.FocusedState.Parent = this.txtCategory;
             this.txtCategory.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCategory.ForeColor = System.Drawing.Color.Black;
-            this.txtCategory.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtCategory.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.txtCategory.HoverState.Parent = this.txtCategory;
-            this.txtCategory.Location = new System.Drawing.Point(235, 274);
-            this.txtCategory.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtCategory.Location = new System.Drawing.Point(239, 274);
+            this.txtCategory.Margin = new System.Windows.Forms.Padding(5);
             this.txtCategory.Name = "txtCategory";
             this.txtCategory.PasswordChar = '\0';
             this.txtCategory.PlaceholderText = "";
             this.txtCategory.ReadOnly = true;
             this.txtCategory.SelectedText = "";
             this.txtCategory.ShadowDecoration.Parent = this.txtCategory;
-            this.txtCategory.Size = new System.Drawing.Size(243, 36);
+            this.txtCategory.Size = new System.Drawing.Size(337, 36);
             this.txtCategory.TabIndex = 30;
             // 
             // PanelData
@@ -152,7 +150,7 @@ namespace Proyecto_DAM.Forms.Products
             this.PanelData.Controls.Add(this.LblCost_Price);
             this.PanelData.Controls.Add(this.TxtSell_Price);
             this.PanelData.Controls.Add(this.TxtStock);
-            this.PanelData.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
+            this.PanelData.FillColor = System.Drawing.Color.White;
             this.PanelData.Location = new System.Drawing.Point(645, 129);
             this.PanelData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PanelData.Name = "PanelData";
@@ -173,15 +171,14 @@ namespace Proyecto_DAM.Forms.Products
             this.TxtCost_Price.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.TxtCost_Price.DisabledState.Parent = this.TxtCost_Price;
             this.TxtCost_Price.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.TxtCost_Price.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.TxtCost_Price.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.TxtCost_Price.FocusedState.Parent = this.TxtCost_Price;
             this.TxtCost_Price.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtCost_Price.ForeColor = System.Drawing.Color.Black;
-            this.TxtCost_Price.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TxtCost_Price.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.TxtCost_Price.HoverState.Parent = this.TxtCost_Price;
             this.TxtCost_Price.Location = new System.Drawing.Point(175, 148);
-            this.TxtCost_Price.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.TxtCost_Price.Margin = new System.Windows.Forms.Padding(5);
             this.TxtCost_Price.Name = "TxtCost_Price";
             this.TxtCost_Price.PasswordChar = '\0';
             this.TxtCost_Price.PlaceholderText = "";
@@ -204,7 +201,6 @@ namespace Proyecto_DAM.Forms.Products
             // LblSell_Price
             // 
             this.LblSell_Price.AutoSize = true;
-            this.LblSell_Price.Enabled = false;
             this.LblSell_Price.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblSell_Price.Location = new System.Drawing.Point(13, 92);
             this.LblSell_Price.Name = "LblSell_Price";
@@ -215,7 +211,6 @@ namespace Proyecto_DAM.Forms.Products
             // LblCost_Price
             // 
             this.LblCost_Price.AutoSize = true;
-            this.LblCost_Price.Enabled = false;
             this.LblCost_Price.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblCost_Price.Location = new System.Drawing.Point(16, 156);
             this.LblCost_Price.Name = "LblCost_Price";
@@ -235,15 +230,14 @@ namespace Proyecto_DAM.Forms.Products
             this.TxtSell_Price.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.TxtSell_Price.DisabledState.Parent = this.TxtSell_Price;
             this.TxtSell_Price.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.TxtSell_Price.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.TxtSell_Price.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.TxtSell_Price.FocusedState.Parent = this.TxtSell_Price;
             this.TxtSell_Price.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtSell_Price.ForeColor = System.Drawing.Color.Black;
-            this.TxtSell_Price.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TxtSell_Price.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.TxtSell_Price.HoverState.Parent = this.TxtSell_Price;
             this.TxtSell_Price.Location = new System.Drawing.Point(175, 89);
-            this.TxtSell_Price.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.TxtSell_Price.Margin = new System.Windows.Forms.Padding(5);
             this.TxtSell_Price.Name = "TxtSell_Price";
             this.TxtSell_Price.PasswordChar = '\0';
             this.TxtSell_Price.PlaceholderText = "";
@@ -265,15 +259,14 @@ namespace Proyecto_DAM.Forms.Products
             this.TxtStock.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.TxtStock.DisabledState.Parent = this.TxtStock;
             this.TxtStock.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.TxtStock.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.TxtStock.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.TxtStock.FocusedState.Parent = this.TxtStock;
             this.TxtStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtStock.ForeColor = System.Drawing.Color.Black;
-            this.TxtStock.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TxtStock.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.TxtStock.HoverState.Parent = this.TxtStock;
             this.TxtStock.Location = new System.Drawing.Point(175, 30);
-            this.TxtStock.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.TxtStock.Margin = new System.Windows.Forms.Padding(5);
             this.TxtStock.Name = "TxtStock";
             this.TxtStock.PasswordChar = '\0';
             this.TxtStock.PlaceholderText = "";
@@ -289,9 +282,8 @@ namespace Proyecto_DAM.Forms.Products
             this.label2.ForeColor = System.Drawing.Color.Red;
             this.label2.Location = new System.Drawing.Point(189, 130);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(20, 24);
+            this.label2.Size = new System.Drawing.Size(0, 24);
             this.label2.TabIndex = 27;
-            this.label2.Text = "*";
             // 
             // LblObservations
             // 
@@ -315,15 +307,14 @@ namespace Proyecto_DAM.Forms.Products
             this.TxtDescription.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.TxtDescription.DisabledState.Parent = this.TxtDescription;
             this.TxtDescription.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.TxtDescription.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.TxtDescription.FocusedState.BorderColor = System.Drawing.Color.Transparent;
             this.TxtDescription.FocusedState.Parent = this.TxtDescription;
             this.TxtDescription.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtDescription.ForeColor = System.Drawing.Color.Black;
-            this.TxtDescription.HoverState.BorderColor = System.Drawing.Color.Transparent;
+            this.TxtDescription.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.TxtDescription.HoverState.Parent = this.TxtDescription;
             this.TxtDescription.Location = new System.Drawing.Point(121, 447);
-            this.TxtDescription.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.TxtDescription.Margin = new System.Windows.Forms.Padding(5);
             this.TxtDescription.Multiline = true;
             this.TxtDescription.Name = "TxtDescription";
             this.TxtDescription.PasswordChar = '\0';
@@ -340,9 +331,8 @@ namespace Proyecto_DAM.Forms.Products
             this.LblMandatory.ForeColor = System.Drawing.Color.Red;
             this.LblMandatory.Location = new System.Drawing.Point(197, 194);
             this.LblMandatory.Name = "LblMandatory";
-            this.LblMandatory.Size = new System.Drawing.Size(20, 24);
+            this.LblMandatory.Size = new System.Drawing.Size(0, 24);
             this.LblMandatory.TabIndex = 16;
-            this.LblMandatory.Text = "*";
             // 
             // LblSupplier
             // 
@@ -396,15 +386,14 @@ namespace Proyecto_DAM.Forms.Products
             this.TxtCode.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.TxtCode.DisabledState.Parent = this.TxtCode;
             this.TxtCode.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.TxtCode.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.TxtCode.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.TxtCode.FocusedState.Parent = this.TxtCode;
             this.TxtCode.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtCode.ForeColor = System.Drawing.Color.Black;
-            this.TxtCode.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TxtCode.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.TxtCode.HoverState.Parent = this.TxtCode;
-            this.TxtCode.Location = new System.Drawing.Point(219, 129);
-            this.TxtCode.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.TxtCode.Location = new System.Drawing.Point(235, 129);
+            this.TxtCode.Margin = new System.Windows.Forms.Padding(5);
             this.TxtCode.Name = "TxtCode";
             this.TxtCode.PasswordChar = '\0';
             this.TxtCode.PlaceholderText = "";
@@ -426,22 +415,21 @@ namespace Proyecto_DAM.Forms.Products
             this.TxtName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.TxtName.DisabledState.Parent = this.TxtName;
             this.TxtName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.TxtName.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.TxtName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.TxtName.FocusedState.Parent = this.TxtName;
             this.TxtName.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtName.ForeColor = System.Drawing.Color.Black;
-            this.TxtName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TxtName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.TxtName.HoverState.Parent = this.TxtName;
-            this.TxtName.Location = new System.Drawing.Point(219, 199);
-            this.TxtName.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.TxtName.Location = new System.Drawing.Point(235, 199);
+            this.TxtName.Margin = new System.Windows.Forms.Padding(5);
             this.TxtName.Name = "TxtName";
             this.TxtName.PasswordChar = '\0';
             this.TxtName.PlaceholderText = "";
             this.TxtName.ReadOnly = true;
             this.TxtName.SelectedText = "";
             this.TxtName.ShadowDecoration.Parent = this.TxtName;
-            this.TxtName.Size = new System.Drawing.Size(299, 36);
+            this.TxtName.Size = new System.Drawing.Size(341, 36);
             this.TxtName.TabIndex = 6;
             // 
             // PctBxBack
@@ -465,7 +453,7 @@ namespace Proyecto_DAM.Forms.Products
             this.LblEditContact.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
             this.LblEditContact.Location = new System.Drawing.Point(139, 18);
             this.LblEditContact.Name = "LblEditContact";
-            this.LblEditContact.Size = new System.Drawing.Size(392, 41);
+            this.LblEditContact.Size = new System.Drawing.Size(380, 40);
             this.LblEditContact.TabIndex = 0;
             this.LblEditContact.Text = "Información del producto";
             // 
@@ -473,6 +461,7 @@ namespace Proyecto_DAM.Forms.Products
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1172, 678);
             this.Controls.Add(this.PanelContainer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

@@ -30,10 +30,10 @@ namespace Proyecto_DAM.Forms.Sales
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAddSale));
             this.PanelContainer = new Guna.UI2.WinForms.Guna2Panel();
             this.DatePicker = new Guna.UI2.WinForms.Guna2DateTimePicker();
@@ -67,6 +67,9 @@ namespace Proyecto_DAM.Forms.Sales
             this.LblAddProduct = new System.Windows.Forms.Label();
             this.pRODUCTSTableAdapter = new Proyecto_DAM.db_devloDataSetProductsTableAdapters.PRODUCTSTableAdapter();
             this.cONTACTSTableAdapter = new Proyecto_DAM.db_devloDataSetTableAdapters.CONTACTSTableAdapter();
+            this.db_devloDataSetSalesStates = new Proyecto_DAM.db_devloDataSetSalesStates();
+            this.sTATESBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sTATESTableAdapter = new Proyecto_DAM.db_devloDataSetSalesStatesTableAdapters.STATESTableAdapter();
             this.PanelContainer.SuspendLayout();
             this.PanelData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewProducts)).BeginInit();
@@ -75,11 +78,13 @@ namespace Proyecto_DAM.Forms.Sales
             ((System.ComponentModel.ISupportInitialize)(this.cONTACTSBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.db_devloDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PctBxBack)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.db_devloDataSetSalesStates)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sTATESBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelContainer
             // 
-            this.PanelContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
+            this.PanelContainer.BackColor = System.Drawing.Color.White;
             this.PanelContainer.Controls.Add(this.DatePicker);
             this.PanelContainer.Controls.Add(this.PanelData);
             this.PanelContainer.Controls.Add(this.CmbBxContact);
@@ -88,7 +93,7 @@ namespace Proyecto_DAM.Forms.Sales
             this.PanelContainer.Controls.Add(this.BtnSave);
             this.PanelContainer.Controls.Add(this.PctBxBack);
             this.PanelContainer.Controls.Add(this.LblAddProduct);
-            this.PanelContainer.Font = new System.Drawing.Font("Louis George Café", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PanelContainer.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PanelContainer.Location = new System.Drawing.Point(45, 0);
             this.PanelContainer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PanelContainer.Name = "PanelContainer";
@@ -102,9 +107,11 @@ namespace Proyecto_DAM.Forms.Sales
             this.DatePicker.BorderRadius = 8;
             this.DatePicker.BorderThickness = 2;
             this.DatePicker.CheckedState.Parent = this.DatePicker;
-            this.DatePicker.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.DatePicker.Font = new System.Drawing.Font("Louis George Café", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DatePicker.FillColor = System.Drawing.Color.White;
+            this.DatePicker.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
+            this.DatePicker.Font = new System.Drawing.Font("Louis George Café", 10.2F);
             this.DatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.DatePicker.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.DatePicker.HoverState.Parent = this.DatePicker;
             this.DatePicker.Location = new System.Drawing.Point(664, 92);
             this.DatePicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -112,10 +119,10 @@ namespace Proyecto_DAM.Forms.Sales
             this.DatePicker.MinDate = new System.DateTime(2001, 1, 1, 0, 0, 0, 0);
             this.DatePicker.Name = "DatePicker";
             this.DatePicker.ShadowDecoration.Parent = this.DatePicker;
-            this.DatePicker.Size = new System.Drawing.Size(361, 36);
+            this.DatePicker.Size = new System.Drawing.Size(383, 36);
             this.DatePicker.TabIndex = 30;
             this.DatePicker.Value = new System.DateTime(2021, 11, 25, 0, 0, 0, 0);
-            this.DatePicker.ValueChanged += new System.EventHandler(this.guna2DateTimePicker1_ValueChanged);
+            this.DatePicker.ValueChanged += new System.EventHandler(this.DatePicker_ValueChanged);
             // 
             // PanelData
             // 
@@ -126,7 +133,7 @@ namespace Proyecto_DAM.Forms.Sales
             this.PanelData.Controls.Add(this.guna2VSeparator1);
             this.PanelData.Controls.Add(this.DataGridViewProducts);
             this.PanelData.Controls.Add(this.TxtSearch);
-            this.PanelData.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
+            this.PanelData.FillColor = System.Drawing.Color.White;
             this.PanelData.Location = new System.Drawing.Point(84, 143);
             this.PanelData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PanelData.Name = "PanelData";
@@ -144,24 +151,27 @@ namespace Proyecto_DAM.Forms.Sales
             this.ClmnHdrCuantity});
             this.LstViewProducts.Font = new System.Drawing.Font("Louis George Café", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LstViewProducts.FullRowSelect = true;
-            this.LstViewProducts.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.LstViewProducts.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.LstViewProducts.HideSelection = false;
-            this.LstViewProducts.Location = new System.Drawing.Point(513, 16);
+            this.LstViewProducts.Location = new System.Drawing.Point(509, 16);
             this.LstViewProducts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.LstViewProducts.MultiSelect = false;
             this.LstViewProducts.Name = "LstViewProducts";
             this.LstViewProducts.Size = new System.Drawing.Size(428, 347);
-            this.LstViewProducts.TabIndex = 9;
+            this.LstViewProducts.TabIndex = 11;
             this.LstViewProducts.UseCompatibleStateImageBehavior = false;
             this.LstViewProducts.View = System.Windows.Forms.View.Details;
+            this.LstViewProducts.SelectedIndexChanged += new System.EventHandler(this.LstViewProducts_SelectedIndexChanged);
+            this.LstViewProducts.MouseClick += new System.Windows.Forms.MouseEventHandler(this.LstViewProducts_MouseClick);
             // 
             // ClmnHdrName
             // 
-            this.ClmnHdrName.Text = "Name";
-            this.ClmnHdrName.Width = 140;
+            this.ClmnHdrName.Text = "Nombre";
+            this.ClmnHdrName.Width = 168;
             // 
             // ClmnHdrCuantity
             // 
-            this.ClmnHdrCuantity.Text = "Cuantity";
+            this.ClmnHdrCuantity.Text = "Cantidad";
             this.ClmnHdrCuantity.Width = 140;
             // 
             // LblEuros
@@ -201,22 +211,22 @@ namespace Proyecto_DAM.Forms.Sales
             this.DataGridViewProducts.AllowUserToOrderColumns = true;
             this.DataGridViewProducts.AllowUserToResizeColumns = false;
             this.DataGridViewProducts.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.DataGridViewProducts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
+            this.DataGridViewProducts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.DataGridViewProducts.AutoGenerateColumns = false;
             this.DataGridViewProducts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DataGridViewProducts.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.DataGridViewProducts.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DataGridViewProducts.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.DataGridViewProducts.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Louis George Café", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataGridViewProducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGridViewProducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.DataGridViewProducts.ColumnHeadersHeight = 50;
             this.DataGridViewProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.DataGridViewProducts.ColumnHeadersVisible = false;
@@ -231,15 +241,15 @@ namespace Proyecto_DAM.Forms.Sales
             this.IDSUPPLIER,
             this.SUPPLIER});
             this.DataGridViewProducts.DataSource = this.pRODUCTSBindingSource;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Louis George Café", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataGridViewProducts.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGridViewProducts.DefaultCellStyle = dataGridViewCellStyle7;
             this.DataGridViewProducts.EnableHeadersVisualStyles = false;
             this.DataGridViewProducts.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
             this.DataGridViewProducts.Location = new System.Drawing.Point(15, 76);
@@ -250,13 +260,13 @@ namespace Proyecto_DAM.Forms.Sales
             this.DataGridViewProducts.RowHeadersVisible = false;
             this.DataGridViewProducts.RowHeadersWidth = 51;
             this.DataGridViewProducts.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            this.DataGridViewProducts.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.DataGridViewProducts.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+            this.DataGridViewProducts.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            this.DataGridViewProducts.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DataGridViewProducts.RowTemplate.Height = 34;
             this.DataGridViewProducts.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.DataGridViewProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
@@ -271,7 +281,7 @@ namespace Proyecto_DAM.Forms.Sales
             this.DataGridViewProducts.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
             this.DataGridViewProducts.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.DataGridViewProducts.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.DataGridViewProducts.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DataGridViewProducts.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DataGridViewProducts.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.DataGridViewProducts.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.DataGridViewProducts.ThemeStyle.HeaderStyle.Height = 50;
@@ -296,11 +306,13 @@ namespace Proyecto_DAM.Forms.Sales
             // 
             // CODE
             // 
+            this.CODE.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.CODE.DataPropertyName = "CODE";
-            this.CODE.HeaderText = "CODE";
+            this.CODE.HeaderText = "";
             this.CODE.MinimumWidth = 6;
             this.CODE.Name = "CODE";
             this.CODE.ReadOnly = true;
+            this.CODE.Width = 75;
             // 
             // NAME
             // 
@@ -407,7 +419,7 @@ namespace Proyecto_DAM.Forms.Sales
             // 
             // CmbBxContact
             // 
-            this.CmbBxContact.BackColor = System.Drawing.Color.Transparent;
+            this.CmbBxContact.BackColor = System.Drawing.Color.White;
             this.CmbBxContact.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
             this.CmbBxContact.BorderRadius = 8;
             this.CmbBxContact.BorderThickness = 2;
@@ -415,12 +427,12 @@ namespace Proyecto_DAM.Forms.Sales
             this.CmbBxContact.DisplayMember = "NAME";
             this.CmbBxContact.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.CmbBxContact.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbBxContact.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.CmbBxContact.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.CmbBxContact.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.CmbBxContact.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
+            this.CmbBxContact.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.CmbBxContact.FocusedState.Parent = this.CmbBxContact;
             this.CmbBxContact.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CmbBxContact.ForeColor = System.Drawing.Color.Black;
+            this.CmbBxContact.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.CmbBxContact.HoverState.Parent = this.CmbBxContact;
             this.CmbBxContact.ItemHeight = 30;
             this.CmbBxContact.ItemsAppearance.Parent = this.CmbBxContact;
@@ -518,11 +530,25 @@ namespace Proyecto_DAM.Forms.Sales
             // 
             this.cONTACTSTableAdapter.ClearBeforeFill = true;
             // 
+            // db_devloDataSetSalesStates
+            // 
+            this.db_devloDataSetSalesStates.DataSetName = "db_devloDataSetSalesStates";
+            this.db_devloDataSetSalesStates.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // sTATESBindingSource
+            // 
+            this.sTATESBindingSource.DataMember = "STATES";
+            this.sTATESBindingSource.DataSource = this.db_devloDataSetSalesStates;
+            // 
+            // sTATESTableAdapter
+            // 
+            this.sTATESTableAdapter.ClearBeforeFill = true;
+            // 
             // FrmAddSale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1172, 678);
             this.Controls.Add(this.PanelContainer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -540,6 +566,8 @@ namespace Proyecto_DAM.Forms.Sales
             ((System.ComponentModel.ISupportInitialize)(this.cONTACTSBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.db_devloDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PctBxBack)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.db_devloDataSetSalesStates)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sTATESBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -549,9 +577,6 @@ namespace Proyecto_DAM.Forms.Sales
         private Guna.UI2.WinForms.Guna2Panel PanelContainer;
         private Guna.UI2.WinForms.Guna2DateTimePicker DatePicker;
         private Guna.UI2.WinForms.Guna2ShadowPanel PanelData;
-        private System.Windows.Forms.ListView LstViewProducts;
-        private System.Windows.Forms.ColumnHeader ClmnHdrName;
-        private System.Windows.Forms.ColumnHeader ClmnHdrCuantity;
         private System.Windows.Forms.Label LblEuros;
         private System.Windows.Forms.Label LblTotal;
         private Guna.UI2.WinForms.Guna2VSeparator guna2VSeparator1;
@@ -569,14 +594,20 @@ namespace Proyecto_DAM.Forms.Sales
         private db_devloDataSet db_devloDataSet;
         private System.Windows.Forms.BindingSource cONTACTSBindingSource;
         private db_devloDataSetTableAdapters.CONTACTSTableAdapter cONTACTSTableAdapter;
-		private System.Windows.Forms.DataGridViewTextBoxColumn IDPRODUCT;
-		private System.Windows.Forms.DataGridViewTextBoxColumn CODE;
-		private System.Windows.Forms.DataGridViewTextBoxColumn NAME;
-		private System.Windows.Forms.DataGridViewTextBoxColumn STOCK;
-		private System.Windows.Forms.DataGridViewTextBoxColumn SELL_PRICE;
-		private System.Windows.Forms.DataGridViewTextBoxColumn CATEGORY;
-		private System.Windows.Forms.DataGridViewTextBoxColumn IDCATEGORY;
-		private System.Windows.Forms.DataGridViewTextBoxColumn IDSUPPLIER;
-		private System.Windows.Forms.DataGridViewTextBoxColumn SUPPLIER;
-	}
+        private System.Windows.Forms.ListView LstViewProducts;
+        private System.Windows.Forms.ColumnHeader ClmnHdrName;
+        private System.Windows.Forms.ColumnHeader ClmnHdrCuantity;
+		private db_devloDataSetSalesStates db_devloDataSetSalesStates;
+		private System.Windows.Forms.BindingSource sTATESBindingSource;
+		private db_devloDataSetSalesStatesTableAdapters.STATESTableAdapter sTATESTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDPRODUCT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CODE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NAME;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STOCK;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SELL_PRICE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CATEGORY;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDCATEGORY;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDSUPPLIER;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SUPPLIER;
+    }
 }

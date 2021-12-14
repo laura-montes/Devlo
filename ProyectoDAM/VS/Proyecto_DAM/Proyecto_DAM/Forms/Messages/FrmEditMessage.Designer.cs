@@ -30,6 +30,7 @@ namespace Proyecto_DAM.Forms
         private void InitializeComponent()
         {
             this.LblInformation = new System.Windows.Forms.Label();
+            this.BtnOk = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
             // LblInformation
@@ -42,12 +43,38 @@ namespace Proyecto_DAM.Forms
             this.LblInformation.TabIndex = 5;
             this.LblInformation.Text = "Editado correctamente";
             // 
+            // BtnOk
+            // 
+            this.BtnOk.BorderColor = System.Drawing.Color.White;
+            this.BtnOk.BorderRadius = 8;
+            this.BtnOk.BorderThickness = 2;
+            this.BtnOk.CheckedState.Parent = this.BtnOk;
+            this.BtnOk.CustomImages.Parent = this.BtnOk;
+            this.BtnOk.DialogResult = System.Windows.Forms.DialogResult.Yes;
+            this.BtnOk.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.BtnOk.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.BtnOk.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.BtnOk.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnOk.DisabledState.Parent = this.BtnOk;
+            this.BtnOk.FillColor = System.Drawing.Color.Empty;
+            this.BtnOk.Font = new System.Drawing.Font("Louis George Café", 9F);
+            this.BtnOk.ForeColor = System.Drawing.Color.White;
+            this.BtnOk.HoverState.Parent = this.BtnOk;
+            this.BtnOk.Location = new System.Drawing.Point(82, 76);
+            this.BtnOk.Name = "BtnOk";
+            this.BtnOk.ShadowDecoration.Parent = this.BtnOk;
+            this.BtnOk.Size = new System.Drawing.Size(145, 45);
+            this.BtnOk.TabIndex = 6;
+            this.BtnOk.Text = "Aceptar";
+            this.BtnOk.Click += new System.EventHandler(this.BtnOk_Click);
+            // 
             // FrmEditMessage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
-            this.ClientSize = new System.Drawing.Size(333, 90);
+            this.ClientSize = new System.Drawing.Size(333, 133);
+            this.Controls.Add(this.BtnOk);
             this.Controls.Add(this.LblInformation);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -60,5 +87,6 @@ namespace Proyecto_DAM.Forms
 
         #endregion
         private System.Windows.Forms.Label LblInformation;
+        internal Guna.UI2.WinForms.Guna2Button BtnOk;
     }
 }

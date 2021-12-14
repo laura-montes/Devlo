@@ -4,103 +4,113 @@
 <head>
     <title>Pdf Design</title>
     <style>
+        body {
+        }
+
         table.border {
             border-collapse: collapse;
         }
 
-        table.border th {
+        th {
             padding: 5px;
-            border: 1px solid black;
+            text-align: left;
         }
 
         table.border td {
             padding: 5px;
-            border: 1px solid black;
         }
     </style>
+
 </head>
 
 <body>
     <table style="width:100%">
         <tr>
-            <td style="width:20%"></td>
+            <td style="width:20%"> </td>
             <td style="width:60%" align="center">
                 <table>
                     <tr>
-                        <td align="center">EMPRESA DE JARDINERIA</td>
+                        <td align="center"> EMPRESA DE JARDINERIA</td>
                     </tr>
                     <tr>
-                        <td align="center">Avenida del Ejército 46</td>
+                        <td align="center"> Avenida del Ejército 46</td>
                     </tr>
                     <tr>
-                        <td align="center">Teléfono: 985125478</td>
+                        <td align="center"> Teléfono: 985125478</td>
                     </tr>
                 </table>
             </td>
             <td style="width:20%">
                 <table style="width:100%">
                     <tr>
-                        <td align="center">VENTA</td>
+                        <td align="center"> VENTA</td>
                     </tr>
                     <tr>
-                        <td align="center">Nro: @Number</td>
+                        <td align="center"> Nro: @Number</td>
                     </tr>
                 </table>
             </td>
         </tr>
 
         <tr>
-            <td colspan="3" height="20""></td>
+            <td colspan="3" height="20"> </td>
         </tr>
 
         <tr>
             <td colspan="2">
                 <table style="width:100%">
                     <tr>
-                        <td colspan=1 style="width:20%">Cliente:</td>
-                        <td colspan=3 style="width:80%;border-bottom:1px solid black">@Customer</td>
+                        <td colspan=1 style="width:20%"> Cliente:</td>
+                        <td colspan=3 style="width:80%;border-bottom:1px solid black"> @Customer</td>
                     </tr>
                     <tr>
-                        <td colspan=1 style="width:20%">Fecha:</td>
-                        <td colspan=3 style="width:80%;border-bottom:1px solid black">@Date</td>
+                        <td colspan=1 style="width:20%"> Fecha:</td>
+                        <td colspan=3 style="width:80%;border-bottom:1px solid black"> @Date</td>
                     </tr>
                 </table>
             </td>
         </tr>
         <tr>
-            <td colspan="2" height="20"></td>
+            <td colspan="2" height="20"> </td>
         </tr>
         <tr>
             <td colspan="3">
                 <table class=border style="width:100%">
                     <tr style="background-color:#D9AF7B">
-                        <th>Cantidad</th>
-                        <th>Descripción</th>
-                        <th>Precio unitario</th>
-                        <th>Importe</th>
+                        <th style="text-align: right"> Cantidad</th>
+                        <th style="text-align: center"> Descripción</th>
+                        <th style="text-align: right"> Precio unitario</th>
+                        <th style="text-align: right"> Importe</th>
                     </tr>
                     <tbody>
-                        <!--<tr>
-                            <td>1</td>
-                            <td>Margarita</td>
-                            <td>5,00</td>
-                            <td>5,00</td>
-                        </tr>-->
-                        @Filas
-                        <tr>
-                            <td style="border:0px !important"></td>
-                            <td style="border:0px !important"></td>
-                            <td align="right">Total:</td>
-                            <td>@Total</td>
-                        </tr>
+                        @FILAS
                     </tbody>
+
                 </table>
+                <hr> </hr >
+                <table class=border align="right" style="width:35%">
+                    <tr>
+                        <td style="text-align:right">Subtotal:</td>
+                        <td style="text-align:right">@Subtotal</td>
 
-
+                    </tr>
+                    <tr>
+                        <td style="text-align:right">IVA 21%</td>
+                        <td style="text-align:right">@IVA</td>
+                    </tr>
+                </table>
+                <br></br>
+                <br></br>
+                <br></br>
+                <hr></hr>
+                <table class=border align="right" style="width:35%">
+                    <tr>
+                        <td style="text-align:right">TOTAL:</td>
+                        <td style="text-align:right">@Total</td>
+                    </tr>
+                </table>
             </td>
         </tr>
-
     </table>
 </body>
-
 </html>

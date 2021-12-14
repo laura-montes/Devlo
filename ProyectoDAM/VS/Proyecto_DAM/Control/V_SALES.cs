@@ -18,5 +18,6 @@ namespace Control
         public string NAME { get; set; }
         public string DESCRIPTION { get; set; }
         public Nullable<System.DateTime> FECHA_PEDIDO { get; set; }
+        public string STATE { get; set; }
     }
 }

@@ -38,12 +38,6 @@ namespace Proyecto_DAM.Forms.Ventas
             this.PanelContainer = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2VScrollBar1 = new Guna.UI2.WinForms.Guna2VScrollBar();
             this.DataGridViewSales = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.vSALESBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.db_devloDataSetSales = new Proyecto_DAM.db_devloDataSetSales();
-            this.BtnFilter = new Guna.UI2.WinForms.Guna2Button();
-            this.BtnAdd = new Guna.UI2.WinForms.Guna2Button();
-            this.TxtSearch = new Guna.UI2.WinForms.Guna2TextBox();
-            this.v_SALESTableAdapter = new Proyecto_DAM.db_devloDataSetSalesTableAdapters.V_SALESTableAdapter();
             this.IDCAB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DESCRIPTION = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,6 +46,13 @@ namespace Proyecto_DAM.Forms.Ventas
             this.Detail = new System.Windows.Forms.DataGridViewImageColumn();
             this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.vSALESBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.db_devloDataSetSales = new Proyecto_DAM.db_devloDataSetSales();
+            this.BtnFilter = new Guna.UI2.WinForms.Guna2Button();
+            this.BtnAdd = new Guna.UI2.WinForms.Guna2Button();
+            this.TxtSearch = new Guna.UI2.WinForms.Guna2TextBox();
+            this.v_SALESTableAdapter = new Proyecto_DAM.db_devloDataSetSalesTableAdapters.V_SALESTableAdapter();
+            this.BtnRefresh = new Guna.UI2.WinForms.Guna2Button();
             this.PanelContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewSales)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vSALESBindingSource)).BeginInit();
@@ -62,6 +63,7 @@ namespace Proyecto_DAM.Forms.Ventas
             // 
             this.PanelContainer.AutoScroll = true;
             this.PanelContainer.BackColor = System.Drawing.Color.White;
+            this.PanelContainer.Controls.Add(this.BtnRefresh);
             this.PanelContainer.Controls.Add(this.guna2VScrollBar1);
             this.PanelContainer.Controls.Add(this.BtnFilter);
             this.PanelContainer.Controls.Add(this.BtnAdd);
@@ -155,7 +157,7 @@ namespace Proyecto_DAM.Forms.Ventas
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
             this.DataGridViewSales.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.DataGridViewSales.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DataGridViewSales.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DataGridViewSales.RowTemplate.Height = 34;
             this.DataGridViewSales.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.DataGridViewSales.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
@@ -183,98 +185,6 @@ namespace Proyecto_DAM.Forms.Ventas
             this.DataGridViewSales.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
             this.DataGridViewSales.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.DataGridViewSales.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewSales_CellClick);
-            // 
-            // vSALESBindingSource
-            // 
-            this.vSALESBindingSource.DataMember = "V_SALES";
-            this.vSALESBindingSource.DataSource = this.db_devloDataSetSales;
-            // 
-            // db_devloDataSetSales
-            // 
-            this.db_devloDataSetSales.DataSetName = "db_devloDataSetSales";
-            this.db_devloDataSetSales.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // BtnFilter
-            // 
-            this.BtnFilter.BorderRadius = 8;
-            this.BtnFilter.CheckedState.Parent = this.BtnFilter;
-            this.BtnFilter.CustomImages.Parent = this.BtnFilter;
-            this.BtnFilter.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.BtnFilter.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.BtnFilter.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.BtnFilter.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnFilter.DisabledState.Parent = this.BtnFilter;
-            this.BtnFilter.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
-            this.BtnFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.BtnFilter.ForeColor = System.Drawing.Color.White;
-            this.BtnFilter.HoverState.Parent = this.BtnFilter;
-            this.BtnFilter.Image = ((System.Drawing.Image)(resources.GetObject("BtnFilter.Image")));
-            this.BtnFilter.ImageSize = new System.Drawing.Size(30, 30);
-            this.BtnFilter.Location = new System.Drawing.Point(1024, 14);
-            this.BtnFilter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.BtnFilter.Name = "BtnFilter";
-            this.BtnFilter.ShadowDecoration.Parent = this.BtnFilter;
-            this.BtnFilter.Size = new System.Drawing.Size(73, 44);
-            this.BtnFilter.TabIndex = 4;
-            this.BtnFilter.Click += new System.EventHandler(this.BtnFilter_Click);
-            // 
-            // BtnAdd
-            // 
-            this.BtnAdd.BorderRadius = 8;
-            this.BtnAdd.CheckedState.Parent = this.BtnAdd;
-            this.BtnAdd.CustomImages.Parent = this.BtnAdd;
-            this.BtnAdd.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.BtnAdd.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.BtnAdd.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.BtnAdd.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnAdd.DisabledState.Parent = this.BtnAdd;
-            this.BtnAdd.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
-            this.BtnAdd.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnAdd.ForeColor = System.Drawing.Color.White;
-            this.BtnAdd.HoverState.Parent = this.BtnAdd;
-            this.BtnAdd.Location = new System.Drawing.Point(812, 14);
-            this.BtnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.BtnAdd.Name = "BtnAdd";
-            this.BtnAdd.ShadowDecoration.Parent = this.BtnAdd;
-            this.BtnAdd.Size = new System.Drawing.Size(180, 46);
-            this.BtnAdd.TabIndex = 3;
-            this.BtnAdd.Text = "Añadir";
-            this.BtnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
-            // 
-            // TxtSearch
-            // 
-            this.TxtSearch.BorderColor = System.Drawing.Color.White;
-            this.TxtSearch.BorderRadius = 8;
-            this.TxtSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.TxtSearch.DefaultText = "";
-            this.TxtSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.TxtSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.TxtSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.TxtSearch.DisabledState.Parent = this.TxtSearch;
-            this.TxtSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.TxtSearch.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
-            this.TxtSearch.FocusedState.BorderColor = System.Drawing.Color.Transparent;
-            this.TxtSearch.FocusedState.Parent = this.TxtSearch;
-            this.TxtSearch.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtSearch.ForeColor = System.Drawing.Color.Empty;
-            this.TxtSearch.HoverState.BorderColor = System.Drawing.Color.Transparent;
-            this.TxtSearch.HoverState.Parent = this.TxtSearch;
-            this.TxtSearch.IconLeft = ((System.Drawing.Image)(resources.GetObject("TxtSearch.IconLeft")));
-            this.TxtSearch.Location = new System.Drawing.Point(20, 12);
-            this.TxtSearch.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.TxtSearch.Name = "TxtSearch";
-            this.TxtSearch.PasswordChar = '\0';
-            this.TxtSearch.PlaceholderForeColor = System.Drawing.Color.White;
-            this.TxtSearch.PlaceholderText = "Buscar ventas...";
-            this.TxtSearch.SelectedText = "";
-            this.TxtSearch.ShadowDecoration.Parent = this.TxtSearch;
-            this.TxtSearch.Size = new System.Drawing.Size(515, 43);
-            this.TxtSearch.TabIndex = 2;
-            this.TxtSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtSearch_KeyUp);
-            // 
-            // v_SALESTableAdapter
-            // 
-            this.v_SALESTableAdapter.ClearBeforeFill = true;
             // 
             // IDCAB
             // 
@@ -351,6 +261,122 @@ namespace Proyecto_DAM.Forms.Ventas
             this.Delete.ReadOnly = true;
             this.Delete.Width = 65;
             // 
+            // vSALESBindingSource
+            // 
+            this.vSALESBindingSource.DataMember = "V_SALES";
+            this.vSALESBindingSource.DataSource = this.db_devloDataSetSales;
+            // 
+            // db_devloDataSetSales
+            // 
+            this.db_devloDataSetSales.DataSetName = "db_devloDataSetSales";
+            this.db_devloDataSetSales.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // BtnFilter
+            // 
+            this.BtnFilter.BorderRadius = 8;
+            this.BtnFilter.CheckedState.Parent = this.BtnFilter;
+            this.BtnFilter.CustomImages.Parent = this.BtnFilter;
+            this.BtnFilter.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.BtnFilter.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.BtnFilter.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.BtnFilter.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnFilter.DisabledState.Parent = this.BtnFilter;
+            this.BtnFilter.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
+            this.BtnFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.BtnFilter.ForeColor = System.Drawing.Color.White;
+            this.BtnFilter.HoverState.Parent = this.BtnFilter;
+            this.BtnFilter.Image = ((System.Drawing.Image)(resources.GetObject("BtnFilter.Image")));
+            this.BtnFilter.ImageSize = new System.Drawing.Size(30, 30);
+            this.BtnFilter.Location = new System.Drawing.Point(1024, 14);
+            this.BtnFilter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BtnFilter.Name = "BtnFilter";
+            this.BtnFilter.ShadowDecoration.Parent = this.BtnFilter;
+            this.BtnFilter.Size = new System.Drawing.Size(73, 44);
+            this.BtnFilter.TabIndex = 4;
+            this.BtnFilter.Click += new System.EventHandler(this.BtnFilter_Click);
+            // 
+            // BtnAdd
+            // 
+            this.BtnAdd.BorderRadius = 8;
+            this.BtnAdd.CheckedState.Parent = this.BtnAdd;
+            this.BtnAdd.CustomImages.Parent = this.BtnAdd;
+            this.BtnAdd.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.BtnAdd.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.BtnAdd.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.BtnAdd.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnAdd.DisabledState.Parent = this.BtnAdd;
+            this.BtnAdd.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
+            this.BtnAdd.Font = new System.Drawing.Font("Louis George Café", 12F);
+            this.BtnAdd.ForeColor = System.Drawing.Color.White;
+            this.BtnAdd.HoverState.Parent = this.BtnAdd;
+            this.BtnAdd.Location = new System.Drawing.Point(722, 14);
+            this.BtnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BtnAdd.Name = "BtnAdd";
+            this.BtnAdd.ShadowDecoration.Parent = this.BtnAdd;
+            this.BtnAdd.Size = new System.Drawing.Size(180, 46);
+            this.BtnAdd.TabIndex = 3;
+            this.BtnAdd.Text = "Añadir venta";
+            this.BtnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
+            // 
+            // TxtSearch
+            // 
+            this.TxtSearch.BorderColor = System.Drawing.Color.White;
+            this.TxtSearch.BorderRadius = 8;
+            this.TxtSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TxtSearch.DefaultText = "";
+            this.TxtSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.TxtSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.TxtSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.TxtSearch.DisabledState.Parent = this.TxtSearch;
+            this.TxtSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.TxtSearch.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
+            this.TxtSearch.FocusedState.BorderColor = System.Drawing.Color.Transparent;
+            this.TxtSearch.FocusedState.Parent = this.TxtSearch;
+            this.TxtSearch.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtSearch.ForeColor = System.Drawing.Color.White;
+            this.TxtSearch.HoverState.BorderColor = System.Drawing.Color.Transparent;
+            this.TxtSearch.HoverState.Parent = this.TxtSearch;
+            this.TxtSearch.IconLeft = ((System.Drawing.Image)(resources.GetObject("TxtSearch.IconLeft")));
+            this.TxtSearch.Location = new System.Drawing.Point(20, 12);
+            this.TxtSearch.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.TxtSearch.Name = "TxtSearch";
+            this.TxtSearch.PasswordChar = '\0';
+            this.TxtSearch.PlaceholderForeColor = System.Drawing.Color.White;
+            this.TxtSearch.PlaceholderText = "Buscar ventas...";
+            this.TxtSearch.SelectedText = "";
+            this.TxtSearch.ShadowDecoration.Parent = this.TxtSearch;
+            this.TxtSearch.Size = new System.Drawing.Size(515, 43);
+            this.TxtSearch.TabIndex = 2;
+            this.TxtSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtSearch_KeyUp);
+            // 
+            // v_SALESTableAdapter
+            // 
+            this.v_SALESTableAdapter.ClearBeforeFill = true;
+            // 
+            // BtnRefresh
+            // 
+            this.BtnRefresh.BorderRadius = 8;
+            this.BtnRefresh.CheckedState.Parent = this.BtnRefresh;
+            this.BtnRefresh.CustomImages.Parent = this.BtnRefresh;
+            this.BtnRefresh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.BtnRefresh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.BtnRefresh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.BtnRefresh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnRefresh.DisabledState.Parent = this.BtnRefresh;
+            this.BtnRefresh.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
+            this.BtnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.BtnRefresh.ForeColor = System.Drawing.Color.White;
+            this.BtnRefresh.HoverState.Parent = this.BtnRefresh;
+            this.BtnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("BtnRefresh.Image")));
+            this.BtnRefresh.ImageSize = new System.Drawing.Size(30, 30);
+            this.BtnRefresh.Location = new System.Drawing.Point(945, 16);
+            this.BtnRefresh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BtnRefresh.Name = "BtnRefresh";
+            this.BtnRefresh.ShadowDecoration.Parent = this.BtnRefresh;
+            this.BtnRefresh.Size = new System.Drawing.Size(73, 44);
+            this.BtnRefresh.TabIndex = 8;
+            this.BtnRefresh.Click += new System.EventHandler(this.BtnRefresh_Click);
+            // 
             // FrmSales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -393,5 +419,6 @@ namespace Proyecto_DAM.Forms.Ventas
         private System.Windows.Forms.DataGridViewImageColumn Detail;
         private System.Windows.Forms.DataGridViewImageColumn Edit;
         private System.Windows.Forms.DataGridViewImageColumn Delete;
+        private Guna.UI2.WinForms.Guna2Button BtnRefresh;
     }
 }

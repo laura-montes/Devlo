@@ -14,19 +14,22 @@ namespace Proyecto_DAM.Forms.Products
 			this.cATEGORYTableAdapter.Fill(this.db_devloDataSetCategory.CATEGORY);
 			this.sUPPLIERSTableAdapter.Fill(this.db_devloDataSetSuppliers.SUPPLIERS);
 
-			CmbBxSupplier.Text = null;
-			CmbBxCategory.Text = null;
+			CmbBxSupplier.SelectedIndex = -1;
+			CmbBxCategory.SelectedIndex = -1;
 		}
 
 		private void BtnSave_Click(object sender, EventArgs e)
 		{
-			// AÑADIR
-			/*Product product = new Product(int.Parse(TxtCode.Text),int.Parse(CmbBxCategory.SelectedValue.ToString()),int.Parse(CmbBxSupplier.SelectedValue.ToString()),
-                int.Parse(TxtStock.Text),TxtName.Text,TxtDescription.Text,double.Parse(TxtSell_Price.Text), double.Parse(TxtCost_Price.Text));*/
-
 			try
 			{
-				utilities.pa_add_product(
+                if (String.IsNullOrEmpty(TxtCode.Text) || String.IsNullOrEmpty(TxtCode.Text))
+                {
+					FrmAddMessage frm = new FrmAddMessage();
+					frm.Show();
+                }
+                else
+                {
+					utilities.pa_add_product(
 					int.Parse(TxtCode.Text),
 					TxtName.Text,
 					TxtDescription.Text,
@@ -35,22 +38,24 @@ namespace Proyecto_DAM.Forms.Products
 					int.Parse(TxtStock.Text),
 					decimal.Parse(TxtSell_Price.Text),
 					decimal.Parse(TxtCost_Price.Text));
-
-				MessageBox.Show("Producto añadido correctamente");
-
-				clear();
+				}
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show(ex.ToString());
+				MessageBox.Show("Error");
 			}
 
-
+			clear();
+			goBack();
 
 		}
 
 		private void PctBxBack_Click(object sender, EventArgs e)
-		{
+		{goBack();
+			 }
+
+		private void goBack()
+        {
 			FrmProducts frmProducts = new FrmProducts();
 			frmProducts.TopLevel = false;
 			FrmGeneral frmGeneral = (FrmGeneral)Application.OpenForms["FrmGeneral"];

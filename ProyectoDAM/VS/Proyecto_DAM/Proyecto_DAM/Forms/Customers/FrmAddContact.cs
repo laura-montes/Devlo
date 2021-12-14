@@ -1,4 +1,5 @@
 ﻿using Control;
+using Proyecto_DAM.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -54,6 +55,11 @@ namespace Proyecto_DAM
 
         private void PctBxBack_Click(object sender, EventArgs e)
         {
+            goBack();
+        }
+
+        private void goBack()
+        {
             FrmCustomer frmCustomer = new FrmCustomer();
             frmCustomer.TopLevel = false;
             FrmGeneral frmGeneral = (FrmGeneral)Application.OpenForms["FrmGeneral"];
@@ -69,20 +75,33 @@ namespace Proyecto_DAM
         {
             if (String.IsNullOrEmpty(TxtName.Text))
             {
-                MessageBox.Show("El nombre no puede estar vacio");
+                FrmAddMessage frm = new FrmAddMessage();
+                frm.Show();
             } else {
-                if (ChckCompany.Checked)
+                try
                 {
-                    Company company = new Company(TxtName.Text, TxtPhone.Text, TxtEmail.Text, TxtAddress.Text);
-                    utilities.pa_addContact(company.Name, null, company.Phone, company.Email, company.Address, company.Role, null);
-                    clean();
+                    if (ChckCompany.Checked)
+                    {
+                        Company company = new Company(TxtName.Text, TxtPhone.Text, TxtEmail.Text, TxtAddress.Text);
+                        utilities.pa_addContact(company.Name, null, company.Phone, company.Email, company.Address, company.Role, null);
+                        clean();
+                        FrmAddMessage frm = new FrmAddMessage();
+                        frm.Show();
+                        goBack();
+                    }
+                    else if (ChckCustomer.Checked)
+                    {
+                        Customer customer = new Customer(TxtName.Text, TxtSurname.Text, TxtPhone.Text, TxtEmail.Text);
+                        utilities.pa_addContact(customer.Name, customer.Surnames, customer.Phone, customer.Email, null, customer.Role, null);
+                        clean();
+                        goBack();
+                    }
                 }
-                else if (ChckCustomer.Checked)
+                catch (Exception ex)
                 {
-                    Customer customer = new Customer(TxtName.Text, TxtSurname.Text, TxtPhone.Text, TxtEmail.Text);
-                    utilities.pa_addContact(customer.Name, customer.Surnames, customer.Phone, customer.Email, null, customer.Role, null);
-                    clean();
+                    MessageBox.Show("Error");
                 }
+                
             }
         }
 

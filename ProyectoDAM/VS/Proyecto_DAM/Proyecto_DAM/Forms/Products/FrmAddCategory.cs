@@ -22,6 +22,36 @@ namespace Proyecto_DAM.Forms.Products
 
         private void PctBxBack_Click(object sender, EventArgs e)
         {
+            goBack();
+        }
+
+		private void BtnSave_Click(object sender, EventArgs e)
+		{
+            try
+            {
+                if (String.IsNullOrEmpty(TxtName.Text))
+                {
+                    FrmAddMessage frm = new FrmAddMessage();
+                    frm.Show();
+                }
+                else
+                {
+                    utilities.pa_add_category(TxtName.Text, TxtDescription.Text);
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error");
+            }
+
+            TxtName.Text = "";
+            TxtDescription.Text = "";
+            goBack();
+        }
+
+        private void goBack()
+        {
             FrmProducts frmProducts = new FrmProducts();
             frmProducts.TopLevel = false;
             FrmGeneral frmGeneral = (FrmGeneral)Application.OpenForms["FrmGeneral"];
@@ -32,12 +62,5 @@ namespace Proyecto_DAM.Forms.Products
             this.Close();
             frmProducts.Show();
         }
-
-		private void BtnSave_Click(object sender, EventArgs e)
-		{
-            utilities.pa_add_category(TxtName.Text, TxtDescription.Text);
-            TxtName.Text = "";
-            TxtDescription.Text = "";
-		}
 	}
 }

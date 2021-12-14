@@ -37,6 +37,15 @@
             this.PanelContainer = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2VScrollBar1 = new Guna.UI2.WinForms.Guna2VScrollBar();
             this.DataGridViewProducts = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.CODIGO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NOMBRE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDPRODUCT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CATEGORIA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PROVEDOR = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.STOCK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Detail = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.pRODUCTSBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.db_devloDataSetProducts = new Proyecto_DAM.db_devloDataSetProducts();
             this.PanelAddOptions = new Guna.UI2.WinForms.Guna2Panel();
@@ -49,15 +58,7 @@
             this.BtnAdd = new Guna.UI2.WinForms.Guna2Button();
             this.TxtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.pRODUCTSTableAdapter = new Proyecto_DAM.db_devloDataSetProductsTableAdapters.PRODUCTSTableAdapter();
-            this.CODIGO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NOMBRE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IDPRODUCT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CATEGORIA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PROVEDOR = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.STOCK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Detail = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.BtnRefresh = new Guna.UI2.WinForms.Guna2Button();
             this.PanelContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewProducts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pRODUCTSBindingSource)).BeginInit();
@@ -67,7 +68,9 @@
             // 
             // PanelContainer
             // 
+            this.PanelContainer.AutoScroll = true;
             this.PanelContainer.BackColor = System.Drawing.Color.White;
+            this.PanelContainer.Controls.Add(this.BtnRefresh);
             this.PanelContainer.Controls.Add(this.guna2VScrollBar1);
             this.PanelContainer.Controls.Add(this.PanelAddOptions);
             this.PanelContainer.Controls.Add(this.BtnFilter);
@@ -139,7 +142,7 @@
             this.DataGridViewProducts.DataSource = this.pRODUCTSBindingSource;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
@@ -166,7 +169,6 @@
             this.DataGridViewProducts.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DataGridViewProducts.RowTemplate.Height = 34;
             this.DataGridViewProducts.RowTemplate.ReadOnly = true;
-            this.DataGridViewProducts.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.DataGridViewProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.DataGridViewProducts.Size = new System.Drawing.Size(1077, 524);
             this.DataGridViewProducts.TabIndex = 1;
@@ -193,6 +195,116 @@
             this.DataGridViewProducts.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.DataGridViewProducts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewProducts_CellClick);
             // 
+            // CODIGO
+            // 
+            this.CODIGO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CODIGO.DataPropertyName = "CODE";
+            this.CODIGO.FillWeight = 54.21403F;
+            this.CODIGO.Frozen = true;
+            this.CODIGO.HeaderText = "";
+            this.CODIGO.MinimumWidth = 6;
+            this.CODIGO.Name = "CODIGO";
+            this.CODIGO.ReadOnly = true;
+            this.CODIGO.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.CODIGO.Width = 55;
+            // 
+            // NOMBRE
+            // 
+            this.NOMBRE.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.NOMBRE.DataPropertyName = "NAME";
+            this.NOMBRE.FillWeight = 54.21403F;
+            this.NOMBRE.Frozen = true;
+            this.NOMBRE.HeaderText = "Nombre";
+            this.NOMBRE.MinimumWidth = 6;
+            this.NOMBRE.Name = "NOMBRE";
+            this.NOMBRE.ReadOnly = true;
+            this.NOMBRE.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.NOMBRE.Width = 250;
+            // 
+            // IDPRODUCT
+            // 
+            this.IDPRODUCT.DataPropertyName = "IDPRODUCT";
+            this.IDPRODUCT.HeaderText = "IDPRODUCT";
+            this.IDPRODUCT.MinimumWidth = 6;
+            this.IDPRODUCT.Name = "IDPRODUCT";
+            this.IDPRODUCT.ReadOnly = true;
+            this.IDPRODUCT.Visible = false;
+            // 
+            // CATEGORIA
+            // 
+            this.CATEGORIA.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.CATEGORIA.DataPropertyName = "CATEGORY";
+            this.CATEGORIA.FillWeight = 54.21403F;
+            this.CATEGORIA.Frozen = true;
+            this.CATEGORIA.HeaderText = "Categoría";
+            this.CATEGORIA.MinimumWidth = 6;
+            this.CATEGORIA.Name = "CATEGORIA";
+            this.CATEGORIA.ReadOnly = true;
+            this.CATEGORIA.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.CATEGORIA.Width = 135;
+            // 
+            // PROVEDOR
+            // 
+            this.PROVEDOR.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.PROVEDOR.DataPropertyName = "SUPPLIER";
+            this.PROVEDOR.FillWeight = 54.21403F;
+            this.PROVEDOR.Frozen = true;
+            this.PROVEDOR.HeaderText = "Proveedor";
+            this.PROVEDOR.MinimumWidth = 6;
+            this.PROVEDOR.Name = "PROVEDOR";
+            this.PROVEDOR.ReadOnly = true;
+            this.PROVEDOR.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.PROVEDOR.Width = 138;
+            // 
+            // STOCK
+            // 
+            this.STOCK.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.STOCK.DataPropertyName = "STOCK";
+            this.STOCK.FillWeight = 54.21403F;
+            this.STOCK.Frozen = true;
+            this.STOCK.HeaderText = "Stock";
+            this.STOCK.MinimumWidth = 6;
+            this.STOCK.Name = "STOCK";
+            this.STOCK.ReadOnly = true;
+            this.STOCK.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.STOCK.Width = 95;
+            // 
+            // Detail
+            // 
+            this.Detail.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Detail.Frozen = true;
+            this.Detail.HeaderText = "";
+            this.Detail.Image = ((System.Drawing.Image)(resources.GetObject("Detail.Image")));
+            this.Detail.MinimumWidth = 6;
+            this.Detail.Name = "Detail";
+            this.Detail.ReadOnly = true;
+            this.Detail.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Detail.Width = 65;
+            // 
+            // Edit
+            // 
+            this.Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Edit.FillWeight = 185.6143F;
+            this.Edit.Frozen = true;
+            this.Edit.HeaderText = "";
+            this.Edit.Image = ((System.Drawing.Image)(resources.GetObject("Edit.Image")));
+            this.Edit.MinimumWidth = 6;
+            this.Edit.Name = "Edit";
+            this.Edit.ReadOnly = true;
+            this.Edit.Width = 50;
+            // 
+            // Delete
+            // 
+            this.Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Delete.FillWeight = 243.3155F;
+            this.Delete.Frozen = true;
+            this.Delete.HeaderText = "";
+            this.Delete.Image = ((System.Drawing.Image)(resources.GetObject("Delete.Image")));
+            this.Delete.MinimumWidth = 6;
+            this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
+            this.Delete.Width = 65;
+            // 
             // pRODUCTSBindingSource
             // 
             this.pRODUCTSBindingSource.DataMember = "PRODUCTS";
@@ -214,7 +326,7 @@
             this.PanelAddOptions.Controls.Add(this.BtnAddSupplier);
             this.PanelAddOptions.Controls.Add(this.BtnAddCategory);
             this.PanelAddOptions.Controls.Add(this.BtnAddProduct);
-            this.PanelAddOptions.Location = new System.Drawing.Point(812, 60);
+            this.PanelAddOptions.Location = new System.Drawing.Point(730, 62);
             this.PanelAddOptions.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PanelAddOptions.Name = "PanelAddOptions";
             this.PanelAddOptions.ShadowDecoration.Parent = this.PanelAddOptions;
@@ -274,7 +386,7 @@
             this.BtnAddCategory.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.BtnAddCategory.DisabledState.Parent = this.BtnAddCategory;
             this.BtnAddCategory.FillColor = System.Drawing.Color.White;
-            this.BtnAddCategory.Font = new System.Drawing.Font("Louis George Café", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnAddCategory.Font = new System.Drawing.Font("Louis George Café", 9F);
             this.BtnAddCategory.ForeColor = System.Drawing.Color.Black;
             this.BtnAddCategory.HoverState.Parent = this.BtnAddCategory;
             this.BtnAddCategory.Location = new System.Drawing.Point(5, 48);
@@ -297,7 +409,7 @@
             this.BtnAddProduct.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.BtnAddProduct.DisabledState.Parent = this.BtnAddProduct;
             this.BtnAddProduct.FillColor = System.Drawing.Color.White;
-            this.BtnAddProduct.Font = new System.Drawing.Font("Louis George Café", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnAddProduct.Font = new System.Drawing.Font("Louis George Café", 9F);
             this.BtnAddProduct.ForeColor = System.Drawing.Color.Black;
             this.BtnAddProduct.HoverState.Parent = this.BtnAddProduct;
             this.BtnAddProduct.Location = new System.Drawing.Point(4, 7);
@@ -331,6 +443,7 @@
             this.BtnFilter.ShadowDecoration.Parent = this.BtnFilter;
             this.BtnFilter.Size = new System.Drawing.Size(73, 44);
             this.BtnFilter.TabIndex = 4;
+            this.BtnFilter.Click += new System.EventHandler(this.BtnFilter_Click);
             // 
             // BtnAdd
             // 
@@ -346,7 +459,7 @@
             this.BtnAdd.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnAdd.ForeColor = System.Drawing.Color.White;
             this.BtnAdd.HoverState.Parent = this.BtnAdd;
-            this.BtnAdd.Location = new System.Drawing.Point(812, 14);
+            this.BtnAdd.Location = new System.Drawing.Point(730, 16);
             this.BtnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnAdd.Name = "BtnAdd";
             this.BtnAdd.ShadowDecoration.Parent = this.BtnAdd;
@@ -374,7 +487,7 @@
             this.TxtSearch.HoverState.BorderColor = System.Drawing.Color.Transparent;
             this.TxtSearch.HoverState.Parent = this.TxtSearch;
             this.TxtSearch.IconLeft = ((System.Drawing.Image)(resources.GetObject("TxtSearch.IconLeft")));
-            this.TxtSearch.Location = new System.Drawing.Point(20, 12);
+            this.TxtSearch.Location = new System.Drawing.Point(18, 12);
             this.TxtSearch.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.TxtSearch.Name = "TxtSearch";
             this.TxtSearch.PasswordChar = '\0';
@@ -382,7 +495,7 @@
             this.TxtSearch.PlaceholderText = "Buscar producto...";
             this.TxtSearch.SelectedText = "";
             this.TxtSearch.ShadowDecoration.Parent = this.TxtSearch;
-            this.TxtSearch.Size = new System.Drawing.Size(515, 43);
+            this.TxtSearch.Size = new System.Drawing.Size(472, 41);
             this.TxtSearch.TabIndex = 2;
             this.TxtSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtSearch_KeyUp);
             // 
@@ -390,110 +503,29 @@
             // 
             this.pRODUCTSTableAdapter.ClearBeforeFill = true;
             // 
-            // CODIGO
+            // BtnRefresh
             // 
-            this.CODIGO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.CODIGO.DataPropertyName = "CODE";
-            this.CODIGO.FillWeight = 54.21403F;
-            this.CODIGO.Frozen = true;
-            this.CODIGO.HeaderText = "Código";
-            this.CODIGO.MinimumWidth = 6;
-            this.CODIGO.Name = "CODIGO";
-            this.CODIGO.ReadOnly = true;
-            this.CODIGO.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.CODIGO.Width = 111;
-            // 
-            // NOMBRE
-            // 
-            this.NOMBRE.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.NOMBRE.DataPropertyName = "NAME";
-            this.NOMBRE.FillWeight = 54.21403F;
-            this.NOMBRE.Frozen = true;
-            this.NOMBRE.HeaderText = "Nombre";
-            this.NOMBRE.MinimumWidth = 6;
-            this.NOMBRE.Name = "NOMBRE";
-            this.NOMBRE.ReadOnly = true;
-            this.NOMBRE.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.NOMBRE.Width = 120;
-            // 
-            // IDPRODUCT
-            // 
-            this.IDPRODUCT.DataPropertyName = "IDPRODUCT";
-            this.IDPRODUCT.HeaderText = "IDPRODUCT";
-            this.IDPRODUCT.MinimumWidth = 6;
-            this.IDPRODUCT.Name = "IDPRODUCT";
-            this.IDPRODUCT.ReadOnly = true;
-            this.IDPRODUCT.Visible = false;
-            // 
-            // CATEGORIA
-            // 
-            this.CATEGORIA.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.CATEGORIA.DataPropertyName = "CATEGORY";
-            this.CATEGORIA.FillWeight = 54.21403F;
-            this.CATEGORIA.Frozen = true;
-            this.CATEGORIA.HeaderText = "Categoría";
-            this.CATEGORIA.MinimumWidth = 6;
-            this.CATEGORIA.Name = "CATEGORIA";
-            this.CATEGORIA.ReadOnly = true;
-            this.CATEGORIA.Width = 135;
-            // 
-            // PROVEDOR
-            // 
-            this.PROVEDOR.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.PROVEDOR.DataPropertyName = "SUPPLIER";
-            this.PROVEDOR.FillWeight = 54.21403F;
-            this.PROVEDOR.Frozen = true;
-            this.PROVEDOR.HeaderText = "Proveedor";
-            this.PROVEDOR.MinimumWidth = 6;
-            this.PROVEDOR.Name = "PROVEDOR";
-            this.PROVEDOR.ReadOnly = true;
-            this.PROVEDOR.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.PROVEDOR.Width = 138;
-            // 
-            // STOCK
-            // 
-            this.STOCK.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.STOCK.DataPropertyName = "STOCK";
-            this.STOCK.FillWeight = 54.21403F;
-            this.STOCK.Frozen = true;
-            this.STOCK.HeaderText = "Stock";
-            this.STOCK.MinimumWidth = 6;
-            this.STOCK.Name = "STOCK";
-            this.STOCK.ReadOnly = true;
-            this.STOCK.Width = 95;
-            // 
-            // Detail
-            // 
-            this.Detail.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Detail.HeaderText = "";
-            this.Detail.Image = ((System.Drawing.Image)(resources.GetObject("Detail.Image")));
-            this.Detail.MinimumWidth = 6;
-            this.Detail.Name = "Detail";
-            this.Detail.ReadOnly = true;
-            this.Detail.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Detail.Width = 75;
-            // 
-            // Edit
-            // 
-            this.Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Edit.FillWeight = 185.6143F;
-            this.Edit.HeaderText = "";
-            this.Edit.Image = ((System.Drawing.Image)(resources.GetObject("Edit.Image")));
-            this.Edit.MinimumWidth = 6;
-            this.Edit.Name = "Edit";
-            this.Edit.ReadOnly = true;
-            this.Edit.Width = 50;
-            // 
-            // Delete
-            // 
-            this.Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Delete.FillWeight = 243.3155F;
-            this.Delete.HeaderText = "";
-            this.Delete.Image = ((System.Drawing.Image)(resources.GetObject("Delete.Image")));
-            this.Delete.MinimumWidth = 6;
-            this.Delete.Name = "Delete";
-            this.Delete.ReadOnly = true;
-            this.Delete.Width = 65;
+            this.BtnRefresh.BorderRadius = 8;
+            this.BtnRefresh.CheckedState.Parent = this.BtnRefresh;
+            this.BtnRefresh.CustomImages.Parent = this.BtnRefresh;
+            this.BtnRefresh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.BtnRefresh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.BtnRefresh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.BtnRefresh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnRefresh.DisabledState.Parent = this.BtnRefresh;
+            this.BtnRefresh.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
+            this.BtnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.BtnRefresh.ForeColor = System.Drawing.Color.White;
+            this.BtnRefresh.HoverState.Parent = this.BtnRefresh;
+            this.BtnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("BtnRefresh.Image")));
+            this.BtnRefresh.ImageSize = new System.Drawing.Size(30, 30);
+            this.BtnRefresh.Location = new System.Drawing.Point(945, 16);
+            this.BtnRefresh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BtnRefresh.Name = "BtnRefresh";
+            this.BtnRefresh.ShadowDecoration.Parent = this.BtnRefresh;
+            this.BtnRefresh.Size = new System.Drawing.Size(73, 44);
+            this.BtnRefresh.TabIndex = 7;
+            this.BtnRefresh.Click += new System.EventHandler(this.BtnRefresh_Click);
             // 
             // FrmProducts
             // 
@@ -542,5 +574,6 @@
         private System.Windows.Forms.DataGridViewImageColumn Detail;
         private System.Windows.Forms.DataGridViewImageColumn Edit;
         private System.Windows.Forms.DataGridViewImageColumn Delete;
+        private Guna.UI2.WinForms.Guna2Button BtnRefresh;
     }
 }

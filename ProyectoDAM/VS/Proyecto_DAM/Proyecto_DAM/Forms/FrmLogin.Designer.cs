@@ -35,10 +35,10 @@ namespace Proyecto_DAM
             this.PctBxShape = new System.Windows.Forms.PictureBox();
             this.PctBxIcon = new System.Windows.Forms.PictureBox();
             this.PctBxClose = new System.Windows.Forms.PictureBox();
-            this.LblForgottenPassword = new System.Windows.Forms.Label();
             this.TxtUser = new Guna.UI2.WinForms.Guna2TextBox();
             this.TxtPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.BtnLogin = new Guna.UI2.WinForms.Guna2Button();
+            this.LblForgottenPassword = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PctBxShape)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PctBxIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PctBxClose)).BeginInit();
@@ -95,16 +95,6 @@ namespace Proyecto_DAM
             this.PctBxClose.TabIndex = 9;
             this.PctBxClose.TabStop = false;
             this.PctBxClose.Click += new System.EventHandler(this.PctBxClose_Click);
-            // 
-            // LblForgottenPassword
-            // 
-            this.LblForgottenPassword.AutoSize = true;
-            this.LblForgottenPassword.Font = new System.Drawing.Font("Louis George Café", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblForgottenPassword.Location = new System.Drawing.Point(591, 383);
-            this.LblForgottenPassword.Name = "LblForgottenPassword";
-            this.LblForgottenPassword.Size = new System.Drawing.Size(225, 23);
-            this.LblForgottenPassword.TabIndex = 5;
-            this.LblForgottenPassword.Text = "¿Olvidaste la contraseña?";
             // 
             // TxtUser
             // 
@@ -190,6 +180,18 @@ namespace Proyecto_DAM
             this.BtnLogin.Text = "Iniciar sesión";
             this.BtnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
             // 
+            // LblForgottenPassword
+            // 
+            this.LblForgottenPassword.AutoSize = true;
+            this.LblForgottenPassword.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LblForgottenPassword.Font = new System.Drawing.Font("Louis George Café", 10.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblForgottenPassword.Location = new System.Drawing.Point(591, 383);
+            this.LblForgottenPassword.Name = "LblForgottenPassword";
+            this.LblForgottenPassword.Size = new System.Drawing.Size(225, 23);
+            this.LblForgottenPassword.TabIndex = 5;
+            this.LblForgottenPassword.Text = "¿Olvidaste la contraseña?";
+            this.LblForgottenPassword.Click += new System.EventHandler(this.LblForgottenPassword_Click);
+            // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -215,6 +217,7 @@ namespace Proyecto_DAM
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.Load += new System.EventHandler(this.FrmLogin_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmLogin_MouseDown);
             ((System.ComponentModel.ISupportInitialize)(this.PctBxShape)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PctBxIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PctBxClose)).EndInit();
@@ -230,10 +233,10 @@ namespace Proyecto_DAM
         private System.Windows.Forms.PictureBox PctBxShape;
         private System.Windows.Forms.PictureBox PctBxIcon;
         private System.Windows.Forms.PictureBox PctBxClose;
-        private System.Windows.Forms.Label LblForgottenPassword;
         private Guna.UI2.WinForms.Guna2TextBox TxtUser;
         private Guna.UI2.WinForms.Guna2TextBox TxtPassword;
         private Guna.UI2.WinForms.Guna2Button BtnLogin;
+        private System.Windows.Forms.Label LblForgottenPassword;
     }
 }
 

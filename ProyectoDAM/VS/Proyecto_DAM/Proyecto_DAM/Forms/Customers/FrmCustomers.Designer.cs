@@ -38,18 +38,19 @@ namespace Proyecto_DAM
             this.PanelContainer = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2VScrollBar1 = new Guna.UI2.WinForms.Guna2VScrollBar();
             this.DataGridViewCustomers = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.cONTACTSBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.db_devloDataSet = new Proyecto_DAM.db_devloDataSet();
-            this.BtnFilter = new Guna.UI2.WinForms.Guna2Button();
-            this.BtnAddCustomers = new Guna.UI2.WinForms.Guna2Button();
-            this.TxtSearch = new Guna.UI2.WinForms.Guna2TextBox();
-            this.cONTACTSTableAdapter = new Proyecto_DAM.db_devloDataSetTableAdapters.CONTACTSTableAdapter();
             this.IDCONTACT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SurnamesColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DetailColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.EditColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.DeleteColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.cONTACTSBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.db_devloDataSet = new Proyecto_DAM.db_devloDataSet();
+            this.BtnFilter = new Guna.UI2.WinForms.Guna2Button();
+            this.BtnAddCustomers = new Guna.UI2.WinForms.Guna2Button();
+            this.TxtSearch = new Guna.UI2.WinForms.Guna2TextBox();
+            this.cONTACTSTableAdapter = new Proyecto_DAM.db_devloDataSetTableAdapters.CONTACTSTableAdapter();
+            this.BtnRefresh = new Guna.UI2.WinForms.Guna2Button();
             this.PanelContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewCustomers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cONTACTSBindingSource)).BeginInit();
@@ -59,6 +60,7 @@ namespace Proyecto_DAM
             // PanelContainer
             // 
             this.PanelContainer.BackColor = System.Drawing.Color.White;
+            this.PanelContainer.Controls.Add(this.BtnRefresh);
             this.PanelContainer.Controls.Add(this.guna2VScrollBar1);
             this.PanelContainer.Controls.Add(this.BtnFilter);
             this.PanelContainer.Controls.Add(this.BtnAddCustomers);
@@ -179,6 +181,68 @@ namespace Proyecto_DAM
             this.DataGridViewCustomers.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.DataGridViewCustomers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewCustomers_CellClick);
             // 
+            // IDCONTACT
+            // 
+            this.IDCONTACT.DataPropertyName = "IDCONTACT";
+            this.IDCONTACT.HeaderText = "ID";
+            this.IDCONTACT.MinimumWidth = 6;
+            this.IDCONTACT.Name = "IDCONTACT";
+            this.IDCONTACT.ReadOnly = true;
+            this.IDCONTACT.Visible = false;
+            // 
+            // NameColumn
+            // 
+            this.NameColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.NameColumn.DataPropertyName = "NAME";
+            this.NameColumn.FillWeight = 6.417114F;
+            this.NameColumn.HeaderText = "Nombre";
+            this.NameColumn.MinimumWidth = 6;
+            this.NameColumn.Name = "NameColumn";
+            this.NameColumn.ReadOnly = true;
+            this.NameColumn.Width = 121;
+            // 
+            // SurnamesColumn
+            // 
+            this.SurnamesColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.SurnamesColumn.DataPropertyName = "SURNAMES";
+            this.SurnamesColumn.FillWeight = 242.004F;
+            this.SurnamesColumn.HeaderText = "Apellidos";
+            this.SurnamesColumn.MinimumWidth = 6;
+            this.SurnamesColumn.Name = "SurnamesColumn";
+            this.SurnamesColumn.ReadOnly = true;
+            // 
+            // DetailColumn
+            // 
+            this.DetailColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.DetailColumn.HeaderText = "";
+            this.DetailColumn.Image = ((System.Drawing.Image)(resources.GetObject("DetailColumn.Image")));
+            this.DetailColumn.MinimumWidth = 6;
+            this.DetailColumn.Name = "DetailColumn";
+            this.DetailColumn.ReadOnly = true;
+            this.DetailColumn.Width = 65;
+            // 
+            // EditColumn
+            // 
+            this.EditColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.EditColumn.FillWeight = 80.66309F;
+            this.EditColumn.HeaderText = "";
+            this.EditColumn.Image = ((System.Drawing.Image)(resources.GetObject("EditColumn.Image")));
+            this.EditColumn.MinimumWidth = 6;
+            this.EditColumn.Name = "EditColumn";
+            this.EditColumn.ReadOnly = true;
+            this.EditColumn.Width = 50;
+            // 
+            // DeleteColumn
+            // 
+            this.DeleteColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.DeleteColumn.FillWeight = 70.91583F;
+            this.DeleteColumn.HeaderText = "";
+            this.DeleteColumn.Image = ((System.Drawing.Image)(resources.GetObject("DeleteColumn.Image")));
+            this.DeleteColumn.MinimumWidth = 6;
+            this.DeleteColumn.Name = "DeleteColumn";
+            this.DeleteColumn.ReadOnly = true;
+            this.DeleteColumn.Width = 65;
+            // 
             // cONTACTSBindingSource
             // 
             this.cONTACTSBindingSource.DataMember = "CONTACTS";
@@ -227,7 +291,7 @@ namespace Proyecto_DAM
             this.BtnAddCustomers.Font = new System.Drawing.Font("Louis George Café", 12F);
             this.BtnAddCustomers.ForeColor = System.Drawing.Color.White;
             this.BtnAddCustomers.HoverState.Parent = this.BtnAddCustomers;
-            this.BtnAddCustomers.Location = new System.Drawing.Point(812, 13);
+            this.BtnAddCustomers.Location = new System.Drawing.Point(735, 13);
             this.BtnAddCustomers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnAddCustomers.Name = "BtnAddCustomers";
             this.BtnAddCustomers.ShadowDecoration.Parent = this.BtnAddCustomers;
@@ -271,67 +335,29 @@ namespace Proyecto_DAM
             // 
             this.cONTACTSTableAdapter.ClearBeforeFill = true;
             // 
-            // IDCONTACT
+            // BtnRefresh
             // 
-            this.IDCONTACT.DataPropertyName = "IDCONTACT";
-            this.IDCONTACT.HeaderText = "ID";
-            this.IDCONTACT.MinimumWidth = 6;
-            this.IDCONTACT.Name = "IDCONTACT";
-            this.IDCONTACT.ReadOnly = true;
-            this.IDCONTACT.Visible = false;
-            // 
-            // NameColumn
-            // 
-            this.NameColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.NameColumn.DataPropertyName = "NAME";
-            this.NameColumn.FillWeight = 6.417114F;
-            this.NameColumn.HeaderText = "Nombre";
-            this.NameColumn.MinimumWidth = 6;
-            this.NameColumn.Name = "NameColumn";
-            this.NameColumn.ReadOnly = true;
-            this.NameColumn.Width = 121;
-            // 
-            // SurnamesColumn
-            // 
-            this.SurnamesColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.SurnamesColumn.DataPropertyName = "SURNAMES";
-            this.SurnamesColumn.FillWeight = 242.004F;
-            this.SurnamesColumn.HeaderText = "Apellidos";
-            this.SurnamesColumn.MinimumWidth = 6;
-            this.SurnamesColumn.Name = "SurnamesColumn";
-            this.SurnamesColumn.ReadOnly = true;
-            // 
-            // DetailColumn
-            // 
-            this.DetailColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.DetailColumn.HeaderText = "";
-            this.DetailColumn.Image = ((System.Drawing.Image)(resources.GetObject("DetailColumn.Image")));
-            this.DetailColumn.MinimumWidth = 6;
-            this.DetailColumn.Name = "DetailColumn";
-            this.DetailColumn.ReadOnly = true;
-            this.DetailColumn.Width = 75;
-            // 
-            // EditColumn
-            // 
-            this.EditColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.EditColumn.FillWeight = 80.66309F;
-            this.EditColumn.HeaderText = "";
-            this.EditColumn.Image = ((System.Drawing.Image)(resources.GetObject("EditColumn.Image")));
-            this.EditColumn.MinimumWidth = 6;
-            this.EditColumn.Name = "EditColumn";
-            this.EditColumn.ReadOnly = true;
-            this.EditColumn.Width = 50;
-            // 
-            // DeleteColumn
-            // 
-            this.DeleteColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.DeleteColumn.FillWeight = 70.91583F;
-            this.DeleteColumn.HeaderText = "";
-            this.DeleteColumn.Image = ((System.Drawing.Image)(resources.GetObject("DeleteColumn.Image")));
-            this.DeleteColumn.MinimumWidth = 6;
-            this.DeleteColumn.Name = "DeleteColumn";
-            this.DeleteColumn.ReadOnly = true;
-            this.DeleteColumn.Width = 65;
+            this.BtnRefresh.BorderRadius = 8;
+            this.BtnRefresh.CheckedState.Parent = this.BtnRefresh;
+            this.BtnRefresh.CustomImages.Parent = this.BtnRefresh;
+            this.BtnRefresh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.BtnRefresh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.BtnRefresh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.BtnRefresh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnRefresh.DisabledState.Parent = this.BtnRefresh;
+            this.BtnRefresh.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
+            this.BtnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.BtnRefresh.ForeColor = System.Drawing.Color.White;
+            this.BtnRefresh.HoverState.Parent = this.BtnRefresh;
+            this.BtnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("BtnRefresh.Image")));
+            this.BtnRefresh.ImageSize = new System.Drawing.Size(30, 30);
+            this.BtnRefresh.Location = new System.Drawing.Point(945, 15);
+            this.BtnRefresh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BtnRefresh.Name = "BtnRefresh";
+            this.BtnRefresh.ShadowDecoration.Parent = this.BtnRefresh;
+            this.BtnRefresh.Size = new System.Drawing.Size(73, 44);
+            this.BtnRefresh.TabIndex = 5;
+            this.BtnRefresh.Click += new System.EventHandler(this.BtnRefresh_Click);
             // 
             // FrmCustomer
             // 
@@ -357,7 +383,6 @@ namespace Proyecto_DAM
 
         private Guna.UI2.WinForms.Guna2Panel PanelContainer;
         private Guna.UI2.WinForms.Guna2VScrollBar guna2VScrollBar1;
-        private Guna.UI2.WinForms.Guna2DataGridView DataGridViewCustomers;
         private Guna.UI2.WinForms.Guna2Button BtnFilter;
         private Guna.UI2.WinForms.Guna2Button BtnAddCustomers;
         private Guna.UI2.WinForms.Guna2TextBox TxtSearch;
@@ -370,5 +395,7 @@ namespace Proyecto_DAM
         private System.Windows.Forms.DataGridViewImageColumn DetailColumn;
         private System.Windows.Forms.DataGridViewImageColumn EditColumn;
         private System.Windows.Forms.DataGridViewImageColumn DeleteColumn;
+        public Guna.UI2.WinForms.Guna2DataGridView DataGridViewCustomers;
+        private Guna.UI2.WinForms.Guna2Button BtnRefresh;
     }
 }

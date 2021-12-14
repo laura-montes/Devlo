@@ -84,7 +84,7 @@ namespace Proyecto_DAM
             this.guna2Panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
             this.guna2Panel1.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.guna2Panel1.Location = new System.Drawing.Point(81, 62);
+            this.guna2Panel1.Location = new System.Drawing.Point(81, 24);
             this.guna2Panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
@@ -122,7 +122,7 @@ namespace Proyecto_DAM
             this.guna2Panel2.Controls.Add(this.LblProducts);
             this.guna2Panel2.Controls.Add(this.LblProductsNumber);
             this.guna2Panel2.ForeColor = System.Drawing.Color.White;
-            this.guna2Panel2.Location = new System.Drawing.Point(393, 62);
+            this.guna2Panel2.Location = new System.Drawing.Point(393, 24);
             this.guna2Panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.ShadowDecoration.Parent = this.guna2Panel2;
@@ -161,7 +161,7 @@ namespace Proyecto_DAM
             this.guna2Panel3.Controls.Add(this.LblEarnedTodayNumber);
             this.guna2Panel3.Font = new System.Drawing.Font("Louis George Café", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Panel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
-            this.guna2Panel3.Location = new System.Drawing.Point(698, 62);
+            this.guna2Panel3.Location = new System.Drawing.Point(698, 24);
             this.guna2Panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.ShadowDecoration.Parent = this.guna2Panel3;
@@ -278,7 +278,7 @@ namespace Proyecto_DAM
             this.guna2Panel4.Controls.Add(this.LblEarnedMonth);
             this.guna2Panel4.Controls.Add(this.LblEarnedMonthNumber);
             this.guna2Panel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
-            this.guna2Panel4.Location = new System.Drawing.Point(229, 178);
+            this.guna2Panel4.Location = new System.Drawing.Point(229, 140);
             this.guna2Panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Panel4.Name = "guna2Panel4";
             this.guna2Panel4.ShadowDecoration.Parent = this.guna2Panel4;
@@ -312,7 +312,7 @@ namespace Proyecto_DAM
             this.guna2ShadowPanel1.Controls.Add(this.RadioBtnCustomers);
             this.guna2ShadowPanel1.Controls.Add(this.Chart);
             this.guna2ShadowPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.guna2ShadowPanel1.Location = new System.Drawing.Point(43, 313);
+            this.guna2ShadowPanel1.Location = new System.Drawing.Point(43, 275);
             this.guna2ShadowPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2ShadowPanel1.Name = "guna2ShadowPanel1";
             this.guna2ShadowPanel1.ShadowColor = System.Drawing.Color.Black;
@@ -368,7 +368,7 @@ namespace Proyecto_DAM
             // 
             this.guna2Separator1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
             this.guna2Separator1.FillThickness = 2;
-            this.guna2Separator1.Location = new System.Drawing.Point(139, 281);
+            this.guna2Separator1.Location = new System.Drawing.Point(139, 243);
             this.guna2Separator1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Separator1.Name = "guna2Separator1";
             this.guna2Separator1.Size = new System.Drawing.Size(904, 14);
@@ -379,7 +379,7 @@ namespace Proyecto_DAM
             this.guna2Separator2.BackColor = System.Drawing.Color.Transparent;
             this.guna2Separator2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.guna2Separator2.FillThickness = 2;
-            this.guna2Separator2.Location = new System.Drawing.Point(139, 283);
+            this.guna2Separator2.Location = new System.Drawing.Point(139, 245);
             this.guna2Separator2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Separator2.Name = "guna2Separator2";
             this.guna2Separator2.Size = new System.Drawing.Size(904, 14);

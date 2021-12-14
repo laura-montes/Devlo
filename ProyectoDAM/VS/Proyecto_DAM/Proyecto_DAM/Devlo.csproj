@@ -14,6 +14,21 @@
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>false</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,6 +48,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Devlo_LogoDesign_Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.6.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
@@ -119,6 +137,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>db_devloDataSetDetailSale.xsd</DependentUpon>
     </Compile>
+    <Compile Include="db_devloDataSetFnSales.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>db_devloDataSetFnSales.xsd</DependentUpon>
+    </Compile>
     <Compile Include="db_devloDataSetProducts.cs">
       <DependentUpon>db_devloDataSetProducts.xsd</DependentUpon>
     </Compile>
@@ -127,10 +150,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>db_devloDataSetProducts.xsd</DependentUpon>
     </Compile>
+    <Compile Include="db_devloDataSetRol_Users.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>db_devloDataSetRol_Users.xsd</DependentUpon>
+    </Compile>
     <Compile Include="db_devloDataSetSales.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>db_devloDataSetSales.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="db_devloDataSetSalesStates.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>db_devloDataSetSalesStates.xsd</DependentUpon>
     </Compile>
     <Compile Include="db_devloDataSetSuppliers.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -161,16 +194,22 @@
     <Compile Include="Forms\Customers\FrmEditContact.Designer.cs">
       <DependentUpon>FrmEditContact.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FrmEditMessage.cs">
+    <Compile Include="Forms\Users\FrmChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FrmEditMessage.Designer.cs">
+    <Compile Include="Forms\Users\FrmChangePassword.Designer.cs">
+      <DependentUpon>FrmChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Messages\FrmEditMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Messages\FrmEditMessage.Designer.cs">
       <DependentUpon>FrmEditMessage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FrmAddMessage.cs">
+    <Compile Include="Forms\Messages\FrmAddMessage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FrmAddMessage.Designer.cs">
+    <Compile Include="Forms\Messages\FrmAddMessage.Designer.cs">
       <DependentUpon>FrmAddMessage.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmDashBoard.cs">
@@ -191,11 +230,17 @@
     <Compile Include="Forms\FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FrmDeleteMessage.cs">
+    <Compile Include="Forms\Messages\FrmDeleteMessage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FrmDeleteMessage.Designer.cs">
+    <Compile Include="Forms\Messages\FrmDeleteMessage.Designer.cs">
       <DependentUpon>FrmDeleteMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Messages\FrmReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Messages\FrmReport.Designer.cs">
+      <DependentUpon>FrmReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Products\FrmAddSupplier.cs">
       <SubType>Form</SubType>
@@ -263,9 +308,19 @@
     <Compile Include="Forms\Sales\FrmSelectCuantity.Designer.cs">
       <DependentUpon>FrmSelectCuantity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Users\FrmAddUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\FrmAddUser.Designer.cs">
+      <DependentUpon>FrmAddUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="Devlo_LogoDesign_Icon.ico" />
+    <Content Include="HTML\password_generator.html" />
+    <Content Include="HTML\email_generator.html" />
     <Content Include="HTML\pdf_generator.html" />
+    <Content Include="HTML\report_generator.html" />
     <EmbeddedResource Include="Forms\Customers\FrmAddContact.resx">
       <DependentUpon>FrmAddContact.cs</DependentUpon>
     </EmbeddedResource>
@@ -278,10 +333,13 @@
     <EmbeddedResource Include="Forms\Customers\FrmEditContact.resx">
       <DependentUpon>FrmEditContact.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmEditMessage.resx">
+    <EmbeddedResource Include="Forms\Users\FrmChangePassword.resx">
+      <DependentUpon>FrmChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Messages\FrmEditMessage.resx">
       <DependentUpon>FrmEditMessage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmAddMessage.resx">
+    <EmbeddedResource Include="Forms\Messages\FrmAddMessage.resx">
       <DependentUpon>FrmAddMessage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmDashBoard.resx">
@@ -293,8 +351,11 @@
     <EmbeddedResource Include="Forms\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmDeleteMessage.resx">
+    <EmbeddedResource Include="Forms\Messages\FrmDeleteMessage.resx">
       <DependentUpon>FrmDeleteMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Messages\FrmReport.resx">
+      <DependentUpon>FrmReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Products\FrmAddCategory.resx">
       <DependentUpon>FrmAddCategory.cs</DependentUpon>
@@ -328,6 +389,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Sales\FrmSelectCuantity.resx">
       <DependentUpon>FrmSelectCuantity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Users\FrmAddUser.resx">
+      <DependentUpon>FrmAddUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -372,6 +436,17 @@
     <None Include="db_devloDataSetDetailSale.xss">
       <DependentUpon>db_devloDataSetDetailSale.xsd</DependentUpon>
     </None>
+    <None Include="db_devloDataSetFnSales.xsc">
+      <DependentUpon>db_devloDataSetFnSales.xsd</DependentUpon>
+    </None>
+    <None Include="db_devloDataSetFnSales.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>db_devloDataSetFnSales.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="db_devloDataSetFnSales.xss">
+      <DependentUpon>db_devloDataSetFnSales.xsd</DependentUpon>
+    </None>
     <None Include="db_devloDataSetProducts.xsc">
       <DependentUpon>db_devloDataSetProducts.xsd</DependentUpon>
     </None>
@@ -383,6 +458,17 @@
     <None Include="db_devloDataSetProducts.xss">
       <DependentUpon>db_devloDataSetProducts.xsd</DependentUpon>
     </None>
+    <None Include="db_devloDataSetRol_Users.xsc">
+      <DependentUpon>db_devloDataSetRol_Users.xsd</DependentUpon>
+    </None>
+    <None Include="db_devloDataSetRol_Users.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>db_devloDataSetRol_Users.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="db_devloDataSetRol_Users.xss">
+      <DependentUpon>db_devloDataSetRol_Users.xsd</DependentUpon>
+    </None>
     <None Include="db_devloDataSetSales.xsc">
       <DependentUpon>db_devloDataSetSales.xsd</DependentUpon>
     </None>
@@ -393,6 +479,17 @@
     </None>
     <None Include="db_devloDataSetSales.xss">
       <DependentUpon>db_devloDataSetSales.xsd</DependentUpon>
+    </None>
+    <None Include="db_devloDataSetSalesStates.xsc">
+      <DependentUpon>db_devloDataSetSalesStates.xsd</DependentUpon>
+    </None>
+    <None Include="db_devloDataSetSalesStates.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>db_devloDataSetSalesStates.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="db_devloDataSetSalesStates.xss">
+      <DependentUpon>db_devloDataSetSalesStates.xsd</DependentUpon>
     </None>
     <None Include="db_devloDataSetSuppliers.xsc">
       <DependentUpon>db_devloDataSetSuppliers.xsd</DependentUpon>
@@ -455,6 +552,17 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
