@@ -37,23 +37,24 @@ namespace Proyecto_DAM.Forms.Users
 			panelLoad.Controls.Add(frmDashBoard);
 			frmDashBoard.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			frmDashBoard.Dock = DockStyle.Fill;
-			this.Close();
+			
 			frmDashBoard.Show();
+			this.Close();
 		}
 
 		private void BtnSave_Click(object sender, EventArgs e)
 		{
 			Utilities utilities = new Utilities();
-			if (!String.IsNullOrEmpty(TxtEmail.Text) && IsValidEmailFormat(TxtEmail.Text))
+			if (!String.IsNullOrEmpty(TxtEmail.Text) && IsValidEmailFormat(TxtEmail.Text) && !String.IsNullOrEmpty(TxtName.Text) && CmbBxRole.SelectedIndex!=-1)
 			{
 				// GUARDAR
 				password = randomPassword();
-
+				
 				utilities.pa_addUser(TxtName.Text,
 					TxtSurname.Text,
 					TxtEmail.Text,
 					password,
-					int.Parse(CmbBxRole.SelectedValue.ToString())
+					int.Parse(CmbBxRole.SelectedIndex.ToString())
 					);
 
 				sendMessage();
@@ -61,9 +62,8 @@ namespace Proyecto_DAM.Forms.Users
 			}
 			else
 			{
-				// NO GUARDAR
-				MessageBox.Show("Formato invalido");
-				TxtEmail.Text = "";
+				FrmAddMessage frm = new FrmAddMessage();
+				frm.Show();
 			}
 		}
 

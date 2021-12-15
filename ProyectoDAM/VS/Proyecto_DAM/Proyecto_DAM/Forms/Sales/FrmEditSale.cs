@@ -10,6 +10,7 @@ namespace Proyecto_DAM.Forms.Sales
 {
 	public partial class FrmEditSale : Form
 	{
+		private FormCollection formsList;
 		int idSale;
 		Utilities utilities = new Utilities();
 		db_devloEntities db = new db_devloEntities();
@@ -48,8 +49,23 @@ namespace Proyecto_DAM.Forms.Sales
 			panelLoad.Controls.Add(frmSales);
 			frmSales.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			frmSales.Dock = DockStyle.Fill;
-			this.Close();
 			frmSales.Show();
+			this.Close();
+			try
+			{
+				formsList = Application.OpenForms;
+				foreach (Form forms in Application.OpenForms)
+				{
+					if (forms.Name == "DateTimeDialog")
+					{
+						forms.Close();
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+
+			}
 		}
 
 		private void FrmEditSale_Load(object sender, EventArgs e)
@@ -170,6 +186,7 @@ namespace Proyecto_DAM.Forms.Sales
 					producto.SubItems.Add((LstViewProducts.Items.Count + 1).ToString()); //N_LIN
 					producto.SubItems.Add(product.Id.ToString()); //IDPRODUCT
 					LstViewProducts.Items.Add(producto);
+					precio_unitario.Add(product.Sell_price);
 
 				}
 			}
@@ -228,6 +245,11 @@ namespace Proyecto_DAM.Forms.Sales
 					break;*/
 
 			}
+		}
+
+        private void TxtSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+			this.pRODUCTSTableAdapter.DynamicSearch(db_devloDataSetProducts.PRODUCTS, "%" + TxtSearch.Text.Trim() + "%");
 		}
     }
 }

@@ -8,11 +8,11 @@ namespace Proyecto_DAM.Forms.Sales
 {
 	public partial class FrmAddSale : Form
 	{
-
+		private FormCollection formsList;
 		List<Classes.Product> products;
 		Classes.Product product;
 		double price = 0;
-		int index;
+		int index=0;
 		//PRECIO DEL OBJETO CLICKADO
 		List<double> precio_unitario = new List<double>();
 
@@ -121,6 +121,7 @@ namespace Proyecto_DAM.Forms.Sales
 
 					ListViewItem producto = new ListViewItem(product.Name);
 					producto.SubItems.Add(product.Units.ToString());
+					precio_unitario.Add(product.Sell_price);
 					LstViewProducts.Items.Add(producto);
 
 				}
@@ -137,8 +138,24 @@ namespace Proyecto_DAM.Forms.Sales
 			panelLoad.Controls.Add(frmSales);
 			frmSales.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			frmSales.Dock = DockStyle.Fill;
-			this.Close();
 			frmSales.Show();
+			this.Close();
+
+			try
+			{
+				formsList = Application.OpenForms;
+				foreach (Form forms in Application.OpenForms)
+				{
+					if (forms.Name == "DateTimeDialog")
+					{
+						forms.Close();
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+
+			}
 		}
 
 		private void LstViewProducts_SelectedIndexChanged(object sender, EventArgs e)
@@ -179,10 +196,8 @@ namespace Proyecto_DAM.Forms.Sales
 				case MouseButtons.Right:
 					// Right click
 
+
 					price = price - double.Parse(LstViewProducts.Items[index].SubItems[1].Text) * double.Parse(precio_unitario[index].ToString());
-
-
-
 					LblEuros.Text = price.ToString() + ",00€";
 
 					LstViewProducts.Items.RemoveAt(index);

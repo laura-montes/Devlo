@@ -18,7 +18,7 @@ namespace Proyecto_DAM.Forms.Ventas
 {
     public partial class FrmSales : Form
     {
-
+        private FormCollection formsList;
         Control.Utilities utilities = new Control.Utilities();
         int counter = 0;
         public FrmSales()
@@ -30,6 +30,7 @@ namespace Proyecto_DAM.Forms.Ventas
         private void loadSales()
         {
             this.v_SALESTableAdapter.Fill(this.db_devloDataSetSales.V_SALES);
+            
         }
 
         private void BtnAdd_Click(object sender, EventArgs e)
@@ -62,9 +63,9 @@ namespace Proyecto_DAM.Forms.Ventas
                     break;
                 case 2:
                     this.v_SALESTableAdapter.SortGridByState(this.db_devloDataSetSales.V_SALES); //ESTADO
-                    counter++;
+                    counter=0;
                     break;
-                case 3: counter = 0;break;
+                //case 3: counter = 0;break;
             }
             
             
@@ -73,6 +74,8 @@ namespace Proyecto_DAM.Forms.Ventas
 
         private void FrmSales_Load(object sender, EventArgs e)
         {
+           
+
             loadSales();
         }
 

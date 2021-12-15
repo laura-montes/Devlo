@@ -210,6 +210,20 @@ advertencia 6002: La tabla o vista 'db_devlo.dbo.V_SALESEDIT' no tiene definida 
           <Property Name="IMPORTE" Type="decimal" Precision="29" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'db_devlo.dbo.V_USER_LOGIN' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="V_USER_LOGIN">
+          <Key>
+            <PropertyRef Name="EMAIL" />
+            <PropertyRef Name="ID_ROL" />
+          </Key>
+          <Property Name="EMAIL" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PASSWD" Type="varchar" MaxLength="50" />
+          <Property Name="NAME" Type="varchar" MaxLength="50" />
+          <Property Name="SURNAMES" Type="varchar" MaxLength="50" />
+          <Property Name="ID_ROL" Type="int" Nullable="false" />
+          <Property Name="ROL" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'db_devlo.dbo.View_CONTACTS' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="View_CONTACTS">
           <Key>
@@ -581,6 +595,16 @@ advertencia 6002: La tabla o vista 'db_devlo.sys.ipv6_database_firewall_rules' n
           <Parameter Name="RETCODE" Type="int" Mode="InOut" />
           <Parameter Name="MENSAJE" Type="varchar" Mode="InOut" />
         </Function>
+        <Function Name="PA_UPDATE_PASSWORD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="EMAIL" Type="varchar" Mode="In" />
+          <Parameter Name="PASSWORD" Type="varchar" Mode="In" />
+          <Parameter Name="NEWPASSWORD" Type="varchar" Mode="In" />
+          <Parameter Name="INVOKER" Type="int" Mode="In" />
+          <Parameter Name="USUARIO" Type="varchar" Mode="In" />
+          <Parameter Name="CULTURA" Type="varchar" Mode="In" />
+          <Parameter Name="RETCODE" Type="int" Mode="InOut" />
+          <Parameter Name="MENSAJE" Type="varchar" Mode="InOut" />
+        </Function>
         <Function Name="PA_UPDATE_PRODUCT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="CODE" Type="int" Mode="In" />
           <Parameter Name="NAME" Type="varchar" Mode="In" />
@@ -744,6 +768,16 @@ advertencia 6002: La tabla o vista 'db_devlo.sys.ipv6_database_firewall_rules' n
     [V_SALESEDIT].[STATEDESCRIPTION] AS [STATEDESCRIPTION], 
     [V_SALESEDIT].[IMPORTE] AS [IMPORTE]
     FROM [dbo].[V_SALESEDIT] AS [V_SALESEDIT]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_USER_LOGIN" EntityType="Self.V_USER_LOGIN" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [V_USER_LOGIN].[EMAIL] AS [EMAIL], 
+    [V_USER_LOGIN].[PASSWD] AS [PASSWD], 
+    [V_USER_LOGIN].[NAME] AS [NAME], 
+    [V_USER_LOGIN].[SURNAMES] AS [SURNAMES], 
+    [V_USER_LOGIN].[ID_ROL] AS [ID_ROL], 
+    [V_USER_LOGIN].[ROL] AS [ROL]
+    FROM [dbo].[V_USER_LOGIN] AS [V_USER_LOGIN]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_CONTACTS" EntityType="Self.View_CONTACTS" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -1424,6 +1458,27 @@ advertencia 6002: La tabla o vista 'db_devlo.sys.ipv6_database_firewall_rules' n
             <Parameter Name="PASSWORD" Mode="InOut" Type="String" />
           </FunctionImport>
           <EntitySet Name="V_SALES_BETWEEN_DATES" EntityType="db_devloModel.V_SALES_BETWEEN_DATES" />
+          <FunctionImport Name="PA_GETUSER_LOGIN" ReturnType="Collection(String)">
+            <Parameter Name="EMAIL" Mode="In" Type="String" />
+            <Parameter Name="PASSWD" Mode="In" Type="String" />
+            <Parameter Name="INVOKER" Mode="In" Type="Int32" />
+            <Parameter Name="USUARIO" Mode="In" Type="String" />
+            <Parameter Name="CULTURA" Mode="In" Type="String" />
+            <Parameter Name="RETCODE" Mode="InOut" Type="Int32" />
+            <Parameter Name="MENSAJE" Mode="InOut" Type="String" />
+            <Parameter Name="NAME" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="V_USER_LOGIN" EntityType="db_devloModel.V_USER_LOGIN" />
+          <FunctionImport Name="PA_UPDATE_PASSWORD">
+            <Parameter Name="EMAIL" Mode="In" Type="String" />
+            <Parameter Name="PASSWORD" Mode="In" Type="String" />
+            <Parameter Name="NEWPASSWORD" Mode="In" Type="String" />
+            <Parameter Name="INVOKER" Mode="In" Type="Int32" />
+            <Parameter Name="USUARIO" Mode="In" Type="String" />
+            <Parameter Name="CULTURA" Mode="In" Type="String" />
+            <Parameter Name="RETCODE" Mode="InOut" Type="Int32" />
+            <Parameter Name="MENSAJE" Mode="InOut" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -1521,6 +1576,18 @@ advertencia 6002: La tabla o vista 'db_devlo.sys.ipv6_database_firewall_rules' n
           <Property Name="STATE" Type="Int32" />
           <Property Name="ESTADO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="IMPORTE" Type="Decimal" Precision="29" Scale="2" />
+        </EntityType>
+        <EntityType Name="V_USER_LOGIN">
+          <Key>
+            <PropertyRef Name="EMAIL" />
+            <PropertyRef Name="ID_ROL" />
+          </Key>
+          <Property Name="EMAIL" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PASSWD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SURNAMES" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID_ROL" Type="Int32" Nullable="false" />
+          <Property Name="ROL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1853,6 +1920,19 @@ advertencia 6002: La tabla o vista 'db_devlo.sys.ipv6_database_firewall_rules' n
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="V_USER_LOGIN">
+            <EntityTypeMapping TypeName="db_devloModel.V_USER_LOGIN">
+              <MappingFragment StoreEntitySet="V_USER_LOGIN">
+                <ScalarProperty Name="ROL" ColumnName="ROL" />
+                <ScalarProperty Name="ID_ROL" ColumnName="ID_ROL" />
+                <ScalarProperty Name="SURNAMES" ColumnName="SURNAMES" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="PASSWD" ColumnName="PASSWD" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="PA_UPDATE_PASSWORD" FunctionName="db_devloModel.Store.PA_UPDATE_PASSWORD" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -1903,6 +1983,7 @@ advertencia 6002: La tabla o vista 'db_devlo.sys.ipv6_database_firewall_rules' n
         <EntityTypeShape EntityType="db_devloModel.ROL_USERS" Width="1.5" PointX="2.5" PointY="14" />
         <AssociationConnector Association="db_devloModel.FK_USERS_ROL_USERS" />
         <EntityTypeShape EntityType="db_devloModel.V_SALES_BETWEEN_DATES" Width="1.5" PointX="7.375" PointY="11.75" />
+        <EntityTypeShape EntityType="db_devloModel.V_USER_LOGIN" Width="1.5" PointX="11.375" PointY="9.75" />
       </Diagram>
     </Diagrams>
   </Designer>

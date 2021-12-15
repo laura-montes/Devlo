@@ -62,9 +62,10 @@ namespace Proyecto_DAM
         {
 			try
 			{
-				if (utilidades.pa_login(TxtUser.Text.ToUpper(), TxtPassword.Text.ToUpper()).Equals("0"))
+				if (utilidades.pa_login(TxtUser.Text, TxtPassword.Text).Equals("0"))
 				{
-					Program.SetMainForm(new FrmGeneral());
+					//usuario, contraseña
+					Program.SetMainForm(new FrmGeneral(TxtUser.Text, TxtUser.Text));
 					Program.ShowMainForm();
 
 					this.Close();

@@ -63,8 +63,9 @@ namespace Proyecto_DAM.Forms.Products
 			panelLoad.Controls.Add(frmProducts);
 			frmProducts.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			frmProducts.Dock = DockStyle.Fill;
-			this.Close();
+			
 			frmProducts.Show();
+			this.Close();
 		}
 
 		private void FrmAddProduct_Load(object sender, EventArgs e)

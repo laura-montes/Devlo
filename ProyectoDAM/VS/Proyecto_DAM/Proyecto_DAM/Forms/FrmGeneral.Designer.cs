@@ -74,9 +74,10 @@ namespace Proyecto_DAM
             this.PanelGeneral.Controls.Add(this.guna2Separator1);
             this.PanelGeneral.Dock = System.Windows.Forms.DockStyle.Left;
             this.PanelGeneral.Location = new System.Drawing.Point(0, 0);
+            this.PanelGeneral.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PanelGeneral.Name = "PanelGeneral";
             this.PanelGeneral.ShadowDecoration.Parent = this.PanelGeneral;
-            this.PanelGeneral.Size = new System.Drawing.Size(262, 802);
+            this.PanelGeneral.Size = new System.Drawing.Size(261, 802);
             this.PanelGeneral.TabIndex = 0;
             // 
             // BtnDashboard
@@ -90,7 +91,7 @@ namespace Proyecto_DAM
             this.BtnDashboard.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.BtnDashboard.DisabledState.Parent = this.BtnDashboard;
             this.BtnDashboard.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
-            this.BtnDashboard.Font = new System.Drawing.Font("Louis George Café", 12F);
+            this.BtnDashboard.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnDashboard.ForeColor = System.Drawing.Color.White;
             this.BtnDashboard.HoverState.Parent = this.BtnDashboard;
             this.BtnDashboard.Image = ((System.Drawing.Image)(resources.GetObject("BtnDashboard.Image")));
@@ -117,7 +118,7 @@ namespace Proyecto_DAM
             this.BtnSales.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.BtnSales.DisabledState.Parent = this.BtnSales;
             this.BtnSales.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
-            this.BtnSales.Font = new System.Drawing.Font("Louis George Café", 12F);
+            this.BtnSales.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnSales.ForeColor = System.Drawing.Color.White;
             this.BtnSales.HoverState.Parent = this.BtnSales;
             this.BtnSales.Image = ((System.Drawing.Image)(resources.GetObject("BtnSales.Image")));
@@ -142,12 +143,12 @@ namespace Proyecto_DAM
             this.BtnProducts.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.BtnProducts.DisabledState.Parent = this.BtnProducts;
             this.BtnProducts.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
-            this.BtnProducts.Font = new System.Drawing.Font("Louis George Café", 12F);
+            this.BtnProducts.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnProducts.ForeColor = System.Drawing.Color.White;
             this.BtnProducts.HoverState.Parent = this.BtnProducts;
             this.BtnProducts.Image = ((System.Drawing.Image)(resources.GetObject("BtnProducts.Image")));
             this.BtnProducts.ImageSize = new System.Drawing.Size(30, 30);
-            this.BtnProducts.Location = new System.Drawing.Point(22, 385);
+            this.BtnProducts.Location = new System.Drawing.Point(21, 385);
             this.BtnProducts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnProducts.Name = "BtnProducts";
             this.BtnProducts.ShadowDecoration.Parent = this.BtnProducts;
@@ -172,7 +173,7 @@ namespace Proyecto_DAM
             this.BtnCustomers.HoverState.Parent = this.BtnCustomers;
             this.BtnCustomers.Image = ((System.Drawing.Image)(resources.GetObject("BtnCustomers.Image")));
             this.BtnCustomers.ImageSize = new System.Drawing.Size(30, 30);
-            this.BtnCustomers.Location = new System.Drawing.Point(12, 312);
+            this.BtnCustomers.Location = new System.Drawing.Point(12, 313);
             this.BtnCustomers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnCustomers.Name = "BtnCustomers";
             this.BtnCustomers.ShadowDecoration.Parent = this.BtnCustomers;
@@ -186,7 +187,7 @@ namespace Proyecto_DAM
             this.LblClock.AutoSize = true;
             this.LblClock.Font = new System.Drawing.Font("Louis George Café", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblClock.ForeColor = System.Drawing.Color.White;
-            this.LblClock.Location = new System.Drawing.Point(51, 701);
+            this.LblClock.Location = new System.Drawing.Point(51, 702);
             this.LblClock.Name = "LblClock";
             this.LblClock.Size = new System.Drawing.Size(190, 46);
             this.LblClock.TabIndex = 9;
@@ -197,6 +198,7 @@ namespace Proyecto_DAM
             this.guna2Separator1.FillColor = System.Drawing.Color.White;
             this.guna2Separator1.FillThickness = 2;
             this.guna2Separator1.Location = new System.Drawing.Point(33, 688);
+            this.guna2Separator1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Separator1.Name = "guna2Separator1";
             this.guna2Separator1.Size = new System.Drawing.Size(200, 10);
             this.guna2Separator1.TabIndex = 8;
@@ -210,8 +212,9 @@ namespace Proyecto_DAM
             // PanelLoad
             // 
             this.PanelLoad.BackColor = System.Drawing.Color.White;
-            this.PanelLoad.Font = new System.Drawing.Font("Louis George Café", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PanelLoad.Location = new System.Drawing.Point(262, 128);
+            this.PanelLoad.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PanelLoad.Location = new System.Drawing.Point(261, 128);
+            this.PanelLoad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PanelLoad.Name = "PanelLoad";
             this.PanelLoad.Size = new System.Drawing.Size(1172, 674);
             this.PanelLoad.TabIndex = 2;
@@ -224,10 +227,11 @@ namespace Proyecto_DAM
             this.PanelUser.BorderThickness = 2;
             this.PanelUser.Controls.Add(this.BtnAddUsers);
             this.PanelUser.FillColor = System.Drawing.Color.White;
-            this.PanelUser.Location = new System.Drawing.Point(218, 90);
+            this.PanelUser.Location = new System.Drawing.Point(219, 90);
+            this.PanelUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PanelUser.Name = "PanelUser";
             this.PanelUser.ShadowDecoration.Parent = this.PanelUser;
-            this.PanelUser.Size = new System.Drawing.Size(191, 40);
+            this.PanelUser.Size = new System.Drawing.Size(225, 39);
             this.PanelUser.TabIndex = 14;
             this.PanelUser.Visible = false;
             // 
@@ -243,13 +247,14 @@ namespace Proyecto_DAM
             this.BtnAddUsers.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.BtnAddUsers.DisabledState.Parent = this.BtnAddUsers;
             this.BtnAddUsers.FillColor = System.Drawing.Color.White;
-            this.BtnAddUsers.Font = new System.Drawing.Font("Louis George Café", 9F);
+            this.BtnAddUsers.Font = new System.Drawing.Font("Louis George Café", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnAddUsers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
             this.BtnAddUsers.HoverState.Parent = this.BtnAddUsers;
-            this.BtnAddUsers.Location = new System.Drawing.Point(3, 6);
+            this.BtnAddUsers.Location = new System.Drawing.Point(16, 6);
+            this.BtnAddUsers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnAddUsers.Name = "BtnAddUsers";
             this.BtnAddUsers.ShadowDecoration.Parent = this.BtnAddUsers;
-            this.BtnAddUsers.Size = new System.Drawing.Size(185, 26);
+            this.BtnAddUsers.Size = new System.Drawing.Size(198, 26);
             this.BtnAddUsers.TabIndex = 0;
             this.BtnAddUsers.Text = "Añadir usuarios";
             this.BtnAddUsers.Click += new System.EventHandler(this.guna2Button1_Click);
@@ -265,13 +270,14 @@ namespace Proyecto_DAM
             this.BtnChangePassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.BtnChangePassword.DisabledState.Parent = this.BtnChangePassword;
             this.BtnChangePassword.FillColor = System.Drawing.Color.White;
-            this.BtnChangePassword.Font = new System.Drawing.Font("Louis George Café", 9F);
+            this.BtnChangePassword.Font = new System.Drawing.Font("Louis George Café", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnChangePassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
             this.BtnChangePassword.HoverState.Parent = this.BtnChangePassword;
-            this.BtnChangePassword.Location = new System.Drawing.Point(3, 6);
+            this.BtnChangePassword.Location = new System.Drawing.Point(9, 8);
+            this.BtnChangePassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnChangePassword.Name = "BtnChangePassword";
             this.BtnChangePassword.ShadowDecoration.Parent = this.BtnChangePassword;
-            this.BtnChangePassword.Size = new System.Drawing.Size(185, 26);
+            this.BtnChangePassword.Size = new System.Drawing.Size(205, 26);
             this.BtnChangePassword.TabIndex = 1;
             this.BtnChangePassword.Text = "Cambiar contraseña";
             this.BtnChangePassword.Click += new System.EventHandler(this.BtnEditProfile_Click);
@@ -287,10 +293,11 @@ namespace Proyecto_DAM
             this.PanelWindow.Controls.Add(this.LblName);
             this.PanelWindow.Controls.Add(this.LblRole);
             this.PanelWindow.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PanelWindow.Location = new System.Drawing.Point(262, 0);
+            this.PanelWindow.Location = new System.Drawing.Point(261, 0);
+            this.PanelWindow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PanelWindow.Name = "PanelWindow";
             this.PanelWindow.ShadowDecoration.Parent = this.PanelWindow;
-            this.PanelWindow.Size = new System.Drawing.Size(1172, 130);
+            this.PanelWindow.Size = new System.Drawing.Size(1174, 130);
             this.PanelWindow.TabIndex = 3;
             this.PanelWindow.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmGeneral_MouseDown);
             // 
@@ -299,6 +306,7 @@ namespace Proyecto_DAM
             this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
             this.guna2PictureBox1.ImageRotate = 0F;
             this.guna2PictureBox1.Location = new System.Drawing.Point(21, 12);
+            this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
             this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
             this.guna2PictureBox1.Size = new System.Drawing.Size(95, 66);
@@ -314,10 +322,11 @@ namespace Proyecto_DAM
             this.PanelUser2.BorderThickness = 2;
             this.PanelUser2.Controls.Add(this.BtnChangePassword);
             this.PanelUser2.FillColor = System.Drawing.Color.White;
-            this.PanelUser2.Location = new System.Drawing.Point(218, 52);
+            this.PanelUser2.Location = new System.Drawing.Point(219, 52);
+            this.PanelUser2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PanelUser2.Name = "PanelUser2";
             this.PanelUser2.ShadowDecoration.Parent = this.PanelUser2;
-            this.PanelUser2.Size = new System.Drawing.Size(191, 38);
+            this.PanelUser2.Size = new System.Drawing.Size(228, 38);
             this.PanelUser2.TabIndex = 15;
             this.PanelUser2.Visible = false;
             // 
@@ -326,6 +335,7 @@ namespace Proyecto_DAM
             this.PanelOption.Controls.Add(this.PctBxMinimize);
             this.PanelOption.Controls.Add(this.PctBxExit);
             this.PanelOption.Location = new System.Drawing.Point(1085, 0);
+            this.PanelOption.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PanelOption.Name = "PanelOption";
             this.PanelOption.ShadowDecoration.Parent = this.PanelOption;
             this.PanelOption.Size = new System.Drawing.Size(87, 46);
@@ -337,10 +347,11 @@ namespace Proyecto_DAM
             this.PctBxMinimize.Image = ((System.Drawing.Image)(resources.GetObject("PctBxMinimize.Image")));
             this.PctBxMinimize.ImageRotate = 0F;
             this.PctBxMinimize.Location = new System.Drawing.Point(3, 1);
+            this.PctBxMinimize.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PctBxMinimize.Name = "PctBxMinimize";
             this.PctBxMinimize.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.PctBxMinimize.ShadowDecoration.Parent = this.PctBxMinimize;
-            this.PctBxMinimize.Size = new System.Drawing.Size(38, 42);
+            this.PctBxMinimize.Size = new System.Drawing.Size(37, 42);
             this.PctBxMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PctBxMinimize.TabIndex = 14;
             this.PctBxMinimize.TabStop = false;
@@ -352,10 +363,11 @@ namespace Proyecto_DAM
             this.PctBxExit.Image = ((System.Drawing.Image)(resources.GetObject("PctBxExit.Image")));
             this.PctBxExit.ImageRotate = 0F;
             this.PctBxExit.Location = new System.Drawing.Point(47, 1);
+            this.PctBxExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PctBxExit.Name = "PctBxExit";
             this.PctBxExit.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.PctBxExit.ShadowDecoration.Parent = this.PctBxExit;
-            this.PctBxExit.Size = new System.Drawing.Size(38, 42);
+            this.PctBxExit.Size = new System.Drawing.Size(37, 42);
             this.PctBxExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PctBxExit.TabIndex = 12;
             this.PctBxExit.TabStop = false;
@@ -365,11 +377,12 @@ namespace Proyecto_DAM
             // 
             this.guna2CirclePictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox3.Image")));
             this.guna2CirclePictureBox3.ImageRotate = 0F;
-            this.guna2CirclePictureBox3.Location = new System.Drawing.Point(218, 36);
+            this.guna2CirclePictureBox3.Location = new System.Drawing.Point(235, 31);
+            this.guna2CirclePictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2CirclePictureBox3.Name = "guna2CirclePictureBox3";
             this.guna2CirclePictureBox3.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CirclePictureBox3.ShadowDecoration.Parent = this.guna2CirclePictureBox3;
-            this.guna2CirclePictureBox3.Size = new System.Drawing.Size(22, 12);
+            this.guna2CirclePictureBox3.Size = new System.Drawing.Size(21, 12);
             this.guna2CirclePictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2CirclePictureBox3.TabIndex = 13;
             this.guna2CirclePictureBox3.TabStop = false;
@@ -383,9 +396,9 @@ namespace Proyecto_DAM
             this.LblName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
             this.LblName.Location = new System.Drawing.Point(133, 23);
             this.LblName.Name = "LblName";
-            this.LblName.Size = new System.Drawing.Size(74, 29);
+            this.LblName.Size = new System.Drawing.Size(82, 29);
             this.LblName.TabIndex = 10;
-            this.LblName.Text = "Laura";
+            this.LblName.Text = "Admin";
             // 
             // LblRole
             // 
@@ -403,12 +416,13 @@ namespace Proyecto_DAM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1434, 802);
+            this.ClientSize = new System.Drawing.Size(1435, 802);
             this.Controls.Add(this.PanelWindow);
             this.Controls.Add(this.PanelGeneral);
             this.Controls.Add(this.PanelLoad);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmGeneral";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmGeneral";

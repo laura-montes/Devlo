@@ -68,11 +68,6 @@ namespace Proyecto_DAM.Forms.Sales
             this.NumericUpDown.Size = new System.Drawing.Size(157, 57);
             this.NumericUpDown.TabIndex = 1;
             this.NumericUpDown.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
-            this.NumericUpDown.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             this.NumericUpDown.ValueChanged += new System.EventHandler(this.NumericUpDown_ValueChanged);
             // 
             // BtnAccept

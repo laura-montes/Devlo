@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Control;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,9 +15,13 @@ namespace Proyecto_DAM.Forms
     {
         int counterActual = 0;
         int counterNew = 0;
-        public FrmChangePassword()
+
+        Utilities utilities = new Utilities();
+        string email;
+        public FrmChangePassword(string email)
         {
             InitializeComponent();
+            this.email = email;
         }
 
         private void PctBxSeeActualPassword_Click(object sender, EventArgs e)
@@ -50,13 +55,20 @@ namespace Proyecto_DAM.Forms
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            if (TxtActualPassword.Text.Equals(TxtNewPassword.Text))
+            string mensaje = "";
+            if (utilities.pa_update_password(email, TxtActualPassword.Text, TxtNewPassword.Text, 0).Equals("EL USUARIO EXISTE"))
             {
                 // PA
+
+                mensaje = utilities.pa_update_password(email, TxtActualPassword.Text, TxtNewPassword.Text, 1);
+                TxtActualPassword.Clear();
+                TxtNewPassword.Clear();
+                goBack();
+
             }
             else
             {
-                // MENSAJE DE ERROR
+                MessageBox.Show("Error");
             }
         }
 
@@ -74,8 +86,9 @@ namespace Proyecto_DAM.Forms
             panelLoad.Controls.Add(frmDashBoard);
             frmDashBoard.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             frmDashBoard.Dock = DockStyle.Fill;
-            this.Close();
+            
             frmDashBoard.Show();
+            this.Close();
         }
     }
 }

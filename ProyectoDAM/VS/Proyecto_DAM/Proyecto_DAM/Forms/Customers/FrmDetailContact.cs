@@ -14,7 +14,7 @@ namespace Proyecto_DAM.Forms.Customers
 {
     public partial class FrmDetailContact : Form
     {
-
+        private FormCollection formsList;
         int idContact = 0;
         db_devloEntities db = new db_devloEntities();
         IEnumerable<CONTACT> contact;
@@ -47,10 +47,10 @@ namespace Proyecto_DAM.Forms.Customers
 
         private void PctBxBack_Click(object sender, EventArgs e)
         {
-            returnHome();
+            goBack();
         }
 
-        private void returnHome()
+        private void goBack()
         {
             FrmCustomer frmCustomer = new FrmCustomer();
             frmCustomer.TopLevel = false;
@@ -59,8 +59,27 @@ namespace Proyecto_DAM.Forms.Customers
             panelLoad.Controls.Add(frmCustomer);
             frmCustomer.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             frmCustomer.Dock = DockStyle.Fill;
-            this.Close();
+            
             frmCustomer.Show();
+            this.Close();
+
+            try
+            {
+                formsList = Application.OpenForms;
+                foreach (Form forms in Application.OpenForms)
+                {
+                    if (forms.Name == "DateTimeDialog")
+                    {
+
+                        forms.Close();
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
         private void BtnSave_Click(object sender, EventArgs e)

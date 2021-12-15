@@ -42,8 +42,9 @@ namespace Proyecto_DAM.Forms.Products
             panelLoad.Controls.Add(frmProducts);
             frmProducts.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             frmProducts.Dock = DockStyle.Fill;
-            this.Close();
+            
             frmProducts.Show();
+            this.Close();
         }
 
 		private void BtnSave_Click(object sender, EventArgs e)
@@ -119,7 +120,7 @@ namespace Proyecto_DAM.Forms.Products
             index = 0;
             foreach (SUPPLIER item in suppliers)
             {
-                if (item.ID == product.ElementAt(0).IDCATEGORY)
+                if (item.ID == product.ElementAt(0).IDSUPPLIER)
                 {
                     index = suppliers.ToList().IndexOf(item);
                 }
