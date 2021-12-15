@@ -47,6 +47,7 @@ namespace Control
         public virtual DbSet<V_SALES_ADDED_DATE> V_SALES_ADDED_DATE { get; set; }
         public virtual DbSet<ROL_USERS> ROL_USERS { get; set; }
         public virtual DbSet<V_SALES_BETWEEN_DATES> V_SALES_BETWEEN_DATES { get; set; }
+        public virtual DbSet<V_USER_LOGIN> V_USER_LOGIN { get; set; }
     
         public virtual int PA_ADD_CATEGORY(string nAME, string dESCRIPTION, Nullable<int> iNVOKER, string uSUARIO, string cULTURA, ObjectParameter rETCODE, ObjectParameter mENSAJE)
         {
@@ -893,6 +894,60 @@ namespace Control
                 new ObjectParameter("CULTURA", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PA_RECOVER_PASSWORD", eMAILParameter, iNVOKERParameter, uSUARIOParameter, cULTURAParameter, rETCODE, mENSAJE, pASSWORD);
+        }
+    
+        public virtual ObjectResult<string> PA_GETUSER_LOGIN(string eMAIL, string pASSWD, Nullable<int> iNVOKER, string uSUARIO, string cULTURA, ObjectParameter rETCODE, ObjectParameter mENSAJE, ObjectParameter nAME)
+        {
+            var eMAILParameter = eMAIL != null ?
+                new ObjectParameter("EMAIL", eMAIL) :
+                new ObjectParameter("EMAIL", typeof(string));
+    
+            var pASSWDParameter = pASSWD != null ?
+                new ObjectParameter("PASSWD", pASSWD) :
+                new ObjectParameter("PASSWD", typeof(string));
+    
+            var iNVOKERParameter = iNVOKER.HasValue ?
+                new ObjectParameter("INVOKER", iNVOKER) :
+                new ObjectParameter("INVOKER", typeof(int));
+    
+            var uSUARIOParameter = uSUARIO != null ?
+                new ObjectParameter("USUARIO", uSUARIO) :
+                new ObjectParameter("USUARIO", typeof(string));
+    
+            var cULTURAParameter = cULTURA != null ?
+                new ObjectParameter("CULTURA", cULTURA) :
+                new ObjectParameter("CULTURA", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("PA_GETUSER_LOGIN", eMAILParameter, pASSWDParameter, iNVOKERParameter, uSUARIOParameter, cULTURAParameter, rETCODE, mENSAJE, nAME);
+        }
+    
+        public virtual int PA_UPDATE_PASSWORD(string eMAIL, string pASSWORD, string nEWPASSWORD, Nullable<int> iNVOKER, string uSUARIO, string cULTURA, ObjectParameter rETCODE, ObjectParameter mENSAJE)
+        {
+            var eMAILParameter = eMAIL != null ?
+                new ObjectParameter("EMAIL", eMAIL) :
+                new ObjectParameter("EMAIL", typeof(string));
+    
+            var pASSWORDParameter = pASSWORD != null ?
+                new ObjectParameter("PASSWORD", pASSWORD) :
+                new ObjectParameter("PASSWORD", typeof(string));
+    
+            var nEWPASSWORDParameter = nEWPASSWORD != null ?
+                new ObjectParameter("NEWPASSWORD", nEWPASSWORD) :
+                new ObjectParameter("NEWPASSWORD", typeof(string));
+    
+            var iNVOKERParameter = iNVOKER.HasValue ?
+                new ObjectParameter("INVOKER", iNVOKER) :
+                new ObjectParameter("INVOKER", typeof(int));
+    
+            var uSUARIOParameter = uSUARIO != null ?
+                new ObjectParameter("USUARIO", uSUARIO) :
+                new ObjectParameter("USUARIO", typeof(string));
+    
+            var cULTURAParameter = cULTURA != null ?
+                new ObjectParameter("CULTURA", cULTURA) :
+                new ObjectParameter("CULTURA", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PA_UPDATE_PASSWORD", eMAILParameter, pASSWORDParameter, nEWPASSWORDParameter, iNVOKERParameter, uSUARIOParameter, cULTURAParameter, rETCODE, mENSAJE);
         }
     }
 }

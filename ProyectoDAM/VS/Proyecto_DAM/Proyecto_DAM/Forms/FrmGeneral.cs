@@ -16,22 +16,33 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Control;
 
 namespace Proyecto_DAM
 {
     public partial class FrmGeneral : Form
     {
-        private FormCollection formsList;
+        public FormCollection formsList;
         private int counter = 0;
-        public FrmGeneral()
+
+        IEnumerable<V_USER_LOGIN> usuario;
+        private string user, password;
+        public FrmGeneral(string user, string password)
         {
             InitializeComponent();
+            this.user = user;
+            this.password = password;
+
+            db_devloEntities db = new db_devloEntities();
+            usuario = db.V_USER_LOGIN.ToList().Where(x => x.EMAIL.Equals(user));
+
+            LblName.Text = usuario.ElementAt(0).NAME;
+            LblRole.Text = usuario.ElementAt(0).ROL;
 
         }
 
         private void FrmGeneral_Load(object sender, EventArgs e)
         {
-            this.Location = new Point(100, 100);
             LblClock.Text = DateTime.Now.ToString("HH:mm:ss");
 
 
@@ -47,6 +58,7 @@ namespace Proyecto_DAM
         {
             var time = DateTime.Now.ToString("HH:mm:ss");
             LblClock.Text = time;
+            formsList = Application.OpenForms;
         }
 
         private void BtnCustomers_Click(object sender, EventArgs e)
@@ -55,7 +67,7 @@ namespace Proyecto_DAM
             try
             {
                 formsList = Application.OpenForms;
-                foreach (Form forms in formsList)
+                foreach (Form forms in Application.OpenForms)
                 {
                     if (forms.Name != "FrmGeneral")
                     {
@@ -74,6 +86,7 @@ namespace Proyecto_DAM
             frmCustomer.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             frmCustomer.Dock = DockStyle.Fill;
             frmCustomer.Show();
+            
             //normalColor();
             //this.BackColor = Color.FromArgb(217, 175, 123);
 
@@ -216,7 +229,7 @@ namespace Proyecto_DAM
                         PanelUser2.Visible = true;
                         counter = 1;
                     }
-                    else if (LblRole.Text.Equals("ventas"))
+                    else if (LblRole.Text.Equals("sales"))
                     {
                         PanelUser2.Visible = true;
                         counter = 1;
@@ -281,10 +294,10 @@ namespace Proyecto_DAM
 
             }
 
-            FrmChangePassword frmChangePassword = new FrmChangePassword();
+            FrmChangePassword frmChangePassword = new FrmChangePassword(password);
             frmChangePassword.TopLevel = false;
             PanelLoad.Controls.Add(frmChangePassword);
-            frmChangePassword.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frmChangePassword.FormBorderStyle = FormBorderStyle.None;
             frmChangePassword.Dock = DockStyle.Fill;
             frmChangePassword.Show();
 

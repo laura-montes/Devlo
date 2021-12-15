@@ -24,6 +24,7 @@ namespace Proyecto_DAM.Forms.Products
         private void PctBxBack_Click(object sender, EventArgs e)
         {
             goBack();
+
         }
         private void goBack()
         {
@@ -34,8 +35,9 @@ namespace Proyecto_DAM.Forms.Products
             panelLoad.Controls.Add(frmProducts);
             frmProducts.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             frmProducts.Dock = DockStyle.Fill;
-            this.Close();
+            
             frmProducts.Show();
+            this.Close();
         }
 
 		private void BtnSave_Click(object sender, EventArgs e)

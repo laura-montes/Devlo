@@ -49,7 +49,7 @@ namespace Proyecto_DAM.Forms.Customers
 		}
 		private void PctBxBack_Click(object sender, EventArgs e)
 		{
-			returnHome();
+			goBack();
 		}
 
 		private void BtnSave_Click(object sender, EventArgs e)
@@ -87,12 +87,12 @@ namespace Proyecto_DAM.Forms.Customers
             }
 			
 
-			returnHome();
+			goBack();
 			clear();
 		}
 
 
-		private void returnHome()
+		private void goBack()
 		{
 			FrmCustomer frmCustomer = new FrmCustomer();
 			frmCustomer.TopLevel = false;
@@ -101,8 +101,9 @@ namespace Proyecto_DAM.Forms.Customers
 			panelLoad.Controls.Add(frmCustomer);
 			frmCustomer.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			frmCustomer.Dock = DockStyle.Fill;
-			this.Close();
+			
 			frmCustomer.Show();
+			this.Close();
 		}
 
 		private void clear()

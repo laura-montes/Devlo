@@ -29,21 +29,21 @@ namespace Proyecto_DAM
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.Charts.WinForms.ChartFont chartFont9 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont10 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont11 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont12 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid4 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.Tick tick4 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont13 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid5 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.Tick tick5 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont14 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid6 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.PointLabel pointLabel2 = new Guna.Charts.WinForms.PointLabel();
-            Guna.Charts.WinForms.ChartFont chartFont15 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Tick tick6 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont16 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont1 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont2 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont3 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont4 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid1 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.Tick tick1 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont5 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid2 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.Tick tick2 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont6 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid3 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.PointLabel pointLabel1 = new Guna.Charts.WinForms.PointLabel();
+            Guna.Charts.WinForms.ChartFont chartFont7 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Tick tick3 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont8 = new Guna.Charts.WinForms.ChartFont();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.LblCustomers = new System.Windows.Forms.Label();
             this.LblCustomerNumber = new System.Windows.Forms.Label();
@@ -190,55 +190,55 @@ namespace Proyecto_DAM
             // 
             // Chart
             // 
-            this.Chart.Animation.Duration = 2000;
+            this.Chart.Animation.Duration = 1000;
             this.Chart.Animation.Easing = Guna.Charts.WinForms.Easing.Linear;
             this.Chart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
             this.Chart.Datasets.AddRange(new Guna.Charts.Interfaces.IGunaDataset[] {
             this.AreaDataSetCustomers});
             this.Chart.Legend.Display = false;
-            chartFont9.FontName = "Arial";
-            this.Chart.Legend.LabelFont = chartFont9;
+            chartFont1.FontName = "Arial";
+            this.Chart.Legend.LabelFont = chartFont1;
             this.Chart.Location = new System.Drawing.Point(59, 65);
             this.Chart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Chart.Name = "Chart";
             this.Chart.Size = new System.Drawing.Size(960, 241);
             this.Chart.TabIndex = 2;
-            chartFont10.FontName = "Arial";
-            chartFont10.Size = 12;
-            chartFont10.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
-            this.Chart.Title.Font = chartFont10;
+            chartFont2.FontName = "Arial";
+            chartFont2.Size = 12;
+            chartFont2.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
+            this.Chart.Title.Font = chartFont2;
             this.Chart.Tooltips.BackgroundColor = System.Drawing.Color.White;
-            chartFont11.FontName = "Louis George Café";
-            this.Chart.Tooltips.BodyFont = chartFont11;
+            chartFont3.FontName = "Louis George Café";
+            this.Chart.Tooltips.BodyFont = chartFont3;
             this.Chart.Tooltips.BodyForeColor = System.Drawing.Color.Black;
             this.Chart.Tooltips.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
             this.Chart.Tooltips.BorderWidth = 2;
             this.Chart.Tooltips.CornerRadius = 8;
-            chartFont12.FontName = "Louis George Café";
-            chartFont12.Size = 9;
-            chartFont12.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
-            this.Chart.Tooltips.TitleFont = chartFont12;
+            chartFont4.FontName = "Louis George Café";
+            chartFont4.Size = 9;
+            chartFont4.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
+            this.Chart.Tooltips.TitleFont = chartFont4;
             this.Chart.Tooltips.TitleForeColor = System.Drawing.Color.Black;
             this.Chart.XAxes.Display = false;
-            this.Chart.XAxes.GridLines = grid4;
-            chartFont13.FontName = "Arial";
-            tick4.Font = chartFont13;
-            this.Chart.XAxes.Ticks = tick4;
-            grid5.Color = System.Drawing.Color.White;
-            this.Chart.YAxes.GridLines = grid5;
-            tick5.BeginAtZero = false;
-            chartFont14.FontName = "Louis George Café";
-            chartFont14.Size = 11;
-            tick5.Font = chartFont14;
-            tick5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
-            this.Chart.YAxes.Ticks = tick5;
-            this.Chart.ZAxes.GridLines = grid6;
-            chartFont15.FontName = "Arial";
-            pointLabel2.Font = chartFont15;
-            this.Chart.ZAxes.PointLabels = pointLabel2;
-            chartFont16.FontName = "Arial";
-            tick6.Font = chartFont16;
-            this.Chart.ZAxes.Ticks = tick6;
+            this.Chart.XAxes.GridLines = grid1;
+            chartFont5.FontName = "Arial";
+            tick1.Font = chartFont5;
+            this.Chart.XAxes.Ticks = tick1;
+            grid2.Color = System.Drawing.Color.White;
+            this.Chart.YAxes.GridLines = grid2;
+            tick2.BeginAtZero = false;
+            chartFont6.FontName = "Louis George Café";
+            chartFont6.Size = 11;
+            tick2.Font = chartFont6;
+            tick2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
+            this.Chart.YAxes.Ticks = tick2;
+            this.Chart.ZAxes.GridLines = grid3;
+            chartFont7.FontName = "Arial";
+            pointLabel1.Font = chartFont7;
+            this.Chart.ZAxes.PointLabels = pointLabel1;
+            chartFont8.FontName = "Arial";
+            tick3.Font = chartFont8;
+            this.Chart.ZAxes.Ticks = tick3;
             // 
             // AreaDataSetCustomers
             // 

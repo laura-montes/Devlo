@@ -21,6 +21,7 @@ namespace Proyecto_DAM.Forms.Sales
 {
     public partial class FrmDetailSale : Form
     {
+        private FormCollection formsList;
         int idSale;
         double price = 0;
         IEnumerable<V_SALESEDIT> vista ;
@@ -195,8 +196,24 @@ namespace Proyecto_DAM.Forms.Sales
             panelLoad.Controls.Add(frmSales);
             frmSales.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             frmSales.Dock = DockStyle.Fill;
-            this.Close();
             frmSales.Show();
+            this.Close();
+
+            try
+            {
+                formsList = Application.OpenForms;
+                foreach (Form forms in Application.OpenForms)
+                {
+                    if (forms.Name == "DateTimeDialog")
+                    {
+                        forms.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
     }
 }

@@ -10,7 +10,27 @@ namespace Control
 		//BBDD CONECTION
 				db_devloEntities db = new db_devloEntities();
 
-		
+		//UPDATE PASSWORD
+		public string pa_update_password(string user, string password, string newPass, int invoker)
+		{
+
+			ObjectParameter message = new ObjectParameter("MENSAJE", typeof(string));
+			ObjectParameter retcode = new ObjectParameter("RETCODE", typeof(int));
+
+			db.PA_UPDATE_PASSWORD(
+				user,
+				password,
+				newPass,
+				invoker,
+				"",
+				"",
+				retcode,
+				message
+				);
+
+			return message.Value.ToString();
+		}
+
 		//NEW USERS
 		public string pa_addUser(string name, string surnames, string email, string password, int role)
 		{

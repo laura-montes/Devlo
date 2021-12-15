@@ -42,14 +42,11 @@ namespace Proyecto_DAM
             if (ChckCustomer.Checked)
             {
                 TxtSurname.Enabled = true;
-                TxtAddress.Enabled = false;
 
                 if (ChckCompany.Checked)
                 {
                     ChckCompany.Checked = false;
                 }
-            }else {
-                TxtAddress.Enabled = true;
             }
         }
 
@@ -67,8 +64,9 @@ namespace Proyecto_DAM
             panelLoad.Controls.Add(frmCustomer);
             frmCustomer.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             frmCustomer.Dock = DockStyle.Fill;
-            this.Close();
+            
             frmCustomer.Show();
+            this.Close();
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
@@ -85,8 +83,6 @@ namespace Proyecto_DAM
                         Company company = new Company(TxtName.Text, TxtPhone.Text, TxtEmail.Text, TxtAddress.Text);
                         utilities.pa_addContact(company.Name, null, company.Phone, company.Email, company.Address, company.Role, null);
                         clean();
-                        FrmAddMessage frm = new FrmAddMessage();
-                        frm.Show();
                         goBack();
                     }
                     else if (ChckCustomer.Checked)

@@ -452,7 +452,7 @@ namespace Proyecto_DAM.Forms.Sales
             this.TxtSearch.FocusedState.BorderColor = System.Drawing.Color.Transparent;
             this.TxtSearch.FocusedState.Parent = this.TxtSearch;
             this.TxtSearch.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtSearch.ForeColor = System.Drawing.Color.Empty;
+            this.TxtSearch.ForeColor = System.Drawing.Color.White;
             this.TxtSearch.HoverState.BorderColor = System.Drawing.Color.Transparent;
             this.TxtSearch.HoverState.Parent = this.TxtSearch;
             this.TxtSearch.IconLeft = ((System.Drawing.Image)(resources.GetObject("TxtSearch.IconLeft")));
@@ -466,6 +466,7 @@ namespace Proyecto_DAM.Forms.Sales
             this.TxtSearch.ShadowDecoration.Parent = this.TxtSearch;
             this.TxtSearch.Size = new System.Drawing.Size(447, 39);
             this.TxtSearch.TabIndex = 3;
+            this.TxtSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtSearch_KeyPress);
             // 
             // LblSupplier
             // 
@@ -498,7 +499,7 @@ namespace Proyecto_DAM.Forms.Sales
             this.BtnSave.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.BtnSave.DisabledState.Parent = this.BtnSave;
             this.BtnSave.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(175)))), ((int)(((byte)(123)))));
-            this.BtnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSave.Font = new System.Drawing.Font("Louis George Café", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnSave.ForeColor = System.Drawing.Color.White;
             this.BtnSave.HoverState.Parent = this.BtnSave;
             this.BtnSave.Location = new System.Drawing.Point(921, 609);

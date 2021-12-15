@@ -48,6 +48,8 @@ namespace Proyecto_DAM.Forms.Users
             this.rOLUSERSBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.db_devloDataSetRol_Users = new Proyecto_DAM.db_devloDataSetRol_Users();
             this.rOL_USERSTableAdapter = new Proyecto_DAM.db_devloDataSetRol_UsersTableAdapters.ROL_USERSTableAdapter();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.PanelContainer.SuspendLayout();
             this.guna2ShadowPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PctBxBack)).BeginInit();
@@ -72,6 +74,8 @@ namespace Proyecto_DAM.Forms.Users
             // guna2ShadowPanel1
             // 
             this.guna2ShadowPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ShadowPanel1.Controls.Add(this.label2);
+            this.guna2ShadowPanel1.Controls.Add(this.label1);
             this.guna2ShadowPanel1.Controls.Add(this.TxtSurname);
             this.guna2ShadowPanel1.Controls.Add(this.LblRole);
             this.guna2ShadowPanel1.Controls.Add(this.CmbBxRole);
@@ -147,7 +151,7 @@ namespace Proyecto_DAM.Forms.Users
             this.CmbBxRole.ItemHeight = 30;
             this.CmbBxRole.Items.AddRange(new object[] {
             "ADMIN",
-            "VENTAS"});
+            "SALES"});
             this.CmbBxRole.ItemsAppearance.Parent = this.CmbBxRole;
             this.CmbBxRole.Location = new System.Drawing.Point(681, 177);
             this.CmbBxRole.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -315,6 +319,26 @@ namespace Proyecto_DAM.Forms.Users
             // 
             this.rOL_USERSTableAdapter.ClearBeforeFill = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(650, 185);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(13, 17);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "*";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Red;
+            this.label2.Location = new System.Drawing.Point(133, 114);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(13, 17);
+            this.label2.TabIndex = 27;
+            this.label2.Text = "*";
+            // 
             // FrmAddUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -357,5 +381,7 @@ namespace Proyecto_DAM.Forms.Users
 		private db_devloDataSetRol_Users db_devloDataSetRol_Users;
 		private System.Windows.Forms.BindingSource rOLUSERSBindingSource;
 		private db_devloDataSetRol_UsersTableAdapters.ROL_USERSTableAdapter rOL_USERSTableAdapter;
-	}
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+    }
 }

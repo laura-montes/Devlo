@@ -18,6 +18,7 @@ namespace Proyecto_DAM.Forms.Messages
 {
     public partial class FrmReport : Form
     {
+        private FormCollection formsList;
         string name, surnames;
         int idContact, idSale;
         double subtotal=0;
@@ -44,14 +45,30 @@ namespace Proyecto_DAM.Forms.Messages
             //Llamas el metodo GenerarDocumentos
             GeneratePDF(pdfDoc);
 
+
+            
+
             this.Close();
 
-            //EXPLICACION PARA SACAR LOS DATOS
-            //---------------------------------
-            //TENEMOS UNA LISTA --> sales
-            //LOS OBJETOS DE ESA LISTA SON DEL TIPO --> V_SALES_BETWEEN_DATES
-            //AL SER UNA LISTA ENUMERABLE LOS DATOS LOS SACAMOS DE ESTA MANERA
-            //LO RECORREMOS CON UN FOREACH Y DENTRO DE EL COGEMOS LOS ATRIBUTOS QUE QUERAMOS
+
+            try
+            {
+                formsList = Application.OpenForms;
+                foreach (Form forms in Application.OpenForms)
+                {
+                    if (forms.Name == "DateTimeDialog")
+                    {
+
+                        forms.Close();
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+
 
 
         }
